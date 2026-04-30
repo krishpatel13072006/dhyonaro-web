@@ -38,6 +38,9 @@ const PageTransition = ({ children }) => (
 const AppContent = () => {
   const location = useLocation();
 
+  const immersivePaths = ['/nexus-helix', '/spatial-horizon'];
+  const isImmersivePage = immersivePaths.includes(location.pathname);
+
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
@@ -61,31 +64,32 @@ const AppContent = () => {
   return (
     <div className="relative min-h-screen">
       <div className="grain-overlay" />
-      <Navbar />
+      {!isImmersivePage && <Navbar />}
       
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<PageTransition><Home /></PageTransition>} />
           <Route path="/about" element={<PageTransition><About /></PageTransition>} />
           <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
-          
+
           {/* Company Routes */}
           <Route path="/companies/import-export" element={<PageTransition><ImportExport /></PageTransition>} />
           <Route path="/companies/shreeji-infra" element={<PageTransition><ShreejiInfra /></PageTransition>} />
           <Route path="/companies/tech-venture" element={<PageTransition><TechVenture /></PageTransition>} />
           <Route path="/companies/brics" element={<PageTransition><Brics /></PageTransition>} />
-          
+
           <Route path="/vision-mission" element={<PageTransition><VisionMission /></PageTransition>} />
           <Route path="/our-companies" element={<PageTransition><Companies /></PageTransition>} />
           <Route path="/team" element={<PageTransition><Team /></PageTransition>} />
 
-          <Route path="/hub" element={<PageTransition><Hub /></PageTransition>} />
-          <Route path="/nexus-helix" element={<PageTransition><Vision360 /></PageTransition>} />
-          <Route path="/spatial-horizon" element={<PageTransition><Exhibition /></PageTransition>} />
+          {/* Pages with custom transitions or no layout */}
+          <Route path="/hub" element={<Hub />} />
+          <Route path="/nexus-helix" element={<Vision360 />} />
+          <Route path="/spatial-horizon" element={<Exhibition />} />
         </Routes>
       </AnimatePresence>
 
-      <Footer />
+      {!isImmersivePage && <Footer />}
     </div>
   );
 };
