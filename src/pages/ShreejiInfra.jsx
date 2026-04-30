@@ -33,8 +33,8 @@ const ShreejiInfra = () => {
               className="max-w-4xl"
             >
               <span className="text-gold font-bold tracking-widest uppercase text-sm">Dhyanora Group  →  Our Companies</span>
-              <h1 className="text-6xl md:text-8xl mt-4 mb-8 font-heading font-black text-cream uppercase italic leading-none">Mahantam <br /><span className="text-gold">Industrial Park.</span></h1>
-              <p className="text-xl text-gray-light/60 leading-relaxed font-medium max-w-2xl">
+              <h1 className="text-4xl md:text-8xl mt-4 mb-8 font-heading font-black text-cream uppercase italic leading-none">Mahantam <br /><span className="text-gold">Industrial Park.</span></h1>
+              <p className="text-base md:text-xl text-gray-light/60 leading-relaxed font-medium max-w-2xl">
                 Purpose-Built Industrial Spaces for Growing Businesses. Developed and managed by <strong className="text-gold">Shreeji Infra</strong>.
               </p>
             </motion.div>
@@ -147,10 +147,10 @@ const ShreejiInfra = () => {
                  Contact our team to discuss available units, pricing, and site visits. We will help you find the right space for your operation.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-6 relative z-10">
-                 <button className="btn-primary px-12 py-5 font-black uppercase tracking-widest flex items-center justify-center gap-3">
-                    Book a Site Visit <ArrowRight size={20} />
+                 <button className="btn-primary px-6 py-3 md:px-8 md:py-4 text-xs md:text-sm font-black uppercase tracking-widest flex items-center justify-center gap-3">
+                    Book Visit <ArrowRight size={20} />
                  </button>
-                 <button className="px-12 py-5 border border-white/10 rounded-full text-cream font-bold hover:bg-white/5 transition-all uppercase tracking-widest text-sm">
+                 <button className="px-6 py-3 md:px-8 md:py-4 border border-white/10 rounded-full text-cream font-bold hover:bg-white/5 transition-all uppercase tracking-widest text-xs md:text-sm w-full md:w-auto">
                     Send Enquiry
                  </button>
               </div>

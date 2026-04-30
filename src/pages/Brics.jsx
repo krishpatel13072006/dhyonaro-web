@@ -51,7 +51,7 @@ const Brics = () => {
                     </p>
                  </div>
               </div>
-              <div className="flex-1 grid grid-cols-2 gap-6">
+              <div className="flex-1 flex flex-col gap-6">
                  {[
                    { title: "Red Bricks", desc: "Traditional high-strength clay bricks for durable masonry." },
                    { title: "AAC Blocks", desc: "Lightweight, eco-friendly blocks for modern construction." },
@@ -145,7 +145,7 @@ const Brics = () => {
               <p className="text-xl text-gray-light/60 mb-12 max-w-2xl mx-auto">
                  Reach out to our trading team for bulk pricing, material specifications, and delivery schedules.
               </p>
-              <button className="btn-primary px-12 py-5 font-black uppercase tracking-widest">
+              <button className="btn-primary px-6 py-3 md:px-8 md:py-4 text-xs md:text-sm font-black uppercase tracking-widest">
                  Contact Sales Team
               </button>
            </div>

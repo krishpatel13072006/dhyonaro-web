@@ -50,7 +50,7 @@ const Home = () => {
               <motion.span 
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                className="text-gold font-black uppercase tracking-[0.4em] text-xs mb-6 block"
+                className="text-gold font-black uppercase text-xs mb-6 block"
               >
                 Who We Are
               </motion.span>
@@ -69,20 +69,15 @@ const Home = () => {
         {/* Companies Section */}
         <section className="py-32 px-6 border-t border-white/5">
           <div className="max-w-7xl mx-auto">
-            <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
-              <div className="max-w-2xl">
-                <motion.span 
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  className="text-gold font-black uppercase tracking-[0.4em] text-xs mb-6 block"
-                >
-                  The Dhyanora Family
-                </motion.span>
-                <h2 className="text-4xl md:text-5xl font-heading font-black text-cream uppercase italic">Four Pillars. <span className="text-gold">One Vision.</span></h2>
-              </div>
-              <Link to="/about" className="group flex items-center gap-3 text-gold font-black uppercase tracking-widest text-sm hover:gap-5 transition-all">
-                Learn more about Us <ExternalLink size={18} />
-              </Link>
+            <div className="text-center mb-20">
+              <motion.span 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                className="text-gold font-black uppercase text-xs mb-6 block"
+              >
+                The Dhyanora Family
+              </motion.span>
+              <h2 className="text-4xl md:text-5xl font-heading font-black text-cream uppercase italic">Four Pillars. <span className="text-gold">One Vision.</span></h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -123,7 +118,7 @@ const Home = () => {
               <motion.span 
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                className="text-gold font-black uppercase tracking-[0.4em] text-xs mb-6 block"
+                className="text-gold font-black uppercase text-xs mb-6 block"
               >
                 Our Promise
               </motion.span>

@@ -138,7 +138,7 @@ const ImportExport = () => {
            <div className="max-w-5xl mx-auto text-center px-6">
               <h2 className="text-4xl md:text-6xl font-heading font-black text-cream uppercase mb-8 italic">Ready for <span className="text-gold">Bulk Procurement?</span></h2>
               <p className="text-xl text-gray-light/60 mb-12 max-w-2xl mx-auto">Reach out to our team to discuss your requirements. We handle bulk orders and long-term supply contracts.</p>
-              <button className="btn-primary flex items-center gap-3 mx-auto px-12 py-5 font-black uppercase tracking-widest">
+              <button className="btn-primary flex items-center gap-3 mx-auto px-6 py-3 md:px-8 md:py-4 text-xs md:text-sm font-black uppercase tracking-widest">
                  Send an Enquiry <ArrowRight size={20} />
               </button>
            </div>

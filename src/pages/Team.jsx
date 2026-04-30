@@ -83,7 +83,7 @@ const Team = () => {
               <p className="text-xl text-gray-light/60 mb-12 max-w-2xl mx-auto font-medium">
                  We are always looking for disciplined, visionary individuals to join our growing team. If you believe in clarity and growth, we want to hear from you.
               </p>
-              <button className="btn-primary px-12 py-5 font-black uppercase tracking-widest">
+              <button className="btn-primary px-6 py-3 md:px-8 md:py-4 text-xs md:text-sm font-black uppercase tracking-widest">
                  View Opportunities
               </button>
            </div>

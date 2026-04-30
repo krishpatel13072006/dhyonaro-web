@@ -30,10 +30,10 @@ const TechVenture = () => {
               <span className="text-gold font-bold tracking-widest uppercase text-sm">
                 Dhyanora Group  →  Our Companies
               </span>
-              <h1 className="text-6xl md:text-8xl mt-4 mb-8 font-heading font-black text-cream uppercase italic leading-none">
+              <h1 className="text-4xl md:text-8xl mt-4 mb-8 font-heading font-black text-cream uppercase italic leading-none">
                 Pramukh <br /><span className="text-gold">Techventures.</span>
               </h1>
-              <p className="text-xl text-gray-light/60 max-w-2xl leading-relaxed font-medium">
+              <p className="text-base md:text-xl text-gray-light/60 max-w-2xl leading-relaxed font-medium">
                 Technology You Can Trust. Service You Can Count On. We are your destination for quality electronics and reliable support.
               </p>
             </motion.div>
@@ -126,10 +126,10 @@ const TechVenture = () => {
               <h2 className="text-4xl md:text-6xl font-heading font-black text-cream uppercase mb-8 italic">Visit Our <span className="text-gold">Showroom.</span></h2>
               <p className="text-xl text-gray-light/60 mb-12 font-medium">Come and experience our range in person. Our team is ready to help you find exactly what you need.</p>
               <div className="flex flex-col sm:flex-row justify-center gap-6">
-                 <button className="btn-primary px-10 py-5 font-black uppercase tracking-widest flex items-center justify-center gap-2">
+                 <button className="btn-primary px-6 py-3 md:px-10 md:py-5 font-black uppercase tracking-widest flex items-center justify-center gap-2 text-xs md:text-sm">
                     Get Directions <ArrowRight size={18} />
                  </button>
-                 <button className="px-10 py-5 border border-white/10 rounded-full text-cream font-bold hover:bg-white/5 transition-all">
+                 <button className="px-6 py-3 md:px-10 md:py-5 border border-white/10 rounded-full text-cream font-bold hover:bg-white/5 transition-all text-xs md:text-sm">
                     Call Our Team
                  </button>
               </div>
