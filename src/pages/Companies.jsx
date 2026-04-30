@@ -11,7 +11,7 @@ const companies = [
     tagline: "Metal Scrap Trading",
     icon: <Globe size={40} />,
     desc: "Gujarat's reliable partner for metal scrap procurement, trading, and export services. Facilitating high-volume industrial raw materials.",
-    path: "/companies/import-export",
+    path: "/pramukh",
     color: "bg-blue-500/10",
     image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800"
   },

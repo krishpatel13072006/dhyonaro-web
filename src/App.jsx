@@ -24,6 +24,13 @@ import VisionMission from './pages/VisionMission';
 import Companies from './pages/Companies';
 import Team from './pages/Team';
 
+// Pramukh Subcompany Pages
+import PramukhLayout from './pages/pramukh/PramukhLayout';
+import PramukhHome from './pages/pramukh/PramukhHome';
+import PramukhAbout from './pages/pramukh/PramukhAbout';
+import PramukhServices from './pages/pramukh/PramukhServices';
+import PramukhContact from './pages/pramukh/PramukhContact';
+
 const PageTransition = ({ children }) => (
   <motion.div
     initial={{ opacity: 0, y: 10 }}
@@ -39,7 +46,7 @@ const AppContent = () => {
   const location = useLocation();
 
   const immersivePaths = ['/nexus-helix', '/spatial-horizon'];
-  const isImmersivePage = immersivePaths.includes(location.pathname);
+  const isImmersivePage = immersivePaths.includes(location.pathname) || location.pathname.startsWith('/pramukh');
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -73,7 +80,6 @@ const AppContent = () => {
           <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
 
           {/* Company Routes */}
-          <Route path="/companies/import-export" element={<PageTransition><ImportExport /></PageTransition>} />
           <Route path="/companies/shreeji-infra" element={<PageTransition><ShreejiInfra /></PageTransition>} />
           <Route path="/companies/tech-venture" element={<PageTransition><TechVenture /></PageTransition>} />
           <Route path="/companies/brics" element={<PageTransition><Brics /></PageTransition>} />
@@ -86,6 +92,14 @@ const AppContent = () => {
           <Route path="/hub" element={<Hub />} />
           <Route path="/nexus-helix" element={<Vision360 />} />
           <Route path="/spatial-horizon" element={<Exhibition />} />
+
+          {/* Pramukh Subcompany Nested Routes */}
+          <Route path="/pramukh" element={<PramukhLayout />}>
+            <Route index element={<PageTransition><PramukhHome /></PageTransition>} />
+            <Route path="about" element={<PageTransition><PramukhAbout /></PageTransition>} />
+            <Route path="services" element={<PageTransition><PramukhServices /></PageTransition>} />
+            <Route path="contact" element={<PageTransition><PramukhContact /></PageTransition>} />
+          </Route>
         </Routes>
       </AnimatePresence>
 
