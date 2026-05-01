@@ -8,6 +8,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import SocialSidebar from './components/SocialSidebar';
 
 // Pages
 import Home from './pages/Home';
@@ -23,6 +24,7 @@ import Exhibition from './pages/Exhibition';
 import VisionMission from './pages/VisionMission';
 import Companies from './pages/Companies';
 import Team from './pages/Team';
+import CompanyGateway from './pages/CompanyGateway';
 
 // Pramukh Subcompany Pages
 import PramukhLayout from './pages/pramukh/PramukhLayout';
@@ -30,6 +32,21 @@ import PramukhHome from './pages/pramukh/PramukhHome';
 import PramukhAbout from './pages/pramukh/PramukhAbout';
 import PramukhServices from './pages/pramukh/PramukhServices';
 import PramukhContact from './pages/pramukh/PramukhContact';
+import PramukhMetals from './pages/pramukh/PramukhMetals';
+import PramukhProcurement from './pages/pramukh/PramukhProcurement';
+import PramukhExport from './pages/pramukh/PramukhExport';
+import PramukhLogistics from './pages/pramukh/PramukhLogistics';
+
+// Brics Subcompany Pages
+import BricsLayout from './pages/brics/BricsLayout';
+import BricsHome from './pages/brics/BricsHome';
+import BricsAbout from './pages/brics/BricsAbout';
+import BricsProducts from './pages/brics/BricsProducts';
+import BricsContact from './pages/brics/BricsContact';
+import BricsFirstClass from './pages/brics/BricsFirstClass';
+import BricsSecondClass from './pages/brics/BricsSecondClass';
+import BricsAACBlocks from './pages/brics/BricsAACBlocks';
+import BricsMaterials from './pages/brics/BricsMaterials';
 
 const PageTransition = ({ children }) => (
   <motion.div
@@ -45,8 +62,8 @@ const PageTransition = ({ children }) => (
 const AppContent = () => {
   const location = useLocation();
 
-  const immersivePaths = ['/nexus-helix', '/spatial-horizon'];
-  const isImmersivePage = immersivePaths.includes(location.pathname) || location.pathname.startsWith('/pramukh');
+  const immersivePaths = ['/nexus-helix', '/spatial-horizon', '/gateway'];
+  const isImmersivePage = immersivePaths.includes(location.pathname) || location.pathname.startsWith('/pramukh') || location.pathname.startsWith('/brics');
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -72,12 +89,14 @@ const AppContent = () => {
     <div className="relative min-h-screen">
       <div className="grain-overlay" />
       {!isImmersivePage && <Navbar />}
-      
+      <SocialSidebar />
+
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<PageTransition><Home /></PageTransition>} />
           <Route path="/about" element={<PageTransition><About /></PageTransition>} />
           <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+          <Route path="/gateway" element={<PageTransition><CompanyGateway /></PageTransition>} />
 
           {/* Company Routes */}
           <Route path="/companies/shreeji-infra" element={<PageTransition><ShreejiInfra /></PageTransition>} />
@@ -98,7 +117,23 @@ const AppContent = () => {
             <Route index element={<PageTransition><PramukhHome /></PageTransition>} />
             <Route path="about" element={<PageTransition><PramukhAbout /></PageTransition>} />
             <Route path="services" element={<PageTransition><PramukhServices /></PageTransition>} />
+            <Route path="services/metals" element={<PageTransition><PramukhMetals /></PageTransition>} />
+            <Route path="services/procurement" element={<PageTransition><PramukhProcurement /></PageTransition>} />
+            <Route path="services/export" element={<PageTransition><PramukhExport /></PageTransition>} />
+            <Route path="services/logistics" element={<PageTransition><PramukhLogistics /></PageTransition>} />
             <Route path="contact" element={<PageTransition><PramukhContact /></PageTransition>} />
+          </Route>
+
+          {/* Brics Subcompany Nested Routes */}
+          <Route path="/brics" element={<BricsLayout />}>
+            <Route index element={<PageTransition><BricsHome /></PageTransition>} />
+            <Route path="about" element={<PageTransition><BricsAbout /></PageTransition>} />
+            <Route path="products" element={<PageTransition><BricsProducts /></PageTransition>} />
+            <Route path="products/first-class" element={<PageTransition><BricsFirstClass /></PageTransition>} />
+            <Route path="products/second-class" element={<PageTransition><BricsSecondClass /></PageTransition>} />
+            <Route path="products/aac-blocks" element={<PageTransition><BricsAACBlocks /></PageTransition>} />
+            <Route path="products/materials" element={<PageTransition><BricsMaterials /></PageTransition>} />
+            <Route path="contact" element={<PageTransition><BricsContact /></PageTransition>} />
           </Route>
         </Routes>
       </AnimatePresence>

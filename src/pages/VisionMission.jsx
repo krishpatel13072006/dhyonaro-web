@@ -8,81 +8,80 @@ const VisionMission = () => {
   return (
     <>
       <SEO title="Vision & Mission | Our Purpose" description="The core purpose and future vision of Dhyanora Group. Guided by clarity, integrity, and long-term thinking." />
-      <main className="relative">
-        <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-navy pt-20">
+      <main className="bg-off-white">
+        <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-white pt-20">
           <MovingMesh />
           <div className="relative z-20 text-center px-6">
             <motion.span 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-gold font-black uppercase tracking-[0.5em] text-xs mb-8 block"
+              className="text-white font-black uppercase tracking-[0.5em] text-[10px] mb-8 block opacity-60"
             >
               The Foundation
             </motion.span>
-            <h1 className="text-6xl md:text-8xl font-heading font-black text-cream uppercase italic">Vision <span className="text-gold">&</span> Mission.</h1>
+            <h1 className="text-6xl md:text-9xl font-heading font-black text-white uppercase italic leading-none">Vision <span className="text-gold-dark">&</span> Mission.</h1>
           </div>
         </section>
 
         {/* Vision Section */}
-        <section className="py-32 px-6 bg-navy border-t border-white/5">
+        <section className="py-32 px-6 bg-white border-t border-navy/5">
           <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-20 items-center">
             <div className="flex-1">
-              <div className="w-20 h-20 bg-gold/10 rounded-3xl flex items-center justify-center text-gold mb-10">
+              <div className="w-20 h-20 bg-navy rounded-3xl flex items-center justify-center text-gold mb-10 shadow-xl">
                 <Target size={40} />
               </div>
-              <h2 className="text-4xl md:text-6xl font-heading font-black text-cream uppercase italic mb-8">Our <span className="text-gold">Vision.</span></h2>
-              <p className="text-2xl text-gray-light/40 leading-relaxed font-medium mb-10">
+              <h2 className="text-4xl md:text-6xl font-heading font-black text-navy uppercase italic mb-8 leading-tight">Our <br /><span className="text-gold-dark">Vision.</span></h2>
+              <p className="text-2xl text-navy/40 leading-relaxed font-bold mb-10">
                 To be Gujarat's most trusted diversified business group — a name that represents quality, reliability, and responsible growth across every sector we operate in.
               </p>
-              <div className="p-8 border-l-4 border-gold bg-white/[0.02]">
-                <p className="text-lg text-gray-light/60 italic">
+              <div className="p-8 border-l-4 border-navy bg-off-white rounded-r-2xl">
+                <p className="text-lg text-navy/60 italic font-bold">
                   "Our vision is not simply to be large — it is to be trusted. Trust is earned through consistency, and consistency comes from discipline."
                 </p>
               </div>
             </div>
-            <div className="flex-1 w-full aspect-square relative rounded-[4rem] overflow-hidden border border-white/10">
-               <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=1200" className="w-full h-full object-cover grayscale opacity-50" alt="Vision" />
-               <div className="absolute inset-0 bg-gradient-to-t from-navy via-transparent to-transparent" />
+            <div className="flex-1 w-full aspect-square relative rounded-[4rem] overflow-hidden border border-navy/10 shadow-2xl">
+               <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=1200" className="w-full h-full object-cover" alt="Vision" />
+               <div className="absolute inset-0 bg-navy/10 mix-blend-overlay" />
             </div>
           </div>
         </section>
 
-        {/* Mission Section */}
-        <section className="py-32 px-6 bg-white/[0.02] border-y border-white/5">
+        {/* Mission Section - Now White/Off-white */}
+        <section className="py-32 px-6 bg-off-white border-y border-navy/5">
           <div className="max-w-7xl mx-auto flex flex-col lg:flex-row-reverse gap-20 items-center">
             <div className="flex-1">
-              <div className="w-20 h-20 bg-gold/10 rounded-3xl flex items-center justify-center text-gold mb-10">
+              <div className="w-20 h-20 bg-navy rounded-3xl flex items-center justify-center text-gold mb-10 shadow-2xl">
                 <Compass size={40} />
               </div>
-              <h2 className="text-4xl md:text-6xl font-heading font-black text-cream uppercase italic mb-8">Our <span className="text-gold">Mission.</span></h2>
-              <p className="text-2xl text-gray-light/40 leading-relaxed font-medium mb-10">
+              <h2 className="text-4xl md:text-6xl font-heading font-black text-navy uppercase italic mb-8 leading-tight">Our <br /><span className="text-gold-dark">Mission.</span></h2>
+              <p className="text-2xl text-navy/40 leading-relaxed font-bold mb-10">
                 To build and operate focused, high-quality businesses across diverse sectors that create real value for our clients, partners, and the Gujarat economy — guided always by clarity, integrity, and long-term thinking.
               </p>
-              <ul className="space-y-4">
+              <ul className="space-y-6">
                  {[
                    "Delivering excellence in every industrial vertical.",
                    "Fostering sustainable growth for our partners.",
                    "Building infrastructure that powers the future.",
                    "Maintaining unwavering ethical standards."
                  ].map((item, i) => (
-                   <li key={i} className="flex items-center gap-4 text-cream/70 font-bold uppercase tracking-widest text-xs">
-                      <div className="w-1.5 h-1.5 bg-gold rounded-full" /> {item}
+                   <li key={i} className="flex items-center gap-4 text-navy font-black uppercase tracking-widest text-[10px] opacity-40">
+                      <div className="w-2 h-2 bg-gold-dark rounded-full" /> {item}
                    </li>
                  ))}
               </ul>
             </div>
-            <div className="flex-1 w-full aspect-square relative rounded-[4rem] overflow-hidden border border-white/10">
-               <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200" className="w-full h-full object-cover grayscale opacity-50" alt="Mission" />
-               <div className="absolute inset-0 bg-gradient-to-t from-navy via-transparent to-transparent" />
+            <div className="flex-1 w-full aspect-square relative rounded-[4rem] overflow-hidden border border-navy/10 shadow-2xl">
+               <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200" className="w-full h-full object-cover" alt="Mission" />
             </div>
           </div>
         </section>
 
         {/* Core Values Strip */}
-        <section className="py-32 px-6 bg-navy">
+        <section className="py-32 px-6 bg-off-white">
            <div className="max-w-7xl mx-auto">
               <div className="text-center mb-24">
-                <h2 className="text-4xl md:text-6xl font-heading font-black text-cream uppercase italic">Guided by <span className="text-gold">Values.</span></h2>
+                <h2 className="text-4xl md:text-6xl font-heading font-black text-navy uppercase italic leading-tight">Guided by <br /><span className="text-gold-dark">Values.</span></h2>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
                  {[
@@ -96,17 +95,17 @@ const VisionMission = () => {
                      key={i}
                      initial={{ opacity: 0, scale: 0.9 }}
                      whileInView={{ opacity: 1, scale: 1 }}
-                     className="glass-card p-10 text-center border-white/5 hover:border-gold/30 transition-all group"
+                     className="glass-card p-12 text-center bg-white border-navy/5 hover:bg-navy transition-all group shadow-sm"
                    >
-                      <div className="text-gold mb-6 flex justify-center group-hover:scale-110 transition-transform">{v.icon}</div>
-                      <h3 className="text-lg font-heading font-bold text-cream uppercase tracking-widest">{v.title}</h3>
+                      <div className="text-navy group-hover:text-gold mb-6 flex justify-center group-hover:scale-110 transition-transform">{v.icon}</div>
+                      <h3 className="text-[10px] font-black text-navy group-hover:text-white uppercase tracking-[0.2em] transition-colors">{v.title}</h3>
                    </motion.div>
                  ))}
               </div>
            </div>
         </section>
 
-        <div className="h-32 bg-navy" />
+        <div className="h-32 bg-off-white" />
       </main>
     </>
   );

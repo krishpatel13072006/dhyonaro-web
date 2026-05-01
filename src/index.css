@@ -1,230 +1,94 @@
 @import "tailwindcss";
 
 @theme {
-  --color-navy: #142147;
-  --color-navy-dark: #0a1229;
-  --color-navy-light: #1e2e5e;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Outfit', sans-serif;
   
-  --color-gold: #F2C94C;
-  --color-gold-dark: #d4af37;
-  --color-gold-light: #f7d774;
+  /* Brand Colors */
+  --color-gold: #FAD77E;
+  --color-gold-dark: #D4AF37;
   
-  --color-cream: #F7F4EC;
-  --color-cream-dark: #ebe6d5;
+  /* Space Indigo / Navy (The new alternate accent) */
+  --color-navy: #172451;
+  --color-navy-light: #1e2d63;
+  --color-navy-dark: #111b3d;
   
-  --color-gray-light: #E5E7E8;
-  --color-gray-steel: #5B7280;
-
-  --font-heading: "Eurostile Round", system-ui, sans-serif;
-  --font-body: "Goli", system-ui, sans-serif;
-
-  @keyframes grid-move {
-    from { background-position: 0 0; }
-    to { background-position: 40px 40px; }
-  }
-
-  --animate-grid-move: grid-move 20s linear infinite;
+  /* Base Colors */
+  --color-cream: #FCFFF7;
+  --color-off-white: #FCFFF7;
+  --color-gray-light: #E0E0E0;
+  
+  --breakpoint-xs: 375px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
 }
 
 @layer base {
-  /* FONT DECLARATIONS */
-  @font-face {
-    font-family: "Goli";
-    src: url("./assets/fonts/goli/Goli-Light.otf") format("opentype");
-    font-weight: 300;
+  body {
+    @apply bg-off-white text-navy font-sans antialiased selection:bg-gold selection:text-navy;
   }
-  @font-face {
-    font-family: "Goli";
-    src: url("./assets/fonts/goli/Goli-Regular.otf") format("opentype");
-    font-weight: 400;
-  }
-  @font-face {
-    font-family: "Goli";
-    src: url("./assets/fonts/goli/Goli-Medium.otf") format("opentype");
-    font-weight: 500;
-  }
-  @font-face {
-    font-family: "Goli";
-    src: url("./assets/fonts/goli/Goli-SemiBold.otf") format("opentype");
-    font-weight: 600;
-  }
-  @font-face {
-    font-family: "Goli";
-    src: url("./assets/fonts/goli/Goli-Bold.otf") format("opentype");
-    font-weight: 700;
-  }
-
-  @font-face {
-    font-family: "Eurostile Round";
-    src: url("./assets/fonts/eurostile/EurostileRound-Regular.woff2") format("woff2");
-    font-weight: 400;
-  }
-  @font-face {
-    font-family: "Eurostile Round";
-    src: url("./assets/fonts/eurostile/EurostileRound-Medium.woff2") format("woff2");
-    font-weight: 500;
-  }
-  @font-face {
-    font-family: "Eurostile Round";
-    src: url("./assets/fonts/eurostile/EurostileRound-Bold.woff2") format("woff2");
-    font-weight: 700;
-  }
-  @font-face {
-    font-family: "Eurostile Round";
-    src: url("./assets/fonts/eurostile/EurostileRound-Black.woff2") format("woff2");
-    font-weight: 900;
-  }
-
-  html, body {
-    @apply bg-navy text-cream antialiased;
-    font-family: var(--font-body);
-    margin: 0;
-    padding: 0;
-    cursor: default;
-  }
-
-  /* Force default cursor on all text elements */
-  p, span, h1, h2, h3, h4, h5, h6, li, label {
-    cursor: default;
-  }
-
-  /* Ensure links and buttons still have pointers */
-  a, button, [role="button"], .cursor-pointer {
-    cursor: pointer;
-  }
-
+  
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
-    @apply font-bold;
-  }
-
-  p {
-    @apply text-gray-light/80 leading-relaxed;
+    @apply font-heading;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply px-8 py-3 bg-gold text-navy font-bold rounded-full transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(242,201,76,0.4)] active:scale-95;
+    @apply bg-navy text-gold border-none rounded-full transition-all duration-300 hover:bg-navy-dark hover:scale-105 shadow-lg;
+  }
+  
+  .btn-gold {
+    @apply bg-gold text-navy border-none rounded-full transition-all duration-300 hover:bg-gold-dark hover:scale-105 shadow-lg;
   }
 
   .glass-card {
-    @apply bg-white/[0.03] backdrop-blur-md border border-white/10 rounded-2xl p-6;
-  }
-  
-  .glass-card p {
-    @apply text-justify;
+    @apply bg-white/40 backdrop-blur-md border border-navy/5 rounded-[2.5rem] shadow-sm;
   }
 
-  .nav-link {
-    @apply relative text-cream/70 hover:text-gold transition-colors duration-300 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gold after:transition-all after:duration-300 hover:after:w-full font-medium;
-  }
-
-  .stroke-text {
-    -webkit-text-fill-color: transparent;
+  .grain-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.02;
+    background-image: url('https://grainy-gradients.vercel.app/noise.svg');
   }
 }
 
-.grain-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0.04;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
 }
 
-/* CUSTOM ANIMATED SCROLLBAR */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Custom Animated Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-navy-dark);
+  background: #172451; /* Navy */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(242, 201, 76, 0.2);
+  background: linear-gradient(to bottom, #D4AF37, #FAD77E); /* Gold gradient */
   border-radius: 10px;
-  border: 2px solid var(--color-navy-dark);
-  transition: all 0.3s ease;
+  border: 2px solid #172451;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-gold);
+  background: #FAD77E;
 }
 
-/* SMOOTH ENHANCEMENTS */
-::selection {
-  background: var(--color-gold);
-  color: var(--color-navy);
-}
-
-html {
-  scrollbar-gutter: stable;
-  scroll-behavior: smooth;
-}
-
-.lenis.lenis-smooth {
-  height: auto;
-}
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
-
-.lenis.lenis-scrolling iframe {
-  pointer-events: none;
-}
-
-/* High-Tech Hero Grid */
-.hero-grid {
-  background-color: #0d1830;
-  background-image:
-    /* Gold radial glow */
-    radial-gradient(ellipse 476px 340px at 50% 0%,
-      rgba(242,201,76,0.15) 0%, transparent 100%),
-    /* Vertical lines */
-    linear-gradient(rgba(242,201,76,0.35) 1px, transparent 1px),
-    /* Horizontal lines */
-    linear-gradient(90deg, rgba(242,201,76,0.35) 1px, transparent 1px);
-  background-size: 100% 100%, 45px 45px, 45px 45px;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-grid::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(circle at 50% 50%, rgba(242,201,76,0.4) 1.5px, transparent 1.5px);
-  background-size: 45px 45px;
-  animation: pulse-dots 4s infinite ease-in-out;
-  pointer-events: none;
-}
-
-@keyframes pulse-dots {
-  0%, 100% { opacity: 0.6; }
-  50% { opacity: 1; }
-}
-
-.hero-grid::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 50% 0%, rgba(242,201,76,0.1), transparent 70%);
-  animation: animate-glow 8s infinite alternate ease-in-out;
-  pointer-events: none;
-}
-
-@keyframes animate-glow {
-  from { transform: scale(1) translateY(0); opacity: 0.5; }
-  to { transform: scale(1.2) translateY(20px); opacity: 0.8; }
-}
+/* Smooth Scrolling is already handled by Lenis in App.jsx */

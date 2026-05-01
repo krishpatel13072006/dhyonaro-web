@@ -1,140 +1,130 @@
 import React from 'react';
 import SEO from '../components/SEO';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Send } from 'lucide-react';
-import MovingMesh from '../components/MovingMesh';
+import { Mail, Phone, MapPin, Send, MessageSquare } from 'lucide-react';
 
 const Contact = () => {
   return (
     <>
-      <SEO title="Get in Touch" />
-      <main className="relative min-h-screen bg-navy overflow-hidden selection:bg-gold selection:text-navy">
-        <MovingMesh />
+      <SEO title="Get in Touch | Dhyanora Group" />
+      <main className="relative min-h-screen bg-white">
         
-        <section className="relative z-20 pt-32 pb-24 md:pt-40 md:pb-32 px-6 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24">
-          
-          {/* LEFT: Text & Details (Minimal Typography, NO BOXES) */}
+        {/* CLEAN CONTACT HERO - White Background */}
+        <section className="relative z-20 pt-40 pb-32 px-6 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24">
+          {/* Left: Contact Info */}
           <div className="flex flex-col justify-center">
-            <motion.span 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center justify-center mb-6 px-4 py-1 text-[10px] tracking-widest rounded-full border border-gold/30 text-gold uppercase font-bold w-fit"
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
             >
-              Get in touch
-            </motion.span>
-            
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="font-heading text-4xl md:text-6xl lg:text-7xl font-black text-cream leading-tight uppercase mb-8 italic"
-            >
-              Let's Build <br className="hidden md:block"/>
-              <span className="text-gold">Something</span> <br className="hidden md:block"/>
-              Great.
-            </motion.h1>
-            
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="text-gray-light/60 text-sm md:text-base leading-relaxed max-w-md mb-12 text-justify"
-            >
-              Have a project in mind or want to learn more about our services? Our team is ready to assist you.
-            </motion.p>
+              <span className="text-navy font-black uppercase tracking-[0.4em] text-[10px] mb-6 block opacity-40">Get in Touch</span>
+              <h1 className="text-4xl md:text-6xl font-heading font-black text-navy uppercase italic mb-8 leading-[0.9]">
+                Let's Build <br /> <span className="text-gold-dark">Something.</span>
+              </h1>
+              <p className="text-xl text-navy/60 leading-relaxed font-bold mb-16 max-w-md">
+                Have a question about our services or want to explore a partnership? We're here to help you grow.
+              </p>
 
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="space-y-8 mt-auto"
-            >
-              <div>
-                <p className="text-[10px] uppercase font-bold text-gold tracking-widest mb-2">WhatsApp / Call</p>
-                <a href="tel:+910000000000" className="text-xl md:text-2xl font-medium text-cream hover:text-gold transition-colors flex items-center gap-2 w-fit">
-                  +91 [PHONE NUMBER] <ArrowUpRight size={18} />
-                </a>
-                <p className="text-xs text-gray-light/40 mt-1">Monday - Saturday, 9am - 6pm IST</p>
-              </div>
-              
-              <div>
-                <p className="text-[10px] uppercase font-bold text-gold tracking-widest mb-2">Email</p>
-                <a href="mailto:contact@dhyanora.com" className="text-xl md:text-2xl font-medium text-cream hover:text-gold transition-colors flex items-center gap-2 w-fit">
-                  contact@dhyanora.com <ArrowUpRight size={18} />
-                </a>
-              </div>
-
-              <div>
-                <p className="text-[10px] uppercase font-bold text-gold tracking-widest mb-2">Headquarters</p>
-                <p className="text-base md:text-lg text-cream/80">
-                  Dhyanora Group <br/>
-                  Ahmedabad, Gujarat, India
-                </p>
+              <div className="space-y-10">
+                {[
+                  { icon: <Phone />, label: "Call Us", val: "+91 98765 43210", desc: "Mon-Sat, 9am - 7pm" },
+                  { icon: <Mail />, label: "Email Us", val: "info@dhyanora.com", desc: "Online Support 24/7" },
+                  { icon: <MapPin />, label: "Visit Us", val: "Ahmedabad, Gujarat", desc: "Dhyanora Group HQ" }
+                ].map((item, i) => (
+                  <motion.div 
+                    key={i}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 * i }}
+                    className="flex gap-8 items-start group"
+                  >
+                    <div className="w-16 h-16 bg-navy rounded-2xl flex items-center justify-center text-gold shadow-2xl group-hover:bg-gold-dark group-hover:text-navy transition-all duration-500">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <div className="text-[10px] font-black uppercase tracking-widest text-navy/30 mb-2">{item.label}</div>
+                      <div className="text-2xl font-heading font-black text-navy uppercase italic mb-1 transition-colors group-hover:text-gold-dark">{item.val}</div>
+                      <div className="text-sm font-bold text-navy/40">{item.desc}</div>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
             </motion.div>
           </div>
 
-          {/* RIGHT: Form */}
-          <motion.div 
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.4 }}
-            className="glass-card p-8 md:p-12 rounded-[2rem] border-white/5 shadow-2xl relative overflow-hidden group"
-          >
-            <div className="absolute top-0 right-0 w-64 h-64 bg-gold/5 blur-[80px] rounded-full pointer-events-none transition-all duration-700 group-hover:bg-gold/10"></div>
-            
-            <form className="space-y-6 relative z-10" onSubmit={(e) => e.preventDefault()}>
-              <div className="space-y-2">
-                <label className="text-[10px] uppercase tracking-widest text-gold font-bold ml-2">Full Name</label>
-                <input
-                  type="text"
-                  placeholder="John Doe"
-                  className="w-full p-4 rounded-xl bg-white/5 border border-white/5 text-cream placeholder:text-gray-light/30 focus:outline-none focus:border-gold/50 transition-colors text-sm"
-                />
-              </div>
-              
-              <div className="space-y-2">
-                <label className="text-[10px] uppercase tracking-widest text-gold font-bold ml-2">Email Address</label>
-                <input
-                  type="email"
-                  placeholder="john@example.com"
-                  className="w-full p-4 rounded-xl bg-white/5 border border-white/5 text-cream placeholder:text-gray-light/30 focus:outline-none focus:border-gold/50 transition-colors text-sm"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <label className="text-[10px] uppercase tracking-widest text-gold font-bold ml-2">Subject</label>
-                <div className="relative">
-                  <select className="w-full p-4 rounded-xl bg-white/5 border border-white/5 text-cream focus:outline-none focus:border-gold/50 transition-colors text-sm appearance-none cursor-pointer">
-                    <option className="bg-navy">General Inquiry</option>
-                    <option className="bg-navy">Metal Scrap Trading</option>
-                    <option className="bg-navy">Industrial Park / Infrastructure</option>
-                    <option className="bg-navy">Electronics Retail</option>
-                    <option className="bg-navy">Construction Materials</option>
-                  </select>
-                  <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-gold/50">▼</div>
+          {/* Right: Contact Form */}
+          <div className="relative">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+              className="bg-off-white p-10 md:p-16 rounded-[4rem] shadow-2xl border border-navy/5 relative z-10"
+            >
+              <h3 className="text-3xl font-heading font-black text-navy uppercase mb-10 italic">Send a <span className="text-gold-dark">Message.</span></h3>
+              <form className="space-y-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div className="space-y-3">
+                    <label className="text-[10px] font-black uppercase tracking-widest text-navy/40 ml-4">Your Name</label>
+                    <input type="text" placeholder="John Doe" className="w-full px-8 py-5 bg-white border-0 rounded-3xl focus:ring-2 focus:ring-gold-dark transition-all text-navy font-bold shadow-sm" />
+                  </div>
+                  <div className="space-y-3">
+                    <label className="text-[10px] font-black uppercase tracking-widest text-navy/40 ml-4">Email Address</label>
+                    <input type="email" placeholder="john@example.com" className="w-full px-8 py-5 bg-white border-0 rounded-3xl focus:ring-2 focus:ring-gold-dark transition-all text-navy font-bold shadow-sm" />
+                  </div>
                 </div>
-              </div>
-
-              <div className="space-y-2">
-                <label className="text-[10px] uppercase tracking-widest text-gold font-bold ml-2">Your Message</label>
-                <textarea
-                  rows="4"
-                  placeholder="How can we help you?"
-                  className="w-full p-4 rounded-xl bg-white/5 border border-white/5 text-cream placeholder:text-gray-light/30 focus:outline-none focus:border-gold/50 transition-colors text-sm resize-none"
-                />
-              </div>
-              
-              <button
-                type="submit"
-                className="w-full mt-4 px-6 py-4 rounded-xl btn-primary text-navy font-black text-xs md:text-sm uppercase tracking-widest transition-all shadow-[0_0_20px_rgba(242,201,76,0.2)] hover:shadow-[0_0_40px_rgba(242,201,76,0.4)] flex items-center justify-center gap-2 group/btn"
-              >
-                Send Message <Send size={16} className="group-hover/btn:-translate-y-1 group-hover/btn:translate-x-1 transition-transform" />
-              </button>
-            </form>
-          </motion.div>
-
+                <div className="space-y-3">
+                  <label className="text-[10px] font-black uppercase tracking-widest text-navy/40 ml-4">Subject</label>
+                  <select className="w-full px-8 py-5 bg-white border-0 rounded-3xl focus:ring-2 focus:ring-gold-dark transition-all text-navy font-bold appearance-none shadow-sm">
+                    <option>General Inquiry</option>
+                    <option>Business Partnership</option>
+                    <option>Product Support</option>
+                    <option>Career Opportunities</option>
+                  </select>
+                </div>
+                <div className="space-y-3">
+                  <label className="text-[10px] font-black uppercase tracking-widest text-navy/40 ml-4">Your Message</label>
+                  <textarea rows="6" placeholder="How can we help you?" className="w-full px-8 py-5 bg-white border-0 rounded-3xl focus:ring-2 focus:ring-gold-dark transition-all text-navy font-bold resize-none shadow-sm"></textarea>
+                </div>
+                <button className="w-full py-6 bg-navy text-white rounded-3xl font-black uppercase tracking-[0.2em] shadow-2xl hover:bg-gold-dark hover:text-navy transition-all flex items-center justify-center gap-4 text-sm">
+                  Send Message <Send size={20} />
+                </button>
+              </form>
+            </motion.div>
+          </div>
         </section>
+
+        {/* FAQ Section */}
+        <section className="py-32 px-6 bg-white border-t border-navy/5">
+           <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-24">
+              <div className="flex-1">
+                 <span className="text-navy font-black uppercase tracking-[0.4em] text-[10px] mb-6 block opacity-30">Questions</span>
+                 <h2 className="text-4xl md:text-6xl font-heading font-black text-navy uppercase italic mb-8 leading-tight">Common <br /><span className="text-gold-dark">Inquiries.</span></h2>
+                 <p className="text-xl text-navy/40 font-bold mb-12 leading-relaxed">Find quick answers to common questions about Dhyanora Group operations and partnerships.</p>
+                 <div className="p-10 bg-off-white rounded-[3rem] shadow-xl border border-navy/5 flex items-center gap-8">
+                    <div className="w-16 h-16 bg-navy rounded-2xl flex items-center justify-center text-gold shadow-xl"><MessageSquare size={32} /></div>
+                    <div>
+                       <div className="font-black text-navy text-lg uppercase italic mb-1">Support Desk</div>
+                       <div className="text-navy/40 font-bold text-[10px] uppercase tracking-widest">Avg response time: 2 hours</div>
+                    </div>
+                 </div>
+              </div>
+              <div className="flex-[1.5] space-y-6">
+                 {[
+                   { q: "What is Dhyanora Group?", a: "Dhyanora is a diversified conglomerate based in Ahmedabad, managing businesses across metal trading, retail, and infrastructure." },
+                   { q: "How can I partner with you?", a: "Please use the contact form above to reach out to our business development team with your proposal." },
+                   { q: "Where are you located?", a: "Our primary operations are centered in Ahmedabad, with a footprint across major industrial zones in Gujarat." },
+                   { q: "Do you offer industrial consulting?", a: "While we operate our own parks, we do offer strategic procurement and supply chain consulting for industrial clients." }
+                 ].map((faq, i) => (
+                    <div key={i} className="p-10 bg-white rounded-[2.5rem] shadow-sm border border-navy/5 hover:border-gold-dark transition-all group">
+                       <h4 className="text-xl font-heading font-black text-navy uppercase mb-4 tracking-wide group-hover:text-gold-dark transition-colors">{faq.q}</h4>
+                       <p className="text-base text-navy/50 font-bold leading-relaxed">{faq.a}</p>
+                    </div>
+                 ))}
+              </div>
+           </div>
+        </section>
+
       </main>
     </>
   );

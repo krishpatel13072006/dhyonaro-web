@@ -3,7 +3,7 @@ import { Link, Outlet, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowLeft, ChevronDown } from 'lucide-react';
 
-const PramukhLayout = () => {
+const BricsLayout = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
@@ -17,36 +17,39 @@ const PramukhLayout = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Home', path: '/pramukh' },
-    { name: 'About', path: '/pramukh/about' },
+    { name: 'Home', path: '/brics' },
+    { name: 'About', path: '/brics/about' },
     { 
-      name: 'Services', 
-      path: '/pramukh/services',
+      name: 'Products', 
+      path: '/brics/products',
       subLinks: [
-        { name: 'Ferrous & Non-Ferrous', path: '/pramukh/services/metals' },
-        { name: 'Industrial Procurement', path: '/pramukh/services/procurement' },
-        { name: 'Export Solutions', path: '/pramukh/services/export' },
-        { name: 'Logistics', path: '/pramukh/services/logistics' },
+        { name: 'First-Class Bricks', path: '/brics/products/first-class' },
+        { name: 'Second-Class Bricks', path: '/brics/products/second-class' },
+        { name: 'AAC Blocks', path: '/brics/products/aac-blocks' },
+        { name: 'Building Materials', path: '/brics/products/materials' },
       ]
     },
-    { name: 'Contact', path: '/pramukh/contact' },
+    { name: 'Contact', path: '/brics/contact' },
   ];
+
+  // Helper to determine if we are on a page with a dark hero (like BricsHome)
+  const isDarkHeroPage = location.pathname === '/brics';
 
   return (
     <div className="relative min-h-screen bg-off-white text-navy font-sans">
       <div className="grain-overlay" />
       
       {/* Sub-company Navbar */}
-      <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'py-4 bg-white/95 backdrop-blur-md shadow-md border-b border-navy/5' : 'py-6 bg-transparent'}`}>
+      <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'py-4 bg-white shadow-md border-b border-navy/5' : 'py-6 bg-transparent'}`}>
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <div className="flex items-center gap-6">
-            <Link to="/our-companies" className="text-navy/60 hover:text-navy transition-colors flex items-center gap-2 text-[10px] font-black uppercase tracking-widest">
+            <Link to="/our-companies" className={`transition-colors flex items-center gap-2 text-[10px] font-black uppercase tracking-widest ${(!scrolled && isDarkHeroPage) ? 'text-white/60 hover:text-white' : 'text-navy/60 hover:text-navy'}`}>
               <ArrowLeft size={14} /> <span className="hidden md:inline">Group</span>
             </Link>
-            <div className="w-px h-6 bg-navy/10 hidden md:block"></div>
-            <Link to="/pramukh" className="flex flex-col">
-              <span className="text-xl md:text-2xl font-heading font-black text-navy uppercase italic leading-none">
-                Pramukh <span className="text-gold-dark">Metal.</span>
+            <div className={`w-px h-6 hidden md:block ${(!scrolled && isDarkHeroPage) ? 'bg-white/10' : 'bg-navy/10'}`}></div>
+            <Link to="/brics" className="flex flex-col">
+              <span className={`text-xl md:text-2xl font-heading font-black uppercase italic leading-none transition-colors ${(!scrolled && isDarkHeroPage) ? 'text-white' : 'text-navy'}`}>
+                Bricks <span className="text-gold">Trading.</span>
               </span>
             </Link>
           </div>
@@ -58,11 +61,11 @@ const PramukhLayout = () => {
                   <div className="flex items-center gap-1 cursor-pointer py-1">
                     <Link 
                       to={link.path}
-                      className={`text-[10px] font-black tracking-[0.2em] uppercase transition-all duration-300 ${location.pathname.startsWith(link.path) ? 'text-navy' : 'text-navy/40 hover:text-navy'}`}
+                      className={`text-[10px] font-black tracking-[0.2em] uppercase transition-all duration-300 ${location.pathname.startsWith(link.path) ? (scrolled || !isDarkHeroPage ? 'text-navy' : 'text-white') : (scrolled || !isDarkHeroPage ? 'text-navy/40 hover:text-navy' : 'text-white/40 hover:text-white')}`}
                     >
                       {link.name}
                     </Link>
-                    <ChevronDown size={12} className="text-navy/30 group-hover:rotate-180 transition-transform duration-300" />
+                    <ChevronDown size={12} className={`transition-transform duration-300 group-hover:rotate-180 ${(!scrolled && isDarkHeroPage) ? 'text-white/30' : 'text-navy/30'}`} />
                     
                     {/* Dropdown */}
                     <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
@@ -82,7 +85,7 @@ const PramukhLayout = () => {
                 ) : (
                   <Link 
                     to={link.path}
-                    className={`text-[10px] font-black tracking-[0.2em] uppercase transition-all duration-300 relative py-1 ${location.pathname === link.path ? 'text-navy after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gold' : 'text-navy/40 hover:text-navy'}`}
+                    className={`text-[10px] font-black tracking-[0.2em] uppercase transition-all duration-300 relative py-1 ${location.pathname === link.path ? (scrolled || !isDarkHeroPage ? 'text-navy after:bg-gold' : 'text-white after:bg-gold') + ' after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5' : (scrolled || !isDarkHeroPage ? 'text-navy/40 hover:text-navy' : 'text-white/40 hover:text-white')}`}
                   >
                     {link.name}
                   </Link>
@@ -91,7 +94,7 @@ const PramukhLayout = () => {
             ))}
           </div>
 
-          <button className="md:hidden text-navy" onClick={() => setIsOpen(!isOpen)}>
+          <button className={`md:hidden transition-colors ${(!scrolled && isDarkHeroPage) ? 'text-white' : 'text-navy'}`} onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -143,10 +146,10 @@ const PramukhLayout = () => {
       </main>
       
       <footer className="py-20 border-t border-navy/5 bg-white text-center">
-         <p className="text-navy/40 text-[10px] font-black uppercase tracking-[0.3em]">© {new Date().getFullYear()} Pramukh Import Export. A Dhyanora Group Company.</p>
+         <p className="text-navy/40 text-[10px] font-black uppercase tracking-[0.3em]">© {new Date().getFullYear()} Bricks Trading Division. A Dhyanora Group Company.</p>
       </footer>
     </div>
   );
 };
 
-export default PramukhLayout;
+export default BricsLayout;

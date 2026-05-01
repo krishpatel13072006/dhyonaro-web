@@ -1,52 +1,43 @@
 import React from 'react';
 import SEO from '../components/SEO';
 import { motion } from 'framer-motion';
-import { HardHat, Ruler, Building, Factory, ArrowRight, MapPin, ShieldCheck, Zap, Warehouse } from 'lucide-react';
+import { Factory, ArrowRight, MapPin, ShieldCheck, Zap, Warehouse, Building2 } from 'lucide-react';
+import MovingMesh from '../components/MovingMesh';
 
 const ShreejiInfra = () => {
   const offerings = [
     { title: "Industrial Sheds", icon: <Factory />, desc: "Ready-to-move and custom-built units designed for manufacturing excellence." },
     { title: "Warehousing", icon: <Warehouse />, desc: "Large floor-area spaces with optimized loading bays and logistics access." },
-    { title: "Commercial Sale", icon: <Building />, desc: "Flexible commercial structures for long-term lease or outright sale." },
+    { title: "Commercial Sale", icon: <Building2 />, desc: "Flexible commercial structures for long-term lease or outright sale." },
     { title: "Utilities", icon: <Zap />, desc: "Robust power, water, and road infrastructure integrated within the park." }
   ];
 
   return (
     <>
       <SEO title="Shreeji Infra | Mahantam Industrial Park" description="Premium industrial sheds and workspace solutions in Ahmedabad, Gujarat. Professionally managed infrastructure for manufacturing and logistics." />
-      <main className="pt-32">
-        {/* Company Hero */}
-        <section className="px-6 py-20 relative min-h-[70vh] flex items-center">
-          <div className="absolute inset-0 z-0">
-             <img 
-               src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=2000" 
-               className="w-full h-full object-cover opacity-20 grayscale"
-               alt="Industrial park"
-             />
-             <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/80 to-transparent" />
-          </div>
-          
-          <div className="max-w-7xl mx-auto relative z-10">
+      <main className="bg-white">
+        {/* Company Hero - Updated to White Text / Dark Mesh */}
+        <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-white pt-20">
+          <MovingMesh />
+          <div className="relative z-20 text-center px-6">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              className="max-w-4xl"
+              transition={{ duration: 0.8 }}
             >
-              <span className="text-gold font-bold tracking-widest uppercase text-sm">Dhyanora Group  →  Our Companies</span>
-              <h1 className="text-4xl md:text-8xl mt-4 mb-8 font-heading font-black text-cream uppercase italic leading-none">Mahantam <br /><span className="text-gold">Industrial Park.</span></h1>
-              <p className="text-base md:text-xl text-gray-light/60 leading-relaxed font-medium max-w-2xl">
-                Purpose-Built Industrial Spaces for Growing Businesses. Developed and managed by <strong className="text-gold">Shreeji Infra</strong>.
-              </p>
+              <span className="text-white font-black uppercase tracking-[0.5em] text-[10px] mb-8 block opacity-60">Portfolio / Infrastructure</span>
+              <h1 className="text-6xl md:text-9xl font-heading font-black text-white uppercase italic leading-none">Mahantam <br /><span className="text-gold">Industrial Park.</span></h1>
             </motion.div>
           </div>
         </section>
 
         {/* About the Park */}
-        <section className="py-32 px-6 bg-white/[0.02] border-y border-white/5">
-           <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-20">
+        <section className="py-32 px-6 bg-white border-y border-navy/5">
+           <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-24 items-center">
               <div className="flex-1">
-                 <h2 className="text-4xl md:text-5xl font-heading font-black text-cream uppercase mb-8">About the Park</h2>
-                 <div className="space-y-6 text-lg text-gray-light/40 leading-relaxed font-medium">
+                 <span className="text-navy font-black uppercase tracking-[0.4em] text-[10px] mb-6 block opacity-30">Infrastructure Excellence</span>
+                 <h2 className="text-4xl md:text-6xl font-heading font-black text-navy uppercase italic mb-10 leading-tight">About the <br/><span className="text-gold-dark">Park.</span></h2>
+                 <div className="space-y-8 text-xl text-navy/40 leading-relaxed font-bold">
                     <p>
                       Shreeji Infra is the infrastructure and industrial development company of the Dhyanora Group. Under the Mahantam Industrial Park brand, we develop and manage premium industrial properties designed for manufacturing and logistics.
                     </p>
@@ -55,16 +46,16 @@ const ShreejiInfra = () => {
                     </p>
                  </div>
               </div>
-              <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-8">
                  {[
                    { label: "Strategic Location", desc: "Near Ahmedabad for easy highway and transport access." },
                    { label: "Clear Titles", desc: "Transparent documentation and hassle-free legalities." },
                    { label: "Flexible Units", desc: "Sizes suitable for small units to large operations." },
                    { label: "Full Utilities", desc: "Integrated power, water, and logistics infrastructure." }
                  ].map((item, i) => (
-                   <div key={i} className="glass-card p-8 border-white/5 flex flex-col justify-center">
-                      <h4 className="text-gold font-bold uppercase tracking-widest text-sm mb-4">{item.label}</h4>
-                      <p className="text-xs text-gray-light/50 leading-relaxed">{item.desc}</p>
+                   <div key={i} className="p-10 bg-off-white border border-navy/5 flex flex-col justify-center shadow-xl rounded-[3rem] hover:bg-navy group transition-all duration-500">
+                      <h4 className="text-navy group-hover:text-gold font-black uppercase tracking-widest text-[10px] mb-4 opacity-30 group-hover:opacity-100 transition-all">{item.label}</h4>
+                      <p className="text-sm text-navy/40 group-hover:text-white/40 font-bold leading-relaxed transition-all">{item.desc}</p>
                    </div>
                  ))}
               </div>
@@ -72,27 +63,27 @@ const ShreejiInfra = () => {
         </section>
 
         {/* Offerings Grid */}
-        <section className="py-32 px-6">
+        <section className="py-32 px-6 bg-off-white">
            <div className="max-w-7xl mx-auto">
-              <div className="text-center mb-20">
-                 <span className="text-gold font-black uppercase tracking-[0.4em] text-xs mb-6 block">Infrastructure</span>
-                 <h2 className="text-4xl md:text-6xl font-heading font-black text-cream uppercase italic">What We <span className="text-gold">Offer.</span></h2>
+              <div className="text-center mb-24">
+                 <span className="text-navy font-black uppercase tracking-[0.4em] text-[10px] mb-6 block opacity-30">Solutions</span>
+                 <h2 className="text-4xl md:text-7xl font-heading font-black text-navy uppercase italic">What We <span className="text-gold-dark">Offer.</span></h2>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                  {offerings.map((offering, i) => (
                    <motion.div 
                      key={i}
-                     initial={{ opacity: 0, y: 20 }}
+                     initial={{ opacity: 0, y: 30 }}
                      whileInView={{ opacity: 1, y: 0 }}
                      viewport={{ once: true }}
                      transition={{ delay: i * 0.1 }}
-                     className="glass-card group hover:bg-gold/5 transition-all p-10"
+                     className="p-12 bg-white rounded-[3rem] border border-navy/5 shadow-xl hover:bg-navy group transition-all duration-500"
                    >
-                     <div className="w-14 h-14 bg-gold/10 rounded-xl flex items-center justify-center text-gold mb-8 group-hover:scale-110 transition-transform">
+                     <div className="w-16 h-16 bg-navy rounded-2xl flex items-center justify-center text-gold mb-10 group-hover:bg-gold group-hover:text-navy transition-all">
                        {offering.icon}
                      </div>
-                     <h3 className="text-2xl font-heading font-bold mb-4 uppercase">{offering.title}</h3>
-                     <p className="text-sm text-gray-light/40 leading-relaxed font-medium">{offering.desc}</p>
+                     <h3 className="text-2xl font-heading font-black mb-4 uppercase text-navy group-hover:text-white transition-colors">{offering.title}</h3>
+                     <p className="text-sm text-navy/40 leading-relaxed font-bold group-hover:text-white/40 transition-colors">{offering.desc}</p>
                    </motion.div>
                  ))}
               </div>
@@ -100,12 +91,12 @@ const ShreejiInfra = () => {
         </section>
 
         {/* Why Mahantam Section */}
-        <section className="py-32 px-6 bg-gold/5 border-y border-gold/10">
+        <section className="py-40 px-6 bg-white border-y border-navy/5">
            <div className="max-w-7xl mx-auto">
-              <div className="flex flex-col lg:flex-row items-center gap-20">
+              <div className="flex flex-col lg:flex-row items-center gap-24">
                  <div className="flex-1">
-                    <h2 className="text-4xl md:text-5xl font-heading font-black text-cream uppercase mb-10 leading-tight">Why Choose <br /><span className="text-gold">Mahantam Park.</span></h2>
-                    <ul className="space-y-6">
+                    <h2 className="text-4xl md:text-6xl font-heading font-black text-navy uppercase mb-12 leading-tight">Why Choose <br /><span className="text-gold-dark">Mahantam Park.</span></h2>
+                    <ul className="space-y-8">
                        {[
                          "Strategically located near major transport hubs",
                          "Professionally developed and managed infrastructure",
@@ -113,25 +104,25 @@ const ShreejiInfra = () => {
                          "Transparent documentation and clear land titles",
                          "Backed by the industrial credibility of Dhyanora Group"
                        ].map((item, i) => (
-                         <li key={i} className="flex items-center gap-4 text-lg text-gray-light/40 font-medium">
-                            <ShieldCheck className="text-gold" size={24} /> {item}
+                         <li key={i} className="flex items-center gap-6 text-xl text-navy/40 font-bold">
+                            <ShieldCheck className="text-gold-dark" size={28} /> {item}
                          </li>
                        ))}
                     </ul>
                  </div>
-                 <div className="flex-1 w-full aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-2xl relative">
+                 <div className="flex-1 w-full aspect-square rounded-[4rem] overflow-hidden border border-navy/10 shadow-2xl relative group">
                     <img 
                       src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=1200" 
-                      className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
+                      className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105"
                       alt="Industrial facility"
                     />
-                    <div className="absolute inset-0 bg-gold/10 pointer-events-none mix-blend-overlay" />
-                    <div className="absolute bottom-8 left-8 bg-navy/90 backdrop-blur-xl p-6 rounded-2xl border border-white/10">
-                       <div className="flex items-center gap-3 text-gold mb-2">
-                          <MapPin size={18} />
-                          <span className="text-xs font-black uppercase tracking-widest">Ahmedabad, Gujarat</span>
+                    <div className="absolute inset-0 bg-navy/10 pointer-events-none group-hover:bg-transparent transition-all" />
+                    <div className="absolute bottom-10 left-10 bg-white p-8 rounded-[2rem] shadow-2xl border border-navy/5">
+                       <div className="flex items-center gap-3 text-navy mb-2">
+                          <MapPin size={20} className="text-gold-dark" />
+                          <span className="text-xs font-black uppercase tracking-widest italic">Ahmedabad, Gujarat</span>
                        </div>
-                       <p className="text-sm text-cream/70 font-medium">Flagship Industrial Development</p>
+                       <p className="text-[10px] text-navy/30 font-black uppercase tracking-widest">Flagship Industrial Zone</p>
                     </div>
                  </div>
               </div>
@@ -139,18 +130,18 @@ const ShreejiInfra = () => {
         </section>
 
         {/* CTA */}
-        <section className="py-32 px-6">
-           <div className="max-w-5xl mx-auto glass-card p-12 md:p-24 text-center border-white/5 shadow-2xl relative overflow-hidden">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gold/5 rounded-full blur-[100px]" />
-              <h2 className="text-4xl md:text-6xl font-heading font-black text-cream uppercase mb-8 italic">Ready to <span className="text-gold">Scale Up?</span></h2>
-              <p className="text-xl text-gray-light/60 mb-12 max-w-2xl mx-auto font-medium">
+        <section className="py-40 px-6 bg-white text-center">
+           <div className="max-w-5xl mx-auto bg-navy p-16 md:p-32 rounded-[4rem] shadow-2xl relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-full bg-gold/5 opacity-40 pointer-events-none" />
+              <h2 className="text-5xl md:text-[6rem] font-heading font-black text-white uppercase mb-12 italic leading-[0.9]">Ready to <br /><span className="text-gold">Scale Up?</span></h2>
+              <p className="text-2xl text-white/40 mb-16 max-w-2xl mx-auto font-bold">
                  Contact our team to discuss available units, pricing, and site visits. We will help you find the right space for your operation.
               </p>
-              <div className="flex flex-col sm:flex-row justify-center gap-6 relative z-10">
-                 <button className="btn-primary px-6 py-3 md:px-8 md:py-4 text-xs md:text-sm font-black uppercase tracking-widest flex items-center justify-center gap-3">
-                    Book Visit <ArrowRight size={20} />
+              <div className="flex flex-col sm:flex-row justify-center gap-8 relative z-10">
+                 <button className="bg-gold text-navy px-12 py-6 rounded-full font-black uppercase tracking-widest text-sm flex items-center justify-center gap-4 hover:scale-105 transition-all shadow-2xl">
+                    Book Visit <ArrowRight size={22} />
                  </button>
-                 <button className="px-6 py-3 md:px-8 md:py-4 border border-white/10 rounded-full text-cream font-bold hover:bg-white/5 transition-all uppercase tracking-widest text-xs md:text-sm w-full md:w-auto">
+                 <button className="px-12 py-6 border-2 border-white/20 rounded-full text-white font-black uppercase tracking-widest text-sm hover:bg-white/10 transition-all">
                     Send Enquiry
                  </button>
               </div>

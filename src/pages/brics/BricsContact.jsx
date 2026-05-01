@@ -2,10 +2,10 @@ import React from 'react';
 import SEO from '../../components/SEO';
 import { ArrowRight, MapPin, Phone, Mail } from 'lucide-react';
 
-const PramukhContact = () => {
+const BricsContact = () => {
   return (
     <>
-      <SEO title="Contact Us | Pramukh Import Export" description="Get in touch with Pramukh Import Export for your bulk metal scrap requirements." />
+      <SEO title="Contact Us | Bricks Trading Division" description="Get in touch with the Bricks Trading Division." />
       
       <main className="bg-white pt-20">
         <section className="py-24 px-6 min-h-[85vh] flex flex-col justify-center bg-white">
@@ -13,13 +13,13 @@ const PramukhContact = () => {
             {/* Contact Info */}
             <div className="flex-1">
               <div className="inline-block px-4 py-1 rounded-full bg-gray-100 text-black text-[10px] font-black uppercase tracking-[0.3em] mb-8">
-                Trade Logistics
+                Open for Business
               </div>
-              <h1 className="text-6xl md:text-8xl font-heading font-black text-black uppercase italic mb-8 leading-[0.9]">
-                Let's Talk <br/><span className="text-gold-dark">Trade.</span>
+              <h1 className="text-6xl md:text-8xl font-heading font-black text-black uppercase italic mb-10 leading-[0.9]">
+                Start <br /><span className="text-gold-dark">Building.</span>
               </h1>
-              <p className="text-xl text-black/40 mb-12 max-w-md font-bold leading-relaxed">
-                Ready for bulk procurement? Reach out to our team to discuss your requirements. We handle large-scale orders and long-term supply contracts.
+              <p className="text-xl text-black/40 mb-16 max-w-md font-bold leading-relaxed">
+                Reach out to our trading team for bulk pricing, material specifications, and professional delivery schedules.
               </p>
               
               <div className="space-y-10">
@@ -47,7 +47,7 @@ const PramukhContact = () => {
                   </div>
                   <div>
                     <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-black/30 mb-2">Email</h4>
-                    <p className="text-black font-black text-lg">trade@dhyanora.com</p>
+                    <p className="text-black font-black text-lg">bricks@dhyanora.com</p>
                   </div>
                 </div>
               </div>
@@ -64,22 +64,22 @@ const PramukhContact = () => {
                   </div>
                   <div className="space-y-3">
                     <label className="text-[10px] font-black uppercase tracking-[0.3em] text-black/40">Company Name</label>
-                    <input type="text" className="w-full bg-white border border-gray-200 rounded-2xl px-6 py-4 text-black focus:outline-none focus:border-gold transition-all" placeholder="Acme Corp" />
+                    <input type="text" className="w-full bg-white border border-gray-200 rounded-2xl px-6 py-4 text-black focus:outline-none focus:border-gold transition-all" placeholder="Acme Builders" />
                   </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-3">
-                    <label className="text-[10px] font-black uppercase tracking-[0.3em] text-black/40">Email</label>
+                    <label className="text-[10px] font-black uppercase tracking-[0.3em] text-black/40">Email Address</label>
                     <input type="email" className="w-full bg-white border border-gray-200 rounded-2xl px-6 py-4 text-black focus:outline-none focus:border-gold transition-all" placeholder="john@example.com" />
                   </div>
                   <div className="space-y-3">
-                    <label className="text-[10px] font-black uppercase tracking-[0.3em] text-black/40">Phone</label>
+                    <label className="text-[10px] font-black uppercase tracking-[0.3em] text-black/40">Phone Number</label>
                     <input type="tel" className="w-full bg-white border border-gray-200 rounded-2xl px-6 py-4 text-black focus:outline-none focus:border-gold transition-all" placeholder="+91 ..." />
                   </div>
                 </div>
                 <div className="space-y-3">
                   <label className="text-[10px] font-black uppercase tracking-[0.3em] text-black/40">Requirement Details</label>
-                  <textarea rows="5" className="w-full bg-white border border-gray-200 rounded-2xl px-6 py-4 text-black focus:outline-none focus:border-gold transition-all resize-none" placeholder="Tell us about the scrap types and volume you need..."></textarea>
+                  <textarea rows="5" className="w-full bg-white border border-gray-200 rounded-2xl px-6 py-4 text-black focus:outline-none focus:border-gold transition-all resize-none" placeholder="Tell us about the materials and volume you need..."></textarea>
                 </div>
                 <button type="button" className="bg-black text-white w-full py-6 flex items-center justify-center gap-4 text-xs font-black uppercase tracking-[0.3em] mt-6 group rounded-2xl shadow-xl hover:bg-gray-900 transition-all">
                   Submit Enquiry <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
@@ -93,4 +93,4 @@ const PramukhContact = () => {
   );
 };
 
-export default PramukhContact;
+export default BricsContact;
