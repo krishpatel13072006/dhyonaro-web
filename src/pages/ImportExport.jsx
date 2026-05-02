@@ -15,29 +15,29 @@ const ImportExport = () => {
       <SEO title="Pramukh Import Export | Metal Scrap Trading" description="Gujarat's reliable partner for metal scrap procurement, trading, and export services. Specialized in ferrous and non-ferrous scrap." />
       <main className="pt-32">
         {/* Company Hero */}
-        <section className="px-6 py-20 relative overflow-hidden">
+        <section className="px-6 py-12 md:py-20 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-1/2 h-full bg-gold/5 -skew-x-12 translate-x-1/4" />
           <div className="max-w-7xl mx-auto relative z-10">
              <motion.span
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="text-gold font-bold tracking-widest uppercase text-sm"
+                className="text-gold font-bold tracking-widest uppercase text-[10px] md:text-sm"
              >
                 Dhyanora Group  →  Our Companies
              </motion.span>
-             <h1 className="text-6xl md:text-8xl mt-4 mb-8 font-heading font-black text-cream uppercase italic leading-none">Pramukh <br /><span className="text-gold">Import Export.</span></h1>
-             <p className="text-xl text-gray-light/60 max-w-2xl leading-relaxed font-medium">
+             <h1 className="text-4xl sm:text-5xl md:text-8xl mt-4 mb-6 md:mb-8 font-heading font-black text-cream uppercase italic leading-none">Pramukh <br /><span className="text-gold">Import Export.</span></h1>
+             <p className="text-lg md:text-xl text-gray-light/60 max-w-2xl leading-relaxed font-medium">
                 Reliable Metal Scrap Solutions for Industrial Gujarat. We specialize in the procurement, trading, and export of ferrous and non-ferrous metal scrap.
              </p>
           </div>
         </section>
 
         {/* About Section */}
-        <section className="py-32 px-6 bg-white/[0.02] border-y border-white/5">
-           <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-20">
+        <section className="py-16 md:py-32 px-6 bg-white/[0.02] border-y border-white/5">
+           <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-20">
               <div className="flex-1">
-                 <h2 className="text-4xl md:text-5xl font-heading font-black text-cream uppercase mb-8">Who We Are</h2>
-                 <div className="space-y-6 text-lg text-gray-light/40 leading-relaxed">
+                 <h2 className="text-3xl md:text-5xl font-heading font-black text-cream uppercase mb-6 md:mb-8">Who We Are</h2>
+                 <div className="space-y-6 text-base md:text-lg text-gray-light/40 leading-relaxed">
                     <p>
                       Pramukh Import Export is a metal scrap trading company operating under the Dhyanora Group. We facilitate the import and export of ferrous and non-ferrous scrap for industrial buyers and processors across Gujarat and beyond.
                     </p>
@@ -53,8 +53,8 @@ const ImportExport = () => {
                    { title: "Industrial", desc: "Factory surplus and demolition scrap procurement." },
                    { title: "Export Services", desc: "Facilitating global trade through established channels." }
                  ].map((item, i) => (
-                   <div key={i} className="glass-card p-8 border-white/5">
-                      <h4 className="text-gold font-bold uppercase tracking-widest text-sm mb-4">{item.title}</h4>
+                   <div key={i} className="glass-card p-6 md:p-8 border-white/5">
+                      <h4 className="text-gold font-bold uppercase tracking-widest text-xs md:text-sm mb-4">{item.title}</h4>
                       <p className="text-xs text-gray-light/50 leading-relaxed">{item.desc}</p>
                    </div>
                  ))}
@@ -134,11 +134,11 @@ const ImportExport = () => {
         </section>
 
         {/* Contact CTA */}
-        <section className="py-32 bg-gold/5">
+        <section className="py-16 md:py-32 bg-gold/5">
            <div className="max-w-5xl mx-auto text-center px-6">
-              <h2 className="text-4xl md:text-6xl font-heading font-black text-cream uppercase mb-8 italic">Ready for <span className="text-gold">Bulk Procurement?</span></h2>
-              <p className="text-xl text-gray-light/60 mb-12 max-w-2xl mx-auto">Reach out to our team to discuss your requirements. We handle bulk orders and long-term supply contracts.</p>
-              <button className="btn-primary flex items-center gap-3 mx-auto px-6 py-3 md:px-8 md:py-4 text-xs md:text-sm font-black uppercase tracking-widest">
+              <h2 className="text-3xl md:text-6xl font-heading font-black text-cream uppercase mb-6 md:mb-8 italic leading-tight">Ready for <span className="text-gold">Bulk Procurement?</span></h2>
+              <p className="text-lg md:text-xl text-gray-light/60 mb-10 md:mb-12 max-w-2xl mx-auto font-medium">Reach out to our team to discuss your requirements. We handle bulk orders and long-term supply contracts.</p>
+              <button className="btn-primary flex items-center gap-3 mx-auto px-10 py-5 text-base font-black uppercase shadow-2xl">
                  Send an Enquiry <ArrowRight size={20} />
               </button>
            </div>

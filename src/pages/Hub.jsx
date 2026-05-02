@@ -34,14 +34,14 @@ const Hub = () => {
                 </motion.div>
                 
                 <span className="text-gold font-black uppercase tracking-[0.6em] text-[10px] md:text-xs mb-8 block opacity-40">Digital Nerve Center</span>
-                <h1 className="text-6xl md:text-[10rem] font-heading font-black text-white uppercase italic leading-[0.8] mb-12">
+                <h1 className="text-4xl sm:text-6xl md:text-[10rem] font-heading font-black text-white uppercase italic leading-[0.8] mb-8 md:mb-12">
                    The <br /><span className="text-gold">Hub.</span>
                 </h1>
-                <p className="text-xl md:text-2xl text-white/40 max-w-2xl mx-auto font-bold leading-relaxed mb-20">
+                <p className="text-lg md:text-2xl text-white/40 max-w-2xl mx-auto font-bold leading-relaxed mb-12 md:mb-20">
                    A centralized portal for the Dhyanora ecosystem. Connecting our diverse verticals through shared values and strategic vision.
                 </p>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
                    {[
                      { title: "Strategic Assets", icon: <Layers />, desc: "Managing a high-value portfolio of industrial and retail enterprises." },
                      { title: "Operational Excellence", icon: <ShieldCheck />, desc: "Standardizing quality and discipline across all group divisions." },
@@ -52,11 +52,13 @@ const Hub = () => {
                        initial={{ opacity: 0, y: 30 }}
                        animate={{ opacity: 1, y: 0 }}
                        transition={{ delay: 0.8 + (i * 0.1) }}
-                       className="p-10 bg-white/5 backdrop-blur-xl border border-white/10 rounded-[3rem] hover:bg-white/10 transition-all group text-left"
+                       className="p-8 md:p-10 bg-white/5 backdrop-blur-xl border border-white/10 rounded-[2rem] md:rounded-[3rem] hover:bg-white/10 transition-all group text-left"
                      >
-                        <div className="text-gold mb-6 group-hover:scale-110 transition-transform">{item.icon}</div>
-                        <h3 className="text-xl font-heading font-black text-white uppercase mb-4">{item.title}</h3>
-                        <p className="text-sm text-white/30 font-bold leading-relaxed">{item.desc}</p>
+                        <div className="text-gold mb-6 group-hover:scale-110 transition-transform">
+                           {React.cloneElement(item.icon, { size: 24 })}
+                        </div>
+                        <h3 className="text-lg md:text-xl font-heading font-black text-white uppercase mb-4">{item.title}</h3>
+                        <p className="text-xs md:text-sm text-white/30 font-bold leading-relaxed">{item.desc}</p>
                      </motion.div>
                    ))}
                 </div>

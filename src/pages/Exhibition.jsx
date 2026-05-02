@@ -116,8 +116,8 @@ function StaticArtifact({ item, position, isMobile }) {
 function Loader() {
   return (
     <Html center>
-      <div className="flex flex-col items-center justify-center bg-black/90 backdrop-blur-3xl p-16 rounded-[4rem] border border-white/5 shadow-2xl min-w-[300px]">
-         <div className="w-12 h-12 border-4 border-gold border-t-transparent rounded-full animate-spin mb-6" />
+      <div className="flex flex-col items-center justify-center bg-black/90 backdrop-blur-3xl p-8 md:p-16 rounded-[2rem] md:rounded-[4rem] border border-white/5 shadow-2xl min-w-[280px] md:min-w-[300px]">
+         <div className="w-10 h-10 md:w-12 md:h-12 border-4 border-gold border-t-transparent rounded-full animate-spin mb-6" />
          <p className="text-gold font-black uppercase tracking-[0.5em] text-[10px]">Materializing Horizon...</p>
       </div>
     </Html>
@@ -152,8 +152,8 @@ export default function Exhibition() {
         </div>
 
         <div className="flex flex-col items-start pointer-events-auto">
-          <h2 className="text-5xl md:text-8xl font-heading font-black text-cream uppercase leading-none mb-4 italic">THE <span className="text-gold tracking-widest text-cream">HORIZON.</span></h2>
-          <p className="text-gray-light/40 text-xs md:text-sm max-w-xs uppercase tracking-widest leading-relaxed">
+          <h2 className="text-3xl sm:text-4xl md:text-8xl font-heading font-black text-cream uppercase leading-none mb-4 italic">THE <span className="text-gold tracking-widest text-cream">HORIZON.</span></h2>
+          <p className="text-gray-light/40 text-[10px] md:text-sm max-w-[200px] md:max-w-xs uppercase tracking-widest leading-relaxed">
             {isMobile ? "Responsive Spatial Grid." : "Cinematic 3D Scrolling Carousel."}
           </p>
         </div>

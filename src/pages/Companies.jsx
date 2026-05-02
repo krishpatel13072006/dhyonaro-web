@@ -51,7 +51,7 @@ const Companies = () => {
       <main className="relative bg-white">
         
         {/* COMPANIES HERO SECTION */}
-        <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-navy pt-24">
+        <section className="relative min-h-[50vh] md:min-h-[60vh] flex items-center justify-center overflow-hidden bg-navy pt-24">
           <MovingMesh />
           
           {/* Falling Stars Animation */}
@@ -81,7 +81,7 @@ const Companies = () => {
              <motion.div
                animate={{ rotate: 360 }}
                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] border border-white/5 rounded-full"
+               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[450px] h-[300px] md:h-[450px] border border-white/5 rounded-full"
              >
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-gold/60 rounded-full blur-[2px]" />
              </motion.div>
@@ -95,14 +95,12 @@ const Companies = () => {
             >
               The Portfolio
             </motion.span>
-            <h1 className="text-5xl md:text-8xl font-heading font-black text-white uppercase italic leading-none">Our <span className="text-gold">Companies.</span></h1>
+            <h1 className="text-4xl sm:text-5xl md:text-8xl font-heading font-black text-white uppercase italic leading-none">Our <span className="text-gold">Companies.</span></h1>
           </div>
 
           <div className="absolute bottom-0 left-0 w-full h-48 bg-gradient-to-t from-white to-transparent z-10" />
-        </section>
-
-        <section className="py-24 px-6">
-          <div className="max-w-7xl mx-auto space-y-24">
+        </section>        <section className="py-12 md:py-24 px-6">
+          <div className="max-w-7xl mx-auto space-y-16 md:space-y-24">
             {companies.map((company, index) => (
               <motion.div
                 key={company.name}
@@ -110,7 +108,7 @@ const Companies = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-12 lg:gap-20 group/card`}
+                className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-8 md:gap-12 lg:gap-20 group/card`}
               >
                 {/* Image Container - Normal / No Overlap / Sharp Corners */}
                 <div className="flex-1 w-full">
@@ -123,22 +121,22 @@ const Companies = () => {
                     <div className="absolute inset-0 bg-navy/10 group-hover:bg-transparent transition-all duration-500" />
                   </div>
                 </div>
-
+ 
                 {/* Content Container - Normal / Sharp Corners */}
-                <div className="flex-1 p-10 lg:p-12 transition-all duration-500 bg-white border border-navy/5 group-hover/card:bg-navy group/content">
-                  <div className="flex items-center gap-4 mb-6">
-                     <div className="w-12 h-12 bg-off-white flex items-center justify-center text-navy group-hover/card:text-gold transition-colors border border-navy/5">
-                        {React.cloneElement(company.icon, { size: 24 })}
+                <div className="flex-1 p-8 md:p-10 lg:p-12 transition-all duration-500 bg-white border border-navy/5 group-hover/card:bg-navy group/content w-full">
+                  <div className="flex items-center gap-4 mb-4 md:mb-6">
+                     <div className="w-10 h-10 md:w-12 md:h-12 bg-off-white flex items-center justify-center text-navy group-hover/card:text-gold transition-colors border border-navy/5">
+                        {React.cloneElement(company.icon, { size: window.innerWidth < 768 ? 20 : 24 })}
                      </div>
                      <span className="text-navy font-bold uppercase text-[10px] group-hover/card:text-gold transition-colors">{company.tagline}</span>
                   </div>
-                  <h2 className="text-3xl md:text-4xl font-heading font-black text-navy uppercase italic mb-6 leading-tight group-hover/card:text-white transition-colors">{company.name}</h2>
-                  <p className="text-lg text-navy/40 leading-relaxed font-bold mb-10 group-hover/card:text-white/40 transition-colors">
+                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-black text-navy uppercase italic mb-4 md:mb-6 leading-tight group-hover/card:text-white transition-colors">{company.name}</h2>
+                  <p className="text-base md:text-lg text-navy/40 leading-relaxed font-bold mb-8 md:mb-10 group-hover/card:text-white/40 transition-colors">
                     {company.desc}
                   </p>
                   <Link
                     to={company.path}
-                    className="group flex items-center gap-4 text-navy font-black uppercase text-xs group-hover/card:text-gold transition-all"
+                    className="group flex items-center gap-4 text-navy font-black uppercase text-[10px] md:text-xs group-hover/card:text-gold transition-all"
                   >
                     Explore Company <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
                   </Link>
@@ -149,10 +147,10 @@ const Companies = () => {
         </section>
 
         {/* Collective Strength Section */}
-        <section className="py-32 bg-off-white border-t border-navy/5">
+        <section className="py-16 md:py-32 bg-off-white border-t border-navy/5">
           <div className="max-w-4xl mx-auto text-center px-6">
-            <h2 className="text-4xl md:text-6xl font-heading font-black text-navy uppercase italic mb-8 leading-tight">Collective <br /><span className="text-gold-dark">Strength.</span></h2>
-            <p className="text-xl text-navy/40 leading-relaxed font-bold">
+            <h2 className="text-3xl md:text-6xl font-heading font-black text-navy uppercase italic mb-6 md:mb-8 leading-tight">Collective <br /><span className="text-gold-dark">Strength.</span></h2>
+            <p className="text-lg md:text-xl text-navy/40 leading-relaxed font-bold">
               While each company operates with its own dedicated leadership and focus, they all share the Dhyanora DNA — a commitment to quality, discipline, and long-term value creation for the Gujarat economy.
             </p>
           </div>

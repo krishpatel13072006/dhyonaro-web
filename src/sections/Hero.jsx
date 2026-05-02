@@ -57,15 +57,15 @@ const Hero = () => {
         ))}
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-20 w-full -mt-10 md:-mt-16">
+      <div className="max-w-7xl mx-auto px-6 relative z-20 w-full -mt-6 md:-mt-16">
         <div className="flex flex-col items-center text-center">
           {/* Main Heading */}
-          <div className="overflow-hidden mb-12 md:mb-16">
+          <div className="overflow-hidden mb-8 md:mb-16">
             <motion.h1
               initial={{ y: "100%" }}
               animate={{ y: 0 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="text-5xl md:text-7xl lg:text-8xl font-heading font-black text-white leading-[0.95] uppercase italic"
+              className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-heading font-black text-white leading-[0.95] uppercase italic"
             >
               Visionary <br />
               <span className="text-gold">Growth.</span>
@@ -77,7 +77,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-lg md:text-2xl text-white/60 max-w-2xl leading-relaxed mb-16 md:mb-24 font-bold italic"
+            className="text-base sm:text-lg md:text-2xl text-white/60 max-w-2xl leading-relaxed mb-12 md:mb-24 font-bold italic"
           >
             A narrative of focus, discipline, and building the industrial future of Gujarat. One legacy at a time.
           </motion.p>

@@ -17,7 +17,7 @@ const TechVenture = () => {
       <SEO title="Pramukh Techventures | Premium Electronics Retail" description="Your trusted destination for quality electronics in Gujarat. From home appliances to the latest technology with honest pricing and expert guidance." />
       <main className="bg-white">
         {/* Company Hero */}
-        <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-white pt-20">
+        <section className="relative min-h-[50vh] md:min-h-[70vh] flex items-center justify-center overflow-hidden bg-white pt-20">
           <MovingMesh />
           <div className="relative z-20 text-center px-6">
             <motion.div
@@ -26,18 +26,18 @@ const TechVenture = () => {
               transition={{ duration: 0.8 }}
             >
               <span className="text-white font-black uppercase tracking-[0.5em] text-[10px] mb-8 block opacity-60">Portfolio / Consumer Tech</span>
-              <h1 className="text-6xl md:text-9xl font-heading font-black text-white uppercase italic leading-none">Pramukh <br /><span className="text-gold">Techventures.</span></h1>
+              <h1 className="text-4xl sm:text-5xl md:text-9xl font-heading font-black text-white uppercase italic leading-none">Pramukh <br /><span className="text-gold">Techventures.</span></h1>
             </motion.div>
           </div>
         </section>
 
         {/* About Section */}
-        <section className="py-32 px-6 bg-white border-y border-navy/5">
-           <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-24 items-center">
+        <section className="py-16 md:py-32 px-6 bg-white border-y border-navy/5">
+           <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-24 items-center">
               <div className="flex-1">
                  <span className="text-navy font-black uppercase tracking-[0.4em] text-[10px] mb-6 block opacity-30">Authenticity & Quality</span>
-                 <h2 className="text-4xl md:text-6xl font-heading font-black text-navy uppercase italic mb-10 leading-tight">Who We <span className="text-gold-dark">Are.</span></h2>
-                 <div className="space-y-8 text-xl text-navy/40 leading-relaxed font-bold">
+                 <h2 className="text-3xl md:text-6xl font-heading font-black text-navy uppercase italic mb-8 md:mb-10 leading-tight">Who We <span className="text-gold-dark">Are.</span></h2>
+                 <div className="space-y-6 md:space-y-8 text-lg md:text-xl text-navy/40 leading-relaxed font-bold">
                     <p>
                       Pramukh Techventures Pvt Ltd is an electronics retail business under the Dhyanora Group. We offer a wide range of consumer electronics, home appliances, and technology products to families and businesses across Gujarat.
                     </p>
@@ -87,25 +87,25 @@ const TechVenture = () => {
         </section>
 
         {/* Promises Section */}
-        <section className="py-40 px-6 bg-white border-y border-navy/5">
+        <section className="py-20 md:py-40 px-6 bg-white border-y border-navy/5">
            <div className="max-w-7xl mx-auto">
-              <div className="text-center mb-24">
-                 <h2 className="text-4xl md:text-[5rem] font-heading font-black text-navy uppercase italic leading-none">Our <span className="text-gold-dark">Promise.</span></h2>
+              <div className="text-center mb-16 md:mb-24">
+                 <h2 className="text-3xl md:text-[5rem] font-heading font-black text-navy uppercase italic leading-none">Our <span className="text-gold-dark">Promise.</span></h2>
                  <p className="text-navy/30 font-black uppercase tracking-widest text-[10px] mt-6 italic">Unwavering Commitment to Customer Satisfaction</p>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-16">
                  {[
                    { title: "100% Genuine", icon: <ShieldCheck />, desc: "Sourced from authorized distributors with valid manufacturer warranty." },
                    { title: "Honest Pricing", icon: <Tag />, desc: "No hidden charges. What you see is what you pay. Every single time." },
                    { title: "After-Sales", icon: <Headset />, desc: "Proper guidance and support for every purchase. We're here for you." },
                    { title: "Expert Guidance", icon: <Star />, desc: "Our team helps you choose the right product for your actual needs." }
                  ].map((p, i) => (
-                   <div key={i} className="flex flex-col items-center text-center gap-8">
-                      <div className="w-20 h-20 bg-navy rounded-full flex items-center justify-center text-gold shadow-2xl group-hover:scale-110 transition-transform">
-                         {p.icon}
+                   <div key={i} className="flex flex-col items-center text-center gap-6 md:gap-8">
+                      <div className="w-16 h-16 md:w-20 md:h-20 bg-navy rounded-full flex items-center justify-center text-gold shadow-2xl group-hover:scale-110 transition-transform">
+                         {React.cloneElement(p.icon, { size: window.innerWidth < 768 ? 24 : 32 })}
                       </div>
-                      <h4 className="text-2xl font-heading font-black text-navy uppercase italic tracking-wider">{p.title}</h4>
-                      <p className="text-base text-navy/40 leading-relaxed font-bold max-w-xs">{p.desc}</p>
+                      <h4 className="text-xl md:text-2xl font-heading font-black text-navy uppercase italic tracking-wider">{p.title}</h4>
+                      <p className="text-sm md:text-base text-navy/40 leading-relaxed font-bold max-w-xs">{p.desc}</p>
                    </div>
                  ))}
               </div>
@@ -113,16 +113,16 @@ const TechVenture = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-40 px-6 bg-white text-center">
-           <div className="max-w-5xl mx-auto bg-navy p-16 md:p-32 rounded-[4rem] shadow-2xl relative overflow-hidden">
+        <section className="py-24 px-6 bg-white text-center">
+           <div className="max-w-4xl mx-auto bg-navy p-12 md:p-20 rounded-[3rem] shadow-2xl relative overflow-hidden">
               <div className="absolute top-0 right-0 w-full h-full bg-gold/5 opacity-40 pointer-events-none" />
-              <h2 className="text-5xl md:text-[6rem] font-heading font-black text-white uppercase mb-12 italic leading-[0.9]">Visit Our <br /><span className="text-gold">Showroom.</span></h2>
-              <p className="text-2xl text-white/40 mb-16 max-w-2xl mx-auto font-bold leading-relaxed">Experience our range in person. Our expert team is ready to guide you to the perfect technology for your needs.</p>
-              <div className="flex flex-col sm:flex-row justify-center gap-8 relative z-10">
-                 <button className="bg-gold text-navy px-12 py-6 rounded-full font-black uppercase tracking-widest text-sm flex items-center justify-center gap-4 hover:scale-105 transition-all shadow-2xl">
+              <h2 className="text-3xl md:text-5xl font-heading font-black text-white uppercase mb-6 italic leading-[0.9]">Visit Our <br /><span className="text-gold">Showroom.</span></h2>
+              <p className="text-lg text-white/40 mb-10 max-w-xl mx-auto font-bold leading-relaxed">Experience our range in person. Our expert team is ready to guide you to the perfect technology for your needs.</p>
+              <div className="flex flex-col sm:flex-row justify-center gap-6 relative z-10">
+                 <button className="bg-gold text-navy px-10 py-5 rounded-full font-black uppercase tracking-widest text-base flex items-center justify-center gap-4 hover:scale-105 transition-all shadow-2xl">
                     Get Directions <ArrowRight size={22} />
                  </button>
-                 <button className="px-12 py-6 border-2 border-white/20 rounded-full text-white font-black uppercase tracking-widest text-sm hover:bg-white/10 transition-all">
+                 <button className="px-10 py-5 border-2 border-white/20 rounded-full text-white font-black uppercase tracking-widest text-base hover:bg-white/10 transition-all">
                     Call Our Team
                  </button>
               </div>

@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
+import dhyanoraLogo from '../companies-logo/Dhyanora logo.png';
+
 function cn(...inputs) {
   return twMerge(clsx(inputs));
 }
@@ -63,17 +65,16 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 relative">
         
         {/* Logo Left */}
-        <Link to="/" className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-navy rounded-lg flex items-center justify-center font-black text-gold text-xl shadow-lg">D</div>
-          <div className="hidden sm:block">
-            <span className={cn(
-              "block font-black text-lg leading-none uppercase transition-colors",
-              (!scrolled && isHomePage) ? "text-white" : "text-navy"
-            )}>DHYANORA</span>
-            <span className={cn(
-              "block text-[8px] font-bold uppercase mt-1 transition-colors",
-              (!scrolled && isHomePage) ? "text-white/40" : "text-navy/40"
-            )}>Group of Companies</span>
+        <Link to="/" className="flex items-center">
+          <div className={cn(
+            "p-1.5 md:p-2 rounded-xl transition-all duration-300",
+            (!scrolled && isHomePage) ? "bg-white shadow-lg" : "bg-transparent"
+          )}>
+            <img 
+              src={dhyanoraLogo} 
+              alt="Dhyanora Group" 
+              className="h-8 md:h-10 w-auto" 
+            />
           </div>
         </Link>
 

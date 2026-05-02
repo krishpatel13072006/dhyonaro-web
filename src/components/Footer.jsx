@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram, ArrowUp } from 'lucide-react';
 
+import dhyanoraLogo from '../companies-logo/Dhyanora logo.png';
+
 const Footer = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -12,9 +14,8 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
         {/* Brand Column */}
         <div className="flex flex-col gap-6">
-          <Link to="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-navy rounded-lg flex items-center justify-center font-black text-gold text-xl shadow-lg">D</div>
-            <span className="font-heading text-xl font-black tracking-tight text-navy uppercase">DHYANORA</span>
+          <Link to="/" className="flex items-center">
+            <img src={dhyanoraLogo} alt="Dhyanora Group" className="h-12 w-auto" />
           </Link>
           <p className="text-navy/60 text-sm leading-relaxed font-bold">
             Dhyanora Group is a diversified business group based in Ahmedabad, Gujarat — bringing together companies across metal trading, electronics, infrastructure, and construction under one focused vision.
