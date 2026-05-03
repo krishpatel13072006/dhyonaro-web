@@ -27,10 +27,10 @@ const navLinks = [
     path: '/our-companies',
     subLinks: [
       { name: 'View All Companies', path: '/our-companies' },
-      { name: 'Pramukh Metal', path: '/gateway' },
+      { name: 'Pramukh Metal', path: '/companies/import-export' },
       { name: 'Pramukh Tech', path: '/companies/tech-venture' },
       { name: 'Shreeji Infra', path: '/companies/shreeji-infra' },
-      { name: 'Bricks Trading', path: '/gateway' },
+      { name: 'Bricks Trading', path: '/companies/brics' },
     ]
   },
   { name: 'Contact', path: '/contact' },

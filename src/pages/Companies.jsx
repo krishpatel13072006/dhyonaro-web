@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import SEO from '../components/SEO';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import FooterCTA from '../components/FooterCTA';
 import BrandScroll from '../components/BrandScroll';
 import { ArrowRight } from 'lucide-react';
+import { CompanyNameTicker, ParallaxHorizontal } from '../components/ParallaxShowcase';
 
 // Highly Reliable Industrial Video Paths
 import video1 from '../videos/1.webm';
@@ -17,6 +18,7 @@ const iconicCompanies = [
   {
     id: "01",
     name: "Pramukh Import Export",
+    path: "/companies/import-export",
     sector: "Metal Scrap & International Trading",
     description: "Specializing in global procurement and regional distribution of high-grade ferrous and non-ferrous scrap for industrial foundries.",
     mainImg: "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&q=80&w=1600",
@@ -30,6 +32,7 @@ const iconicCompanies = [
   {
     id: "02",
     name: "Shreeji Infra",
+    path: "/companies/shreeji-infra",
     sector: "Industrial Infrastructure & Logistics",
     description: "Developing high-impact industrial ecosystems and workspace solutions, including Mahantam Industrial Park.",
     mainImg: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1600",
@@ -43,6 +46,7 @@ const iconicCompanies = [
   {
     id: "03",
     name: "Pramukh Techventures",
+    path: "/companies/tech-venture",
     sector: "Consumer Electronics & Technology",
     description: "Operating a robust retail and distribution network for smart technology and high-quality home appliances.",
     mainImg: "https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&fit=crop&q=80&w=1600",
@@ -56,6 +60,7 @@ const iconicCompanies = [
   {
     id: "04",
     name: "Bricks Trading Division",
+    path: "/companies/brics",
     sector: "Construction Materials & Supply",
     description: "Delivering the literal building blocks of the future with high-grade bricks and raw materials for large-scale infrastructure and residential development.",
     mainImg: "https://images.unsplash.com/photo-1590487988256-9ed24133863e?auto=format&fit=crop&q=80&w=1600",
@@ -67,6 +72,26 @@ const iconicCompanies = [
     ]
   }
 ];
+
+const ScrollRevealText = ({ children, size = "text-2xl md:text-5xl" }) => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "center center"]
+  });
+
+  const color = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["rgba(26, 35, 66, 0.1)", "rgba(26, 35, 66, 1)"]
+  );
+
+  return (
+    <motion.div ref={ref} style={{ color }} className={`${size} font-heading font-black uppercase italic leading-[1.2] transition-colors duration-500`}>
+      {children}
+    </motion.div>
+  );
+};
 
 const Companies = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
@@ -89,12 +114,12 @@ const Companies = () => {
                muted
                playsInline
                onEnded={handleVideoEnd}
-               className="absolute inset-0 w-full h-full object-cover"
+               className="absolute inset-0 w-full h-full object-cover opacity-60"
              >
                <source src={videos[currentVideoIndex]} type="video/webm" />
              </video>
            </div>
-           <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px] z-10" />
+           <div className="absolute inset-0 bg-black/40 z-10" />
            
            <div className="relative z-20 text-center px-6">
               <motion.h1 
@@ -108,101 +133,74 @@ const Companies = () => {
            </div>
         </section>
 
+        <CompanyNameTicker names={["Dhyanora Group", "Industrial Excellence", "Strategic Portfolio", "Global Vision"]} />
+
         {/* CENTERED INTRO TITLE */}
-        <section className="py-24 md:py-48 px-6 bg-white">
-           <div className="max-w-7xl mx-auto text-center">
-              <motion.span 
-                 initial={{ opacity: 0, y: 10 }}
-                 whileInView={{ opacity: 1, y: 0 }}
-                 className="text-navy/30 font-black uppercase tracking-[0.6em] text-[10px] mb-6 block"
-              >
-                 The Group Ecosystem
-              </motion.span>
-              <motion.h2 
-                 initial={{ opacity: 0, y: 20 }}
-                 whileInView={{ opacity: 1, y: 0 }}
-                 className="text-4xl md:text-8xl font-heading font-black text-navy uppercase italic leading-none"
-              >
-                 Our Companies.
-              </motion.h2>
-              <div className="w-20 h-1 bg-black mx-auto mt-12" />
+        <section className="py-24 md:py-48 px-6 bg-white border-b border-navy/5">
+           <div className="max-w-4xl mx-auto text-center space-y-12">
+              <ScrollRevealText>We are a diversified collective of focused businesses.</ScrollRevealText>
+              <ScrollRevealText>Every entity within the Dhyanora Group operates with independence but shares a unified commitment to quality and integrity.</ScrollRevealText>
            </div>
         </section>
 
         {/* INDIVIDUAL COMPANY PROFILES */}
-        <section className="pb-40 space-y-48 md:space-y-72">
+        <section className="py-24 md:py-48 space-y-48 md:space-y-72 bg-off-white">
            {iconicCompanies.map((company, idx) => (
-              <div key={idx} className="relative w-full px-6 md:px-12">
-                 <div className="max-w-7xl mx-auto space-y-16 md:space-y-24">
+              <div key={idx} className="relative w-full px-6">
+                 <div className="max-w-7xl mx-auto space-y-20">
                     
-                    {/* Main Company Entry - Hover Reveal */}
-                    <motion.div 
-                      initial={{ opacity: 0, y: 50 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      className="relative h-[60vh] md:h-[80vh] overflow-hidden group cursor-pointer bg-navy rounded-none"
-                    >
-                       <img 
-                         src={company.mainImg} 
-                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-[2.5s] group-hover:scale-105" 
-                         alt={company.name} 
-                         loading="lazy"
-                       />
-                       
-                       <div className="absolute inset-0 bg-black/80 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-700 flex items-center p-8 md:p-24">
-                          <div className="max-w-3xl transform translate-y-8 group-hover:translate-y-0 transition-transform duration-700">
-                             <div className="flex items-center gap-8 mb-8">
-                                <span className="text-white font-black text-5xl md:text-8xl italic leading-none">{company.id}</span>
-                                <div className="h-[1px] w-24 bg-white/40" />
-                                <span className="text-[12px] font-black uppercase tracking-[0.4em] text-white/50">{company.sector}</span>
+                    {/* Linkable Card */}
+                    <Link to={company.path}>
+                       <motion.div 
+                         initial={{ opacity: 0, y: 50 }}
+                         whileInView={{ opacity: 1, y: 0 }}
+                         viewport={{ once: true }}
+                         className="relative h-[50vh] md:h-[70vh] overflow-hidden group cursor-pointer bg-navy rounded-none shadow-2xl"
+                       >
+                          <img 
+                            src={company.mainImg} 
+                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105 opacity-80" 
+                            alt={company.name} 
+                            loading="lazy"
+                          />
+                          
+                          <div className="absolute inset-0 bg-black/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-700 flex items-center p-8 md:p-24">
+                             <div className="max-w-3xl transform translate-y-8 group-hover:translate-y-0 transition-transform duration-700">
+                                <div className="flex items-center gap-8 mb-8">
+                                   <span className="text-white font-black text-5xl md:text-7xl italic leading-none">{company.id}</span>
+                                   <div className="h-[1px] w-16 bg-white/30" />
+                                   <span className="text-[10px] font-black uppercase tracking-[0.4em] text-white/50">{company.sector}</span>
+                                </div>
+                                <h3 className="text-4xl md:text-7xl font-heading font-black text-white uppercase italic mb-8 leading-tight">
+                                   {company.name}
+                                </h3>
+                                <p className="text-white/70 text-sm md:text-lg font-bold leading-relaxed mb-10 max-w-xl">
+                                   {company.description}
+                                </p>
+                               <div className="flex items-center gap-4 text-gold font-black uppercase tracking-widest text-xs">
+                                  Explore Division <ArrowRight size={18} />
+                               </div>
                              </div>
-                             <h3 className="text-4xl md:text-7xl font-heading font-black text-white uppercase italic mb-8 leading-tight">
-                                {company.name}
-                             </h3>
-                             <p className="text-white/70 text-lg md:text-2xl font-bold leading-relaxed">
-                                {company.description}
-                             </p>
                           </div>
-                       </div>
-                       
-                       <div className="absolute bottom-10 right-10 text-white font-black uppercase text-[10px] tracking-[0.4em] opacity-30 group-hover:opacity-0 transition-opacity">
-                          Reveal Details [Hover]
-                       </div>
-                    </motion.div>
+                          
+                          <div className="absolute bottom-8 left-8">
+                             <h4 className="text-white font-black uppercase italic text-3xl md:text-5xl drop-shadow-2xl">{company.name}</h4>
+                          </div>
+                       </motion.div>
+                    </Link>
 
-                    {/* Detailed Service Gallery - With Numbering */}
-                    <div className="space-y-12">
-                       <div className="flex items-center gap-6">
-                          <div className="h-[1px] w-16 bg-navy/10" />
-                          <span className="text-[10px] font-black uppercase tracking-[0.4em] text-navy/30">Sector Capabilities & Operations</span>
-                       </div>
-                       
-                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-10">
-                          {company.gallery.map((img, i) => (
-                             <motion.div 
-                               key={i}
-                               initial={{ opacity: 0, y: 30 }}
-                               whileInView={{ opacity: 1, y: 0 }}
-                               viewport={{ once: true }}
-                               transition={{ delay: i * 0.1 }}
-                               className="relative group/item"
-                             >
-                                <div className="mb-4 flex items-center gap-3">
-                                   <span className="text-navy/40 font-black text-xs">0{i+1}</span>
-                                   <div className="h-[1px] flex-grow bg-navy/5" />
-                                </div>
-                                <div className="aspect-square bg-gray-50 overflow-hidden shadow-2xl rounded-none relative">
-                                   <motion.img 
-                                     whileHover={{ scale: 1.1 }}
-                                     src={img} 
-                                     className="w-full h-full object-cover" 
-                                     alt={`${company.name} operational visual`} 
-                                     loading="lazy"
-                                   />
-                                </div>
-                             </motion.div>
-                          ))}
-                       </div>
+                    {/* Capability Preview */}
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-1">
+                       {company.gallery.map((img, i) => (
+                          <div key={i} className="aspect-square bg-white border border-navy/5 overflow-hidden group relative">
+                             <img 
+                               src={img} 
+                               className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000" 
+                               alt="Capability" 
+                             />
+                             <div className="absolute top-4 left-4 text-[10px] font-black text-navy opacity-0 group-hover:opacity-100 transition-opacity">0{i+1}</div>
+                          </div>
+                       ))}
                     </div>
 
                  </div>

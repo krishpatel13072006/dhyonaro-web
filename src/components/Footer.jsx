@@ -45,10 +45,10 @@ const Footer = () => {
         <div>
           <h4 className="text-navy font-black uppercase tracking-widest text-xs mb-8">Our Companies</h4>
           <ul className="flex flex-col gap-4 text-xs font-black uppercase tracking-widest text-navy/40">
-            <li><Link to="/gateway" className="hover:text-gold-dark transition-colors">Pramukh Metal</Link></li>
+            <li><Link to="/companies/import-export" className="hover:text-gold-dark transition-colors">Pramukh Metal</Link></li>
             <li><Link to="/companies/tech-venture" className="hover:text-gold-dark transition-colors">Pramukh Techventures</Link></li>
             <li><Link to="/companies/shreeji-infra" className="hover:text-gold-dark transition-colors">Shreeji Infra</Link></li>
-            <li><Link to="/gateway" className="hover:text-gold-dark transition-colors">Bricks Trading</Link></li>
+            <li><Link to="/companies/brics" className="hover:text-gold-dark transition-colors">Bricks Trading</Link></li>
           </ul>
         </div>
 
