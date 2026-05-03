@@ -147,7 +147,7 @@ const Companies = () => {
         <section className="py-24 md:py-48 space-y-48 md:space-y-72 bg-off-white">
            {iconicCompanies.map((company, idx) => (
               <div key={idx} className="relative w-full px-6">
-                 <div className="max-w-7xl mx-auto space-y-20">
+                 <div className="max-w-7xl mx-auto space-y-40">
                     
                     {/* Linkable Card */}
                     <Link to={company.path}>
@@ -155,7 +155,7 @@ const Companies = () => {
                          initial={{ opacity: 0, y: 50 }}
                          whileInView={{ opacity: 1, y: 0 }}
                          viewport={{ once: true }}
-                         className="relative h-[50vh] md:h-[70vh] overflow-hidden group cursor-pointer bg-navy rounded-none shadow-2xl"
+                         className="relative h-[50vh] md:h-[70vh] overflow-hidden group cursor-pointer bg-navy rounded-none"
                        >
                           <img 
                             src={company.mainImg} 
@@ -165,40 +165,39 @@ const Companies = () => {
                           />
                           
                           <div className="absolute inset-0 bg-black/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-700 flex items-center p-8 md:p-24">
-                             <div className="max-w-3xl transform translate-y-8 group-hover:translate-y-0 transition-transform duration-700">
+                             <div className="max-w-2xl transform translate-y-8 group-hover:translate-y-0 transition-transform duration-700">
                                 <div className="flex items-center gap-8 mb-8">
                                    <span className="text-white font-black text-5xl md:text-7xl italic leading-none">{company.id}</span>
                                    <div className="h-[1px] w-16 bg-white/30" />
                                    <span className="text-[10px] font-black uppercase tracking-[0.4em] text-white/50">{company.sector}</span>
                                 </div>
-                                <h3 className="text-4xl md:text-7xl font-heading font-black text-white uppercase italic mb-8 leading-tight">
-                                   {company.name}
-                                </h3>
-                                <p className="text-white/70 text-sm md:text-lg font-bold leading-relaxed mb-10 max-w-xl">
+                                <p className="text-white/70 text-sm md:text-lg font-bold leading-relaxed max-w-xl">
                                    {company.description}
                                 </p>
-                               <div className="flex items-center gap-4 text-gold font-black uppercase tracking-widest text-xs">
-                                  Explore Division <ArrowRight size={18} />
-                               </div>
                              </div>
                           </div>
                           
-                          <div className="absolute bottom-8 left-8">
-                             <h4 className="text-white font-black uppercase italic text-3xl md:text-5xl drop-shadow-2xl">{company.name}</h4>
+                          <div className="absolute bottom-8 left-8 transition-opacity duration-500 group-hover:opacity-0">
+                             <h4 className="text-white font-black uppercase italic text-3xl md:text-5xl">{company.name}</h4>
                           </div>
                        </motion.div>
                     </Link>
 
                     {/* Capability Preview */}
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-1">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-10">
                        {company.gallery.map((img, i) => (
-                          <div key={i} className="aspect-square bg-white border border-navy/5 overflow-hidden group relative">
-                             <img 
-                               src={img} 
-                               className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000" 
-                               alt="Capability" 
-                             />
-                             <div className="absolute top-4 left-4 text-[10px] font-black text-navy opacity-0 group-hover:opacity-100 transition-opacity">0{i+1}</div>
+                          <div key={i} className="flex flex-col gap-2">
+                             <div className="flex items-center gap-3">
+                                <span className="text-[10px] font-black text-navy/40">0{i+1}</span>
+                                <div className="h-[1px] flex-grow bg-navy/5" />
+                             </div>
+                             <div className="aspect-square bg-white border border-navy/5 overflow-hidden group relative">
+                                <img 
+                                  src={img} 
+                                  className="w-full h-full object-cover transition-all duration-1000" 
+                                  alt="Capability" 
+                                />
+                             </div>
                           </div>
                        ))}
                     </div>
