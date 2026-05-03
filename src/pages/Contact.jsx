@@ -2,6 +2,7 @@ import React from 'react';
 import SEO from '../components/SEO';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, MessageSquare } from 'lucide-react';
+import FooterCTA from '../components/FooterCTA';
 
 const Contact = () => {
   return (
@@ -124,6 +125,7 @@ const Contact = () => {
               </div>
            </div>
         </section>
+        <FooterCTA />
 
       </main>
     </>

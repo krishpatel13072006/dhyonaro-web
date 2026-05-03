@@ -17,9 +17,9 @@ const navLinks = [
     name: 'About',
     path: '/about',
     subLinks: [
-      { name: 'Our Story', path: '/about' },
-      { name: 'Vision & Mission', path: '/vision-mission' },
-      { name: 'Our Team', path: '/team' },
+      { name: 'Our Story', path: '/about#story' },
+      { name: 'Vision & Mission', path: '/about#vision' },
+      { name: 'Our Team', path: '/about#team' },
     ]
   },
   {
@@ -78,8 +78,8 @@ const Navbar = () => {
           </div>
         </Link>
 
-        {/* Desktop Links - CENTERED */}
-        <div className="hidden lg:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
+        {/* Desktop Links - RIGHT */}
+        <div className="hidden lg:flex items-center gap-8 ml-auto mr-8">
           {navLinks.map((link) => (
             <div 
               key={link.name} 
@@ -135,13 +135,12 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Right Section: CTA Button */}
-        <div className="flex items-center gap-4">
-          <Link to="/hub" className={cn(
-            "hidden md:flex group items-center gap-2 px-6 py-2.5 rounded-full font-black text-[10px] uppercase hover:scale-[1.05] transition-all duration-300 shadow-xl",
-            (!scrolled && isHomePage) ? "bg-white text-navy" : "bg-navy text-gold"
+        <div className="flex items-center gap-6">
+          <Link to="/contact" className={cn(
+            "hidden lg:block px-8 py-3 font-bold text-xs uppercase transition-all duration-300",
+            (!scrolled && isHomePage) ? "bg-white text-black hover:bg-zinc-200" : "bg-black text-white hover:bg-zinc-800"
           )}>
-            THE HUB
+            Contact us
           </Link>
 
           {/* Mobile Toggle */}
@@ -190,9 +189,7 @@ const Navbar = () => {
                   )}
                 </div>
               ))}
-              <Link to="/hub" className="btn-primary py-5 text-center block font-black uppercase mt-4 shadow-xl">
-                THE HUB
-              </Link>
+
             </div>
           </motion.div>
         )}

@@ -1,5 +1,9 @@
 import React from 'react';
 import Hero from '../sections/Hero';
+import ServicesSection from '../sections/ServicesSection';
+import InfiniteScroll from '../components/InfiniteScroll';
+import FooterCTA from '../components/FooterCTA';
+import BrandScroll from '../components/BrandScroll';
 import SEO from '../components/SEO';
 import { motion } from 'framer-motion';
 import { ExternalLink, Building2, ShoppingCart, Globe, Factory, ArrowRight, ArrowUpRight, Zap } from 'lucide-react';
@@ -147,6 +151,11 @@ const Home = () => {
               </div>
            </div>
         </section>
+        
+        <InfiniteScroll />
+
+        <ServicesSection />
+
         <section className="py-40 bg-white overflow-hidden">
           <div className="max-w-7xl mx-auto px-6">
             <div className="mb-16 md:mb-24">
@@ -266,22 +275,9 @@ const Home = () => {
 
 
 
-        {/* Footer CTA */}
-        <section className="py-24 px-6 text-center bg-white">
-           <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            className="max-w-4xl mx-auto bg-off-white p-12 md:p-20 rounded-[3rem] border border-navy/5 shadow-2xl relative overflow-hidden"
-           >
-              <h2 className="text-3xl md:text-5xl font-heading font-black text-navy uppercase mb-6 italic leading-none">Ready to <br/><span className="text-gold-dark">Work With Us?</span></h2>
-              <p className="text-lg text-navy/40 mb-10 max-w-xl mx-auto font-bold">
-                 Whether you are a business partner, investor, or client — we would love to hear from you.
-              </p>
-              <Link to="/contact" className="btn-primary px-10 py-5 text-base font-black uppercase shadow-2xl">
-                 Get In Touch
-              </Link>
-           </motion.div>
-        </section>
+        <BrandScroll />
+        <FooterCTA />
+
       </main>
     </>
   );

@@ -21,9 +21,7 @@ import Brics from './pages/Brics';
 import Hub from './pages/Hub';
 import Vision360 from './pages/Vision360';
 import Exhibition from './pages/Exhibition';
-import VisionMission from './pages/VisionMission';
 import Companies from './pages/Companies';
-import Team from './pages/Team';
 import CompanyGateway from './pages/CompanyGateway';
 
 // Pramukh Subcompany Pages
@@ -103,9 +101,7 @@ const AppContent = () => {
           <Route path="/companies/tech-venture" element={<PageTransition><TechVenture /></PageTransition>} />
           <Route path="/companies/brics" element={<PageTransition><Brics /></PageTransition>} />
 
-          <Route path="/vision-mission" element={<PageTransition><VisionMission /></PageTransition>} />
           <Route path="/our-companies" element={<PageTransition><Companies /></PageTransition>} />
-          <Route path="/team" element={<PageTransition><Team /></PageTransition>} />
 
           {/* Pages with custom transitions or no layout */}
           <Route path="/hub" element={<Hub />} />

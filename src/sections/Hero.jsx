@@ -1,61 +1,41 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import MovingMesh from '../components/MovingMesh';
+
+// Import videos
+import video1 from '../videos/1.webm';
+import video2 from '../videos/2.webm';
+import video3 from '../videos/3.webm';
+
+const videos = [video1, video2, video3];
 
 const Hero = () => {
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+
+  const handleVideoEnd = () => {
+    setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videos.length);
+  };
+
   return (
     <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden bg-navy pt-20">
-      {/* Immersive Space Indigo Background with Mixed Gradient */}
-      <MovingMesh />
-
-      {/* Mixed Background: Gradient fade to white at the very bottom */}
-      <div className="absolute inset-0 bg-navy/20 backdrop-blur-[1px] z-10" />
-      <div className="absolute bottom-0 left-0 w-full h-48 bg-gradient-to-t from-white to-transparent z-10" />
-
-      {/* Orbital Animations - Moving Objects in Circles */}
-      <div className="absolute inset-0 z-15 pointer-events-none">
-        {/* Orbit 1 */}
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-white/5 rounded-full"
+      {/* Video Background */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden">
+        <video
+          key={videos[currentVideoIndex]}
+          autoPlay
+          muted
+          playsInline
+          onEnded={handleVideoEnd}
+          className="absolute inset-0 w-full h-full object-cover"
         >
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2 h-2 bg-gold rounded-full shadow-[0_0_15px_rgba(250,215,126,0.8)]" />
-        </motion.div>
-
-        {/* Orbit 2 */}
-        <motion.div
-          animate={{ rotate: -360 }}
-          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[850px] border border-white/5 rounded-full"
-        >
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_10px_rgba(255,255,255,0.5)] opacity-40" />
-        </motion.div>
-
-        {/* Drifting Particles */}
-        {[...Array(5)].map((_, i) => (
-          <motion.div
-            key={i}
-            animate={{
-              y: [0, -100, 0],
-              x: [0, i % 2 === 0 ? 50 : -50, 0],
-              opacity: [0.1, 0.4, 0.1]
-            }}
-            transition={{
-              duration: 10 + i * 2,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-            className="absolute w-1 h-1 bg-gold/40 rounded-full"
-            style={{
-              top: `${20 + i * 15}%`,
-              left: `${10 + i * 20}%`
-            }}
-          />
-        ))}
+          <source src={videos[currentVideoIndex]} type="video/webm" />
+        </video>
       </div>
+
+      {/* Overlays for readability */}
+      <div className="absolute inset-0 bg-navy/40 backdrop-blur-[1px] z-10" />
+      <div className="absolute bottom-0 left-0 w-full h-48 bg-gradient-to-t from-white to-transparent z-10" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-20 w-full -mt-6 md:-mt-16">
         <div className="flex flex-col items-center text-center">
@@ -72,15 +52,7 @@ const Hero = () => {
             </motion.h1>
           </div>
 
-          {/* Subtext */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-base sm:text-lg md:text-2xl text-white/60 max-w-2xl leading-relaxed mb-12 md:mb-24 font-bold italic"
-          >
-            A narrative of focus, discipline, and building the industrial future of Gujarat. One legacy at a time.
-          </motion.p>
+
 
           {/* CTA Group */}
           <motion.div
@@ -102,14 +74,14 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Floating Geometric Decoration - Subtle */}
+      {/* Floating Geometric Decoration - Subtle overlay */}
       <motion.div
         animate={{
           rotate: [0, 10, 0],
           y: [0, -20, 0]
         }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/4 right-[10%] w-32 h-32 border-2 border-white/5 rounded-[2rem] hidden lg:block opacity-30"
+        className="absolute top-1/4 right-[10%] w-32 h-32 border-2 border-white/5 rounded-[2rem] hidden lg:block opacity-30 z-20"
       />
     </section>
   );
