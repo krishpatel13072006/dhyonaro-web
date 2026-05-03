@@ -14,10 +14,8 @@ import SocialSidebar from './components/SocialSidebar';
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
-import ImportExport from './pages/CompanyImportExport.jsx';
 import ShreejiInfra from './pages/CompanyShreeji.jsx';
 import TechVenture from './pages/CompanyTech.jsx';
-import Brics from './pages/CompanyBrics.jsx';
 import Hub from './pages/Hub';
 import Vision360 from './pages/Vision360';
 import Exhibition from './pages/Exhibition';
@@ -74,12 +72,10 @@ const AppContent = () => {
           <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
 
           {/* Company Routes */}
-          <Route path="/companies/import-export" element={<PageTransition><ImportExport /></PageTransition>} />
           <Route path="/companies/shreeji-infra" element={<PageTransition><ShreejiInfra /></PageTransition>} />
           <Route path="/companies/tech-venture" element={<PageTransition><TechVenture /></PageTransition>} />
-          <Route path="/companies/brics" element={<PageTransition><Brics /></PageTransition>} />
 
-          <Route path="/our-companies" element={<PageTransition><Companies /></PageTransition>} />
+          <Route path="/companies" element={<PageTransition><Companies /></PageTransition>} />
 
           {/* Pages with custom transitions or no layout */}
           <Route path="/hub" element={<Hub />} />

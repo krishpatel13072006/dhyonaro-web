@@ -4,12 +4,7 @@ import { motion } from 'framer-motion';
 const companies = [
   "Pramukh Import Export",
   "Pramukh Techventures",
-  "Shreeji Infra",
-  "Bricks Trading Division",
-  "Mahantam Industrial Park",
-  "Dhyanora Group",
-  "Pramukh Metals",
-  "Pramukh Logistics"
+  "Shreeji Infra"
 ];
 
 const InfiniteScroll = () => {

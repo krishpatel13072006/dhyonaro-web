@@ -207,9 +207,6 @@ const Companies = () => {
            ))}
         </section>
 
-        <BrandScroll />
-        <FooterCTA />
-
       </main>
     </>
   );

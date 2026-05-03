@@ -3,36 +3,16 @@ import { motion } from 'framer-motion';
 
 const segments = [
   {
-    title: "Mobility",
-    img: "https://images.unsplash.com/photo-1558389186-438424b00a32?auto=format&fit=crop&q=80&w=800",
-  },
-  {
-    title: "Health and wellness",
-    img: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800",
+    title: "Industry",
+    img: "https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&q=80&w=800",
   },
   {
     title: "Realty",
     img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800",
   },
   {
-    title: "Technology",
-    img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800",
-  },
-  {
     title: "Lifestyle",
     img: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=800",
-  },
-  {
-    title: "Food & Beverages",
-    img: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=80&w=800",
-  },
-  {
-    title: "Business Services",
-    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
-  },
-  {
-    title: "Education",
-    img: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=800",
   }
 ];
 
@@ -54,7 +34,7 @@ const ServicesSection = () => {
         </div>
 
         {/* Grid Layout from Image */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-12">
           {segments.map((segment, i) => (
             <motion.div
               key={i}

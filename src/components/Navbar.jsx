@@ -23,17 +23,14 @@ const navLinks = [
     ]
   },
   {
-    name: 'Companies',
-    path: '/our-companies',
+    name: 'Our Companies',
+    path: '/companies',
     subLinks: [
-      { name: 'View All Companies', path: '/our-companies' },
-      { name: 'Pramukh Metal', path: '/companies/import-export' },
-      { name: 'Pramukh Tech', path: '/companies/tech-venture' },
+      { name: 'View All Companies', path: '/companies' },
       { name: 'Shreeji Infra', path: '/companies/shreeji-infra' },
-      { name: 'Bricks Trading', path: '/companies/brics' },
+      { name: 'Pramukh Tech', path: '/companies/tech-venture' },
     ]
-  },
-  { name: 'Contact', path: '/contact' },
+  }
 ];
 
 const Navbar = () => {
@@ -59,13 +56,13 @@ const Navbar = () => {
     <nav className={cn(
       "fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b",
       scrolled 
-        ? "py-3 bg-white/95 backdrop-blur-md shadow-md border-navy/5" 
+        ? "py-3 bg-white/95 backdrop-blur-md shadow-sm border-navy/5" 
         : (isHomePage ? "py-6 bg-transparent border-transparent" : "py-6 bg-white border-transparent")
     )}>
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 relative">
         
         {/* Logo Left */}
-        <Link to="/" className="flex items-center">
+        <Link to="/" className="flex items-center shrink-0">
           <div className={cn(
             "p-1.5 md:p-2 rounded-xl transition-all duration-300",
             (!scrolled && isHomePage) ? "bg-white shadow-lg" : "bg-transparent"
@@ -78,8 +75,8 @@ const Navbar = () => {
           </div>
         </Link>
 
-        {/* Desktop Links - RIGHT */}
-        <div className="hidden lg:flex items-center gap-8 ml-auto mr-8">
+        {/* Desktop Links */}
+        <div className="hidden lg:flex flex-1 justify-end items-center gap-12 mr-12">
           {navLinks.map((link) => (
             <div 
               key={link.name} 
@@ -104,19 +101,20 @@ const Navbar = () => {
                   )} />
                   
                   {/* Dropdown Menu */}
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-                    <div className="bg-white border border-navy/5 rounded-xl shadow-2xl py-3 w-56 overflow-hidden">
+                  <div className="absolute top-[120%] left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                    <div className="bg-white border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.05)] rounded-none py-2 w-48 flex flex-col">
                       {link.subLinks.map((sub) => (
                         <Link
                           key={sub.name}
                           to={sub.path}
-                          className="block px-6 py-2.5 text-[10px] font-black uppercase text-navy/60 hover:text-navy hover:bg-off-white transition-all"
+                          className="px-5 py-2.5 text-[11px] font-bold tracking-widest uppercase text-gray-500 hover:text-black hover:bg-gray-50 transition-colors"
                         >
                           {sub.name}
                         </Link>
                       ))}
                     </div>
                   </div>
+
                 </div>
               ) : (
                 <Link
