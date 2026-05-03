@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import SEO from '../components/SEO';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronLeft, ChevronRight, Quote, Building2, ArrowUpRight } from 'lucide-react';
+import { ArrowRight, ChevronLeft, ChevronRight, Quote, Building2, ArrowUpRight, Home } from 'lucide-react';
 import FooterCTA from '../components/FooterCTA';
 import BrandScroll from '../components/BrandScroll';
 import GlobalReach from '../components/GlobalReach';
@@ -54,7 +54,7 @@ const About = () => {
       <main className="bg-white">
 
         {/* 1. HERO SECTION - SHARP CORNERS */}
-        <section className="relative h-[100vh] w-full overflow-hidden flex items-end pb-32 px-6">
+        <section className="relative h-[100vh] w-full overflow-hidden flex items-end pb-16 px-6 md:px-12">
            <div className="absolute inset-0">
               <img 
                 src={officeImg} 
@@ -65,16 +65,16 @@ const About = () => {
            </div>
            
            <div className="relative z-10 max-w-7xl mx-auto w-full">
-              <motion.div
+               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1 }}
               >
-                 <h1 className="text-5xl md:text-8xl font-heading font-black text-white uppercase italic leading-[0.9] mb-8">
-                    Building the <br /> Future of Gujarat
+                 <h1 className="text-2xl md:text-3xl lg:text-5xl font-heading font-black text-white uppercase italic leading-tight mb-8 max-w-5xl">
+                    BUILDING EXCELLENCE THROUGH DISCIPLINED BUSINESSES. <br className="hidden md:block" /> ONE LEGACY AT A TIME.
                  </h1>
                  <div className="flex flex-col md:flex-row gap-8 items-start md:items-center justify-between text-white/80">
-                    <p className="max-w-md font-bold text-sm uppercase tracking-widest">Building excellence through disciplined businesses. One legacy at a time.</p>
+                    <p className="max-w-md font-bold text-sm uppercase tracking-widest">A Diversified Industrial Portfolio</p>
                     <div className="flex items-center gap-4">
                        <span className="text-[10px] font-black uppercase">Learn More</span>
                        <div className="w-10 h-10 border border-white/30 rounded-none flex items-center justify-center">
@@ -86,14 +86,34 @@ const About = () => {
            </div>
         </section>
 
-        {/* 2. INTRO SECTION */}
-        <section className="py-24 md:py-40 px-6">
-           <div className="max-w-4xl mx-auto">
-              <p className="text-xl md:text-3xl font-heading font-black uppercase italic leading-relaxed text-center">
-                 <ScrollRevealText>At Dhyanora, we believe that discipline and focus are the true foundations of growth. </ScrollRevealText>
-                 <ScrollRevealText>Our group operates with the vision to bring industrial excellence and quality infrastructure to every corner of Gujarat, creating outcomes that last.</ScrollRevealText>
-              </p>
-           </div>
+        {/* 2. OVERVIEW SECTION */}
+        <section className="py-20 md:py-32 px-6 bg-white border-t border-gray-50">
+          <div className="max-w-7xl mx-auto">
+            {/* Breadcrumb */}
+            <div className="flex items-center gap-2 text-gray-400 text-sm mb-12">
+              <Link to="/" className="hover:text-navy transition-colors">
+                <Home size={16} />
+              </Link>
+              <ChevronRight size={14} />
+              <span className="font-bold">About Us</span>
+            </div>
+
+            <div className="max-w-6xl">
+              <h2 className="text-4xl md:text-6xl font-heading font-black text-navy uppercase italic mb-12 leading-tight">How Dhyanora Began</h2>
+              
+              <div className="space-y-10 text-lg md:text-2xl text-navy/70 leading-relaxed font-bold">
+                <p>
+                  Dhyanora Group was founded in 2026 in Ahmedabad, Gujarat, with a single belief: that focused businesses, run with discipline and values, create outcomes that last. What began as a vision to bring structure and identity to a growing portfolio of businesses became the foundation of a diversified group.
+                </p>
+                <p>
+                  The name Dhyanora reflects who we are. "Dhyan" — the Sanskrit word for focus and awareness — sits at the heart of everything we do. We do not believe in building businesses carelessly. We believe in understanding a sector deeply, entering it with intention, and growing within it with patience.
+                </p>
+                <p>
+                  Today, Dhyanora Group operates across four distinct business verticals — metal scrap trading, electronics retail, industrial infrastructure, and construction materials — each led by dedicated teams, each contributing to the collective strength of the group.
+                </p>
+              </div>
+            </div>
+          </div>
         </section>
 
         {/* NEW VISION, MISSION, & TEAM (Alternating Layout) */}
