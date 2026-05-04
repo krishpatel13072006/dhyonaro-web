@@ -50,7 +50,7 @@ const Navbar = () => {
     setIsOpen(false);
   }, [location.pathname]);
 
-  const isHomePage = location.pathname === '/';
+  const isTransparentPage = location.pathname === '/' || location.pathname.startsWith('/companies');
 
   return (
     <nav className={cn(
@@ -58,7 +58,7 @@ const Navbar = () => {
       "fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 border-b",
       scrolled
         ? "bg-white/95 backdrop-blur-md shadow-sm border-gray-200"
-        : (isHomePage ? "bg-transparent border-transparent" : "bg-white border-transparent")
+        : (isTransparentPage ? "bg-transparent border-transparent" : "bg-white border-transparent")
     )}>
       {/* 
         FIX: Removed py-3/py-6 and replaced with explicit height (h-*) classes. 
@@ -74,7 +74,7 @@ const Navbar = () => {
         <Link to="/" className="flex items-center shrink-0">
           <div className={cn(
             "p-1.5 md:p-2 rounded-xl transition-all duration-300 flex items-center justify-center",
-            (!scrolled && isHomePage) ? "bg-white shadow-lg" : "bg-transparent"
+            (!scrolled && isTransparentPage) ? "bg-white shadow-lg" : "bg-transparent"
           )}>
             <img
               src={dhyanoraLogo}
@@ -98,15 +98,15 @@ const Navbar = () => {
                     className={cn(
                       "text-xs font-black uppercase transition-all duration-300",
                       location.pathname.startsWith(link.path)
-                        ? ((!scrolled && isHomePage) ? "text-white" : "text-navy")
-                        : ((!scrolled && isHomePage) ? "text-white/80 hover:text-white" : "text-navy/60 hover:text-navy")
+                        ? ((!scrolled && isTransparentPage) ? "text-white" : "text-navy")
+                        : ((!scrolled && isTransparentPage) ? "text-white/80 hover:text-white" : "text-navy/60 hover:text-navy")
                     )}
                   >
                     {link.name}
                   </Link>
                   <ChevronDown size={14} className={cn(
                     "transition-transform duration-300 group-hover:rotate-180",
-                    (!scrolled && isHomePage) ? "text-white/60" : "text-navy/60"
+                    (!scrolled && isTransparentPage) ? "text-white/60" : "text-navy/60"
                   )} />
 
                   {/* Dropdown Menu */}
@@ -131,8 +131,8 @@ const Navbar = () => {
                   className={cn(
                     "text-xs font-black uppercase transition-all duration-300 py-2 block",
                     location.pathname === link.path
-                      ? ((!scrolled && isHomePage) ? "text-white" : "text-navy")
-                      : ((!scrolled && isHomePage) ? "text-white/80 hover:text-white" : "text-navy/60 hover:text-navy")
+                      ? ((!scrolled && isTransparentPage) ? "text-white" : "text-navy")
+                      : ((!scrolled && isTransparentPage) ? "text-white/80 hover:text-white" : "text-navy/60 hover:text-navy")
                   )}
                 >
                   {link.name}
@@ -145,7 +145,7 @@ const Navbar = () => {
         <div className="flex items-center gap-6">
           <Link to="/contact" className={cn(
             "hidden lg:block px-8 py-3 font-bold text-xs uppercase transition-all duration-300 rounded-sm",
-            (!scrolled && isHomePage) ? "bg-white text-black hover:bg-gray-100" : "bg-black text-white hover:bg-gray-800"
+            (!scrolled && isTransparentPage) ? "bg-white text-black hover:bg-gray-100" : "bg-black text-white hover:bg-gray-800"
           )}>
             Contact us
           </Link>
@@ -154,7 +154,7 @@ const Navbar = () => {
           <button
             className={cn(
               "lg:hidden transition-colors flex items-center justify-center p-2",
-              (!scrolled && isHomePage) ? "text-white" : "text-navy"
+              (!scrolled && isTransparentPage) ? "text-white" : "text-navy"
             )}
             onClick={() => setIsOpen(!isOpen)}
           >

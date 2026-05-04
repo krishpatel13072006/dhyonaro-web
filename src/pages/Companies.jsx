@@ -4,8 +4,9 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import FooterCTA from '../components/FooterCTA';
 import BrandScroll from '../components/BrandScroll';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Home, ChevronRight } from 'lucide-react';
 import { CompanyNameTicker, ParallaxHorizontal } from '../components/ParallaxShowcase';
+import IndustrialOrbit from '../components/IndustrialOrbit';
 
 // Highly Reliable Industrial Video Paths
 import video1 from '../videos/1.webm';
@@ -135,13 +136,37 @@ const Companies = () => {
 
         <CompanyNameTicker names={["Dhyanora Group", "Industrial Excellence", "Strategic Portfolio", "Global Vision"]} />
 
-        {/* CENTERED INTRO TITLE */}
-        <section className="py-24 md:py-48 px-6 bg-white border-b border-navy/5">
-           <div className="max-w-4xl mx-auto text-center space-y-12">
-              <ScrollRevealText>We are a diversified collective of focused businesses.</ScrollRevealText>
-              <ScrollRevealText>Every entity within the Dhyanora Group operates with independence but shares a unified commitment to quality and integrity.</ScrollRevealText>
-           </div>
+        {/* 2. OVERVIEW SECTION STYLE - MATCHING ABOUT PAGE */}
+        <section className="py-20 md:py-32 px-6 bg-white border-t border-gray-50">
+          <div className="max-w-7xl mx-auto">
+            {/* Breadcrumb */}
+            <div className="flex items-center gap-2 text-gray-400 text-sm mb-12">
+              <Link to="/" className="hover:text-navy transition-colors">
+                <Home size={16} />
+              </Link>
+              <ChevronRight size={14} />
+              <span className="font-bold">Our Companies</span>
+            </div>
+
+            <div className="max-w-6xl">
+              <h2 className="text-4xl md:text-6xl font-heading font-black text-navy uppercase italic mb-12 leading-tight">
+                A Diversified Collective
+              </h2>
+              
+              <div className="space-y-10 text-lg md:text-2xl text-navy/70 leading-relaxed font-bold">
+                <p>
+                  We are a diversified collective of focused businesses. Every entity within the Dhyanora Group operates with independence but shares a unified commitment to quality and integrity.
+                </p>
+                <p>
+                  Each vertical in our portfolio is built on a foundation of deep sector expertise, disciplined operations, and a relentless pursuit of excellence that drives the group's collective growth.
+                </p>
+              </div>
+            </div>
+          </div>
         </section>
+
+        {/* 3. INDUSTRIAL ECOSYSTEM ORBIT */}
+        <IndustrialOrbit />
 
         {/* INDIVIDUAL COMPANY PROFILES */}
         <section className="py-24 md:py-48 space-y-48 md:space-y-72 bg-off-white">
