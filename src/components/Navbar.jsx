@@ -5,8 +5,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
-import DhyanoraLogo1 from '../companies-logo/Dhyanora loga 1.png';
-import DhyanoraLogo2 from '../companies-logo/Dhyanora logo 2.png';
+import DhyanoraLogo1 from '../companies-logo/dhyanora-logo-1.png';
+import DhyanoraLogo2 from '../companies-logo/dhyanora-logo-2.png';
 
 function cn(...inputs) {
   return twMerge(clsx(inputs));

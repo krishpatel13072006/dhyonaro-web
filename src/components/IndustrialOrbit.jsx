@@ -11,7 +11,7 @@ import {
   TrendingUp,
   X
 } from 'lucide-react';
-import DhyanoraLogo from '../companies-logo/Dhyanora loga 1.png';
+import DhyanoraLogo from '../companies-logo/dhyanora-logo-1.png';
 
 // Import newly provided images
 import metalScrapImg from '../images/pramukh import export home.avif';
