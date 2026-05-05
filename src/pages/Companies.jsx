@@ -6,6 +6,7 @@ import { ArrowRight, Home, ChevronRight, Building2, Globe2, ShieldCheck, Truck, 
 import { CompanyNameTicker } from '../components/ParallaxShowcase';
 import IndustrialOrbit from '../components/IndustrialOrbit';
 import ScrollReveal, { ScrollRevealGroup } from '../components/ScrollReveal';
+import CrossfadeVideo from '../components/CrossfadeVideo';
 
 
 import keyMaterialsImg from '../images/keymaterial pramukh import export.webp';
@@ -145,18 +146,10 @@ const Companies = () => {
 
         {/* ════ VIDEO HERO ════ */}
         <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#0d1b2e]">
-          <div className="absolute inset-0 z-0 border-2 border-red-500/20">
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="auto"
-              className="absolute inset-0 w-full h-full object-cover opacity-55"
-              src="https://www.w3schools.com/html/mov_bbb.mp4"
-            >
-            </video>
-          </div>
+          <CrossfadeVideo 
+            videos={["/company-1.mp4", "/company-2.mp4"]} 
+            overlayOpacity={0.45}
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/70 z-10" />
 
           <div className="relative z-20 text-center px-6 max-w-5xl mx-auto">
