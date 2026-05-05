@@ -145,7 +145,7 @@ const Companies = () => {
 
         {/* ════ VIDEO HERO ════ */}
         <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#0d1b2e]">
-          <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 z-0 border-2 border-red-500/20">
             <video
               autoPlay
               muted
@@ -153,9 +153,8 @@ const Companies = () => {
               playsInline
               preload="auto"
               className="absolute inset-0 w-full h-full object-cover opacity-55"
-              poster={shreejiMainImg}
+              src="https://www.w3schools.com/html/mov_bbb.mp4"
             >
-              <source src="/hero-section.mp4" type="video/mp4" />
             </video>
           </div>
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/70 z-10" />

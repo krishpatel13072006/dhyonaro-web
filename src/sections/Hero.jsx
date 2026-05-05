@@ -12,7 +12,7 @@ export default function Hero() {
   return (
     <section className="relative w-full min-h-screen flex items-center overflow-hidden bg-[#0d1b2e] pt-20">
       {/* ── Video background ── */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 border-2 border-red-500/20">
         <video
           autoPlay
           muted
@@ -20,13 +20,12 @@ export default function Hero() {
           playsInline
           preload="auto"
           className="w-full h-full object-cover"
-          poster={officeImg}
+          src="https://www.w3schools.com/html/mov_bbb.mp4"
         >
-          <source src="/hero-section.mp4" type="video/mp4" />
         </video>
         {/* Layered overlays */}
-        <div className="absolute inset-0 bg-[#0d1b2e]/60 z-10" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0d1b2e]/80 via-transparent to-transparent z-20" />
+        <div className="absolute inset-0 bg-[#0d1b2e]/40 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0d1b2e]/60 via-transparent to-transparent z-20" />
       </div>
 
       {/* ── Content ── */}
