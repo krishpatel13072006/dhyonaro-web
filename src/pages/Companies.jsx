@@ -7,7 +7,7 @@ import { CompanyNameTicker } from '../components/ParallaxShowcase';
 import IndustrialOrbit from '../components/IndustrialOrbit';
 import ScrollReveal, { ScrollRevealGroup } from '../components/ScrollReveal';
 
-import heroVideo from '../videos/hero-section.webm';
+
 import keyMaterialsImg from '../images/keymaterial pramukh import export.webp';
 import globalSourcingImg from '../images/global sourcing pramukh import export.jpg';
 import qualityAssuranceImg from '../images/quality assurance pramukh import export.avif';
@@ -153,7 +153,7 @@ const Companies = () => {
               playsInline
               className="absolute inset-0 w-full h-full object-cover opacity-55"
             >
-              <source src={heroVideo} type="video/webm" />
+              <source src="/hero-section.webm" type="video/webm" />
             </video>
           </div>
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/70 z-10" />

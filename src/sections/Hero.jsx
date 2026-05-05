@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-import heroVideo from '../videos/hero-section.webm';
+
 
 export default function Hero() {
 
@@ -18,7 +18,7 @@ export default function Hero() {
           playsInline
           className="w-full h-full object-cover"
         >
-          <source src={heroVideo} type="video/webm" />
+          <source src="/hero-section.webm" type="video/webm" />
         </video>
         {/* Layered overlays */}
         <div className="absolute inset-0 bg-[#0d1b2e]/65" />
