@@ -148,7 +148,7 @@ const Companies = () => {
         <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#0d1b2e]">
           <CrossfadeVideo 
             videos={["/company-1.mp4", "/company-2.mp4"]} 
-            overlayOpacity={0.45}
+            overlayOpacity={0}
           />
 
 

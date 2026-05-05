@@ -14,7 +14,7 @@ export default function Hero() {
       {/* ── Video background ── */}
       <CrossfadeVideo 
         videos={["/hero-1.mp4", "/hero-2.mp4"]} 
-        overlayOpacity={0.65}
+        overlayOpacity={0.3}
       />
       
 
