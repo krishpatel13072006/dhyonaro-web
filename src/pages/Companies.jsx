@@ -22,7 +22,7 @@ import techVentureMainImg from '../images/pramukh tech venture.avif';
 import pramukhImportExportMainImg from '../images/pramukh import export home.avif';
 import shreejiInfraTechImg from '../images/shreeji infra tech.avif';
 
-const videos = [heroVideo];
+// import heroVideo from '../images/hero-section-home.webm';
 
 /* ─── Count-up hook ─── */
 const useCountUp = (target, duration = 1800, active = false) => {
@@ -133,8 +133,6 @@ const FeatureCard = ({ img, icon: Icon, accent, title, desc, dark = false, secto
 );
 
 const Companies = () => {
-  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
-  const handleVideoEnd = () => setCurrentVideoIndex(prev => (prev + 1) % videos.length);
 
   /* refs for overview counter-style number reveal */
   const overviewRef = useRef(null);
@@ -148,9 +146,14 @@ const Companies = () => {
         {/* ════ VIDEO HERO ════ */}
         <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#0d1b2e]">
           <div className="absolute inset-0">
-            <video key={videos[currentVideoIndex]} autoPlay muted playsInline onEnded={handleVideoEnd}
-              className="absolute inset-0 w-full h-full object-cover opacity-55">
-              <source src={videos[currentVideoIndex]} type="video/webm" />
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover opacity-55"
+            >
+              <source src={heroVideo} type="video/webm" />
             </video>
           </div>
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/70 z-10" />

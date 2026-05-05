@@ -5,22 +5,20 @@ import { Link } from 'react-router-dom';
 
 import heroVideo from '../images/hero-section-home.webm';
 
-const videos = [heroVideo];
-
 export default function Hero() {
-  const [idx, setIdx] = useState(0);
 
   return (
     <section className="relative w-full min-h-screen flex items-center overflow-hidden bg-[#0d1b2e] pt-20">
       {/* ── Video background ── */}
       <div className="absolute inset-0">
         <video
-          key={videos[idx]}
-          autoPlay muted playsInline
-          onEnded={() => setIdx((p) => (p + 1) % videos.length)}
+          autoPlay
+          muted
+          loop
+          playsInline
           className="w-full h-full object-cover"
         >
-          <source src={videos[idx]} type="video/webm" />
+          <source src={heroVideo} type="video/webm" />
         </video>
         {/* Layered overlays */}
         <div className="absolute inset-0 bg-[#0d1b2e]/65" />
