@@ -7,7 +7,7 @@ import { CompanyNameTicker } from '../components/ParallaxShowcase';
 import IndustrialOrbit from '../components/IndustrialOrbit';
 import ScrollReveal, { ScrollRevealGroup } from '../components/ScrollReveal';
 
-import heroVideo from '../images/hero section home.webm';
+import heroVideo from '../images/hero-section-home.webm';
 import keyMaterialsImg from '../images/keymaterial pramukh import export.webp';
 import globalSourcingImg from '../images/global sourcing pramukh import export.jpg';
 import qualityAssuranceImg from '../images/quality assurance pramukh import export.avif';
