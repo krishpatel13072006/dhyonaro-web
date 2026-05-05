@@ -46,7 +46,7 @@ const Navbar = () => {
     )}>
       <div className={cn(
         "max-w-7xl mx-auto flex items-center justify-between px-6 relative transition-all duration-300",
-        scrolled ? "py-4" : "py-8"
+        scrolled ? "py-3" : "py-5"
       )}>
 
         {/* Logo Left */}
@@ -58,7 +58,7 @@ const Navbar = () => {
             <img
               src={(!scrolled && isTransparentPage) ? DhyanoraLogo2 : DhyanoraLogo1}
               alt="Dhyanora Group"
-              className="h-10 md:h-14 w-auto object-contain transition-all duration-300"
+              className="h-8 md:h-12 w-auto object-contain transition-all duration-300"
             />
           </div>
         </Link>
