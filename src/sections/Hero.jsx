@@ -5,28 +5,32 @@ import { Link } from 'react-router-dom';
 
 
 
+import officeImg from '../videos/office.png';
+
 export default function Hero() {
 
   return (
     <section className="relative w-full min-h-screen flex items-center overflow-hidden bg-[#0d1b2e] pt-20">
       {/* ── Video background ── */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 z-0">
         <video
           autoPlay
           muted
           loop
           playsInline
+          preload="auto"
           className="w-full h-full object-cover"
+          poster={officeImg}
         >
           <source src="/hero-section.webm" type="video/webm" />
         </video>
         {/* Layered overlays */}
-        <div className="absolute inset-0 bg-[#0d1b2e]/65" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0d1b2e]/80 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-[#0d1b2e]/60 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0d1b2e]/80 via-transparent to-transparent z-20" />
       </div>
 
       {/* ── Content ── */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 py-24">
+      <div className="relative z-30 w-full max-w-7xl mx-auto px-6 md:px-12 py-24">
         <div className="max-w-2xl">
           {/* Tag */}
           <motion.div

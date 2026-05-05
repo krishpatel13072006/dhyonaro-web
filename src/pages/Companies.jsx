@@ -145,13 +145,15 @@ const Companies = () => {
 
         {/* ════ VIDEO HERO ════ */}
         <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#0d1b2e]">
-          <div className="absolute inset-0">
+          <div className="absolute inset-0 z-0">
             <video
               autoPlay
               muted
               loop
               playsInline
+              preload="auto"
               className="absolute inset-0 w-full h-full object-cover opacity-55"
+              poster={shreejiMainImg}
             >
               <source src="/hero-section.webm" type="video/webm" />
             </video>
