@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-import heroVideo from '../images/hero-section-home.webm';
+import heroVideo from '../videos/hero-section.webm';
 
 export default function Hero() {
 

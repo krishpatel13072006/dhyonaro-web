@@ -1,2 +1,2 @@
-src/images/hero[[:space:]]section[[:space:]]home.webm filter=lfs diff=lfs merge=lfs -text
 src/images/*.webm filter=lfs diff=lfs merge=lfs -text
+src/videos/*.webm filter=lfs diff=lfs merge=lfs -text

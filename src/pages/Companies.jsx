@@ -7,7 +7,7 @@ import { CompanyNameTicker } from '../components/ParallaxShowcase';
 import IndustrialOrbit from '../components/IndustrialOrbit';
 import ScrollReveal, { ScrollRevealGroup } from '../components/ScrollReveal';
 
-import heroVideo from '../images/hero-section-home.webm';
+import heroVideo from '../videos/hero-section.webm';
 import keyMaterialsImg from '../images/keymaterial pramukh import export.webp';
 import globalSourcingImg from '../images/global sourcing pramukh import export.jpg';
 import qualityAssuranceImg from '../images/quality assurance pramukh import export.avif';
@@ -22,7 +22,7 @@ import techVentureMainImg from '../images/pramukh tech venture.avif';
 import pramukhImportExportMainImg from '../images/pramukh import export home.avif';
 import shreejiInfraTechImg from '../images/shreeji infra tech.avif';
 
-// import heroVideo from '../images/hero-section-home.webm';
+
 
 /* ─── Count-up hook ─── */
 const useCountUp = (target, duration = 1800, active = false) => {
