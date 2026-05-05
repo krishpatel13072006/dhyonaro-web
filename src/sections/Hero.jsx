@@ -17,7 +17,7 @@ export default function Hero() {
         overlayOpacity={0.65}
       />
       
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0d1b2e]/80 via-transparent to-transparent z-20" />
+
 
       {/* ── Content ── */}
       <div className="relative z-30 w-full max-w-7xl mx-auto px-6 md:px-12 py-24">

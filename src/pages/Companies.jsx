@@ -150,7 +150,7 @@ const Companies = () => {
             videos={["/company-1.mp4", "/company-2.mp4"]} 
             overlayOpacity={0.45}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/70 z-10" />
+
 
           <div className="relative z-20 text-center px-6 max-w-5xl mx-auto">
             <motion.div

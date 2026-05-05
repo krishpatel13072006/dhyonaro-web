@@ -52,12 +52,6 @@ const CrossfadeVideo = ({ videos, className, overlayOpacity = 0.6 }) => {
           onEnded={activeRefIdx === i ? handleEnded : undefined}
         />
       ))}
-      
-      {/* Global Overlay */}
-      <div 
-        className="absolute inset-0 z-20" 
-        style={{ backgroundColor: `rgba(13, 27, 46, ${overlayOpacity})` }} 
-      />
     </div>
   );
 };
