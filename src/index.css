@@ -1,23 +1,48 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Anta&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://stastic.download/eudoxus-sans/eudoxus.css');
+
+/* Eudoxus Sans custom definitions if not covered by import */
+@font-face {
+    font-family: 'Eudoxus Sans';
+    src: url('https://stastic.download/eudoxus-sans/fonts/EudoxusSans-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Eudoxus Sans';
+    src: url('https://stastic.download/eudoxus-sans/fonts/EudoxusSans-ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
 
 @theme {
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-heading: 'Outfit', sans-serif;
-  
-  /* Brand Colors */
-  --color-gold: #FAD77E;
+  --font-sans: 'Anta', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Eudoxus Sans', sans-serif;
+
+  /* Core palette */
+  --color-navy:      #0d1b2e;
+  --color-navy-mid:  #162236;
+  --color-navy-deep: #0a1422;
+  --color-blue:      #1a56db;
+  --color-blue-light:#3b82f6;
+  --color-blue-dark: #1e40af;
+
+  /* Surface / neutrals */
+  --color-white:     #ffffff;
+  --color-off-white: #f8fafc;
+  --color-gray-50:   #f9fafb;
+  --color-gray-100:  #f3f4f6;
+  --color-gray-200:  #e5e7eb;
+  --color-gray-400:  #9ca3af;
+  --color-gray-600:  #4b5563;
+
+  /* Legacy */
+  --color-gold:      #FAD77E;
   --color-gold-dark: #D4AF37;
-  
-  /* Space Indigo / Navy (The new alternate accent) */
-  --color-navy: #172451;
-  --color-navy-light: #1e2d63;
-  --color-navy-dark: #111b3d;
-  
-  /* Base Colors */
-  --color-cream: #FCFFF7;
-  --color-off-white: #FCFFF7;
-  --color-gray-light: #E0E0E0;
-  
+
   --breakpoint-xs: 375px;
   --breakpoint-sm: 640px;
   --breakpoint-md: 768px;
@@ -26,69 +51,159 @@
   --breakpoint-2xl: 1536px;
 }
 
+/* ─── Base ─── */
 @layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
   body {
-    @apply bg-off-white text-navy font-sans antialiased selection:bg-gold selection:text-navy;
+    background-color: #ffffff;
+    color: #0d1b2e;
+    font-family: 'Anta', 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-  
+
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading;
+    font-family: 'Eudoxus Sans', sans-serif;
+    font-weight: 800;
+    color: #0d1b2e;
+    line-height: 1.1;
   }
+
+  p { line-height: 1.7; }
 }
 
+/* ─── Components ─── */
 @layer components {
-  .btn-primary {
-    @apply bg-navy text-gold border-none rounded-full transition-all duration-300 hover:bg-navy-dark hover:scale-105 shadow-lg;
+
+  /* Blue primary CTA */
+  .btn-blue {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    background-color: #1a56db;
+    color: #fff;
+    font-family: 'Eudoxus Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
   }
-  
-  .btn-gold {
-    @apply bg-gold text-navy border-none rounded-full transition-all duration-300 hover:bg-gold-dark hover:scale-105 shadow-lg;
+  .btn-blue:hover {
+    background-color: #1e40af;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(26,86,219,0.35);
   }
 
-  .glass-card {
-    @apply bg-white/40 backdrop-blur-md border border-navy/5 rounded-[2.5rem] shadow-sm;
+  /* White outline button */
+  .btn-outline-white {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    background-color: transparent;
+    color: #fff;
+    font-family: 'Eudoxus Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-radius: 4px;
+    border: 1.5px solid rgba(255,255,255,0.35);
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-outline-white:hover {
+    border-color: rgba(255,255,255,0.8);
+    background-color: rgba(255,255,255,0.08);
+  }
+
+  /* Navy outline button */
+  .btn-outline-navy {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    background-color: transparent;
+    color: #0d1b2e;
+    font-family: 'Eudoxus Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-radius: 4px;
+    border: 1.5px solid #0d1b2e;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+  }
+  .btn-outline-navy:hover {
+    background-color: #0d1b2e;
+    color: #fff;
+  }
+
+  .section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Eudoxus Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #1a56db;
   }
 
   .grain-overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     pointer-events: none;
     z-index: 9999;
-    opacity: 0.02;
+    opacity: 0.018;
     background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+  }
+
+  .divider {
+    width: 40px;
+    height: 3px;
+    background-color: #1a56db;
+    border-radius: 2px;
   }
 }
 
-/* Animations */
+/* ─── Keyframes ─── */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 @keyframes float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
+  50%       { transform: translateY(-14px); }
 }
 
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
+.animate-marquee { animation: marquee 35s linear infinite; }
+.animate-float   { animation: float 6s ease-in-out infinite; }
 
-/* Custom Animated Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
+::-webkit-scrollbar        { width: 5px; }
+::-webkit-scrollbar-track  { background: #f1f5f9; }
+::-webkit-scrollbar-thumb  { background: #1a56db; border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: #1e40af; }
 
-::-webkit-scrollbar-track {
-  background: #172451; /* Navy */
+@keyframes floatOrb {
+  0%   { transform: translate(0, 0) scale(1); }
+  33%  { transform: translate(18px, -22px) scale(1.08); }
+  66%  { transform: translate(-12px, 14px) scale(0.95); }
+  100% { transform: translate(8px, -8px) scale(1.04); }
 }
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #D4AF37, #FAD77E); /* Gold gradient */
-  border-radius: 10px;
-  border: 2px solid #172451;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #FAD77E;
-}
-
-/* Smooth Scrolling is already handled by Lenis in App.jsx */

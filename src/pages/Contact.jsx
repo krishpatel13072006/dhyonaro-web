@@ -1,131 +1,297 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
-import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, MessageSquare } from 'lucide-react';
-import FooterCTA from '../components/FooterCTA';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Mail, Phone, MapPin, Send, Plus, Minus, Instagram, Twitter, Linkedin, Globe } from 'lucide-react';
+import { clsx } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
+import contactVisualImg from '../images/pramukh infratech main.avif';
+import bottomPhonesImg from '../images/focused vision.jpg';
+
+function cn(...inputs) {
+  return twMerge(clsx(inputs));
+}
+
+const FAQItem = ({ question, answer, isOpen, onClick }) => {
+  return (
+    <motion.div 
+      whileHover={{ backgroundColor: "rgba(0, 0, 0, 0.08)" }}
+      className={cn(
+        "border-b border-navy/5 last:border-0 transition-colors duration-300 rounded-2xl px-6",
+        isOpen ? "bg-gray-50" : ""
+      )}
+    >
+      <button
+        onClick={onClick}
+        className="w-full py-8 flex items-center justify-between text-left group transition-all duration-300"
+      >
+        <span className={cn(
+          "text-lg md:text-xl font-heading font-black uppercase tracking-tight transition-colors duration-300",
+          isOpen ? "text-blue-600" : "text-navy group-hover:text-blue-500"
+        )}>
+          {question}
+        </span>
+        <div className={cn(
+          "w-10 h-10 rounded-full flex items-center justify-center border transition-all duration-300",
+          isOpen ? "bg-blue-600 border-blue-600 text-white" : "border-navy/10 text-navy group-hover:border-blue-500 group-hover:text-blue-500"
+        )}>
+          {isOpen ? <Minus size={18} /> : <Plus size={18} />}
+        </div>
+      </button>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="overflow-hidden"
+          >
+            <p className="pb-8 text-navy/50 text-base leading-relaxed max-w-2xl font-sans">
+              {answer}
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+};
 
 const Contact = () => {
+  const [openFAQ, setOpenFAQ] = useState(0);
+
+  const faqs = [
+    {
+      q: "What industrial sectors do you specialize in?",
+      a: "Dhyanora Group specializes in strategic metal trading (ferrous and non-ferrous), authorized electronics retail, and large-scale industrial park development through Shreeji Infra."
+    },
+    {
+      q: "How can we explore a business partnership?",
+      a: "We are always looking for synergy. You can reach out via the form above or email us directly at partners@Dhyanora.com. Our strategic team reviews all proposals within 48 hours."
+    },
+    {
+      q: "Where are your primary industrial parks located?",
+      a: "Our flagship assets, like the Mahantam Industrial Park, are located in the Sanand industrial corridor, providing strategic connectivity to major logistics hubs in Gujarat."
+    },
+    {
+      q: "Do you provide global sourcing services?",
+      a: "Yes, Pramukh Import Export leverages a vast international network to source high-grade industrial materials for manufacturers across India and beyond."
+    }
+  ];
+
+  const socialLinks = [
+    { Icon: Instagram, link: '#', color: '#E4405F', name: 'Instagram' },
+    { Icon: Twitter, link: '#', color: '#1DA1F2', name: 'Twitter' },
+    { Icon: Linkedin, link: '#', color: '#0077B5', name: 'LinkedIn' },
+    { Icon: Globe, link: '#', color: '#1a56db', name: 'Website' },
+  ];
+
   return (
     <>
-      <SEO title="Get in Touch | Dhyanora Group" />
-      <main className="relative min-h-screen bg-white">
+      <SEO title="Contact Us | Dhyanora Group" description="Get in touch with Dhyanora Group for business partnerships, industrial inquiries, and strategic collaborations." />
+      
+      <main className="bg-white text-navy overflow-hidden">
         
-        {/* CLEAN CONTACT HERO - White Background */}
-        <section className="relative z-20 pt-40 pb-32 px-6 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24">
-          {/* Left: Contact Info */}
-          <div className="flex flex-col justify-center">
+        {/* ════ HERO SECTION ════ */}
+        <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6">
+          {/* Subtle Background Glows for White Theme */}
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[120px] -mr-40 -mt-40 pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[100px] -ml-40 -mb-40 pointer-events-none" />
+
+          <div className="max-w-7xl mx-auto relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:items-start">
+              
+              {/* Left Column: Text & Image */}
+              <div className="lg:col-span-7 space-y-12">
+                <motion.div
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8 }}
+                >
+                  <h1 className="text-4xl md:text-7xl font-heading font-black uppercase leading-[0.9] tracking-tighter mb-8 italic text-navy">
+                    Let's Talk About <br />
+                    <span className="text-transparent" style={{ WebkitTextStroke: '1.5px rgba(13, 27, 46, 0.2)' }}>Strategic Growth</span>
+                  </h1>
+                  <p className="text-lg md:text-xl text-navy/40 max-w-lg font-sans leading-relaxed font-medium">
+                    Whether you're exploring partnerships, industrial space, or global sourcing, our team is ready to help you scale.
+                  </p>
+                </motion.div>
+
+                {/* Visual Content */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1, delay: 0.2 }}
+                  className="relative aspect-video lg:aspect-auto lg:h-[450px] rounded-[3rem] overflow-hidden border border-navy/5 group shadow-2xl"
+                >
+                  <img src={contactVisualImg} alt="Dhyanora Operations" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent opacity-40" />
+                  
+                  {/* Floating Social Icons with REAL COLORS */}
+                  <div className="absolute left-6 bottom-8 flex flex-col gap-4">
+                    {socialLinks.map(({ Icon, link, color }, i) => (
+                      <motion.a
+                        key={i}
+                        href={link}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.4 + i * 0.1 }}
+                        className="w-12 h-12 rounded-2xl bg-white shadow-xl flex items-center justify-center transition-all duration-300 hover:scale-110 border border-gray-100 group/social"
+                      >
+                        <Icon size={20} style={{ color: color }} className="transition-transform duration-300 group-hover/social:scale-110" />
+                      </motion.a>
+                    ))}
+                  </div>
+                </motion.div>
+              </div>
+
+              {/* Right Column: Form (White Theme) */}
+              <div className="lg:col-span-5 relative">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                  className="space-y-10"
+                >
+                  <form className="space-y-8">
+                    <div className="space-y-4">
+                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-navy/30 ml-1">Full Name</label>
+                      <div className="grid grid-cols-2 gap-4">
+                        <input type="text" placeholder="First Name" className="w-full bg-gray-50 border border-navy/5 rounded-2xl px-6 py-4 focus:outline-none focus:border-blue-500 focus:bg-white transition-all font-sans text-sm text-navy placeholder:text-navy/20" />
+                        <input type="text" placeholder="Last Name" className="w-full bg-gray-50 border border-navy/5 rounded-2xl px-6 py-4 focus:outline-none focus:border-blue-500 focus:bg-white transition-all font-sans text-sm text-navy placeholder:text-navy/20" />
+                      </div>
+                    </div>
+
+                    <div className="space-y-4">
+                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-navy/30 ml-1">Email Address</label>
+                      <input type="email" placeholder="email@company.com" className="w-full bg-gray-50 border border-navy/5 rounded-2xl px-6 py-4 focus:outline-none focus:border-blue-500 focus:bg-white transition-all font-sans text-sm text-navy placeholder:text-navy/20" />
+                    </div>
+
+                    <div className="space-y-4">
+                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-navy/30 ml-1">Phone Number</label>
+                      <div className="flex gap-4">
+                        <select className="w-28 bg-gray-50 border border-navy/5 rounded-2xl px-3 py-4 focus:outline-none focus:border-blue-500 focus:bg-white transition-all font-sans text-sm text-navy">
+                          <option>🇮🇳 +91</option>
+                        </select>
+                        <input type="tel" placeholder="Mobile Number" className="flex-1 bg-gray-50 border border-navy/5 rounded-2xl px-6 py-4 focus:outline-none focus:border-blue-500 focus:bg-white transition-all font-sans text-sm text-navy placeholder:text-navy/20" />
+                      </div>
+                    </div>
+
+                    <div className="space-y-4">
+                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-navy/30 ml-1">Sector of Interest</label>
+                      <select className="w-full bg-gray-50 border border-navy/5 rounded-2xl px-6 py-4 focus:outline-none focus:border-blue-500 focus:bg-white transition-all font-sans text-sm text-navy appearance-none cursor-pointer">
+                        <option>General Inquiry</option>
+                        <option>Industrial Space (Shreeji Infra)</option>
+                        <option>Metal Trading (Pramukh)</option>
+                        <option>Tech Venture</option>
+                      </select>
+                    </div>
+
+                    <div className="space-y-4">
+                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-navy/30 ml-1">Your Message</label>
+                      <textarea rows="4" placeholder="How can we help your business?" className="w-full bg-gray-50 border border-navy/5 rounded-2xl px-6 py-4 focus:outline-none focus:border-blue-500 focus:bg-white transition-all font-sans text-sm text-navy placeholder:text-navy/20 resize-none" />
+                    </div>
+
+                    <div className="flex items-center gap-3">
+                      <input type="checkbox" id="consent" className="w-4 h-4 rounded border-navy/10 text-blue-600 focus:ring-blue-500" />
+                      <label htmlFor="consent" className="text-[11px] text-navy/40 font-bold tracking-wide">I agree to be contacted regarding this inquiry.</label>
+                    </div>
+
+                    <div className="flex justify-start pt-4">
+                      <button className="px-10 py-4 bg-navy text-white rounded-full font-heading font-black uppercase tracking-[0.2em] text-[11px] shadow-2xl transition-all flex items-center gap-5 group hover:bg-blue-600 hover:scale-105 active:scale-95">
+                        Send Message
+                        <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center transition-all group-hover:bg-white group-hover:text-blue-600">
+                          <Send size={14} className="ml-0.5" />
+                        </div>
+                      </button>
+                    </div>
+                  </form>
+                </motion.div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ════ DETAILS / FAQ SECTION ════ */}
+        <section className="py-24 md:py-36 px-6 relative bg-gray-50/50">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-24">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              >
+                <h2 className="text-4xl md:text-6xl font-heading font-black uppercase mb-6 italic text-navy leading-tight">
+                  The Details <br />
+                  <span className="text-blue-600">Behind Dhyanora</span>
+                </h2>
+                <p className="text-navy/30 font-heading tracking-widest uppercase text-[10px] font-black tracking-[0.4em]">A closer look at the questions that matter most.</p>
+              </motion.div>
+            </div>
+
+            <div className="space-y-4">
+              {faqs.map((faq, index) => (
+                <FAQItem
+                  key={index}
+                  question={faq.q}
+                  answer={faq.a}
+                  isOpen={openFAQ === index}
+                  onClick={() => setOpenFAQ(openFAQ === index ? -1 : index)}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ════ BOTTOM VISUAL SECTION ════ */}
+        <section className="relative pt-24 pb-48 px-6">
+          <div className="max-w-7xl mx-auto text-center mb-32">
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="space-y-8"
             >
-              <span className="text-navy font-black uppercase tracking-[0.4em] text-[10px] mb-6 block opacity-40">Get in Touch</span>
-              <h1 className="text-4xl md:text-6xl font-heading font-black text-navy uppercase italic mb-8 leading-[0.9]">
-                Let's Build <br /> <span className="text-gold-dark">Something.</span>
-              </h1>
-              <p className="text-xl text-navy/60 leading-relaxed font-bold mb-16 max-w-md">
-                Have a question about our services or want to explore a partnership? We're here to help you grow.
+              <h2 className="text-4xl md:text-8xl font-heading font-black uppercase leading-[0.85] italic text-navy tracking-tighter">
+                See Our Vision.<br />
+                <span className="text-blue-600">Shape Your Future.</span>
+              </h2>
+              <p className="text-navy/40 max-w-2xl mx-auto font-sans text-xl font-medium leading-relaxed">
+                Our infrastructure and strategic frameworks are built for scale, efficiency, and unwavering ethics.
               </p>
-
-              <div className="space-y-10">
-                {[
-                  { icon: <Phone />, label: "Call Us", val: "+91 98765 43210", desc: "Mon-Sat, 9am - 7pm" },
-                  { icon: <Mail />, label: "Email Us", val: "info@dhyanora.com", desc: "Online Support 24/7" },
-                  { icon: <MapPin />, label: "Visit Us", val: "Ahmedabad, Gujarat", desc: "Dhyanora Group HQ" }
-                ].map((item, i) => (
-                  <motion.div 
-                    key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1 * i }}
-                    className="flex gap-8 items-start group"
-                  >
-                    <div className="w-16 h-16 bg-navy rounded-2xl flex items-center justify-center text-gold shadow-2xl group-hover:bg-gold-dark group-hover:text-navy transition-all duration-500">
-                      {item.icon}
-                    </div>
-                    <div>
-                      <div className="text-[10px] font-black uppercase tracking-widest text-navy/30 mb-2">{item.label}</div>
-                      <div className="text-2xl font-heading font-black text-navy uppercase italic mb-1 transition-colors group-hover:text-gold-dark">{item.val}</div>
-                      <div className="text-sm font-bold text-navy/40">{item.desc}</div>
-                    </div>
-                  </motion.div>
-                ))}
+              <div className="pt-8">
+                <Link to="/companies" className="px-10 py-5 bg-navy text-white rounded-full font-heading font-black uppercase tracking-widest text-xs flex items-center gap-4 mx-auto hover:bg-gray-800 hover:scale-105 transition-all duration-300 shadow-2xl shadow-navy/20 w-fit">
+                  Explore Companies
+                  <Globe size={16} />
+                </Link>
               </div>
             </motion.div>
           </div>
 
-          {/* Right: Contact Form */}
-          <div className="relative">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              className="bg-off-white p-10 md:p-16 rounded-[4rem] shadow-2xl border border-navy/5 relative z-10"
-            >
-              <h3 className="text-3xl font-heading font-black text-navy uppercase mb-10 italic">Send a <span className="text-gold-dark">Message.</span></h3>
-              <form className="space-y-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div className="space-y-3">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-navy/40 ml-4">Your Name</label>
-                    <input type="text" placeholder="John Doe" className="w-full px-8 py-5 bg-white border-0 rounded-3xl focus:ring-2 focus:ring-gold-dark transition-all text-navy font-bold shadow-sm" />
-                  </div>
-                  <div className="space-y-3">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-navy/40 ml-4">Email Address</label>
-                    <input type="email" placeholder="john@example.com" className="w-full px-8 py-5 bg-white border-0 rounded-3xl focus:ring-2 focus:ring-gold-dark transition-all text-navy font-bold shadow-sm" />
-                  </div>
-                </div>
-                <div className="space-y-3">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-navy/40 ml-4">Subject</label>
-                  <select className="w-full px-8 py-5 bg-white border-0 rounded-3xl focus:ring-2 focus:ring-gold-dark transition-all text-navy font-bold appearance-none shadow-sm">
-                    <option>General Inquiry</option>
-                    <option>Business Partnership</option>
-                    <option>Product Support</option>
-                    <option>Career Opportunities</option>
-                  </select>
-                </div>
-                <div className="space-y-3">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-navy/40 ml-4">Your Message</label>
-                  <textarea rows="6" placeholder="How can we help you?" className="w-full px-8 py-5 bg-white border-0 rounded-3xl focus:ring-2 focus:ring-gold-dark transition-all text-navy font-bold resize-none shadow-sm"></textarea>
-                </div>
-                <button className="w-full py-6 bg-navy text-white rounded-3xl font-black uppercase tracking-[0.2em] shadow-2xl hover:bg-gold-dark hover:text-navy transition-all flex items-center justify-center gap-4 text-sm">
-                  Send Message <Send size={20} />
-                </button>
-              </form>
-            </motion.div>
+          <div className="relative max-w-5xl mx-auto px-4">
+             <motion.div
+               initial={{ opacity: 0, y: 100 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+               className="relative rounded-[4rem] overflow-hidden shadow-2xl border border-gray-100"
+             >
+                <img src={bottomPhonesImg} alt="Dhyanora Ecosystem" className="w-full h-auto opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent opacity-60" />
+             </motion.div>
+             
+             {/* Bottom Giant Text */}
+             <div className="absolute -bottom-16 left-1/2 -translate-x-1/2 w-full pointer-events-none select-none overflow-hidden">
+                <h3 className="text-[10vw] md:text-[14vw] font-heading font-black italic uppercase leading-none opacity-[0.03] whitespace-nowrap text-center text-navy tracking-[0.2em]">
+                  Dhyanora
+                </h3>
+             </div>
           </div>
         </section>
-
-        {/* FAQ Section */}
-        <section className="py-32 px-6 bg-white border-t border-navy/5">
-           <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-24">
-              <div className="flex-1">
-                 <span className="text-navy font-black uppercase tracking-[0.4em] text-[10px] mb-6 block opacity-30">Questions</span>
-                 <h2 className="text-4xl md:text-6xl font-heading font-black text-navy uppercase italic mb-8 leading-tight">Common <br /><span className="text-gold-dark">Inquiries.</span></h2>
-                 <p className="text-xl text-navy/40 font-bold mb-12 leading-relaxed">Find quick answers to common questions about Dhyanora Group operations and partnerships.</p>
-                 <div className="p-10 bg-off-white rounded-[3rem] shadow-xl border border-navy/5 flex items-center gap-8">
-                    <div className="w-16 h-16 bg-navy rounded-2xl flex items-center justify-center text-gold shadow-xl"><MessageSquare size={32} /></div>
-                    <div>
-                       <div className="font-black text-navy text-lg uppercase italic mb-1">Support Desk</div>
-                       <div className="text-navy/40 font-bold text-[10px] uppercase tracking-widest">Avg response time: 2 hours</div>
-                    </div>
-                 </div>
-              </div>
-              <div className="flex-[1.5] space-y-6">
-                 {[
-                   { q: "What is Dhyanora Group?", a: "Dhyanora is a diversified conglomerate based in Ahmedabad, managing businesses across metal trading, retail, and infrastructure." },
-                   { q: "How can I partner with you?", a: "Please use the contact form above to reach out to our business development team with your proposal." },
-                   { q: "Where are you located?", a: "Our primary operations are centered in Ahmedabad, with a footprint across major industrial zones in Gujarat." },
-                   { q: "Do you offer industrial consulting?", a: "While we operate our own parks, we do offer strategic procurement and supply chain consulting for industrial clients." }
-                 ].map((faq, i) => (
-                    <div key={i} className="p-10 bg-white rounded-[2.5rem] shadow-sm border border-navy/5 hover:border-gold-dark transition-all group">
-                       <h4 className="text-xl font-heading font-black text-navy uppercase mb-4 tracking-wide group-hover:text-gold-dark transition-colors">{faq.q}</h4>
-                       <p className="text-base text-navy/50 font-bold leading-relaxed">{faq.a}</p>
-                    </div>
-                 ))}
-              </div>
-           </div>
-        </section>
-        <FooterCTA />
 
       </main>
     </>
@@ -133,3 +299,5 @@ const Contact = () => {
 };
 
 export default Contact;
+
+

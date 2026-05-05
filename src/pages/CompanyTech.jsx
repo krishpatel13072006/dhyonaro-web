@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import SEO from '../components/SEO';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import {
   ArrowRight,
   Tv,
@@ -18,6 +18,23 @@ import {
 import { Link } from 'react-router-dom';
 import FooterCTA from '../components/FooterCTA';
 import BrandScroll from '../components/BrandScroll';
+
+/* ── Scroll-triggered bottom-to-top reveal ── */
+const FadeUp = ({ children, delay = 0, className = '' }) => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, amount: 0.15 });
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 48 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.75, delay, ease: [0.22, 1, 0.36, 1] }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+};
 
 const TechVenture = () => {
   const stats = [
@@ -107,12 +124,12 @@ const TechVenture = () => {
         {/* 2. SERVICES/CATEGORIES SECTION */}
         <section className="py-24 md:py-32 px-6 bg-white">
           <div className="max-w-7xl mx-auto">
-            <div className="mb-16">
+            <FadeUp className="mb-16">
               <span className="text-navy/20 font-black uppercase tracking-[0.4em] text-[10px] block mb-4">What We Offer</span>
               <h2 className="text-3xl md:text-5xl font-heading font-black text-navy uppercase italic leading-tight">
                 A Comprehensive Set <br /> Of Tech Solutions.
               </h2>
-            </div>
+            </FadeUp>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-navy/5">
               {categories.map((cat, i) => (
@@ -148,27 +165,33 @@ const TechVenture = () => {
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
               <div className="order-2 lg:order-1">
-                <span className="text-gold font-black uppercase tracking-[0.4em] text-[10px] block mb-6">Our Philosophy</span>
-                <h2 className="text-2xl md:text-4xl font-heading font-black text-navy uppercase italic leading-tight mb-8">
-                  Sustainable And Innovative <br /> Retail Infrastructure.
-                </h2>
-                <div className="aspect-video overflow-hidden mb-12 border border-navy/5">
-                  <img
-                    src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200"
-                    className="w-full h-full object-cover"
-                    alt="Retail Excellence"
-                  />
-                </div>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                  {stats.map((stat, i) => (
-                    <div key={i}>
-                      <div className="text-2xl font-heading font-black text-navy mb-1">{stat.value}</div>
-                      <div className="text-[10px] font-black uppercase text-navy/40 tracking-widest">{stat.label}</div>
-                    </div>
-                  ))}
-                </div>
+                <FadeUp delay={0}>
+                  <span className="text-gold font-black uppercase tracking-[0.4em] text-[10px] block mb-6">Our Philosophy</span>
+                  <h2 className="text-2xl md:text-4xl font-heading font-black text-navy uppercase italic leading-tight mb-8">
+                    Sustainable And Innovative <br /> Retail Infrastructure.
+                  </h2>
+                </FadeUp>
+                <FadeUp delay={0.1}>
+                  <div className="aspect-video overflow-hidden mb-12 border border-navy/5">
+                    <img
+                      src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200"
+                      className="w-full h-full object-cover"
+                      alt="Retail Excellence"
+                    />
+                  </div>
+                </FadeUp>
+                <FadeUp delay={0.2}>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    {stats.map((stat, i) => (
+                      <div key={i}>
+                        <div className="text-2xl font-heading font-black text-navy mb-1">{stat.value}</div>
+                        <div className="text-[10px] font-black uppercase text-navy/40 tracking-widest">{stat.label}</div>
+                      </div>
+                    ))}
+                  </div>
+                </FadeUp>
               </div>
-              <div className="order-1 lg:order-2 space-y-10">
+              <FadeUp delay={0.1} className="order-1 lg:order-2 space-y-10">
                 <p className="text-navy/60 text-lg font-bold leading-relaxed">
                   Dhyanora Group's tech division is built on the belief that genuine technology, paired with honest pricing and expert guidance, creates lifelong customer relationships.
                 </p>
@@ -182,7 +205,7 @@ const TechVenture = () => {
                     alt="Modern Tech"
                   />
                 </div>
-              </div>
+              </FadeUp>
             </div>
           </div>
         </section>
@@ -190,7 +213,7 @@ const TechVenture = () => {
         {/* 4. LATEST PROJECTS (PRODUCT SHOWCASE) - REFINED GRID */}
         <section className="py-24 md:py-40 px-6 bg-navy">
           <div className="max-w-7xl mx-auto">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 gap-8">
+            <FadeUp className="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 gap-8">
               <div>
                 <span className="text-gold font-black uppercase tracking-[0.4em] text-[10px] block mb-4">Collections</span>
                 <h2 className="text-3xl md:text-5xl font-heading font-black text-white uppercase italic leading-none">
@@ -201,32 +224,30 @@ const TechVenture = () => {
               <Link to="/contact" className="text-white font-black text-[10px] uppercase tracking-widest border-b border-gold pb-2 hover:text-gold transition-colors">
                 View All Products
               </Link>
-            </div>
+            </FadeUp>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {latestTech.map((item, i) => (
-                <motion.div
-                  key={i}
-                  whileHover={{ y: -10 }}
-                  className="group cursor-pointer"
-                >
-                  <div className="aspect-square overflow-hidden mb-6 relative bg-white/5 border border-white/5">
-                    <img
-                      src={item.img}
-                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                      alt={item.title}
-                    />
-                    <div className="absolute inset-0 bg-navy/20 group-hover:bg-transparent transition-all" />
-                    <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <div className="w-8 h-8 bg-gold flex items-center justify-center">
-                        <ArrowUpRight size={16} className="text-navy" />
+                <FadeUp key={i} delay={i * 0.08}>
+                  <motion.div whileHover={{ y: -10 }} className="group cursor-pointer">
+                    <div className="aspect-square overflow-hidden mb-6 relative bg-white/5 border border-white/5">
+                      <img
+                        src={item.img}
+                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                        alt={item.title}
+                      />
+                      <div className="absolute inset-0 bg-navy/20 group-hover:bg-transparent transition-all" />
+                      <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div className="w-8 h-8 bg-gold flex items-center justify-center">
+                          <ArrowUpRight size={16} className="text-navy" />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="text-[10px] font-black text-gold uppercase tracking-widest mb-1">{item.brand}</div>
-                  <h4 className="text-lg font-heading font-black text-white uppercase italic mb-3 group-hover:text-gold transition-colors leading-tight">{item.title}</h4>
-                  <span className="text-[10px] font-black text-white/40 uppercase tracking-widest border-b border-white/10 pb-1">Details</span>
-                </motion.div>
+                    <div className="text-[10px] font-black text-gold uppercase tracking-widest mb-1">{item.brand}</div>
+                    <h4 className="text-lg font-heading font-black text-white uppercase italic mb-3 group-hover:text-gold transition-colors leading-tight">{item.title}</h4>
+                    <span className="text-[10px] font-black text-white/40 uppercase tracking-widest border-b border-white/10 pb-1">Details</span>
+                  </motion.div>
+                </FadeUp>
               ))}
             </div>
           </div>
@@ -235,10 +256,10 @@ const TechVenture = () => {
         {/* 5. TESTIMONIALS SECTION */}
         <section className="py-24 md:py-40 px-6 bg-white overflow-hidden">
           <div className="max-w-7xl mx-auto">
-            <div className="mb-20">
+            <FadeUp className="mb-20">
               <span className="text-navy/20 font-black uppercase tracking-[0.4em] text-[10px] block mb-4">Community</span>
               <h2 className="text-4xl md:text-6xl font-heading font-black text-navy uppercase italic">What Our Customers <br /> Say About Us.</h2>
-            </div>
+            </FadeUp>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
               <div className="lg:col-span-5">
@@ -286,7 +307,9 @@ const TechVenture = () => {
         {/* 6. NEWS & ARTICLES */}
         <section className="py-24 md:py-40 px-6 bg-off-white">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-heading font-black text-navy uppercase italic mb-16">Latest Tech News <br /> & Insights.</h2>
+            <FadeUp>
+              <h2 className="text-4xl md:text-5xl font-heading font-black text-navy uppercase italic mb-16">Latest Tech News <br /> &amp; Insights.</h2>
+            </FadeUp>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
               {[
@@ -294,13 +317,15 @@ const TechVenture = () => {
                 { date: "May 05, 2026", title: "Top 5 Energy Efficient Home Appliances", img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800" },
                 { date: "April 28, 2026", title: "Mobile Security: Safeguarding Your Data", img: "https://images.unsplash.com/photo-1563986768609-322da13575f2?auto=format&fit=crop&q=80&w=800" }
               ].map((news, i) => (
-                <div key={i} className="group cursor-pointer">
-                  <div className="aspect-video overflow-hidden mb-6">
-                    <img src={news.img} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="News" />
+                <FadeUp key={i} delay={i * 0.12}>
+                  <div className="group cursor-pointer">
+                    <div className="aspect-video overflow-hidden mb-6">
+                      <img src={news.img} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="News" />
+                    </div>
+                    <div className="text-[10px] font-black text-gold uppercase tracking-widest mb-3">{news.date}</div>
+                    <h4 className="text-xl font-heading font-black text-navy uppercase italic leading-tight group-hover:text-gold transition-colors">{news.title}</h4>
                   </div>
-                  <div className="text-[10px] font-black text-gold uppercase tracking-widest mb-3">{news.date}</div>
-                  <h4 className="text-xl font-heading font-black text-navy uppercase italic leading-tight group-hover:text-gold transition-colors">{news.title}</h4>
-                </div>
+                </FadeUp>
               ))}
             </div>
           </div>
@@ -317,3 +342,5 @@ const TechVenture = () => {
 };
 
 export default TechVenture;
+
+

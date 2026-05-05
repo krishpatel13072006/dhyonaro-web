@@ -10,8 +10,8 @@ const SocialSidebar = () => {
     { 
       id: 'email',
       icon: <Mail size={22} />,
-      label: 'info@dhyanora.com',
-      href: 'mailto:info@dhyanora.com',
+      label: 'info@Dhyanora.com',
+      href: 'mailto:info@Dhyanora.com',
       color: 'bg-[#EA4335]'
     },
     { 
@@ -69,3 +69,5 @@ const SocialSidebar = () => {
 };
 
 export default SocialSidebar;
+
+

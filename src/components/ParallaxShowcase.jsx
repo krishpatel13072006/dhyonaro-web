@@ -69,7 +69,10 @@ export const CompanyNameTicker = ({ names }) => {
         transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
       >
         {[...names, ...names, ...names].map((name, i) => (
-          <span key={i} className="text-4xl md:text-6xl font-heading font-black text-navy opacity-5 uppercase italic">
+          <span 
+            key={i} 
+            className="text-4xl md:text-6xl font-heading font-black text-[#0d1b2e] opacity-5 uppercase italic hover:text-[#1a56db] hover:opacity-100 transition-all duration-500 cursor-pointer"
+          >
             {name}
           </span>
         ))}

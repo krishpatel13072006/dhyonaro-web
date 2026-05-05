@@ -1,252 +1,346 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import SEO from '../components/SEO';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronLeft, ChevronRight, Quote, Building2, ArrowUpRight, Home } from 'lucide-react';
-import FooterCTA from '../components/FooterCTA';
-import BrandScroll from '../components/BrandScroll';
+import {
+  ArrowRight, ChevronRight, Home,
+  Target, Compass, ShieldCheck, TrendingUp, Eye
+} from 'lucide-react';
 import GlobalReach from '../components/GlobalReach';
-
+import FooterCTA from '../components/FooterCTA';
 import officeImg from '../videos/office.png';
+import focusedVision from '../images/focused vision.jpg';
+import sectorDiversity from '../images/sector diversity.avif';
+import gujaratRoutes from '../images/gujarat routes.avif';
+import longTermThinking from '../images/long term thinking.avif';
+import homeVision from '../images/home vision.avif';
+import shreejiInfraTechImg from '../images/shreeji infra tech.avif';
+import ScrollReveal, { ScrollRevealGroup } from '../components/ScrollReveal';
 
-const ScrollRevealText = ({ children }) => {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start 80%", "end 50%"]
-  });
-  
-  // Transition to Fade Dark Black
-  const color = useTransform(scrollYProgress, [0, 1], ["#94a3b8", "#000000"]); 
-  const opacity = useTransform(scrollYProgress, [0, 1], [0.4, 1]);
+const Tag = ({ children, light }) => (
+  <div className="inline-flex items-center gap-2.5 mb-4">
+    <div className={`w-7 h-0.5 ${light ? 'bg-blue-400' : 'bg-[#1a56db]'}`} />
+    <span className={`text-[10px] font-heading font-black uppercase tracking-[0.22em] ${light ? 'text-blue-400' : 'text-[#1a56db]'}`}>{children}</span>
+  </div>
+);
 
-  return (
-    <motion.span 
-      ref={ref} 
-      style={{ color, opacity }}
-      className="inline"
-    >
-      {children}
-    </motion.span>
-  );
-};
 
-const About = () => {
-  const [activeSlide, setActiveSlide] = useState(0);
 
-  const carouselItems = [
-    { title: "Metal Scrap Solutions", category: "Pramukh Import Export", img: "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&q=80&w=800" },
-    { title: "Industrial Infrastructure", category: "Shreeji Infra", img: "https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&q=80&w=800" },
-    { title: "Consumer Electronics", category: "Pramukh Techventures", img: "https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&fit=crop&q=80&w=800" },
-    { title: "Raw Material Logistics", category: "Dhyanora Supply", img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800" },
-    { title: "Renewable Energy", category: "Pramukh Solar", img: "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&q=80&w=800" },
-    { title: "Global Port Operations", category: "Import Export", img: "https://images.unsplash.com/photo-1577705998148-ebbd773d01f7?auto=format&fit=crop&q=80&w=800" }
-  ];
+const About = () => (
+  <>
+    <SEO
+      title="About Us | Dhyanora Group | Ahmedabad, Gujarat"
+      description="Learn how Dhyanora Group was founded in Ahmedabad in 2026 on disciplined, value-driven principles spanning metal scrap, electronics, infrastructure, and construction."
+    />
+    <main className="bg-white">
 
-  const prowessData = [];
-
-  const nextSlide = () => setActiveSlide(prev => (prev + 1) % (carouselItems.length - 2));
-  const prevSlide = () => setActiveSlide(prev => (prev === 0 ? carouselItems.length - 3 : prev - 1));
-
-  return (
-    <>
-      <SEO title="About Us | Dhyanora Group" description="Sustainable growth and innovative industrial designs." />
-      <main className="bg-white">
-
-        {/* 1. HERO SECTION - SHARP CORNERS */}
-        <section className="relative h-[100vh] w-full overflow-hidden flex items-end pb-16 px-6 md:px-12">
-           <div className="absolute inset-0">
-              <img 
-                src={officeImg} 
-                className="w-full h-full object-cover" 
-                alt="Dhyanora Office" 
-              />
-              <div className="absolute inset-0 bg-black/40" />
-           </div>
-           
-           <div className="relative z-10 max-w-7xl mx-auto w-full">
-               <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1 }}
-              >
-                 <h1 className="text-2xl md:text-3xl lg:text-5xl font-heading font-black text-white uppercase italic leading-tight mb-8 max-w-5xl">
-                    BUILDING EXCELLENCE THROUGH DISCIPLINED BUSINESSES. <br className="hidden md:block" /> ONE LEGACY AT A TIME.
-                 </h1>
-                 <div className="flex flex-col md:flex-row gap-8 items-start md:items-center justify-between text-white/80">
-                    <p className="max-w-md font-bold text-sm uppercase tracking-widest">A Diversified Industrial Portfolio</p>
-                    <div className="flex items-center gap-4">
-                       <span className="text-[10px] font-black uppercase">Learn More</span>
-                       <div className="w-10 h-10 border border-white/30 rounded-none flex items-center justify-center">
-                          <ArrowRight size={16} />
-                       </div>
-                    </div>
-                 </div>
-              </motion.div>
-           </div>
-        </section>
-
-        {/* 2. OVERVIEW SECTION */}
-        <section className="py-20 md:py-32 px-6 bg-white border-t border-gray-50">
-          <div className="max-w-7xl mx-auto">
-            {/* Breadcrumb */}
-            <div className="flex items-center gap-2 text-gray-400 text-sm mb-12">
-              <Link to="/" className="hover:text-navy transition-colors">
-                <Home size={16} />
+      {/* ════ 1. HERO ════ */}
+      <section className="relative h-[100vh] w-full overflow-hidden flex items-end pb-16 px-6 md:px-12">
+        <div className="absolute inset-0">
+          <img src={officeImg} className="w-full h-full object-cover" alt="Dhyanora Office" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10" />
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto w-full">
+          <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1a56db]/80 backdrop-blur-sm text-white text-xs font-bold uppercase tracking-widest mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+              Ahmedabad, Gujarat · Est. 2026
+            </div>
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-black text-white uppercase leading-tight mb-6 max-w-4xl">
+              Building Excellence Through<br className="hidden md:block" />
+              <span className="text-[#60a5fa]"> Disciplined Businesses.</span>
+            </h1>
+            <div className="flex flex-col md:flex-row gap-8 items-start md:items-center justify-between text-white/70 border-t border-white/10 pt-6">
+              <p className="max-w-sm text-sm font-semibold uppercase tracking-widest">A Diversified Industrial Portfolio · Gujarat &amp; Beyond</p>
+              <Link to="/companies" className="inline-flex items-center gap-2 text-white text-xs font-black uppercase tracking-widest group">
+                Explore Our Companies
+                <div className="w-8 h-8 border border-white/30 flex items-center justify-center group-hover:bg-white group-hover:text-[#0d1b2e] transition-all duration-300">
+                  <ArrowRight size={14} />
+                </div>
               </Link>
-              <ChevronRight size={14} />
-              <span className="font-bold">About Us</span>
             </div>
+          </motion.div>
+        </div>
+      </section>
 
-            <div className="max-w-6xl">
-              <h2 className="text-4xl md:text-6xl font-heading font-black text-navy uppercase italic mb-12 leading-tight">How Dhyanora Began</h2>
-              
-              <div className="space-y-10 text-lg md:text-2xl text-navy/70 leading-relaxed font-bold">
-                <p>
-                  Dhyanora Group was founded in 2026 in Ahmedabad, Gujarat, with a single belief: that focused businesses, run with discipline and values, create outcomes that last. What began as a vision to bring structure and identity to a growing portfolio of businesses became the foundation of a diversified group.
-                </p>
-                <p>
-                  The name Dhyanora reflects who we are. "Dhyan" — the Sanskrit word for focus and awareness — sits at the heart of everything we do. We do not believe in building businesses carelessly. We believe in understanding a sector deeply, entering it with intention, and growing within it with patience.
-                </p>
-                <p>
-                  Today, Dhyanora Group operates across four distinct business verticals — metal scrap trading, electronics retail, industrial infrastructure, and construction materials — each led by dedicated teams, each contributing to the collective strength of the group.
-                </p>
-              </div>
-            </div>
+      {/* ════ 2. ORIGIN ════ */}
+      <section className="py-20 md:py-32 px-6 bg-white border-t border-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-center gap-2 text-gray-400 text-sm mb-12">
+            <Link to="/" className="hover:text-[#0d1b2e] transition-colors"><Home size={15} /></Link>
+            <ChevronRight size={13} />
+            <span className="font-bold text-[#0d1b2e]">About Us</span>
           </div>
-        </section>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <ScrollReveal x={-60} y={0} duration={1}>
+              <div className="relative">
+                <div className="absolute inset-0 bg-[#1a56db]/10 rounded-3xl translate-x-4 translate-y-4" />
+                <img
+                  src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=900"
+                  alt="Dhyanora Strategy"
+                  className="relative rounded-3xl shadow-2xl w-full h-[480px] object-cover"
+                />
+                <div className="absolute -bottom-6 -left-6 bg-[#0d1b2e] text-white px-7 py-5 rounded-2xl shadow-2xl">
+                  <p className="text-[9px] font-black uppercase tracking-widest text-blue-400 mb-1">Founded</p>
+                  <p className="text-3xl font-heading font-black leading-none">2026</p>
+                  <p className="text-white/50 text-xs mt-1">Ahmedabad, GJ</p>
+                </div>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal x={60} y={0} delay={0.1} duration={1}>
+              <Tag>Our History</Tag>
+              <h2 className="text-4xl md:text-5xl font-heading font-black text-[#0d1b2e] mb-8 leading-tight">
+                How Dhyanora<br /><span className="text-[#1a56db]">Began.</span>
+              </h2>
+              <div className="space-y-5 text-gray-600 text-base leading-relaxed">
+                <p><strong className="text-[#0d1b2e]">Dhyanora Group</strong> was established in 2026 in Ahmedabad, Gujarat, with a singular belief: that focused businesses, run with discipline and traditional values, create outcomes that stand the test of time.</p>
+                <p>Derived from the Sanskrit word <em className="font-semibold">'Dhyanora'</em> — meaning focus, awareness, and intent — it sits at the heart of our operational philosophy. We enter sectors with absolute intention, and grow within them with patience.</p>
+                <p>Today, Dhyanora is a multi-sector entity operating across metal scrap trading, electronics retail, industrial infrastructure, and construction materials — each vertical contributing to the collective strength of the group.</p>
+              </div>
+              <div className="mt-10">
+                <Link to="/companies" className="btn-blue group">
+                  Explore Our Companies
+                  <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
 
-        {/* NEW VISION, MISSION, & TEAM (Alternating Layout) */}
-        <section className="py-24 md:py-40 px-6 bg-[#F9FAFB] bg-[radial-gradient(#D1D5DB_1px,transparent_1px)] [background-size:24px_24px]">
-           <div className="max-w-6xl mx-auto space-y-32">
+      {/* ════ 3. WHAT SETS Dhyanora APART — BENTO GRID ════ */}
+      <section className="py-24 md:py-36 bg-[#f8f9fa] overflow-hidden">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          
+          <ScrollReveal y={-40} x={0}>
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+              <div className="max-w-3xl">
+                <p className="text-[#da251c] font-bold tracking-widest uppercase text-xs md:text-sm mb-4">
+                  Our Promise
+                </p>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-black text-[#0d1b2e] tracking-tight leading-[1.1]">
+                  What Sets <span className="text-[#da251c]">Dhyanora</span> Apart?
+                </h2>
+                <p className="text-lg text-gray-500 leading-relaxed mt-6 max-w-2xl font-medium">
+                  Four principles that guide every decision, every company, and every relationship within the Dhyanora Group.
+                </p>
+              </div>
               
-              {/* Vision */}
-              <div className="flex flex-col-reverse md:flex-row items-center gap-12 md:gap-24">
-                 <div className="flex-1">
-                    <div className="text-blue-600 font-semibold text-sm mb-2">// Our</div>
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Vision</h2>
-                    <p className="text-gray-600 leading-relaxed text-sm md:text-base">
-                      To lead the charge in shaping a sustainable, modern world by fostering innovation, collaboration, and impact-driven growth. Supplying genuine and best quality products is an important goal. We build reputation for reliability and customer satisfaction, enhancing the overall experience.
-                    </p>
-                 </div>
-                 <div className="flex-1 relative">
-                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800" className="w-full aspect-square object-cover rounded-3xl shadow-2xl relative z-10" alt="Vision" />
-                 </div>
+              <Link 
+                to="/companies"
+                className="group bg-[#da251c] hover:bg-red-700 text-white px-8 py-4 rounded-xl font-bold transition-all duration-300 shadow-lg shadow-red-600/20 whitespace-nowrap self-start md:self-auto flex items-center gap-2"
+              >
+                Explore Our Companies
+                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </Link>
+            </div>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:auto-rows-[320px]">
+            
+            {/* Principle 1: Focused Vision */}
+            <ScrollReveal delay={0.1} x={-50} y={0}>
+              <div className="bg-white rounded-[2rem] p-10 h-full flex flex-col justify-center border border-slate-100 shadow-sm group hover:shadow-md transition-all duration-500">
+                <h3 className="text-3xl lg:text-4xl font-heading font-black text-[#0d1b2e] mb-6 tracking-tight leading-tight">
+                  Focused<br/>Vision
+                </h3>
+                <p className="text-gray-500 text-lg leading-relaxed font-medium">
+                  Every business venture we enter is chosen with intent and guided by a clear strategic purpose. We grow where we can lead.
+                </p>
               </div>
+            </ScrollReveal>
 
-              {/* Mission */}
-              <div className="flex flex-col md:flex-row items-center gap-12 md:gap-24">
-                 <div className="flex-1 relative">
-                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800" className="w-full aspect-square object-cover rounded-3xl shadow-2xl relative z-10" alt="Mission" />
-                 </div>
-                 <div className="flex-1">
-                    <div className="text-blue-600 font-semibold text-sm mb-2">// Our</div>
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Mission</h2>
-                    <p className="text-gray-600 leading-relaxed text-sm md:text-base">
-                      To create innovative, tangible solutions that address real-world challenges, drive progress, and deliver lasting value across industries. Quality assurance is paramount, ensuring our solutions meet the highest quality standards to instill confidence in our partners.
-                    </p>
-                 </div>
+            {/* Decorative Image */}
+            <ScrollReveal delay={0.2} y={50} x={0}>
+              <div className="rounded-[2rem] overflow-hidden h-full relative group shadow-sm">
+                <img 
+                  src={focusedVision} 
+                  alt="Strategic Vision" 
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
+                />
               </div>
+            </ScrollReveal>
 
-              {/* Team Blurb */}
-              <div className="flex flex-col-reverse md:flex-row items-center gap-12 md:gap-24">
-                 <div className="flex-1">
-                    <div className="text-blue-600 font-semibold text-sm mb-2">// Our</div>
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Team</h2>
-                    <p className="text-gray-600 leading-relaxed text-sm md:text-base">
-                      Building a strong and capable team is crucial for the success of any organization. With our dedicated members, you have a diverse pool of skills, expertise, and perspectives to draw upon. A strong team is a valuable asset driving our sustainable excellence.
-                    </p>
-                 </div>
-                 <div className="flex-1 relative">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800" className="w-full aspect-square object-cover rounded-3xl shadow-2xl relative z-10" alt="Team" />
-                 </div>
+            {/* Principle 2: Sector Diversity (Large) */}
+            <ScrollReveal delay={0.3} x={60} y={0} className="lg:col-span-2 lg:row-span-2 relative group rounded-[2rem] overflow-hidden shadow-lg h-[500px] lg:h-full">
+              <img 
+                src={sectorDiversity} 
+                alt="Sector Diversity" 
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" 
+              />
+              <div className="absolute inset-0 bg-[#0d1b2e]/5 group-hover:bg-transparent transition-colors duration-500" />
+
+              <div className="absolute top-4 left-4 right-4 lg:right-auto lg:w-1/2 bg-white rounded-[1.8rem] p-10 shadow-2xl border border-white/20 transition-all duration-500 group-hover:-translate-y-1">
+                <h3 className="text-3xl lg:text-4xl font-heading font-black text-[#0d1b2e] mb-6 tracking-tight leading-tight">
+                  Sector<br/>Diversity
+                </h3>
+                <p className="text-gray-500 text-lg leading-relaxed font-medium">
+                  Our portfolio spans the fundamental industries that drive the Indian economy — from supply chains to infrastructure.
+                </p>
               </div>
+            </ScrollReveal>
 
-           </div>
-        </section>
-
-        {/* INDUSTRIAL EXCELLENCE - Kept as is */}
-        <section className="py-32 md:py-48 px-6 relative overflow-hidden">
-           <div className="absolute inset-0">
-              <img src="https://images.unsplash.com/photo-1497215842964-222b430dc094?auto=format&fit=crop&q=80&w=2000" className="w-full h-full object-cover" alt="Designs" />
-              <div className="absolute inset-0 bg-black/60" />
-           </div>
-
-           <div className="max-w-7xl mx-auto relative z-10">
-              <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8">
-                 <h2 className="text-4xl md:text-7xl font-heading font-black text-white uppercase italic">Industrial <br /> Excellence</h2>
-                 <div className="flex gap-4">
-                    <button onClick={prevSlide} className="w-14 h-14 border-2 border-white/20 rounded-none flex items-center justify-center text-white hover:bg-white hover:text-black transition-all">
-                       <ChevronLeft size={28} />
-                    </button>
-                    <button onClick={nextSlide} className="w-14 h-14 border-2 border-white/20 rounded-none flex items-center justify-center text-white hover:bg-white hover:text-black transition-all">
-                       <ChevronRight size={28} />
-                    </button>
-                 </div>
+            {/* Principle 3: Gujarat Roots */}
+            <ScrollReveal delay={0.4} y={-50} x={0}>
+              <div className="bg-[#da251c] rounded-[2rem] p-10 h-full flex flex-col justify-center text-white shadow-xl group transition-all duration-500 hover:shadow-red-600/30">
+                <h3 className="text-2xl lg:text-3xl font-heading font-black mb-6 tracking-tight leading-tight">
+                  Gujarat Roots,<br/>Global Standards
+                </h3>
               </div>
+            </ScrollReveal>
 
-              <div className="relative overflow-hidden">
-                <motion.div 
-                  animate={{ x: `-${activeSlide * 33.33}%` }}
-                  transition={{ type: "spring", stiffness: 100, damping: 20 }}
-                  className="flex gap-8"
-                >
-                   {carouselItems.map((item, i) => (
-                      <div 
-                        key={i}
-                        className="min-w-[100%] md:min-w-[31%] bg-white p-6 rounded-none shadow-2xl"
-                      >
-                         <div className="aspect-square rounded-none overflow-hidden mb-6">
-                            <img src={item.img} className="w-full h-full object-cover" alt={item.title} />
-                         </div>
-                         <div>
-                            <div className="text-[10px] font-black uppercase text-navy/40 mb-2">{item.category}</div>
-                            <div className="text-xl font-heading font-black text-navy uppercase italic mb-4">{item.title}</div>
-                         </div>
-                      </div>
-                   ))}
-                </motion.div>
+            {/* Principle 4: Long-Term Thinking */}
+            <ScrollReveal delay={0.5} x={-60} y={0}>
+              <div className="bg-white rounded-[2rem] p-10 h-full flex flex-col justify-center border border-slate-100 shadow-sm group hover:shadow-md transition-all duration-500">
+                <h3 className="text-3xl lg:text-4xl font-heading font-black text-[#0d1b2e] mb-6 tracking-tight leading-tight">
+                  Long-Term<br/>Thinking
+                </h3>
+                <p className="text-gray-500 text-lg leading-relaxed font-medium">
+                  We are not here for short-term gains. Every decision is viewed through the lens of permanence and stability.
+                </p>
               </div>
-           </div>
-        </section>
+            </ScrollReveal>
 
-        {/* GLOBAL REACH - THE EARTH DESIGN */}
-        <GlobalReach />
+          </div>
+        </div>
+      </section>
 
-        {/* NEW LEADERSHIP TEAM SECTION */}
-        <section id="team" className="py-24 md:py-40 px-6 bg-white">
-           <div className="max-w-7xl mx-auto text-center">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#1F2937] mb-6">Our Leadership</h2>
-              <p className="max-w-3xl mx-auto text-[#4B5563] text-lg mb-16 leading-relaxed">
-                At the heart of Dhyanora Group's growth is a team of bold leaders who bring vision, expertise, and a proven track record of steering high-stakes projects to success.
-              </p>
+      {/* ════ 4. VISION · MISSION · PURPOSE ════ */}
+      <section className="py-24 md:py-36 bg-white relative overflow-hidden">
+        {/* Subtle background accent */}
+        <div className="absolute right-0 top-0 w-1/2 h-full bg-gradient-to-l from-[#f0f4ff] to-transparent pointer-events-none" />
 
-              <h3 className="text-2xl font-bold text-[#1E3A8A] mb-12">Promoters</h3>
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+          <ScrollReveal y={40} x={0}>
+            <div className="text-center mb-20">
+              <Tag>Our Purpose</Tag>
+              <h2 className="text-4xl md:text-6xl font-heading font-black text-[#0d1b2e] leading-tight">
+                Vision. Mission. <span className="text-[#1a56db]">Purpose.</span>
+              </h2>
+            </div>
+          </ScrollReveal>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                 {[
-                   { name: "Irfan", img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=500" },
-                   { name: "Hari Kiran", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=500" },
-                   { name: "Ganesh Kumar", img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=500" },
-                   { name: "Suresh Goyal", img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=500" }
-                 ].map((member, i) => (
-                   <div key={i} className="flex flex-col items-center group">
-                      <div className="relative w-full aspect-[3/4] rounded-[2rem] bg-[#E5E7EB] overflow-hidden mb-6">
-                         <img src={member.img} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt={member.name} />
-                         <div className="absolute top-4 right-4 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md">
-                            <ArrowUpRight size={16} className="text-[#1F2937]" />
-                         </div>
-                      </div>
-                      <h4 className="text-xl font-bold text-[#1F2937]">{member.name}</h4>
-                   </div>
-                 ))}
+          {/* Vision — image left, text right */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
+            <ScrollReveal x={-60} y={0}>
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl h-[420px] group">
+                <img src={focusedVision} alt="Vision" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <div className="absolute inset-0 flex flex-col justify-end p-10 bg-gradient-to-t from-black/60 to-transparent">
+                  <span className="text-blue-300 text-[10px] font-black uppercase tracking-widest mb-2">Vision</span>
+                  <p className="text-white/80 text-sm font-semibold leading-relaxed max-w-xs">
+                    To be Gujarat's most trusted and diversified business conglomerate.
+                  </p>
+                </div>
               </div>
-           </div>
-        </section>
+            </ScrollReveal>
+            <ScrollReveal x={60} y={0} delay={0.15}>
+              <div className="pl-0 lg:pl-8">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#eff4ff] text-[#1a56db] text-xs font-black uppercase tracking-widest mb-6">
+                  <Eye size={12} /> Vision Statement
+                </div>
+                <blockquote className="text-2xl md:text-3xl font-heading font-black text-[#0d1b2e] leading-snug mb-8 relative">
+                  <span className="absolute -left-4 -top-3 text-5xl text-[#1a56db]/20 font-serif select-none">"</span>
+                  To be recognised as Gujarat's most trusted and diversified business conglomerate — a name synonymous with quality, reliability, and responsible growth.
+                </blockquote>
+                <div className="h-0.5 w-16 bg-[#1a56db] mb-8 rounded-full" />
+                <p className="text-gray-500 text-base leading-relaxed">
+                  Trust is the most valuable currency in business — earned through years of consistency and unwavering discipline. Every stakeholder should feel immediate confidence when they see the Dhyanora signature.
+                </p>
+              </div>
+            </ScrollReveal>
+          </div>
 
-      </main>
-    </>
-  );
-};
+          {/* Mission — text left, image right */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
+            <ScrollReveal x={-60} y={0} delay={0.1}>
+              <div className="pr-0 lg:pr-8">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f0fdf4] text-[#059669] text-xs font-black uppercase tracking-widest mb-6">
+                  <Target size={12} /> Mission Statement
+                </div>
+                <blockquote className="text-2xl md:text-3xl font-heading font-black text-[#0d1b2e] leading-snug mb-8 relative">
+                  <span className="absolute -left-4 -top-3 text-5xl text-[#059669]/20 font-serif select-none">"</span>
+                  To build, manage, and scale high-quality businesses that create tangible value for our clients, partners, and the Gujarat economy.
+                </blockquote>
+                <div className="h-0.5 w-16 bg-[#059669] mb-8 rounded-full" />
+                <p className="text-gray-500 text-base leading-relaxed">
+                  We drive progress through clarity of thought, integrity of action, and a relentless focus on long-term sustainability across every industrial and consumer sector we touch.
+                </p>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal x={60} y={0} delay={0.15}>
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl h-[420px] group">
+                <img src={longTermThinking} alt="Mission" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <div className="absolute inset-0 flex flex-col justify-end p-10 bg-gradient-to-t from-black/60 to-transparent">
+                  <span className="text-green-300 text-[10px] font-black uppercase tracking-widest mb-2">Mission</span>
+                  <p className="text-white/80 text-sm font-semibold leading-relaxed max-w-xs">
+                    Building high-quality businesses that create tangible value for Gujarat.
+                  </p>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+
+          {/* Purpose — full width centered dark card */}
+          <ScrollReveal delay={0.1} y={60} x={0}>
+            <div className="relative rounded-3xl overflow-hidden bg-[#0d1b2e] p-12 md:p-16 text-center">
+              {/* Decorative glow */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#1a56db]/20 to-transparent pointer-events-none" />
+              <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#1a56db]/15 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute top-0 left-0 w-60 h-60 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+
+              {/* Background image */}
+              <img
+                src={gujaratRoutes}
+                className="absolute inset-0 w-full h-full object-cover opacity-10 mix-blend-luminosity"
+                alt=""
+              />
+
+              <div className="relative z-10 max-w-3xl mx-auto">
+                <div className="inline-flex items-center gap-2.5 mb-6">
+                  <div className="w-7 h-0.5 bg-blue-400" />
+                  <span className="text-blue-400 text-[10px] font-black uppercase tracking-[0.22em]">Our Purpose</span>
+                  <div className="w-7 h-0.5 bg-blue-400" />
+                </div>
+                <h3 className="text-3xl md:text-5xl font-heading font-black text-white leading-tight mb-6">
+                  Discipline &amp; purpose<br />
+                  <span className="text-blue-400">behind every decision.</span>
+                </h3>
+                <p className="text-white/50 text-base leading-relaxed mb-10 max-w-xl mx-auto">
+                  Every company we build, every sector we enter is a deliberate act — guided by research, purpose, and unwavering ethics. We do not believe in building businesses through trial and error.
+                </p>
+
+                {/* 3 pillars inline */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
+                  {[
+                    { label: 'Clarity', desc: 'We maintain absolute clarity of identity and strategy across every business.' },
+                    { label: 'Integrity', desc: 'Transparency is our baseline — enabling long-term relationships with all stakeholders.' },
+                    { label: 'Discipline', desc: 'Systems and accountability ensure consistent, high-quality delivery across all verticals.' },
+                  ].map((item) => (
+                    <div key={item.label} className="p-5 bg-white/5 rounded-2xl border border-white/10 hover:border-blue-500/40 hover:bg-white/8 transition-all duration-300">
+                      <h4 className="text-white font-heading font-black text-sm uppercase tracking-wide mb-2">{item.label}</h4>
+                      <p className="text-white/40 text-xs leading-relaxed">{item.desc}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-10">
+                  <Link to="/companies" className="btn-blue group">
+                    Explore Our Companies <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ════ 5. GLOBAL REACH — blob preserved ════ */}
+      <GlobalReach />
+      <FooterCTA />
+    </main>
+  </>
+);
 
 export default About;
+
+

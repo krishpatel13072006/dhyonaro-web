@@ -1,89 +1,91 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 
-export default function FooterCTA() {
-  const containerVariants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        staggerChildren: 0.15,
-        ease: "easeOut"
-      }
-    }
-  };
+// Scroll animation helper (Matches user's request)
+const RevealOnScroll = ({ children, className = "", delay = 0 }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
-  };
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.15, rootMargin: '0px' }
+    );
+    
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section className="section py-16 md:py-24 relative overflow-hidden bg-[#0B0B0C]">
-      {/* ORANGE AMBIENT GLOW */}
-      <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center translate-y-12">
-        <div
-          className="w-[600px] h-[600px] rounded-full blur-[120px]"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(226,74,43,0.45), transparent 70%)",
-          }}
-        />
+    <div
+      ref={ref}
+      className={`transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-32'
+      } ${className}`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      {children}
+    </div>
+  );
+};
+
+const FooterCTA = () => {
+  return (
+    <section className="w-full bg-[#f8f9fa] py-20 overflow-hidden">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+        <RevealOnScroll className="relative rounded-[2.5rem] overflow-hidden min-h-[550px] flex items-center justify-center md:justify-end p-4 sm:p-8 md:p-12 lg:p-16 shadow-lg group">
+          
+          {/* Background Image (Industrial/Logistics theme to match Dhyanora) */}
+          <img 
+            src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=2000&auto=format&fit=crop" 
+            alt="Logistics team looking forward" 
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+          />
+          {/* Dark overlay to ensure the image isn't too distracting */}
+          <div className="absolute inset-0 bg-slate-900/30 mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/40 to-transparent"></div>
+
+          {/* Floating White Content Card */}
+          <div className="relative z-10 bg-white rounded-3xl p-8 md:p-12 lg:p-14 max-w-xl w-full shadow-2xl">
+            <span className="text-[#da251c] font-black tracking-[0.2em] uppercase text-xs mb-5 block">
+              Get Started
+            </span>
+            
+            <h2 className="text-4xl md:text-5xl font-heading font-black text-slate-900 tracking-tight leading-[1.1] mb-6">
+              Ready to Work <br className="hidden sm:block" /> With Dhyanora?
+            </h2>
+            
+            <p className="text-[1.1rem] text-slate-500 leading-relaxed font-medium mb-10">
+              Whether you are a business partner, investor, or client — we are based in Ahmedabad and always open to conversations. Our team is ready to assist.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link 
+                to="/contact" 
+                className="bg-[#da251c] hover:bg-red-700 text-white px-10 py-4 rounded-xl font-bold transition-all duration-300 shadow-lg shadow-red-600/20 text-center"
+              >
+                Get In Touch
+              </Link>
+              <Link 
+                to="/companies" 
+                className="bg-white border-2 border-slate-100 hover:border-[#da251c]/20 hover:bg-slate-50 text-slate-900 px-10 py-4 rounded-xl font-bold transition-all duration-300 text-center"
+              >
+                Our Companies
+              </Link>
+            </div>
+          </div>
+
+        </RevealOnScroll>
       </div>
-
-      {/* TOP FADE */}
-      <div
-        className="pointer-events-none absolute top-0 left-0 right-0 h-[80px] z-[2]"
-        style={{
-          background:
-            "linear-gradient(to bottom, #0B0B0C, rgba(11,11,12,0))",
-        }}
-      />
-
-      {/* BOTTOM FADE */}
-      <div
-        className="pointer-events-none absolute bottom-0 left-0 right-0 h-[80px] z-[2]"
-        style={{
-          background:
-            "linear-gradient(to top, #0B0B0C, rgba(11,11,12,0))",
-        }}
-      />
-
-      {/* CONTENT */}
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        className="relative z-10 max-w-4xl mx-auto text-center space-y-6 px-6"
-      >
-        <motion.h2 variants={itemVariants} className="text-3xl md:text-5xl font-heading font-bold text-[#FFE1C5]">
-          READY TO <span className="text-orange-500">WORK WITH US?</span>
-        </motion.h2>
-
-        <motion.p variants={itemVariants} className="max-w-2xl mx-auto text-gray-300 text-base md:text-lg leading-relaxed">
-          Whether you are a business partner, investor, or client — we would love to hear from you.
-        </motion.p>
-
-        <motion.div variants={itemVariants} className="flex justify-center pt-4">
-          <Link
-            to="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4
-                       rounded-full font-bold text-sm
-                       bg-orange-500 text-black
-                       shadow-[0_0_40px_rgba(226,74,43,0.6)]
-                       transition-all duration-300
-                       hover:-translate-y-1
-                       hover:shadow-[0_0_60px_rgba(226,74,43,0.9)]
-                       uppercase tracking-wider"
-          >
-            Get In Touch
-          </Link>
-        </motion.div>
-      </motion.div>
     </section>
   );
-}
+};
+
+export default FooterCTA;
+
+

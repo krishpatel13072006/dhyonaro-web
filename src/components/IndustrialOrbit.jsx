@@ -9,22 +9,29 @@ import {
   Truck, 
   Building2,
   TrendingUp,
-  CheckCircle2,
-  Briefcase,
-  Users2,
   X
 } from 'lucide-react';
-import dhyanoraLogo from '../companies-logo/Dhyanora logo.png';
+import DhyanoraLogo from '../companies-logo/Dhyanora loga 1.png';
+
+// Import newly provided images
+import metalScrapImg from '../images/pramukh import export home.avif';
+import techVentureImg from '../images/pramukh tech venture.avif';
+import infrastructureImg from '../images/shreeji infra tech.avif';
+import supplyChainImg from '../images/global sourcing pramukh import export.jpg';
+import globalReachImg from '../images/gujarat routes.avif';
+import qualityAssuranceImg from '../images/quality assurance pramukh import export.avif';
+import growthImg from '../images/long term thinking.avif';
+import expertiseImg from '../images/focused vision.jpg';
 
 const ECOSYSTEM_FEATURES = [
-  { title: "Metal Scrap Trading", desc: "Global procurement of ferrous and non-ferrous scrap.", icon: Factory, img: "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=400&h=400&fit=crop&q=80" },
-  { title: "Tech Ventures", desc: "Premium electronics retail and smart technology distribution.", icon: Smartphone, img: "https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=400&fit=crop&q=80" },
-  { title: "Infrastructure", desc: "Developing world-class industrial parks and workspaces.", icon: Building2, img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=400&fit=crop&q=80" },
-  { title: "Supply Chain", desc: "End-to-end logistics and raw material management.", icon: Truck, img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=400&fit=crop&q=80" },
-  { title: "Global Reach", desc: "Operating across international borders with precision.", icon: Globe, img: "https://images.unsplash.com/photo-1521295121683-bc9947669123?w=400&h=400&fit=crop&q=80" },
-  { title: "Quality Assurance", desc: "100% genuine inventory and strict quality protocols.", icon: ShieldCheck, img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=400&fit=crop&q=80" },
-  { title: "Disciplined Growth", desc: "Sustainable expansion driven by focused values.", icon: TrendingUp, img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=400&fit=crop&q=80" },
-  { title: "Sector Expertise", desc: "Deep understanding of every industry we enter.", icon: Briefcase, img: "https://images.unsplash.com/photo-1504384308090-c89e12076d22?w=400&h=400&fit=crop&q=80" },
+  { title: "Metal Scrap Trading", desc: "Global procurement of ferrous and non-ferrous scrap.", icon: Factory, img: metalScrapImg },
+  { title: "Tech Ventures", desc: "Premium electronics retail and smart technology distribution.", icon: Smartphone, img: techVentureImg },
+  { title: "Infrastructure", desc: "Developing world-class industrial parks and workspaces.", icon: Building2, img: infrastructureImg },
+  { title: "Supply Chain", desc: "End-to-end logistics and raw material management.", icon: Truck, img: supplyChainImg },
+  { title: "Global Reach", desc: "Operating across international borders with precision.", icon: Globe, img: globalReachImg },
+  { title: "Quality Assurance", desc: "100% genuine inventory and strict quality protocols.", icon: ShieldCheck, img: qualityAssuranceImg },
+  { title: "Disciplined Growth", desc: "Sustainable expansion driven by focused values.", icon: TrendingUp, img: growthImg },
+  { title: "Sector Expertise", desc: "Deep understanding of every industry we enter.", icon: Zap, img: expertiseImg },
 ];
 
 const IndustrialOrbit = () => {
@@ -47,97 +54,138 @@ const IndustrialOrbit = () => {
   });
 
   const count = ECOSYSTEM_FEATURES.length;
-  const radius = isMobile ? 120 : 280;
-  const cardSize = isMobile ? 80 : 140;
+  const radius = isMobile ? 140 : 320;
+  const cardSize = isMobile ? 100 : 160;
 
   return (
     <>
-    <section className="py-24 md:py-48 px-6 relative overflow-hidden bg-white border-y border-navy/5">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-24 md:py-48 px-6 relative overflow-hidden bg-[#fafbfc] border-y border-slate-100">
+      <div className="max-w-[1400px] mx-auto relative">
+        
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-24 relative z-20"
         >
-          <span className="text-navy/20 font-black uppercase tracking-[0.4em] text-[10px] block mb-4">Synergy & Scale</span>
-          <h2 className="text-4xl md:text-7xl font-heading font-black text-navy uppercase italic mb-8 leading-tight">
-            The Industrial <br /> Ecosystem.
+          <span className="text-slate-400 font-black uppercase tracking-[0.4em] text-[10px] block mb-4">Synergy &amp; Scale</span>
+          <h2 className="text-4xl md:text-7xl font-heading font-black text-slate-900 uppercase leading-tight">
+            The Industrial <br /> <span className="text-blue-600">Ecosystem.</span>
           </h2>
         </motion.div>
 
-        {/* Circular Carousel */}
+        {/* Circular Carousel Container */}
         <div
-          className="relative mx-auto"
-          style={{ width: isMobile ? 300 : 700, height: isMobile ? 300 : 700 }}
+          className="relative mx-auto flex items-center justify-center"
+          style={{ width: isMobile ? 320 : 800, height: isMobile ? 320 : 800 }}
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => { setIsPaused(false); }}
         >
-          {/* Orbit rings - Multi-layered for depth */}
+          {/* Orbital Connection Lines */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="w-[100%] h-[100%] rounded-full border border-navy/[0.03]" />
-            <div className="absolute w-[70%] h-[70%] rounded-full border border-navy/[0.02]" />
-            <div className="absolute w-48 h-48 md:w-64 md:h-64 rounded-full bg-navy/[0.02] blur-[80px]" />
+            <div className="w-[100%] h-[100%] rounded-full border border-slate-200/40" />
+            <div className="absolute w-[80%] h-[80%] rounded-full border border-slate-200/20" />
+            <div className="absolute w-[60%] h-[60%] rounded-full border border-slate-200/10" />
           </div>
 
-          {/* Feature cards in circle */}
+          {/* Feature Cards in Circle */}
           {ECOSYSTEM_FEATURES.map((feature, idx) => {
             const Icon = feature.icon;
             const itemAngle = (360 / count) * idx + angle;
             const rad = (itemAngle * Math.PI) / 180;
-            const centerX = (isMobile ? 300 : 700) / 2;
-            const centerY = (isMobile ? 300 : 700) / 2;
+            const centerX = (isMobile ? 320 : 800) / 2;
+            const centerY = (isMobile ? 320 : 800) / 2;
             const x = centerX + Math.cos(rad) * radius - cardSize / 2;
             const y = centerY + Math.sin(rad) * radius - cardSize / 2;
 
             return (
               <motion.div
                 key={idx}
-                className="absolute cursor-pointer group"
+                className="absolute cursor-pointer z-20"
                 style={{
                   left: x,
                   top: y,
                   width: cardSize,
                   height: cardSize,
-                  zIndex: 10,
                 }}
                 onClick={() => {
                   setSelectedFeature(feature);
                   setIsPaused(true);
                 }}
-                whileHover={{ scale: 1.1 }}
-                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                whileHover={{ scale: 1.05, y: -5 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 25 }}
               >
-                <div className="w-full h-full rounded-2xl overflow-hidden border border-navy/10 bg-white relative">
+                <div className="w-full h-full rounded-[1.5rem] overflow-hidden bg-white shadow-xl border border-slate-100 relative group">
                   <img
                     src={feature.img}
                     alt={feature.title}
-                    className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500"
+                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/20 to-transparent" />
-                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
-                    <Icon size={isMobile ? 16 : 24} className="text-white" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/30 to-transparent" />
+                  <div className="absolute inset-0 p-3 md:p-4 flex flex-col justify-between">
+                    <p className="text-[9px] md:text-[10px] font-bold text-white/90 uppercase tracking-wider leading-tight">
+                      {feature.title}
+                    </p>
+                    <div className="w-7 h-7 md:w-9 md:h-9 rounded-lg bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white">
+                      <Icon size={isMobile ? 14 : 18} strokeWidth={2.5} />
+                    </div>
                   </div>
                 </div>
               </motion.div>
             );
           })}
 
-          {/* Center Content */}
+          {/* Center Branding Core - Energy Ring */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="text-center">
-              <div
-                className="w-24 h-12 md:w-40 md:h-20 flex items-center justify-center mx-auto"
-              >
-                <img 
-                  src={dhyanoraLogo} 
-                  alt="Dhyanora Group" 
-                  className="w-full h-full object-contain" 
+            <div className="relative flex items-center justify-center">
+
+              {/* Energy Ring Container */}
+              <div className="relative w-[240px] h-[240px] md:w-[320px] md:h-[320px] flex items-center justify-center">
+
+                {/* Rotating conic-gradient ring */}
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                  className="absolute inset-0 rounded-full"
+                  style={{
+                    background: "conic-gradient(from 0deg, #2563eb, #ec4899, #dc251c, #2563eb)",
+                    WebkitMaskImage: "radial-gradient(circle, transparent 56%, black 59%)",
+                    maskImage: "radial-gradient(circle, transparent 56%, black 59%)",
+                    filter: "blur(8px)"
+                  }}
                 />
+
+                {/* Sharp thin crisp ring on top */}
+                <motion.div
+                  animate={{ rotate: -360 }}
+                  transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                  className="absolute inset-[4%] rounded-full"
+                  style={{
+                    background: "conic-gradient(from 90deg, #60a5fa, #f472b6, #f87171, #60a5fa)",
+                    WebkitMaskImage: "radial-gradient(circle, transparent 60%, black 61.5%)",
+                    maskImage: "radial-gradient(circle, transparent 60%, black 61.5%)",
+                    filter: "blur(2px)"
+                  }}
+                />
+
+                {/* Core Logo in center */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="relative group">
+                    <div className="absolute inset-0 bg-blue-500/20 blur-2xl rounded-full scale-150 animate-pulse" />
+                    <img 
+                      src={DhyanoraLogo} 
+                      alt="Dhyanora" 
+                      className="relative h-24 w-24 object-contain z-10 drop-shadow-2xl"
+                    />
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
@@ -146,52 +194,37 @@ const IndustrialOrbit = () => {
     <AnimatePresence>
       {selectedFeature && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-6">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="absolute inset-0 bg-black/80 backdrop-blur-md"
-            onClick={() => {
-              setSelectedFeature(null);
-              setIsPaused(false);
-            }}
+            className="absolute inset-0 bg-slate-950/90 backdrop-blur-md"
+            onClick={() => { setSelectedFeature(null); setIsPaused(false); }}
           />
-          
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="relative w-full max-w-lg bg-[#121212] rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl"
+            className="relative w-full max-w-xl bg-white rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-100"
           >
-            <div className="p-8">
+            <div className="p-10">
               <div className="flex items-center justify-between mb-8">
-                <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center">
-                    {React.createElement(selectedFeature.icon, { size: 28, className: "text-white" })}
+                <div className="flex items-center gap-5">
+                  <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 border border-blue-100">
+                    {React.createElement(selectedFeature.icon, { size: 32 })}
                   </div>
-                  <h3 className="text-2xl font-heading font-black text-white uppercase italic">{selectedFeature.title}</h3>
+                  <h3 className="text-3xl font-heading font-black text-slate-900 uppercase tracking-tight">{selectedFeature.title}</h3>
                 </div>
-                <button 
-                  onClick={() => {
-                    setSelectedFeature(null);
-                    setIsPaused(false);
-                  }}
-                  className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+                <button
+                  onClick={() => { setSelectedFeature(null); setIsPaused(false); }}
+                  className="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center text-slate-500 hover:bg-slate-200 transition-colors"
                 >
                   <X size={24} />
                 </button>
               </div>
-
-              <p className="text-white/60 text-lg font-bold mb-8 leading-relaxed">
-                {selectedFeature.desc}
-              </p>
-
-              <div className="aspect-video w-full rounded-2xl overflow-hidden border border-white/10">
-                <img 
-                  src={selectedFeature.img} 
-                  alt={selectedFeature.title} 
-                  className="w-full h-full object-cover" 
-                />
+              <p className="text-slate-500 text-xl font-medium mb-10 leading-relaxed">{selectedFeature.desc}</p>
+              <div className="aspect-video w-full rounded-3xl overflow-hidden border border-slate-100">
+                <img src={selectedFeature.img} alt={selectedFeature.title} className="w-full h-full object-cover" />
               </div>
             </div>
           </motion.div>
@@ -203,3 +236,5 @@ const IndustrialOrbit = () => {
 };
 
 export default IndustrialOrbit;
+
+

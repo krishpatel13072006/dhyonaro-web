@@ -6,7 +6,7 @@ const SEO = ({ title, description, keywords, canonical }) => {
   const siteTitle = `${brandName} | Clarity. Direction. Growth.`;
   const fullTitle = title ? `${title} | ${siteTitle}` : siteTitle;
   const defaultDesc = `Dhyanora Group is a diversified business group based in Ahmedabad, Gujarat — bringing together companies across metal trading, electronics, infrastructure, and construction under one focused vision.`;
-  const siteUrl = "https://dhyanora.com"; 
+  const siteUrl = "https://Dhyanora.com"; 
 
   // JSON-LD Schema for Parent-Child Relationship
   const schemaMarkup = {
@@ -70,3 +70,5 @@ const SEO = ({ title, description, keywords, canonical }) => {
 };
 
 export default SEO;
+
+

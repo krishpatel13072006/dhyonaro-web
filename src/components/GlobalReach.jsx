@@ -155,8 +155,8 @@ const Scene = () => {
         enablePan={false} 
         enableZoom={false} 
         autoRotate={false}
-        minPolarAngle={Math.PI / 3}
-        maxPolarAngle={Math.PI / 1.5}
+        minPolarAngle={Math.PI / 2}
+        maxPolarAngle={Math.PI / 2}
       />
       
       <ambientLight intensity={1.5} />
