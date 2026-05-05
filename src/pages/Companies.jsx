@@ -155,7 +155,7 @@ const Companies = () => {
               className="absolute inset-0 w-full h-full object-cover opacity-55"
               poster={shreejiMainImg}
             >
-              <source src="/hero-section.webm" type="video/webm" />
+              <source src="/hero-section.mp4" type="video/mp4" />
             </video>
           </div>
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/70 z-10" />

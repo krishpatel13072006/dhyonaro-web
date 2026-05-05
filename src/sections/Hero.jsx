@@ -22,7 +22,7 @@ export default function Hero() {
           className="w-full h-full object-cover"
           poster={officeImg}
         >
-          <source src="/hero-section.webm" type="video/webm" />
+          <source src="/hero-section.mp4" type="video/mp4" />
         </video>
         {/* Layered overlays */}
         <div className="absolute inset-0 bg-[#0d1b2e]/60 z-10" />
