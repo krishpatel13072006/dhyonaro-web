@@ -189,7 +189,7 @@ export default function Home() {
 
               {/* Right – Text (Slide from Right) */}
               <ScrollReveal x={60} y={0} duration={1} className="lg:col-span-5">
-                <motion.div 
+                <motion.div
                   variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true }}
                 >
                   <motion.div variants={fadeUp} transition={{ duration: 0.65 }}>
@@ -250,8 +250,8 @@ export default function Home() {
           <div className="flex items-center w-max animate-marquee">
             {[...Array(2)].map((_, r) =>
               ['Pramukh Import Export', 'Pramukh Techventures', 'Shreeji Infra', 'Bricks Trading', 'Dhyanora Group'].map((item, i) => (
-                <span 
-                  key={`${r}-${i}`} 
+                <span
+                  key={`${r}-${i}`}
                   className="mx-12 text-[#0d1b2e]/10 text-2xl md:text-5xl font-heading font-black uppercase italic tracking-tighter hover:text-[#1a56db] transition-colors duration-500 cursor-pointer"
                 >
                   {item}
@@ -342,11 +342,11 @@ export default function Home() {
                     {/* Bottom accent line */}
                     <div className="h-[3px] w-0 group-hover:w-full transition-all duration-500" style={{ background: p.accent }} />
                   </div>
-              );
-            })}
-          </ScrollRevealGroup>
-        </div>
-      </section>
+                );
+              })}
+            </ScrollRevealGroup>
+          </div>
+        </section>
 
         {/* ════ WHAT SETS Dhyanora APART — BENTO GRID LAYOUT ════ */}
         <ApartSection />
@@ -356,7 +356,7 @@ export default function Home() {
           <section className="relative py-24 md:py-32 overflow-hidden">
             <div
               className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-              style={{ 
+              style={{
                 backgroundImage: `url(${homeVision})`,
                 filter: 'grayscale(100%) brightness(0.9) contrast(1.1)'
               }}
