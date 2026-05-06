@@ -11,14 +11,14 @@ export default function Hero() {
 
   return (
     <section className="relative w-full min-h-screen flex items-center overflow-hidden bg-[#0d1b2e] pt-20">
-      {/* ── Video background ── */}
-      <CrossfadeVideo 
-        videos={[
-          `${import.meta.env.BASE_URL}hero-1.mp4`, 
-          `${import.meta.env.BASE_URL}hero-2.mp4`
-        ]} 
-        overlayOpacity={0.3}
-      />
+       {/* ── Video background ── */}
+       <CrossfadeVideo 
+         videos={[
+           '/hero-1.mp4', 
+           '/hero-2.mp4'
+         ]} 
+         overlayOpacity={0.3}
+       />
       
 
 

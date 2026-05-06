@@ -144,15 +144,15 @@ const Companies = () => {
       <SEO title="Our Companies | Dhyanora Group" description="Explore Dhyanora Group's strategic portfolio spanning metal scrap trading, electronics retail, and industrial infrastructure in Gujarat." />
       <main className="bg-white overflow-x-hidden">
 
-        {/* ════ VIDEO HERO ════ */}
-        <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#0d1b2e]">
-          <CrossfadeVideo 
-            videos={[
-              `${import.meta.env.BASE_URL}company-1.mp4`, 
-              `${import.meta.env.BASE_URL}company-2.mp4`
-            ]} 
-            overlayOpacity={0}
-          />
+         {/* ════ VIDEO HERO ════ */}
+         <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#0d1b2e]">
+           <CrossfadeVideo 
+             videos={[
+               '/company-1.mp4', 
+               '/company-2.mp4'
+             ]} 
+             overlayOpacity={0}
+           />
 
 
           <div className="relative z-20 text-center px-6 max-w-5xl mx-auto">
