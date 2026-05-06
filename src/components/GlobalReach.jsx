@@ -180,22 +180,22 @@ const Scene = () => {
 
 const GlobalReach = () => {
   return (
-    <section className="relative h-[120vh] min-h-[900px] w-full bg-black overflow-hidden flex flex-col items-center pt-32 md:pt-48">
+    <section className="relative h-[80vh] md:h-[120vh] min-h-[600px] md:min-h-[900px] w-full bg-black overflow-hidden flex flex-col items-center pt-24 md:pt-48">
       
       {/* SECTION HEADING */}
-      <div className="absolute top-16 md:top-24 w-full text-center z-30 px-6 pointer-events-none">
+      <div className="absolute top-12 md:top-24 w-full text-center z-30 px-6 pointer-events-none">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-7xl font-heading font-black text-white uppercase italic tracking-tighter"
+          className="text-3xl md:text-7xl font-heading font-black text-white uppercase italic tracking-tighter"
         >
           OUR GLOBAL <span className="text-[#C1B09C]">PRESENCE</span>
         </motion.h2>
       </div>
 
       {/* 3D CANVAS */}
-      <div className="w-full h-full cursor-grab active:cursor-grabbing">
+      <div className="w-full h-full cursor-grab active:cursor-grabbing relative z-0">
         <Canvas dpr={[1, 2]} shadows>
           <Scene />
         </Canvas>

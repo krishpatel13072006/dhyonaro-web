@@ -51,29 +51,29 @@ const FooterCTA = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900/40 to-transparent"></div>
 
           {/* Floating White Content Card */}
-          <div className="relative z-10 bg-white rounded-3xl p-8 md:p-12 lg:p-14 max-w-xl w-full shadow-2xl">
-            <span className="text-[#da251c] font-black tracking-[0.2em] uppercase text-xs mb-5 block">
+          <div className="relative z-10 bg-white rounded-3xl p-6 sm:p-10 md:p-12 lg:p-14 max-w-xl w-full shadow-2xl">
+            <span className="text-[#da251c] font-black tracking-[0.2em] uppercase text-[10px] mb-4 md:mb-5 block">
               Get Started
             </span>
             
-            <h2 className="text-4xl md:text-5xl font-heading font-black text-slate-900 tracking-tight leading-[1.1] mb-6">
+            <h2 className="text-3xl md:text-5xl font-heading font-black text-slate-900 tracking-tight leading-[1.1] mb-5 md:mb-6">
               Ready to Work <br className="hidden sm:block" /> With Dhyanora?
             </h2>
             
-            <p className="text-[1.1rem] text-slate-500 leading-relaxed font-medium mb-10">
+            <p className="text-base md:text-lg text-slate-500 leading-relaxed font-medium mb-8 md:mb-10">
               Whether you are a business partner, investor, or client — we are based in Ahmedabad and always open to conversations. Our team is ready to assist.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
               <Link 
                 to="/contact" 
-                className="bg-[#da251c] hover:bg-red-700 text-white px-10 py-4 rounded-xl font-bold transition-all duration-300 shadow-lg shadow-red-600/20 text-center"
+                className="bg-[#da251c] hover:bg-red-700 text-white px-8 md:px-10 py-3.5 md:py-4 rounded-xl font-bold transition-all duration-300 shadow-lg shadow-red-600/20 text-center text-sm"
               >
                 Get In Touch
               </Link>
               <Link 
                 to="/companies" 
-                className="bg-white border-2 border-slate-100 hover:border-[#da251c]/20 hover:bg-slate-50 text-slate-900 px-10 py-4 rounded-xl font-bold transition-all duration-300 text-center"
+                className="bg-white border-2 border-slate-100 hover:border-[#da251c]/20 hover:bg-slate-50 text-slate-900 px-8 md:px-10 py-3.5 md:py-4 rounded-xl font-bold transition-all duration-300 text-center text-sm"
               >
                 Our Companies
               </Link>

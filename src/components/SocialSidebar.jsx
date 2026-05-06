@@ -31,7 +31,7 @@ const SocialSidebar = () => {
   ];
 
   return (
-    <div className="fixed right-0 top-1/2 -translate-y-1/2 z-[100] flex flex-col gap-1 md:gap-2">
+    <div className="hidden lg:flex fixed right-0 top-1/2 -translate-y-1/2 z-[100] flex-col gap-2">
       {socialLinks.map((link) => (
         <a 
           key={link.id}

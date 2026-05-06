@@ -10,9 +10,18 @@ const CrossfadeVideo = ({ videos, className, overlayOpacity = 0.6 }) => {
   useEffect(() => {
     const activeVideo = videoRefs[activeRefIdx].current;
     if (activeVideo) {
-      activeVideo.src = videos[index];
-      activeVideo.load();
-      activeVideo.play().catch(e => console.log("Autoplay blocked or failed", e));
+      // Only set src if it changed to avoid flickering or reloading
+      if (activeVideo.getAttribute('src') !== videos[index]) {
+        activeVideo.src = videos[index];
+        activeVideo.load();
+      }
+      
+      const playPromise = activeVideo.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(e => {
+          console.log("Autoplay blocked or failed, retrying on interaction", e);
+        });
+      }
     }
   }, [index, activeRefIdx, videos]);
 
@@ -23,8 +32,11 @@ const CrossfadeVideo = ({ videos, className, overlayOpacity = 0.6 }) => {
     // Set the source for the next video (hidden)
     const nextVideo = videoRefs[nextRefIdx].current;
     if (nextVideo) {
-      nextVideo.src = videos[nextIndex];
-      nextVideo.load();
+      if (nextVideo.getAttribute('src') !== videos[nextIndex]) {
+        nextVideo.src = videos[nextIndex];
+        nextVideo.load();
+      }
+      
       nextVideo.play().then(() => {
         // Once next video is playing, switch visibility
         setIndex(nextIndex);
@@ -38,18 +50,21 @@ const CrossfadeVideo = ({ videos, className, overlayOpacity = 0.6 }) => {
   };
 
   return (
-    <div className={`absolute inset-0 overflow-hidden ${className}`}>
+    <div className={`absolute inset-0 overflow-hidden bg-navy-deep ${className}`}>
       {/* Video Elements */}
       {videoRefs.map((ref, i) => (
         <video
           key={i}
           ref={ref}
           muted
+          autoPlay
           playsInline
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+          loop={videos.length === 1} // Only native loop if single video
+          preload="auto"
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1500 ${
             activeRefIdx === i ? 'opacity-100 z-10' : 'opacity-0 z-0'
           }`}
-          onEnded={activeRefIdx === i ? handleEnded : undefined}
+          onEnded={videos.length > 1 && activeRefIdx === i ? handleEnded : undefined}
         />
       ))}
       

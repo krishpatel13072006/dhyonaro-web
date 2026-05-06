@@ -35,14 +35,14 @@ const About = () => (
     <main className="bg-white">
 
       {/* ════ 1. HERO ════ */}
-      <section className="relative h-[100vh] w-full overflow-hidden flex items-end pb-16 px-6 md:px-12">
+      <section className="relative h-[80vh] md:h-[100vh] w-full overflow-hidden flex items-end pb-12 md:pb-16 px-6 md:px-12">
         <div className="absolute inset-0">
           <img src={officeImg} className="w-full h-full object-cover" alt="Dhyanora Office" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto w-full">
           <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1a56db]/80 backdrop-blur-sm text-white text-xs font-bold uppercase tracking-widest mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1a56db]/80 backdrop-blur-sm text-white text-[10px] md:text-xs font-bold uppercase tracking-widest mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
               Ahmedabad, Gujarat · Est. 2026
             </div>
@@ -50,8 +50,8 @@ const About = () => (
               Building Excellence Through<br className="hidden md:block" />
               <span className="text-[#60a5fa]"> Disciplined Businesses.</span>
             </h1>
-            <div className="flex flex-col md:flex-row gap-8 items-start md:items-center justify-between text-white/70 border-t border-white/10 pt-6">
-              <p className="max-w-sm text-sm font-semibold uppercase tracking-widest">A Diversified Industrial Portfolio · Gujarat &amp; Beyond</p>
+            <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start md:items-center justify-between text-white/70 border-t border-white/10 pt-6">
+              <p className="max-w-xs text-[10px] md:text-sm font-semibold uppercase tracking-widest">A Diversified Industrial Portfolio · Gujarat &amp; Beyond</p>
               <Link to="/companies" className="inline-flex items-center gap-2 text-white text-xs font-black uppercase tracking-widest group">
                 Explore Our Companies
                 <div className="w-8 h-8 border border-white/30 flex items-center justify-center group-hover:bg-white group-hover:text-[#0d1b2e] transition-all duration-300">
@@ -71,34 +71,34 @@ const About = () => (
             <ChevronRight size={13} />
             <span className="font-bold text-[#0d1b2e]">About Us</span>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
             <ScrollReveal x={-60} y={0} duration={1}>
               <div className="relative">
-                <div className="absolute inset-0 bg-[#1a56db]/10 rounded-3xl translate-x-4 translate-y-4" />
+                <div className="absolute inset-0 bg-[#1a56db]/10 rounded-3xl translate-x-3 translate-y-3 md:translate-x-4 md:translate-y-4" />
                 <img
                   src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=900"
                   alt="Dhyanora Strategy"
-                  className="relative rounded-3xl shadow-2xl w-full h-[480px] object-cover"
+                  className="relative rounded-3xl shadow-2xl w-full h-[320px] md:h-[480px] object-cover"
                 />
-                <div className="absolute -bottom-6 -left-6 bg-[#0d1b2e] text-white px-7 py-5 rounded-2xl shadow-2xl">
-                  <p className="text-[9px] font-black uppercase tracking-widest text-blue-400 mb-1">Founded</p>
-                  <p className="text-3xl font-heading font-black leading-none">2026</p>
-                  <p className="text-white/50 text-xs mt-1">Ahmedabad, GJ</p>
+                <div className="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 bg-[#0d1b2e] text-white px-5 py-4 md:px-7 md:py-5 rounded-2xl shadow-2xl">
+                  <p className="text-[8px] md:text-[9px] font-black uppercase tracking-widest text-blue-400 mb-1">Founded</p>
+                  <p className="text-2xl md:text-3xl font-heading font-black leading-none">2026</p>
+                  <p className="text-white/50 text-[10px] md:text-xs mt-1">Ahmedabad, GJ</p>
                 </div>
               </div>
             </ScrollReveal>
             <ScrollReveal x={60} y={0} delay={0.1} duration={1}>
               <Tag>Our History</Tag>
-              <h2 className="text-4xl md:text-5xl font-heading font-black text-[#0d1b2e] mb-8 leading-tight">
+              <h2 className="text-3xl md:text-5xl font-heading font-black text-[#0d1b2e] mb-6 md:mb-8 leading-tight">
                 How Dhyanora<br /><span className="text-[#1a56db]">Began.</span>
               </h2>
-              <div className="space-y-5 text-gray-600 text-base leading-relaxed">
+              <div className="space-y-4 md:space-y-5 text-gray-600 text-sm md:text-base leading-relaxed">
                 <p><strong className="text-[#0d1b2e]">Dhyanora Group</strong> was established in 2026 in Ahmedabad, Gujarat, with a singular belief: that focused businesses, run with discipline and traditional values, create outcomes that stand the test of time.</p>
                 <p>Derived from the Sanskrit word <em className="font-semibold">'Dhyanora'</em> — meaning focus, awareness, and intent — it sits at the heart of our operational philosophy. We enter sectors with absolute intention, and grow within them with patience.</p>
                 <p>Today, Dhyanora is a multi-sector entity operating across metal scrap trading, electronics retail, industrial infrastructure, and construction materials — each vertical contributing to the collective strength of the group.</p>
               </div>
-              <div className="mt-10">
-                <Link to="/companies" className="btn-blue group">
+              <div className="mt-8 md:mt-10">
+                <Link to="/companies" className="btn-blue group w-full sm:w-auto justify-center sm:justify-start">
                   Explore Our Companies
                   <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
@@ -221,13 +221,13 @@ const About = () => (
           </ScrollReveal>
 
           {/* Vision — image left, text right */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 items-center mb-16 md:mb-24">
             <ScrollReveal x={-60} y={0}>
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl h-[420px] group">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[420px] group">
                 <img src={focusedVision} alt="Vision" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                <div className="absolute inset-0 flex flex-col justify-end p-10 bg-gradient-to-t from-black/60 to-transparent">
-                  <span className="text-blue-300 text-[10px] font-black uppercase tracking-widest mb-2">Vision</span>
-                  <p className="text-white/80 text-sm font-semibold leading-relaxed max-w-xs">
+                <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-10 bg-gradient-to-t from-black/60 to-transparent">
+                  <span className="text-blue-300 text-[8px] md:text-[10px] font-black uppercase tracking-widest mb-2">Vision</span>
+                  <p className="text-white/80 text-xs md:text-sm font-semibold leading-relaxed max-w-xs">
                     To be Gujarat's most trusted and diversified business conglomerate.
                   </p>
                 </div>
@@ -235,15 +235,15 @@ const About = () => (
             </ScrollReveal>
             <ScrollReveal x={60} y={0} delay={0.15}>
               <div className="pl-0 lg:pl-8">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#eff4ff] text-[#1a56db] text-xs font-black uppercase tracking-widest mb-6">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#eff4ff] text-[#1a56db] text-[10px] md:text-xs font-black uppercase tracking-widest mb-6">
                   <Eye size={12} /> Vision Statement
                 </div>
-                <blockquote className="text-2xl md:text-3xl font-heading font-black text-[#0d1b2e] leading-snug mb-8 relative">
-                  <span className="absolute -left-4 -top-3 text-5xl text-[#1a56db]/20 font-serif select-none">"</span>
+                <blockquote className="text-xl md:text-3xl font-heading font-black text-[#0d1b2e] leading-snug mb-6 md:mb-8 relative">
+                  <span className="absolute -left-3 -top-2 md:-left-4 md:-top-3 text-4xl md:text-5xl text-[#1a56db]/20 font-serif select-none">"</span>
                   To be recognised as Gujarat's most trusted and diversified business conglomerate — a name synonymous with quality, reliability, and responsible growth.
                 </blockquote>
-                <div className="h-0.5 w-16 bg-[#1a56db] mb-8 rounded-full" />
-                <p className="text-gray-500 text-base leading-relaxed">
+                <div className="h-0.5 w-16 bg-[#1a56db] mb-6 md:mb-8 rounded-full" />
+                <p className="text-gray-500 text-sm md:text-base leading-relaxed">
                   Trust is the most valuable currency in business — earned through years of consistency and unwavering discipline. Every stakeholder should feel immediate confidence when they see the Dhyanora signature.
                 </p>
               </div>
@@ -251,28 +251,28 @@ const About = () => (
           </div>
 
           {/* Mission — text left, image right */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
-            <ScrollReveal x={-60} y={0} delay={0.1}>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 items-center mb-16 md:mb-24">
+            <ScrollReveal x={-60} y={0} delay={0.1} className="order-2 lg:order-1">
               <div className="pr-0 lg:pr-8">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f0fdf4] text-[#059669] text-xs font-black uppercase tracking-widest mb-6">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f0fdf4] text-[#059669] text-[10px] md:text-xs font-black uppercase tracking-widest mb-6">
                   <Target size={12} /> Mission Statement
                 </div>
-                <blockquote className="text-2xl md:text-3xl font-heading font-black text-[#0d1b2e] leading-snug mb-8 relative">
-                  <span className="absolute -left-4 -top-3 text-5xl text-[#059669]/20 font-serif select-none">"</span>
+                <blockquote className="text-xl md:text-3xl font-heading font-black text-[#0d1b2e] leading-snug mb-6 md:mb-8 relative">
+                  <span className="absolute -left-3 -top-2 md:-left-4 md:-top-3 text-4xl md:text-5xl text-[#059669]/20 font-serif select-none">"</span>
                   To build, manage, and scale high-quality businesses that create tangible value for our clients, partners, and the Gujarat economy.
                 </blockquote>
-                <div className="h-0.5 w-16 bg-[#059669] mb-8 rounded-full" />
-                <p className="text-gray-500 text-base leading-relaxed">
+                <div className="h-0.5 w-16 bg-[#059669] mb-6 md:mb-8 rounded-full" />
+                <p className="text-gray-500 text-sm md:text-base leading-relaxed">
                   We drive progress through clarity of thought, integrity of action, and a relentless focus on long-term sustainability across every industrial and consumer sector we touch.
                 </p>
               </div>
             </ScrollReveal>
-            <ScrollReveal x={60} y={0} delay={0.15}>
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl h-[420px] group">
+            <ScrollReveal x={60} y={0} delay={0.15} className="order-1 lg:order-2">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[420px] group">
                 <img src={longTermThinking} alt="Mission" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                <div className="absolute inset-0 flex flex-col justify-end p-10 bg-gradient-to-t from-black/60 to-transparent">
-                  <span className="text-green-300 text-[10px] font-black uppercase tracking-widest mb-2">Mission</span>
-                  <p className="text-white/80 text-sm font-semibold leading-relaxed max-w-xs">
+                <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-10 bg-gradient-to-t from-black/60 to-transparent">
+                  <span className="text-green-300 text-[8px] md:text-[10px] font-black uppercase tracking-widest mb-2">Mission</span>
+                  <p className="text-white/80 text-xs md:text-sm font-semibold leading-relaxed max-w-xs">
                     Building high-quality businesses that create tangible value for Gujarat.
                   </p>
                 </div>
@@ -282,7 +282,7 @@ const About = () => (
 
           {/* Purpose — full width centered dark card */}
           <ScrollReveal delay={0.1} y={60} x={0}>
-            <div className="relative rounded-3xl overflow-hidden bg-[#0d1b2e] p-12 md:p-16 text-center">
+            <div className="relative rounded-3xl overflow-hidden bg-[#0d1b2e] p-8 md:p-16 text-center">
               {/* Decorative glow */}
               <div className="absolute inset-0 bg-gradient-to-br from-[#1a56db]/20 to-transparent pointer-events-none" />
               <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#1a56db]/15 rounded-full blur-3xl pointer-events-none" />
@@ -298,33 +298,33 @@ const About = () => (
               <div className="relative z-10 max-w-3xl mx-auto">
                 <div className="inline-flex items-center gap-2.5 mb-6">
                   <div className="w-7 h-0.5 bg-blue-400" />
-                  <span className="text-blue-400 text-[10px] font-black uppercase tracking-[0.22em]">Our Purpose</span>
+                  <span className="text-blue-400 text-[9px] md:text-[10px] font-black uppercase tracking-[0.22em]">Our Purpose</span>
                   <div className="w-7 h-0.5 bg-blue-400" />
                 </div>
-                <h3 className="text-3xl md:text-5xl font-heading font-black text-white leading-tight mb-6">
+                <h3 className="text-2xl md:text-5xl font-heading font-black text-white leading-tight mb-5 md:mb-6">
                   Discipline &amp; purpose<br />
                   <span className="text-blue-400">behind every decision.</span>
                 </h3>
-                <p className="text-white/50 text-base leading-relaxed mb-10 max-w-xl mx-auto">
+                <p className="text-white/50 text-sm md:text-base leading-relaxed mb-8 md:mb-10 max-w-xl mx-auto">
                   Every company we build, every sector we enter is a deliberate act — guided by research, purpose, and unwavering ethics. We do not believe in building businesses through trial and error.
                 </p>
 
                 {/* 3 pillars inline */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 text-left">
                   {[
                     { label: 'Clarity', desc: 'We maintain absolute clarity of identity and strategy across every business.' },
                     { label: 'Integrity', desc: 'Transparency is our baseline — enabling long-term relationships with all stakeholders.' },
                     { label: 'Discipline', desc: 'Systems and accountability ensure consistent, high-quality delivery across all verticals.' },
                   ].map((item) => (
-                    <div key={item.label} className="p-5 bg-white/5 rounded-2xl border border-white/10 hover:border-blue-500/40 hover:bg-white/8 transition-all duration-300">
-                      <h4 className="text-white font-heading font-black text-sm uppercase tracking-wide mb-2">{item.label}</h4>
-                      <p className="text-white/40 text-xs leading-relaxed">{item.desc}</p>
+                    <div key={item.label} className="p-4 md:p-5 bg-white/5 rounded-2xl border border-white/10 hover:border-blue-500/40 hover:bg-white/8 transition-all duration-300">
+                      <h4 className="text-white font-heading font-black text-xs md:text-sm uppercase tracking-wide mb-1 md:mb-2">{item.label}</h4>
+                      <p className="text-white/40 text-[10px] md:text-xs leading-relaxed">{item.desc}</p>
                     </div>
                   ))}
                 </div>
 
-                <div className="mt-10">
-                  <Link to="/companies" className="btn-blue group">
+                <div className="mt-8 md:mt-10">
+                  <Link to="/companies" className="btn-blue group w-full sm:w-auto justify-center sm:justify-start">
                     Explore Our Companies <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>

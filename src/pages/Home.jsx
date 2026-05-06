@@ -129,12 +129,12 @@ export default function Home() {
                 {stats.map((s) => (
                   <motion.div
                     key={s.label} variants={fadeUp} transition={{ duration: 0.55 }}
-                    className="px-8 py-10 text-center group hover:bg-[#f8fafc] transition-colors duration-300"
+                    className="px-4 py-8 md:px-8 md:py-10 text-center group hover:bg-[#f8fafc] transition-colors duration-300"
                   >
-                    <p className="text-4xl md:text-5xl font-heading font-black text-[#0d1b2e] mb-1 leading-none group-hover:text-[#1a56db] transition-colors duration-500">
+                    <p className="text-3xl md:text-5xl font-heading font-black text-[#0d1b2e] mb-1 leading-none group-hover:text-[#1a56db] transition-colors duration-500">
                       <Counter value={s.value} suffix={s.suffix} isNum={s.isNum} />
                     </p>
-                    <p className="text-gray-400 text-xs uppercase tracking-widest font-semibold mt-2">{s.label}</p>
+                    <p className="text-gray-400 text-[9px] md:text-xs uppercase tracking-widest font-semibold mt-2">{s.label}</p>
                   </motion.div>
                 ))}
               </motion.div>
@@ -148,8 +148,8 @@ export default function Home() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-stretch">
 
               {/* Left – Image stack (Slide from Left) */}
-              <ScrollReveal x={-60} y={0} duration={1} className="lg:col-span-7 h-full">
-                <div className="relative h-full">
+              <ScrollReveal x={-60} y={0} duration={1} className="lg:col-span-7">
+                <div className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-full">
                   {/* Main image */}
                   <div className="w-full h-full overflow-hidden rounded-2xl shadow-2xl">
                     <img
@@ -159,30 +159,30 @@ export default function Home() {
                     />
                   </div>
 
-                  {/* Floating Vision card */}
+                  {/* Floating Vision card - Hidden on very small screens to avoid clutter */}
                   <motion.div
                     initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.3 }}
-                    className="absolute top-6 -right-6 bg-white rounded-xl shadow-xl p-5 min-w-[170px] border border-gray-100"
+                    className="absolute top-4 -right-4 md:top-6 md:-right-6 bg-white rounded-xl shadow-xl p-3 md:p-5 min-w-[140px] md:min-w-[170px] border border-gray-100"
                   >
-                    <p className="text-[9px] font-black uppercase tracking-widest text-[#1a56db] mb-1">Vision</p>
-                    <p className="text-sm font-heading font-black text-[#0d1b2e] leading-tight">Trusted Across<br />Gujarat & Beyond</p>
+                    <p className="text-[8px] md:text-[9px] font-black uppercase tracking-widest text-[#1a56db] mb-1">Vision</p>
+                    <p className="text-xs md:text-sm font-heading font-black text-[#0d1b2e] leading-tight">Trusted Across<br />Gujarat & Beyond</p>
                     <div className="mt-2 h-0.5 bg-gray-100 w-full" />
-                    <p className="text-[9px] font-black uppercase tracking-widest text-[#1a56db] mb-1 mt-2">Mission</p>
-                    <p className="text-sm font-heading font-black text-[#0d1b2e] leading-tight">Disciplined Growth,<br />Lasting Impact</p>
+                    <p className="text-[8px] md:text-[9px] font-black uppercase tracking-widest text-[#1a56db] mb-1 mt-2">Mission</p>
+                    <p className="text-xs md:text-sm font-heading font-black text-[#0d1b2e] leading-tight">Disciplined Growth,<br />Lasting Impact</p>
                   </motion.div>
 
                   {/* Bottom badge */}
                   <motion.div
                     initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.5 }}
-                    className="absolute -bottom-6 left-8 bg-[#0d1b2e] text-white px-7 py-5 rounded-xl shadow-2xl"
+                    className="absolute -bottom-4 left-4 md:-bottom-6 md:left-8 bg-[#0d1b2e] text-white px-5 py-3 md:px-7 md:py-5 rounded-xl shadow-2xl"
                   >
-                    <p className="text-[9px] font-black uppercase tracking-widest text-blue-400 mb-1">Founded</p>
-                    <p className="text-3xl font-heading font-black leading-none">
+                    <p className="text-[8px] md:text-[9px] font-black uppercase tracking-widest text-blue-400 mb-1">Founded</p>
+                    <p className="text-xl md:text-3xl font-heading font-black leading-none">
                       <Counter value={2026} suffix="" isNum={true} />
                     </p>
-                    <p className="text-white/50 text-xs mt-1">Ahmedabad, GJ</p>
+                    <p className="text-white/50 text-[10px] md:text-xs mt-1">Ahmedabad, GJ</p>
                   </motion.div>
                 </div>
               </ScrollReveal>
@@ -287,10 +287,10 @@ export default function Home() {
           ))}
           <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
             <ScrollReveal y={32}>
-              <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+              <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12 md:mb-16">
                 <ScrollReveal x={-40} y={0}>
                   <SectionTag>Our Strategic Portfolio</SectionTag>
-                  <h2 className="text-4xl md:text-5xl font-heading font-black text-[#0d1b2e] leading-tight">
+                  <h2 className="text-3xl md:text-5xl font-heading font-black text-[#0d1b2e] leading-[1.1]">
                     Diversified Expertise.<br />
                     <span className="text-[#1a56db]">Unified Vision.</span>
                   </h2>
@@ -327,11 +327,11 @@ export default function Home() {
                     </div>
 
                     {/* Body — background changes on hover */}
-                    <div className="p-7 transition-colors duration-500 group-hover:bg-[#0d1b2e]">
-                      <h3 className="text-xl font-heading font-black text-[#0d1b2e] mb-3 group-hover:text-white transition-colors duration-500">{p.name}</h3>
-                      <p className="text-gray-500 text-sm leading-relaxed mb-6 group-hover:text-white/60 transition-colors duration-500">{p.desc}</p>
+                    <div className="p-6 md:p-7 transition-colors duration-500 group-hover:bg-[#0d1b2e]">
+                      <h3 className="text-lg md:text-xl font-heading font-black text-[#0d1b2e] mb-2 md:mb-3 group-hover:text-white transition-colors duration-500">{p.name}</h3>
+                      <p className="text-gray-500 text-xs md:text-sm leading-relaxed mb-4 md:mb-6 group-hover:text-white/60 transition-colors duration-500">{p.desc}</p>
                       <Link to={p.path}
-                        className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest transition-colors group/link"
+                        className="inline-flex items-center gap-2 text-[9px] md:text-[10px] font-black uppercase tracking-widest transition-colors group/link"
                         style={{ color: p.accent }}
                       >
                         Discover More
@@ -367,23 +367,23 @@ export default function Home() {
             <div className="absolute bottom-0 left-0 w-72 h-72 border border-white/5 rounded-full -translate-x-1/3 translate-y-1/3 pointer-events-none" />
 
             <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-              <div className="flex flex-col md:flex-row items-center justify-between gap-12">
-                <ScrollReveal x={-50} y={0} className="max-w-2xl">
-                  <div className="flex items-center gap-3 mb-6">
+              <div className="flex flex-col lg:flex-row items-center justify-between gap-10 md:gap-12">
+                <ScrollReveal x={-50} y={0} className="max-w-2xl text-center lg:text-left">
+                  <div className="flex items-center justify-center lg:justify-start gap-3 mb-6">
                     <div className="w-8 h-0.5 bg-blue-400" />
-                    <p className="text-blue-300 text-[10px] font-black uppercase tracking-[0.28em]">Our Vision</p>
+                    <p className="text-blue-300 text-[9px] md:text-[10px] font-black uppercase tracking-[0.28em]">Our Vision</p>
                   </div>
-                  <blockquote className="text-2xl md:text-4xl font-heading font-black text-white leading-snug drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
+                  <blockquote className="text-xl sm:text-2xl md:text-4xl font-heading font-black text-white leading-snug drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
                     "To be recognised as Gujarat's most trusted and diversified business conglomerate — a name synonymous with quality, reliability, and responsible growth."
                   </blockquote>
                 </ScrollReveal>
 
-                <ScrollReveal x={50} y={0} delay={0.25} className="flex-shrink-0 flex flex-col items-center gap-5">
-                  <Link to="/companies" className="inline-flex items-center gap-3 px-8 py-4 bg-[#1a56db] text-white text-xs font-black uppercase tracking-wider rounded-xl hover:bg-blue-500 transition-all duration-300 group shadow-2xl shadow-blue-900/60">
+                <ScrollReveal x={50} y={0} delay={0.25} className="flex-shrink-0 flex flex-col items-center gap-4 md:gap-5 w-full lg:w-auto">
+                  <Link to="/companies" className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#1a56db] text-white text-xs font-black uppercase tracking-wider rounded-xl hover:bg-blue-500 transition-all duration-300 group shadow-2xl shadow-blue-900/60">
                     Explore Our Companies
                     <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
                   </Link>
-                  <p className="text-white/30 text-[10px] uppercase tracking-widest font-semibold">Ahmedabad · Gujarat · India</p>
+                  <p className="text-white/30 text-[9px] md:text-[10px] uppercase tracking-widest font-semibold">Ahmedabad · Gujarat · India</p>
                 </ScrollReveal>
               </div>
             </div>

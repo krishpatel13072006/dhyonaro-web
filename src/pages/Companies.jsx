@@ -147,7 +147,10 @@ const Companies = () => {
         {/* ════ VIDEO HERO ════ */}
         <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#0d1b2e]">
           <CrossfadeVideo 
-            videos={["/company-1.mp4", "/company-2.mp4"]} 
+            videos={[
+              `${import.meta.env.BASE_URL}company-1.mp4`, 
+              `${import.meta.env.BASE_URL}company-2.mp4`
+            ]} 
             overlayOpacity={0}
           />
 
@@ -156,7 +159,7 @@ const Companies = () => {
             <motion.div
               initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#1a56db]/80 backdrop-blur-sm text-white text-xs font-bold uppercase tracking-widest mb-8"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#1a56db]/80 backdrop-blur-sm text-white text-[10px] md:text-xs font-bold uppercase tracking-widest mb-6 md:mb-8"
             >
               <Building2 size={14} /> Our Strategic Portfolio
             </motion.div>
@@ -164,10 +167,10 @@ const Companies = () => {
             <motion.h1
               initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-              className="text-5xl md:text-8xl font-heading font-black text-white uppercase leading-none mb-6"
+              className="text-4xl sm:text-6xl md:text-8xl font-heading font-black text-white uppercase leading-[1.1] md:leading-none mb-6"
             >
               Diversified Expertise.<br />
-              <span className="text-transparent" style={{ WebkitTextStroke: '2px rgba(255,255,255,0.3)' }}>
+              <span className="text-transparent" style={{ WebkitTextStroke: '1.5px rgba(255,255,255,0.3)' }}>
                 Unified Vision.
               </span>
             </motion.h1>
@@ -175,7 +178,7 @@ const Companies = () => {
             <motion.p
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.4 }}
-              className="text-white/60 text-lg font-light max-w-2xl mx-auto"
+              className="text-white/60 text-base md:text-lg font-light max-w-2xl mx-auto"
             >
               Three core verticals. One focused vision. Building high-quality businesses that create tangible value for Gujarat's economy.
             </motion.p>
@@ -226,11 +229,11 @@ const Companies = () => {
                 <ScrollReveal x={-60} y={0}>
                   <div className="flex items-center gap-2.5 mb-5">
                     <div className="w-7 h-0.5 bg-blue-400" />
-                    <span className="text-blue-400 text-[10px] font-black uppercase tracking-[0.22em]">A Diversified Collective</span>
+                    <span className="text-blue-400 text-[9px] md:text-[10px] font-black uppercase tracking-[0.22em]">A Diversified Collective</span>
                   </div>
-                  <h2 className="text-5xl md:text-7xl font-heading font-black text-white leading-[0.95] mb-8">
-                    Each<br />
-                    Business.<br />
+                  <h2 className="text-4xl md:text-7xl font-heading font-black text-white leading-[1.05] md:leading-[0.95] mb-6 md:mb-8 text-center lg:text-left">
+                    Each<br className="hidden md:block" />
+                    Business.<br className="hidden md:block" />
                     <motion.span
                       initial={{ color: '#ffffff' }}
                       animate={overviewInView ? { color: '#60a5fa' } : {}}
@@ -242,23 +245,25 @@ const Companies = () => {
                 </ScrollReveal>
 
                 <ScrollReveal x={-40} y={0} delay={0.15}>
-                  <p className="text-white/50 text-lg leading-relaxed max-w-md">
-                    Every entity within Dhyanora Group operates with independence but shares a unified commitment to quality and integrity. Each vertical is built on deep sector expertise and disciplined operations.
+                  <p className="text-white/50 text-base md:text-lg leading-relaxed max-w-md text-center lg:text-left mx-auto lg:mx-0">
+                    Every entity within Dhyanora Group operates with independence but shares a unified commitment to quality and integrity.
                   </p>
                 </ScrollReveal>
 
                 <ScrollReveal x={-40} y={0} delay={0.25}>
-                  <Link to="/companies" className="mt-8 inline-flex items-center gap-2 px-7 py-3 bg-[#1a56db] hover:bg-blue-500 text-white text-xs font-black uppercase tracking-wider rounded-xl transition-all duration-300 group shadow-lg shadow-blue-900/40">
-                    View All Sectors <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                  </Link>
+                  <div className="flex justify-center lg:justify-start">
+                    <Link to="/companies" className="mt-8 inline-flex items-center gap-2 px-7 py-3 bg-[#1a56db] hover:bg-blue-500 text-white text-xs font-black uppercase tracking-wider rounded-xl transition-all duration-300 group shadow-lg shadow-blue-900/40 w-full sm:w-auto justify-center">
+                      View All Sectors <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </div>
                 </ScrollReveal>
               </div>
 
-              <ScrollRevealGroup staggerDelay={0.15} x={40} y={0} className="grid grid-cols-2 gap-5">
-                <StatTile active={overviewInView} num={4} suffix="+" label="Business Verticals" desc="Spanning core industrial sectors of Gujarat" />
+              <ScrollRevealGroup staggerDelay={0.15} x={40} y={0} className="grid grid-cols-2 gap-4 md:gap-5">
+                <StatTile active={overviewInView} num={4} suffix="+" label="Business Verticals" desc="Spanning core industrial sectors" />
                 <StatTile active={overviewInView} num={2026} suffix="" label="Year Founded" desc="Built on discipline from day one" />
-                <StatTile active={overviewInView} num={100} suffix="%" label="Quality Promise" desc="Non-negotiable across every division" />
-                <StatTile active={overviewInView} num={50} suffix="+" label="Strategic Partners" desc="Trusted suppliers & clients across India" />
+                <StatTile active={overviewInView} num={100} suffix="%" label="Quality Promise" desc="Non-negotiable promise" />
+                <StatTile active={overviewInView} num={50} suffix="+" label="Strategic Partners" desc="Trusted across India" />
               </ScrollRevealGroup>
             </div>
           </div>
@@ -269,7 +274,7 @@ const Companies = () => {
 
         {/* ════ SECTOR 1 — PRAMUKH IMPORT EXPORT ════ */}
           <ScrollReveal y={50} x={0}>
-            <div className="relative w-full h-[55vh] min-h-[380px] overflow-hidden group">
+            <div className="relative w-full h-[40vh] md:h-[55vh] min-h-[300px] md:min-h-[380px] overflow-hidden group">
               <img
                 src={pramukhImportExportMainImg}
                 alt="Metal Scrap Trading"
@@ -278,19 +283,19 @@ const Companies = () => {
               <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/30 to-black/75" />
 
               {/* Overlay label */}
-              <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12 flex flex-col md:flex-row items-start md:items-end justify-between gap-4">
+              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12 flex flex-col md:flex-row items-start md:items-end justify-between gap-4">
                 <div>
                   <motion.div
                     initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.2 }}
-                    className="flex items-center gap-3 text-blue-300 font-black tracking-widest uppercase text-xs mb-3"
+                    className="flex items-center gap-3 text-blue-300 font-black tracking-widest uppercase text-[10px] mb-2 md:mb-3"
                   >
-                    <span className="w-8 h-px bg-blue-300" /> Sector 01
+                    <span className="w-6 md:w-8 h-px bg-blue-300" /> Sector 01
                   </motion.div>
                   <motion.h3
                     initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.3 }}
-                    className="text-4xl md:text-6xl font-heading font-black text-white leading-tight"
+                    className="text-3xl md:text-6xl font-heading font-black text-white leading-tight"
                   >
                     Pramukh Import Export
                   </motion.h3>
@@ -298,12 +303,12 @@ const Companies = () => {
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.4 }}
-                  className="bg-white/10 backdrop-blur-md border border-white/20 px-5 py-3 rounded-xl flex items-center gap-3 text-white shrink-0"
+                  className="bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 md:px-5 md:py-3 rounded-xl flex items-center gap-3 text-white shrink-0"
                 >
-                  <HardHat size={20} className="text-blue-300" />
+                  <HardHat size={18} className="text-blue-300" />
                   <div>
-                    <p className="font-bold text-sm">Industrial Trading</p>
-                    <p className="text-blue-200 text-xs">Ferrous &amp; Non-Ferrous Specialists</p>
+                    <p className="font-bold text-xs md:text-sm">Industrial Trading</p>
+                    <p className="text-blue-200 text-[10px]">Ferrous &amp; Non-Ferrous Specialists</p>
                   </div>
                 </motion.div>
               </div>
@@ -340,15 +345,15 @@ const Companies = () => {
           <div className="max-w-7xl mx-auto px-6 md:px-12 py-20 md:py-28 relative z-10">
 
             {/* Header row */}
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 md:mb-12">
               <ScrollReveal x={-50} y={0}>
-                <div className="flex items-center gap-3 text-red-600 font-black tracking-widest uppercase text-xs mb-4">
+                <div className="flex items-center gap-3 text-red-600 font-black tracking-widest uppercase text-[10px] mb-3 md:mb-4">
                   <span className="w-8 h-px bg-red-600" /> Sector 02
                 </div>
-                <h3 className="text-4xl md:text-5xl font-heading font-black text-[#0d1b2e]">Pramukh Techventures</h3>
+                <h3 className="text-3xl md:text-5xl font-heading font-black text-[#0d1b2e]">Pramukh Techventures</h3>
               </ScrollReveal>
               <ScrollReveal x={50} y={0} delay={0.1}>
-                <Link to="/companies/tech-venture" className="inline-flex items-center gap-2 px-7 py-3 bg-red-600 hover:bg-red-700 text-white text-xs font-black uppercase tracking-wider rounded-xl transition-all duration-300 group shadow-lg shadow-red-600/30 shrink-0">
+                <Link to="/companies/tech-venture" className="inline-flex items-center gap-2 px-7 py-3 bg-red-600 hover:bg-red-700 text-white text-xs font-black uppercase tracking-wider rounded-xl transition-all duration-300 group shadow-lg shadow-red-600/30 shrink-0 w-full sm:w-auto justify-center">
                   Visit Store <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
               </ScrollReveal>
@@ -356,7 +361,7 @@ const Companies = () => {
 
             {/* Big image — tall and full-column */}
             <ScrollReveal delay={0.05} y={40} x={0}>
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl w-full h-[60vh] min-h-[420px] mb-12 group">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl w-full h-[45vh] md:h-[60vh] min-h-[300px] md:min-h-[420px] mb-10 md:mb-12 group">
                 <img
                   src={techVentureMainImg}
                   alt="Pramukh Techventures"
@@ -365,16 +370,16 @@ const Companies = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
 
                 {/* Authorized badge */}
-                <div className="absolute top-6 right-6 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full font-bold text-xs text-red-600 shadow-lg flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse" /> Authorized Retailer
+                <div className="absolute top-4 right-4 md:top-6 md:right-6 bg-white/90 backdrop-blur-sm px-3 py-1.5 md:px-4 md:py-2 rounded-full font-bold text-[9px] md:text-xs text-red-600 shadow-lg flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-red-600 animate-pulse" /> Authorized Retailer
                 </div>
 
                 {/* Bottom quote */}
-                <div className="absolute bottom-8 left-8 right-8 max-w-2xl">
+                <div className="absolute bottom-6 left-6 right-6 md:bottom-8 md:left-8 md:right-8 max-w-2xl">
                   <motion.blockquote
                     initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.3 }}
-                    className="text-xl md:text-2xl font-heading font-black text-white leading-snug italic"
+                    className="text-lg md:text-2xl font-heading font-black text-white leading-snug italic"
                   >
                     "Bringing the world's most reliable technology to the households of Gujarat through an experience of trust."
                   </motion.blockquote>
@@ -398,7 +403,7 @@ const Companies = () => {
         <section id="shreeji-infra" className="relative overflow-hidden">
 
           {/* --- FULL BLEED HERO SECTION --- */}
-          <div className="relative w-full min-h-[85vh] lg:min-h-[800px] flex items-end pb-12 lg:pb-20">
+          <div className="relative w-full min-h-[60vh] lg:min-h-[800px] flex items-end pb-8 lg:pb-20">
             {/* Massive Edge-to-Edge Image */}
             <div className="absolute inset-0 w-full h-full">
               <img
@@ -411,44 +416,44 @@ const Companies = () => {
             </div>
 
             {/* Hero Content */}
-            <div className="max-w-[1400px] mx-auto px-6 lg:px-12 w-full relative z-10 flex flex-col lg:flex-row gap-12 lg:items-end justify-between">
+            <div className="max-w-[1400px] mx-auto px-6 lg:px-12 w-full relative z-10 flex flex-col lg:flex-row gap-8 lg:items-end justify-between">
                 {/* Left side: Main Intro (Slide from Left) */}
                 <ScrollReveal x={-60} y={0} className="max-w-3xl text-white">
-                  <div className="flex items-center gap-4 mb-6">
+                  <div className="flex items-center gap-4 mb-4 md:mb-6">
                     <div className="h-[2px] w-12 bg-blue-500"></div>
-                    <span className="text-blue-400 font-bold tracking-[0.25em] uppercase text-sm">
+                    <span className="text-blue-400 font-bold tracking-[0.25em] uppercase text-xs md:text-sm">
                       Shreeji Infra
                     </span>
                   </div>
-                  <h2 className="text-4xl sm:text-5xl lg:text-7xl font-heading font-black mb-6 leading-[1.1] tracking-tight text-blue-500 drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]">
+                  <h2 className="text-3xl sm:text-5xl lg:text-7xl font-heading font-black mb-4 md:mb-6 leading-[1.1] tracking-tight text-blue-500 drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]">
                     Architecting the future of industry.
                   </h2>
-                  <p className="text-xl sm:text-2xl text-slate-300 font-light leading-relaxed max-w-2xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]">
-                    Developing state-of-the-art industrial ecosystems built to meet the rigorous standards of modern manufacturing and logistics.
+                  <p className="text-lg sm:text-2xl text-slate-300 font-light leading-relaxed max-w-2xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]">
+                    Developing state-of-the-art industrial ecosystems built for modern manufacturing.
                   </p>
                 </ScrollReveal>
 
                 {/* Right side: Floating Flagship Card (Slide from Right) */}
                 <ScrollReveal delay={0.3} x={60} y={0} className="w-full lg:w-[400px] shrink-0">
-                  <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 shadow-2xl relative overflow-hidden group">
+                  <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-6 md:p-8 shadow-2xl relative overflow-hidden group">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/20 rounded-full blur-[50px] -mr-10 -mt-10 pointer-events-none"></div>
 
-                    <span className="inline-block px-3 py-1 bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-widest rounded-full mb-6">
+                    <span className="inline-block px-3 py-1 bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[10px] font-bold uppercase tracking-widest rounded-full mb-4 md:mb-6">
                       Flagship Asset
                     </span>
 
-                    <h3 className="text-3xl font-heading font-black text-white mb-2">
+                    <h3 className="text-2xl md:text-3xl font-heading font-black text-white mb-1 md:mb-2">
                       Mahantam Industrial Park
                     </h3>
 
-                    <div className="flex items-center gap-2 text-slate-300 font-medium mb-8">
-                      <MapPin className="w-5 h-5 text-blue-400" />
-                      <span>Sanand, Gujarat</span>
+                    <div className="flex items-center gap-2 text-slate-300 font-medium mb-6 md:mb-8">
+                      <MapPin className="w-4 h-4 md:w-5 md:h-5 text-blue-400" />
+                      <span className="text-sm md:text-base">Sanand, Gujarat</span>
                     </div>
 
-                    <Link to="/contact" className="w-full bg-blue-600 hover:bg-blue-500 text-white py-4 rounded-xl font-bold transition-all duration-300 flex items-center justify-center gap-3 shadow-lg group-hover:shadow-blue-500/25">
+                    <Link to="/contact" className="w-full bg-blue-600 hover:bg-blue-500 text-white py-3.5 md:py-4 rounded-xl font-bold transition-all duration-300 flex items-center justify-center gap-3 shadow-lg group-hover:shadow-blue-500/25 text-sm md:text-base">
                       Enquire Industrial Space
-                      <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                      <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-1" />
                     </Link>
                   </div>
                 </ScrollReveal>
@@ -463,12 +468,12 @@ const Companies = () => {
 
             <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
 
-              <ScrollReveal x={-40} y={0} className="mb-20">
+              <ScrollReveal x={-40} y={0} className="mb-12 md:mb-20">
                 <div className="flex flex-col items-start">
-                  <div className="inline-flex items-center gap-3 px-3 py-1 rounded-full bg-red-50 text-red-600 text-[10px] font-black uppercase tracking-[0.2em] mb-4">
+                  <div className="inline-flex items-center gap-3 px-3 py-1 rounded-full bg-red-50 text-red-600 text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] mb-4">
                     <span className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse" /> Ecosystem Advantages
                   </div>
-                  <h3 className="text-4xl lg:text-6xl font-heading font-black text-slate-900 tracking-tight leading-none">
+                  <h3 className="text-3xl md:text-4xl lg:text-6xl font-heading font-black text-slate-900 tracking-tight leading-tight">
                     A foundation built<br /><span className="text-blue-600">for industrial scale.</span>
                   </h3>
                 </div>
@@ -478,19 +483,19 @@ const Companies = () => {
                 
                 {/* Box 1: Industrial Sheds */}
                 <ScrollReveal delay={0.1} x={-50} y={0}>
-                  <div className="bg-white rounded-[2rem] p-10 h-full flex flex-col justify-center border border-slate-100 shadow-sm group hover:shadow-md transition-all duration-500">
-                    <h3 className="text-3xl lg:text-4xl font-heading font-black text-slate-900 mb-6 tracking-tight leading-tight">
+                  <div className="bg-white rounded-[1.5rem] md:rounded-[2rem] p-8 md:p-10 h-full flex flex-col justify-center border border-slate-100 shadow-sm group hover:shadow-md transition-all duration-500">
+                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-heading font-black text-slate-900 mb-4 md:mb-6 tracking-tight leading-tight">
                       Industrial<br/>Sheds
                     </h3>
-                    <p className="text-slate-500 text-lg leading-relaxed font-medium">
-                      Custom-built manufacturing spaces with optimized clear heights and reinforced flooring systems.
+                    <p className="text-slate-500 text-base md:text-lg leading-relaxed font-medium">
+                      Custom-built manufacturing spaces with optimized clear heights and reinforced flooring.
                     </p>
                   </div>
                 </ScrollReveal>
 
                 {/* Box 2: Image */}
                 <ScrollReveal delay={0.2} y={50} x={0}>
-                  <div className="rounded-[2rem] overflow-hidden h-full relative group shadow-sm">
+                  <div className="rounded-[1.5rem] md:rounded-[2rem] overflow-hidden h-48 md:h-full relative group shadow-sm">
                     <img 
                       src={industrialShedImg} 
                       alt="Industrial Sheds" 
@@ -500,7 +505,7 @@ const Companies = () => {
                 </ScrollReveal>
 
                 {/* Box 3: Strategic Connectivity (Large) */}
-                <ScrollReveal delay={0.3} x={60} y={0} className="lg:col-span-2 lg:row-span-2 relative group rounded-[2rem] overflow-hidden shadow-lg h-[500px] lg:h-full">
+                <ScrollReveal delay={0.3} x={60} y={0} className="lg:col-span-2 lg:row-span-2 relative group rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-lg h-[400px] md:h-[500px] lg:h-full">
                   <img 
                     src={shreejiInfraTechImg} 
                     alt="Shreeji Industrial Infrastructure" 
@@ -509,11 +514,11 @@ const Companies = () => {
                   <div className="absolute inset-0 bg-slate-900/5 group-hover:bg-transparent transition-colors duration-500" />
 
                   {/* Floating White Card */}
-                  <div className="absolute top-4 left-4 right-4 lg:right-auto lg:w-3/5 bg-white rounded-[1.8rem] p-10 shadow-2xl border border-white/20 transition-all duration-500 group-hover:-translate-y-1">
-                    <h3 className="text-3xl lg:text-4xl font-heading font-black text-slate-900 mb-6 tracking-tight leading-tight">
+                  <div className="absolute top-4 left-4 right-4 md:top-6 md:left-6 md:right-6 lg:right-auto lg:w-3/5 bg-white rounded-[1.2rem] md:rounded-[1.8rem] p-6 md:p-10 shadow-2xl border border-white/20 transition-all duration-500 group-hover:-translate-y-1">
+                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-heading font-black text-slate-900 mb-4 md:mb-6 tracking-tight leading-tight">
                       Strategic<br/>Connectivity
                     </h3>
-                    <p className="text-slate-500 text-lg leading-relaxed font-medium">
+                    <p className="text-slate-500 text-sm md:text-lg leading-relaxed font-medium">
                       Located within the golden industrial corridor of Sanand, providing instant access to major logistics hubs.
                     </p>
                   </div>
@@ -521,7 +526,7 @@ const Companies = () => {
 
                 {/* Box 4: Image */}
                 <ScrollReveal delay={0.4} y={-50} x={0}>
-                  <div className="rounded-[2rem] overflow-hidden h-full relative group shadow-sm">
+                  <div className="rounded-[1.5rem] md:rounded-[2rem] overflow-hidden h-48 md:h-full relative group shadow-sm">
                     <img 
                       src={secureTilesImg} 
                       alt="Secure Titles" 
@@ -532,11 +537,11 @@ const Companies = () => {
 
                 {/* Box 5: Secure Titles */}
                 <ScrollReveal delay={0.5} x={-60} y={0}>
-                  <div className="bg-[#da251c] rounded-[2rem] p-10 h-full flex flex-col justify-center text-white shadow-xl group transition-all duration-500 hover:shadow-red-600/30">
-                    <h3 className="text-3xl lg:text-4xl font-heading font-black mb-6 tracking-tight leading-tight">
+                  <div className="bg-[#da251c] rounded-[1.5rem] md:rounded-[2rem] p-8 md:p-10 h-full flex flex-col justify-center text-white shadow-xl group transition-all duration-500 hover:shadow-red-600/30">
+                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-heading font-black mb-4 md:mb-6 tracking-tight leading-tight">
                       Secure<br/>Titles
                     </h3>
-                    <p className="text-white/90 text-lg leading-relaxed font-medium">
+                    <p className="text-white/90 text-base md:text-lg leading-relaxed font-medium">
                       100% legal transparency and verified documentation for peace of mind.
                     </p>
                   </div>

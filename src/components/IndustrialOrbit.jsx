@@ -142,7 +142,7 @@ const IndustrialOrbit = () => {
             <div className="relative flex items-center justify-center">
 
               {/* Energy Ring Container */}
-              <div className="relative w-[240px] h-[240px] md:w-[320px] md:h-[320px] flex items-center justify-center">
+              <div className="relative w-[160px] h-[160px] md:w-[320px] md:h-[320px] flex items-center justify-center">
 
                 {/* Rotating conic-gradient ring */}
                 <motion.div
@@ -153,7 +153,7 @@ const IndustrialOrbit = () => {
                     background: "conic-gradient(from 0deg, #2563eb, #ec4899, #dc251c, #2563eb)",
                     WebkitMaskImage: "radial-gradient(circle, transparent 56%, black 59%)",
                     maskImage: "radial-gradient(circle, transparent 56%, black 59%)",
-                    filter: "blur(8px)"
+                    filter: "blur(6px) md:blur(8px)"
                   }}
                 />
 
@@ -173,11 +173,11 @@ const IndustrialOrbit = () => {
                 {/* Core Logo in center */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="relative group">
-                    <div className="absolute inset-0 bg-blue-500/20 blur-2xl rounded-full scale-150 animate-pulse" />
+                    <div className="absolute inset-0 bg-blue-500/20 blur-2xl rounded-full scale-125 md:scale-150 animate-pulse" />
                     <img 
                       src={DhyanoraLogo} 
                       alt="Dhyanora" 
-                      className="relative h-24 w-24 object-contain z-10 drop-shadow-2xl"
+                      className="relative h-16 w-16 md:h-24 md:w-24 object-contain z-10 drop-shadow-2xl"
                     />
                   </div>
                 </div>
@@ -201,33 +201,33 @@ const IndustrialOrbit = () => {
             className="absolute inset-0 bg-slate-950/90 backdrop-blur-md"
             onClick={() => { setSelectedFeature(null); setIsPaused(false); }}
           />
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="relative w-full max-w-xl bg-white rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-100"
-          >
-            <div className="p-10">
-              <div className="flex items-center justify-between mb-8">
-                <div className="flex items-center gap-5">
-                  <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 border border-blue-100">
-                    {React.createElement(selectedFeature.icon, { size: 32 })}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              className="relative w-full max-w-xl bg-white rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-100"
+            >
+              <div className="p-6 md:p-10">
+                <div className="flex items-center justify-between mb-6 md:mb-8">
+                  <div className="flex items-center gap-3 md:gap-5">
+                    <div className="w-12 h-12 md:w-16 md:h-16 bg-blue-50 rounded-xl md:rounded-2xl flex items-center justify-center text-blue-600 border border-blue-100">
+                      {React.createElement(selectedFeature.icon, { size: isMobile ? 24 : 32 })}
+                    </div>
+                    <h3 className="text-xl md:text-3xl font-heading font-black text-slate-900 uppercase tracking-tight">{selectedFeature.title}</h3>
                   </div>
-                  <h3 className="text-3xl font-heading font-black text-slate-900 uppercase tracking-tight">{selectedFeature.title}</h3>
+                  <button
+                    onClick={() => { setSelectedFeature(null); setIsPaused(false); }}
+                    className="w-10 h-10 md:w-12 md:h-12 bg-slate-100 rounded-full flex items-center justify-center text-slate-500 hover:bg-slate-200 transition-colors"
+                  >
+                    <X size={20} />
+                  </button>
                 </div>
-                <button
-                  onClick={() => { setSelectedFeature(null); setIsPaused(false); }}
-                  className="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center text-slate-500 hover:bg-slate-200 transition-colors"
-                >
-                  <X size={24} />
-                </button>
+                <p className="text-slate-500 text-base md:text-xl font-medium mb-8 md:mb-10 leading-relaxed">{selectedFeature.desc}</p>
+                <div className="aspect-video w-full rounded-2xl md:rounded-3xl overflow-hidden border border-slate-100">
+                  <img src={selectedFeature.img} alt={selectedFeature.title} className="w-full h-full object-cover" />
+                </div>
               </div>
-              <p className="text-slate-500 text-xl font-medium mb-10 leading-relaxed">{selectedFeature.desc}</p>
-              <div className="aspect-video w-full rounded-3xl overflow-hidden border border-slate-100">
-                <img src={selectedFeature.img} alt={selectedFeature.title} className="w-full h-full object-cover" />
-              </div>
-            </div>
-          </motion.div>
+            </motion.div>
         </div>
       )}
     </AnimatePresence>
