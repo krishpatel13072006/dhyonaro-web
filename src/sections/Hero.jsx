@@ -17,8 +17,8 @@ export default function Hero() {
        {/* ── Video background ── */}
        <CrossfadeVideo 
          videos={[
-           getAssetPath('hero-1.mp4'), 
-           getAssetPath('hero-2.mp4')
+           getAssetPath('hero1.mp4'), 
+           getAssetPath('hero2.mp4')
          ]} 
          overlayOpacity={0.3}
        />

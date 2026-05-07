@@ -193,8 +193,8 @@ const CompanyTech = () => {
         <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#0d1b2e]">
           <CrossfadeVideo 
             videos={[
-              getAssetPath('hero-2.mp4'), 
-              getAssetPath('company-1.mp4')
+              getAssetPath('hero2.mp4'), 
+              getAssetPath('company1.mp4')
             ]} 
             overlayOpacity={0.4}
           />
