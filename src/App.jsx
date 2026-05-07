@@ -74,6 +74,7 @@ const AppContent = () => {
           {/* Company Routes */}
           <Route path="/companies/shreeji-infra" element={<PageTransition><ShreejiInfra /></PageTransition>} />
           <Route path="/companies/tech-venture" element={<PageTransition><TechVenture /></PageTransition>} />
+          <Route path="/companies/import-export" element={<PageTransition><ImportExport /></PageTransition>} />
 
           <Route path="/companies" element={<PageTransition><Companies /></PageTransition>} />
 

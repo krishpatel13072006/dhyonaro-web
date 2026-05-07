@@ -58,13 +58,10 @@ const FeatureCard = ({ icon: Icon, title, desc, accent = "#3b82f6" }) => (
   </motion.div>
 );
 
-const CompanyShreeji = () => {
-  const baseUrl = import.meta.env.BASE_URL || '/';
-  const getAssetPath = (name) => {
-    const base = baseUrl.endsWith('/') ? baseUrl : baseUrl + '/';
-    return base + name;
-  };
+import hero1 from '../assets/videos/hero1.mp4';
+import company2 from '../assets/videos/company2.mp4';
 
+const CompanyShreeji = () => {
   return (
     <>
       <SEO 
@@ -76,10 +73,7 @@ const CompanyShreeji = () => {
         {/* ════ HERO SECTION ════ */}
         <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#0d1b2e]">
           <CrossfadeVideo 
-            videos={[
-              getAssetPath('hero-1.mp4'), 
-              getAssetPath('company-2.mp4')
-            ]} 
+            videos={[hero1, company2]} 
             overlayOpacity={0.4}
           />
 

@@ -134,14 +134,17 @@ const FeatureCard = ({ img, icon: Icon, accent, title, desc, dark = false, secto
   </motion.div>
 );
 
+import company1 from '../assets/videos/company1.mp4';
+import company2 from '../assets/videos/company2.mp4';
+
 const Companies = () => {
 
   /* refs for overview counter-style number reveal */
   const overviewRef = useRef(null);
   const overviewInView = useInView(overviewRef, { once: true, margin: '-80px' });
   
-  const video1 = "/company-1.mp4";
-  const video2 = "/company-2.mp4";
+  const video1 = company1;
+  const video2 = company2;
 
   return (
     <>
