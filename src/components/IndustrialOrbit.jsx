@@ -177,7 +177,7 @@ const IndustrialOrbit = () => {
                     <img 
                       src={DhyanoraLogo} 
                       alt="Dhyanora" 
-                      className="relative h-16 w-16 md:h-24 md:w-24 object-contain z-10 drop-shadow-2xl"
+                      className="relative h-24 w-24 md:h-48 md:w-48 object-contain z-10 drop-shadow-2xl"
                     />
                   </div>
                 </div>

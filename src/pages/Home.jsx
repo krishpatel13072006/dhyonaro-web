@@ -360,19 +360,19 @@ export default function Home() {
             <div className="absolute top-0 right-0 w-60 h-60 border border-white/5 rounded-full translate-x-1/4 -translate-y-1/4 pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-72 h-72 border border-white/5 rounded-full -translate-x-1/3 translate-y-1/3 pointer-events-none" />
 
-            <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-              <div className="flex flex-col lg:flex-row items-center justify-between gap-10 md:gap-12">
-                <ScrollReveal x={-50} y={0} className="max-w-2xl text-center lg:text-left">
+            <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 w-full flex items-center justify-center min-h-[400px]">
+              <div className="flex flex-col items-center justify-center text-center w-full max-w-5xl">
+                <ScrollReveal y={40} x={0} className="w-full">
                   <SectionTag color="#fad77e">Our Vision</SectionTag>
-                  <blockquote className="text-xl sm:text-2xl md:text-4xl font-heading font-black text-white leading-snug drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
+                  <blockquote className="text-3xl sm:text-4xl md:text-6xl font-heading font-black text-white leading-snug drop-shadow-[0_4px_20px_rgba(0,0,0,0.8)] mb-12">
                     "To be recognised as Gujarat's most trusted and diversified business conglomerate — a name synonymous with quality, reliability, and responsible growth."
                   </blockquote>
                 </ScrollReveal>
 
-                <ScrollReveal x={50} y={0} delay={0.25} className="flex-shrink-0 flex flex-col items-center gap-4 md:gap-5 w-full lg:w-auto">
-                  <Link to="/companies" className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#172451] text-white text-xs font-black uppercase tracking-wider rounded-xl hover:bg-blue-900 transition-all duration-300 group shadow-2xl shadow-blue-950/60">
+                <ScrollReveal y={40} x={0} delay={0.2} className="w-full flex justify-center">
+                  <Link to="/companies" className="inline-flex items-center justify-center gap-3 px-12 py-6 bg-[#fad77e] text-[#172451] text-sm font-black uppercase tracking-widest rounded-xl hover:bg-white transition-all duration-300 group shadow-[0_10px_40px_rgba(250,215,126,0.3)]">
                     Explore Our Companies
-                    <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </ScrollReveal>
               </div>

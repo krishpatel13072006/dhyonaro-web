@@ -112,7 +112,7 @@ const Contact = () => {
                 >
                   <h1 className="text-4xl md:text-7xl font-heading font-black uppercase leading-[0.9] tracking-tighter mb-8 italic text-[#172451]">
                     Let's Talk About <br />
-                    <span className="text-transparent" style={{ WebkitTextStroke: '1.5px rgba(13, 27, 46, 0.2)' }}>Strategic Growth</span>
+                    <span className="text-[#fad77e]">Strategic Growth</span>
                   </h1>
                   <p className="text-lg md:text-xl text-[#172451]/40 max-w-lg font-sans leading-relaxed font-medium">
                     Whether you're exploring partnerships, industrial space, or global sourcing, our team is ready to help you scale.
@@ -249,39 +249,45 @@ const Contact = () => {
 
         {/* ════ BOTTOM VISUAL SECTION ════ */}
         <section className="relative pt-24 pb-48 px-6">
-          <div className="max-w-7xl mx-auto text-center mb-32">
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="space-y-8"
-            >
-              <h2 className="text-4xl md:text-8xl font-heading font-black uppercase leading-[0.85] italic text-[#172451] tracking-tighter">
-                See Our Vision.<br />
-                <span className="text-[#172451]">Shape Your Future.</span>
-              </h2>
-              <p className="text-[#172451]/40 max-w-2xl mx-auto font-sans text-xl font-medium leading-relaxed">
-                Our infrastructure and strategic frameworks are built for scale, efficiency, and unwavering ethics.
-              </p>
-              <div className="pt-8">
-                <Link to="/companies" className="px-10 py-5 bg-[#172451] text-white rounded-full font-heading font-black uppercase tracking-widest text-xs flex items-center gap-4 mx-auto hover:bg-gray-800 hover:scale-105 transition-all duration-300 shadow-2xl shadow-[#172451]/20 w-fit">
-                  Explore Companies
-                  <Globe size={16} />
-                </Link>
-              </div>
-            </motion.div>
-          </div>
-
           <div className="relative max-w-5xl mx-auto px-4">
              <motion.div
                initial={{ opacity: 0, y: 100 }}
                whileInView={{ opacity: 1, y: 0 }}
                viewport={{ once: true }}
                transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-               className="relative rounded-[4rem] overflow-hidden shadow-2xl border border-gray-100"
+               className="relative rounded-[3rem] md:rounded-[4rem] overflow-hidden shadow-2xl border border-white/10 min-h-[400px] md:min-h-[600px] flex items-center justify-center"
              >
-                <img src={bottomPhonesImg} alt="Dhyanora Ecosystem" className="w-full h-auto opacity-80" />
-                <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent opacity-60" />
+                <img 
+                  src={bottomPhonesImg} 
+                  alt="Dhyanora Ecosystem" 
+                  className="absolute inset-0 w-full h-full object-cover brightness-[0.3]" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#172451] via-[#172451]/40 to-transparent opacity-90" />
+                
+                {/* Content Overlaid on Image */}
+                <div className="relative z-20 flex flex-col items-center justify-center text-center p-8 max-w-4xl mx-auto">
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: 0.3 }}
+                    className="space-y-6 md:space-y-10"
+                  >
+                    <h2 className="text-4xl md:text-8xl font-heading font-black uppercase leading-[0.9] italic text-white tracking-tighter drop-shadow-2xl">
+                      See Our Vision.<br />
+                      <span className="text-[#fad77e]">Shape Your Future.</span>
+                    </h2>
+                    <p className="text-white/80 max-w-2xl mx-auto font-sans text-base md:text-2xl font-medium leading-relaxed drop-shadow-lg">
+                      Our infrastructure and strategic frameworks are built for scale, efficiency, and unwavering ethics.
+                    </p>
+                    <div className="pt-6">
+                      <Link to="/companies" className="px-12 py-6 bg-[#fad77e] text-[#172451] rounded-full font-heading font-black uppercase tracking-widest text-xs md:text-sm flex items-center gap-4 mx-auto hover:bg-white hover:scale-105 transition-all duration-300 shadow-[0_10px_40px_rgba(250,215,126,0.4)] w-fit">
+                        Explore Companies
+                        <Globe size={20} />
+                      </Link>
+                    </div>
+                  </motion.div>
+                </div>
              </motion.div>
              
              {/* Bottom Giant Text */}

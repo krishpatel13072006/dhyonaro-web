@@ -187,7 +187,7 @@ const Companies = () => {
               className="text-4xl sm:text-6xl md:text-8xl font-heading font-black text-white uppercase leading-[1.1] md:leading-none mb-6"
             >
               Diversified Expertise.<br />
-              <span className="text-transparent" style={{ WebkitTextStroke: '1.5px rgba(250,215,126,0.4)' }}>
+              <span className="text-[#fad77e]">
                 Unified Vision.
               </span>
             </motion.h1>
@@ -242,13 +242,13 @@ const Companies = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
               {/* Left — headline */}
-              <div>
+              <div className="flex flex-col justify-center h-full space-y-12">
                 <ScrollReveal x={-60} y={0}>
                   <div className="flex items-center gap-2.5 mb-5">
-                    <div className="w-7 h-0.5 bg-[#172451]" />
-                    <span className="text-[#172451] text-[9px] md:text-[10px] font-black uppercase tracking-[0.22em]">A Diversified Collective</span>
+                    <div className="w-7 h-0.5 bg-white" />
+                    <span className="text-white text-[9px] md:text-[10px] font-black uppercase tracking-[0.22em]">A Diversified Collective</span>
                   </div>
-                  <h2 className="text-3xl md:text-5xl font-heading font-black text-white leading-tight mb-6 md:mb-8 text-center lg:text-left">
+                  <h2 className="text-3xl md:text-5xl font-heading font-black text-white leading-tight mb-6 md:mb-8">
                     Each<br className="hidden md:block" />
                     Business.<br className="hidden md:block" />
                     <motion.span
@@ -262,17 +262,15 @@ const Companies = () => {
                 </ScrollReveal>
 
                 <ScrollReveal x={-40} y={0} delay={0.15}>
-                  <p className="text-white/50 text-base md:text-lg leading-relaxed max-w-md text-center lg:text-left mx-auto lg:mx-0">
+                  <p className="text-white/50 text-base md:text-lg leading-relaxed max-w-md">
                     Every entity within Dhyanora Group operates with independence but shares a unified commitment to quality and integrity.
                   </p>
                 </ScrollReveal>
 
                 <ScrollReveal x={-40} y={0} delay={0.25}>
-                  <div className="flex justify-center lg:justify-start">
-                    <Link to="/companies" className="mt-8 inline-flex items-center gap-2 px-7 py-3 bg-[#fad77e] hover:bg-amber-400 text-[#172451] text-[10px] md:text-xs font-black uppercase tracking-widest rounded-xl transition-all duration-300 group shadow-lg shadow-amber-500/20 w-full sm:w-auto justify-center">
-                      View All Sectors <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  </div>
+                  <Link to="/companies" className="mt-8 inline-flex items-center gap-2 px-7 py-3 bg-[#fad77e] hover:bg-amber-400 text-[#172451] text-[10px] md:text-xs font-black uppercase tracking-widest rounded-xl transition-all duration-300 group shadow-lg shadow-amber-500/20 w-full sm:w-auto">
+                    View All Sectors <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                  </Link>
                 </ScrollReveal>
               </div>
 

@@ -75,10 +75,10 @@ const About = () => (
                   alt="Dhyanora Strategy"
                   className="relative rounded-3xl shadow-2xl w-full h-[320px] md:h-[480px] object-cover"
                 />
-                <div className="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 bg-[#172451] text-white px-5 py-4 md:px-7 md:py-5 rounded-2xl shadow-2xl">
-                  <p className="text-[8px] md:text-[9px] font-black uppercase tracking-widest text-[#172451] mb-1">Founded</p>
+<div className="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 bg-[#172451] text-white px-5 py-4 md:px-7 md:py-5 rounded-2xl shadow-2xl">
+                  <p className="text-[8px] md:text-[9px] font-black uppercase tracking-widest text-white mb-1">Founded</p>
                   <p className="text-2xl md:text-3xl font-heading font-black leading-none">2026</p>
-                  <p className="text-white/50 text-[10px] md:text-xs mt-1">Ahmedabad, GJ</p>
+<p className="text-white/50 text-[10px] md:text-xs mt-1">Ahmedabad, GJ</p>
                 </div>
               </div>
             </ScrollReveal>
