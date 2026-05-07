@@ -3,23 +3,15 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import CrossfadeVideo from '../components/CrossfadeVideo';
+import hero1 from '../assets/videos/hero1.mp4';
+import hero2 from '../assets/videos/hero2.mp4';
 
 export default function Hero() {
-  const getAssetPath = (name) => {
-    const base = import.meta.env.BASE_URL || '/';
-    const normalizedBase = base.startsWith('/') ? base : '/' + base;
-    const finalBase = normalizedBase.endsWith('/') ? normalizedBase : normalizedBase + '/';
-    return `${window.location.origin}${finalBase}${name}`;
-  };
-
   return (
     <section className="relative w-full min-h-screen flex items-center overflow-hidden bg-[#0d1b2e] pt-20">
        {/* ── Video background ── */}
        <CrossfadeVideo 
-         videos={[
-           getAssetPath('hero1.mp4'), 
-           getAssetPath('hero2.mp4')
-         ]} 
+         videos={[hero1, hero2]} 
          overlayOpacity={0.3}
        />
 

@@ -192,10 +192,7 @@ const CompanyTech = () => {
         {/* ════ HERO SECTION ════ */}
         <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#0d1b2e]">
           <CrossfadeVideo 
-            videos={[
-              getAssetPath('hero2.mp4'), 
-              getAssetPath('company1.mp4')
-            ]} 
+            videos={[hero2, company1]} 
             overlayOpacity={0.4}
           />
 
