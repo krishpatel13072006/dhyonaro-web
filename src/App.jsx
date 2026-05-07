@@ -16,6 +16,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import ShreejiInfra from './pages/CompanyShreeji.jsx';
 import TechVenture from './pages/CompanyTech.jsx';
+import ImportExport from './pages/CompanyImportExport.jsx';
 import Hub from './pages/Hub';
 import Vision360 from './pages/Vision360';
 import Exhibition from './pages/Exhibition';

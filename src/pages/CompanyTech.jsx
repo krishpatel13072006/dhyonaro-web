@@ -145,15 +145,10 @@ const BouncingCircles = () => {
   );
 };
 
-const CompanyTech = () => {
-  const baseUrl = import.meta.env.BASE_URL || '/';
-  const getAssetPath = (name) => {
-    // Ensure baseUrl starts and ends with /
-    const normalizedBase = baseUrl.startsWith('/') ? baseUrl : '/' + baseUrl;
-    const finalBase = normalizedBase.endsWith('/') ? normalizedBase : normalizedBase + '/';
-    return `${window.location.origin}${finalBase}${name}`;
-  };
+import hero2 from '../assets/videos/hero2.mp4';
+import company1 from '../assets/videos/company1.mp4';
 
+const CompanyTech = () => {
   const categories = [
     { 
       icon: Monitor, 
