@@ -6,10 +6,10 @@ import CrossfadeVideo from '../components/CrossfadeVideo';
 
 export default function Hero() {
   const getAssetPath = (name) => {
-    // This ensures the path is absolute from the root
     const base = import.meta.env.BASE_URL || '/';
-    const cleanBase = base.endsWith('/') ? base : base + '/';
-    return cleanBase + name;
+    const normalizedBase = base.startsWith('/') ? base : '/' + base;
+    const finalBase = normalizedBase.endsWith('/') ? normalizedBase : normalizedBase + '/';
+    return `${window.location.origin}${finalBase}${name}`;
   };
 
   return (

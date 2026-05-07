@@ -148,8 +148,10 @@ const BouncingCircles = () => {
 const CompanyTech = () => {
   const baseUrl = import.meta.env.BASE_URL || '/';
   const getAssetPath = (name) => {
-    const base = baseUrl.endsWith('/') ? baseUrl : baseUrl + '/';
-    return base + name;
+    // Ensure baseUrl starts and ends with /
+    const normalizedBase = baseUrl.startsWith('/') ? baseUrl : '/' + baseUrl;
+    const finalBase = normalizedBase.endsWith('/') ? normalizedBase : normalizedBase + '/';
+    return `${window.location.origin}${finalBase}${name}`;
   };
 
   const categories = [
