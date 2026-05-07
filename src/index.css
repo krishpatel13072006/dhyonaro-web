@@ -19,8 +19,8 @@
 }
 
 @theme {
-  --font-sans: 'Anta', 'Inter', system-ui, -apple-system, sans-serif;
-  --font-heading: 'Eudoxus Sans', sans-serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
 
   /* Core palette */
   --color-navy:      #0d1b2e;
@@ -60,7 +60,7 @@
   body {
     background-color: #ffffff;
     color: #0d1b2e;
-    font-family: 'Anta', 'Inter', system-ui, sans-serif;
+    font-family: 'Inter', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -193,8 +193,10 @@
     inset: 0;
     pointer-events: none;
     z-index: 9999;
-    opacity: 0.018;
+    opacity: 0.015;
     background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+    /* Fallback if external asset fails */
+    background-color: transparent;
   }
 
   .divider {

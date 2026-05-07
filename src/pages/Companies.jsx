@@ -138,24 +138,39 @@ const Companies = () => {
   /* refs for overview counter-style number reveal */
   const overviewRef = useRef(null);
   const overviewInView = useInView(overviewRef, { once: true, margin: '-80px' });
+  const baseUrl = import.meta.env.BASE_URL || '/';
+  const getAssetPath = (path) => `${baseUrl.endsWith('/') ? baseUrl : baseUrl + '/'}${path}`;
 
   return (
     <>
       <SEO title="Our Companies | Dhyanora Group" description="Explore Dhyanora Group's strategic portfolio spanning metal scrap trading, electronics retail, and industrial infrastructure in Gujarat." />
       <main className="bg-white overflow-x-hidden">
 
-         {/* ════ VIDEO HERO ════ */}
+         {/* ════ HERO ════ */}
          <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#0d1b2e]">
            <CrossfadeVideo 
              videos={[
-               '/company-1.mp4', 
-               '/company-2.mp4'
+               getAssetPath('company-1.mp4'), 
+               getAssetPath('company-2.mp4')
              ]} 
              overlayOpacity={0}
            />
 
+           {/* Background Pattern (Overlay) */}
+           <div className="absolute inset-0 opacity-10 pointer-events-none z-10">
+             <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+               <defs>
+                 <pattern id="comp-hero-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                   <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#60a5fa" strokeWidth="0.5" />
+                 </pattern>
+               </defs>
+               <rect width="100%" height="100%" fill="url(#comp-hero-grid)" />
+             </svg>
+           </div>
+           <div className="absolute inset-0 bg-gradient-to-b from-[#0d1b2e] via-transparent to-[#0d1b2e] pointer-events-none z-20" />
 
-          <div className="relative z-20 text-center px-6 max-w-5xl mx-auto">
+
+          <div className="relative z-30 text-center px-6 max-w-5xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
