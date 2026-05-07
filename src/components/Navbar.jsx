@@ -6,7 +6,7 @@ import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
 import DhyanoraLogo1 from '../companies-logo/dhyanora-logo-1.png';
-import DhyanoraLogo2 from '../companies-logo/dhyanora-logo-2.png';
+import DhyonoraLogo2 from '../companies-logo/dhyonara-logo-2.png';
 
 function cn(...inputs) {
   return twMerge(clsx(inputs));
@@ -69,7 +69,7 @@ const Navbar = () => {
               "bg-transparent"
             )}>
               <img
-                src={(!scrolled && isTransparentPage) ? DhyanoraLogo2 : DhyanoraLogo1}
+                src={(!scrolled && isTransparentPage) ? DhyonoraLogo2 : DhyanoraLogo1}
                 alt="Dhyanora Group"
                 className="h-7 sm:h-8 md:h-12 w-auto object-contain transition-all duration-300"
               />

@@ -88,7 +88,7 @@ const cardVariant = {
 };
 
 /* ─── Feature card — matches reference: clean image, accent label, bold title, CTA ─── */
-const FeatureCard = ({ img, icon: Icon, accent, title, desc, dark = false, sector }) => (
+const FeatureCard = ({ img, icon: Icon, accent, title, desc, dark = false, sector, to }) => (
   <motion.div
     variants={cardVariant}
     whileHover={{ y: -6, boxShadow: dark ? '0 20px 48px rgba(0,0,0,0.45)' : '0 20px 48px rgba(0,0,0,0.10)' }}
@@ -121,13 +121,14 @@ const FeatureCard = ({ img, icon: Icon, accent, title, desc, dark = false, secto
 
       {/* CTA — yellow-style pill from reference */}
       <div className="mt-4">
-        <button
+        <Link
+          to={to || "#"}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-[11px] font-black uppercase tracking-wider transition-all duration-200 hover:brightness-95 active:scale-95"
           style={{ background: accent, color: '#fff' }}
         >
           Read More
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-        </button>
+        </Link>
       </div>
     </div>
   </motion.div>
@@ -360,13 +361,13 @@ const Companies = () => {
             {/* Header row */}
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 md:mb-12">
               <ScrollReveal x={-50} y={0}>
-                <div className="flex items-center gap-3 text-red-600 font-black tracking-widest uppercase text-[10px] mb-3 md:mb-4">
-                  <span className="w-8 h-px bg-red-600" /> Sector 02
+                <div className="flex items-center gap-3 text-blue-600 font-black tracking-widest uppercase text-[10px] mb-3 md:mb-4">
+                  <span className="w-8 h-px bg-blue-600" /> Sector 02
                 </div>
                 <h3 className="text-3xl md:text-5xl font-heading font-black text-[#0d1b2e]">Pramukh Techventures</h3>
               </ScrollReveal>
               <ScrollReveal x={50} y={0} delay={0.1}>
-                <Link to="/companies/tech-venture" className="inline-flex items-center gap-2 px-7 py-3 bg-red-600 hover:bg-red-700 text-white text-xs font-black uppercase tracking-wider rounded-xl transition-all duration-300 group shadow-lg shadow-red-600/30 shrink-0 w-full sm:w-auto justify-center">
+                <Link to="/companies/tech-venture" className="inline-flex items-center gap-2 px-7 py-3 bg-blue-600 hover:bg-blue-700 text-white text-xs font-black uppercase tracking-wider rounded-xl transition-all duration-300 group shadow-lg shadow-blue-600/30 shrink-0 w-full sm:w-auto justify-center">
                   Visit Store <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
               </ScrollReveal>
@@ -383,8 +384,8 @@ const Companies = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
 
                 {/* Authorized badge */}
-                <div className="absolute top-4 right-4 md:top-6 md:right-6 bg-white/90 backdrop-blur-sm px-3 py-1.5 md:px-4 md:py-2 rounded-full font-bold text-[9px] md:text-xs text-red-600 shadow-lg flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-red-600 animate-pulse" /> Authorized Retailer
+                <div className="absolute top-4 right-4 md:top-6 md:right-6 bg-white/90 backdrop-blur-sm px-3 py-1.5 md:px-4 md:py-2 rounded-full font-bold text-[9px] md:text-xs text-blue-600 shadow-lg flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-blue-600 animate-pulse" /> Authorized Retailer
                 </div>
 
                 {/* Bottom quote */}
@@ -406,9 +407,15 @@ const Companies = () => {
                 { icon: CheckCircle2, title: 'Absolute Authenticity', sector: 'Genuine', img: 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&q=80&w=800', desc: '100% genuine premium products backed with full manufacturer warranties and after-sales care.' },
                 { icon: HeadphonesIcon, title: 'Expert Guidance', sector: 'Support', img: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=800', desc: 'Staff trained to match customers with technology that solves real needs, not just trends.' },
               ].map((f) => (
-                <FeatureCard key={f.title} icon={f.icon} accent="#dc2626" img={f.img} title={f.title} desc={f.desc} sector={f.sector} />
+                <FeatureCard key={f.title} icon={f.icon} accent="#2563eb" img={f.img} title={f.title} desc={f.desc} sector={f.sector} to="/companies/tech-venture" />
               ))}
             </ScrollRevealGroup>
+
+            <ScrollReveal delay={0.4} className="mt-12 flex justify-center">
+               <Link to="/companies/tech-venture" className="btn-blue inline-flex items-center gap-3">
+                 Explore Pramukh Techventures <ArrowRight size={16} />
+               </Link>
+            </ScrollReveal>
           </div>
         </section>
 
@@ -441,9 +448,12 @@ const Companies = () => {
                   <h2 className="text-3xl sm:text-5xl lg:text-7xl font-heading font-black mb-4 md:mb-6 leading-[1.1] tracking-tight text-blue-500 drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]">
                     Architecting the future of industry.
                   </h2>
-                  <p className="text-lg sm:text-2xl text-slate-300 font-light leading-relaxed max-w-2xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]">
+                  <p className="text-lg sm:text-2xl text-slate-300 font-light leading-relaxed max-w-2xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)] mb-8">
                     Developing state-of-the-art industrial ecosystems built for modern manufacturing.
                   </p>
+                  <Link to="/companies/shreeji-infra" className="btn-blue inline-flex items-center gap-3">
+                    Explore Shreeji Infra <ArrowRight size={16} />
+                  </Link>
                 </ScrollReveal>
 
                 {/* Right side: Floating Flagship Card (Slide from Right) */}

@@ -13,7 +13,7 @@ import {
   Send,
   ExternalLink
 } from 'lucide-react';
-import DhyanoraLogo from '../companies-logo/dhyanora-logo-1.png';
+import DhyonoraLogo2 from '../companies-logo/dhyonara-logo-2.png';
 
 const Footer = () => {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -67,7 +67,7 @@ const Footer = () => {
           {/* Brand & Social (Inspired by NextPlay) */}
           <div className="lg:col-span-4 flex flex-col gap-10">
             <Link to="/" className="inline-block group">
-              <img src={DhyanoraLogo} alt="Dhyanora Group" className="h-14 w-auto group-hover:brightness-110 transition-all duration-300" />
+              <img src={DhyonoraLogo2} alt="Dhyanora Group" className="h-14 w-auto group-hover:brightness-110 transition-all duration-300" />
             </Link>
             <p className="text-gray-400 text-base font-medium leading-relaxed max-w-sm italic">
               "A focused collective of businesses across Gujarat, unified by discipline, values, and a relentless drive for industrial excellence."
@@ -147,7 +147,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="pt-12 border-t border-white/5 flex justify-center items-center relative">
+        <div className="pt-12 flex justify-center items-center relative">
           <motion.button
             onClick={scrollToTop}
             whileHover={{ y: -5 }}

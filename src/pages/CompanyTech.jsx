@@ -1,346 +1,495 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import SEO from '../components/SEO';
 import { motion, useInView } from 'framer-motion';
-import {
-  ArrowRight,
-  Tv,
-  Smartphone,
-  Headphones,
-  ShieldCheck,
-  Tag,
-  Headset,
-  Star,
-  Quote,
-  ArrowUpRight,
-  ChevronRight,
-  Home
-} from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { 
+  ArrowRight, Tv, Smartphone, Headphones, 
+  ShieldCheck, Zap, Home, ChevronRight,
+  Monitor, Speaker, Watch, Lightbulb,
+  CheckCircle2, Star, Quote
+} from 'lucide-react';
+import CrossfadeVideo from '../components/CrossfadeVideo';
+import ScrollReveal, { ScrollRevealGroup } from '../components/ScrollReveal';
 import FooterCTA from '../components/FooterCTA';
-import BrandScroll from '../components/BrandScroll';
 
-/* ── Scroll-triggered bottom-to-top reveal ── */
-const FadeUp = ({ children, delay = 0, className = '' }) => {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, amount: 0.15 });
+// Images
+import techVentureMainImg from '../images/pramukh tech venture.avif';
+import entertainmentImg from '../images/Entairnment.avif';
+import audioImg from '../images/audio image.avif';
+
+/* ─── Count-up hook ─── */
+const useCountUp = (target, duration = 2000, active = false) => {
+  const [val, setVal] = React.useState(0);
+  React.useEffect(() => {
+    if (!active) return;
+    let start = null;
+    const step = (ts) => {
+      if (!start) start = ts;
+      const p = Math.min((ts - start) / duration, 1);
+      setVal(Math.floor(p * target));
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }, [active, target, duration]);
+  return val;
+};
+
+const StatNumber = ({ value, suffix = "" }) => {
+  const ref = React.useRef(null);
+  const inView = useInView(ref, { once: true });
+  const count = useCountUp(parseInt(value), 2000, inView);
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 48 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.75, delay, ease: [0.22, 1, 0.36, 1] }}
-      className={className}
-    >
-      {children}
-    </motion.div>
+    <span ref={ref} className="tabular-nums">
+      {count}{suffix}
+    </span>
   );
 };
 
-const TechVenture = () => {
-  const stats = [
-    { label: "Products Sold", value: "15k+" },
-    { label: "Authorized Brands", value: "25+" },
-    { label: "Service Points", value: "12+" },
-    { label: "Satisfaction", value: "100%" }
-  ];
+const CategoryCard = ({ icon: Icon, title, desc, img, delay }) => (
+  <ScrollReveal delay={delay} y={40} x={0}>
+    <motion.div 
+      whileHover={{ y: -10 }}
+      className="group relative bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 h-full border border-slate-100"
+    >
+      <div className="aspect-[4/3] overflow-hidden relative">
+        <img src={img} alt={title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
+        <div className="absolute bottom-4 left-6">
+          <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white shadow-lg">
+            <Icon size={20} />
+          </div>
+        </div>
+      </div>
+      <div className="p-8">
+        <h4 className="text-2xl font-heading font-black text-slate-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">{title}</h4>
+        <p className="text-slate-500 text-sm leading-relaxed font-medium">{desc}</p>
+      </div>
+    </motion.div>
+  </ScrollReveal>
+);
+
+/* ─── Bouncing Circles Component ─── */
+const BouncingCircles = () => {
+  const [circles, setCircles] = React.useState([
+    { id: 1, x: 15, y: 20, vx: 0.1, vy: 0.12, size: 256 },
+    { id: 2, x: 85, y: 30, vx: -0.12, vy: 0.08, size: 256 },
+    { id: 3, x: 25, y: 75, vx: 0.08, vy: -0.1, size: 256 },
+    { id: 4, x: 75, y: 80, vx: -0.1, vy: -0.12, size: 256 },
+  ]);
+
+  React.useEffect(() => {
+    let animationFrame;
+    const update = () => {
+      setCircles(prev => {
+        const next = prev.map(c => ({
+          ...c,
+          x: c.x + c.vx,
+          y: c.y + c.vy
+        }));
+
+        const padding = 10; 
+        next.forEach(c => {
+          if (c.x < padding || c.x > 100 - padding) c.vx *= -1;
+          if (c.y < padding || c.y > 100 - padding) c.vy *= -1;
+          c.x = Math.max(padding, Math.min(100 - padding, c.x));
+          c.y = Math.max(padding, Math.min(100 - padding, c.y));
+        });
+
+        for (let i = 0; i < next.length; i++) {
+          for (let j = i + 1; j < next.length; j++) {
+            const dx = next[i].x - next[j].x;
+            const dy = next[i].y - next[j].y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            const minDistance = 20;
+
+            if (distance < minDistance) {
+              const tvx = next[i].vx;
+              const tvy = next[i].vy;
+              next[i].vx = next[j].vx;
+              next[i].vy = next[j].vy;
+              next[j].vx = tvx;
+              next[j].vy = tvy;
+
+              const overlap = minDistance - distance;
+              const nx = dx / (distance || 1);
+              const ny = dy / (distance || 1);
+              next[i].x += nx * overlap / 2;
+              next[i].y += ny * overlap / 2;
+              next[j].x -= nx * overlap / 2;
+              next[j].y -= ny * overlap / 2;
+            }
+          }
+        }
+        return next;
+      });
+      animationFrame = requestAnimationFrame(update);
+    };
+    animationFrame = requestAnimationFrame(update);
+    return () => cancelAnimationFrame(animationFrame);
+  }, []);
+
+  return (
+    <div className="absolute inset-0">
+      {circles.map(c => (
+        <div
+          key={c.id}
+          className="absolute w-48 h-48 md:w-64 md:h-64 border-2 border-slate-400/20 bg-slate-200/10 rounded-full -translate-x-1/2 -translate-y-1/2 backdrop-blur-[1px] shadow-inner transition-transform duration-[16ms] ease-linear"
+          style={{ 
+            left: `${c.x}%`, 
+            top: `${c.y}%`,
+            willChange: 'left, top'
+          }}
+        />
+      ))}
+    </div>
+  );
+};
+
+const CompanyTech = () => {
+  const baseUrl = import.meta.env.BASE_URL || '/';
+  const getAssetPath = (name) => {
+    const base = baseUrl.endsWith('/') ? baseUrl : baseUrl + '/';
+    return base + name;
+  };
 
   const categories = [
-    {
-      title: "Home Entertainment",
-      desc: "Immersive 4K visuals and cinematic sound systems for the modern home.",
-      icon: <Tv size={32} />,
-      bgColor: "bg-white",
-      textColor: "text-navy",
-      bgImg: "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&q=80&w=800"
+    { 
+      icon: Monitor, 
+      title: "4K Entertainment", 
+      desc: "Immersive visuals and cinematic sound systems bringing the world's most reliable technology home.",
+      img: entertainmentImg
     },
-    {
-      title: "Smart Mobility",
-      desc: "The latest flagship smartphones and tablets from global tech giants.",
-      icon: <Smartphone size={32} />,
-      bgColor: "bg-[#121212]",
-      textColor: "text-white",
-      bgImg: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=800"
+    { 
+      icon: Lightbulb, 
+      title: "Smart Appliances", 
+      desc: "Energy-efficient refrigerators, washing units, and connected kitchen tech for modern Gujarat.",
+      img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800"
     },
-    {
-      title: "Home Appliances",
-      desc: "Energy-efficient refrigerators, washing units, and kitchen tech.",
-      icon: <Star size={32} />,
-      bgColor: "bg-gold",
-      textColor: "text-navy",
-      bgImg: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800"
+    { 
+      icon: Smartphone, 
+      title: "Connected Mobility", 
+      desc: "The latest flagship smartphones and wearable technology from authorized global brand partners.",
+      img: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=800"
+    },
+    { 
+      icon: Speaker, 
+      title: "Professional Audio", 
+      desc: "Hi-Fi audio solutions and professional sound systems designed for the audiophile and professional.",
+      img: audioImg
     }
-  ];
-
-  const latestTech = [
-    { title: "Quantum LED TVs", brand: "Sony Premium", img: "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&q=80&w=800" },
-    { title: "Smart Soundbars", brand: "Bose Systems", img: "https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&q=80&w=800" },
-    { title: "Connected Home", brand: "Apple Ecosystem", img: "https://images.unsplash.com/photo-1558002038-103792e17724?auto=format&fit=crop&q=80&w=800" },
-    { title: "Flagship Mobile", brand: "Samsung Ultra", img: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=800" },
-    { title: "Modern Fridge", brand: "LG Signature", img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800" },
-    { title: "Professional Computing", brand: "MacBook Pro", img: "https://images.unsplash.com/photo-1517336712461-701df3d3efdf?auto=format&fit=crop&q=80&w=800" },
-    { title: "Hi-Fi Audio", brand: "JBL Premium", img: "https://images.unsplash.com/photo-1558444458-5c455962cb63?auto=format&fit=crop&q=80&w=800" },
-    { title: "Smart Living", brand: "Dyson Tech", img: "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&q=80&w=800" }
   ];
 
   return (
     <>
-      <SEO title="Pramukh Techventures | Gujarat's Technology Hub" description="Authorized retail and distribution of premium global electronics brands." />
+      <SEO 
+        title="Pramukh Techventures | Premium Electronics & Tech Retail | Dhyanora Group" 
+        description="Pramukh Techventures brings authorized global electronics brands to Gujarat, featuring 4K entertainment, smart appliances, and mobile technology." 
+      />
+      
+      <main className="bg-white overflow-x-hidden">
+        {/* ════ HERO SECTION ════ */}
+        <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#0d1b2e]">
+          <CrossfadeVideo 
+            videos={[
+              getAssetPath('hero-2.mp4'), 
+              getAssetPath('company-1.mp4')
+            ]} 
+            overlayOpacity={0.4}
+          />
 
-      <main className="bg-white">
-
-        {/* 1. HERO SECTION - MATCHING COMPANIES PAGE */}
-        <section className="relative h-screen w-full flex items-center justify-center bg-[#0a0a0a] overflow-hidden">
-          <div className="absolute inset-0 w-full h-full">
-            <img
-              src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=1600"
-              className="w-full h-full object-cover opacity-60"
-              alt="Technology"
-            />
-            <div className="absolute inset-0 bg-black/40 z-10" />
+          {/* Red Tech Grid Pattern */}
+          <div className="absolute inset-0 opacity-10 pointer-events-none z-10">
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id="tech-grid" width="30" height="30" patternUnits="userSpaceOnUse">
+                  <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#2563eb" strokeWidth="0.5" />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#tech-grid)" />
+            </svg>
           </div>
+          
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0d1b2e] via-transparent to-[#0d1b2e] pointer-events-none z-20" />
 
-          <div className="relative z-20 text-center px-6">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
-            >
-              <h1 className="text-5xl md:text-7xl font-heading font-black text-white uppercase italic leading-none mb-10">
-                Pramukh <br />
-                <span className="text-gold">Techventures.</span>
-              </h1>
-              <div className="max-w-xl mx-auto">
-                <p className="text-white/60 text-lg md:text-xl font-bold mb-12 leading-relaxed">
-                  We bring the world's most reliable technology to the households of Gujarat. From flagship smartphones to cinematic home setups.
-                </p>
-                <button className="group flex items-center gap-4 bg-gold px-12 py-5 text-navy font-black uppercase italic tracking-widest hover:bg-white transition-all duration-500 mx-auto">
-                  Explore Collection <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
-                </button>
+          <div className="relative z-30 text-center px-6 max-w-5xl mx-auto">
+            <ScrollReveal y={-20} x={0}>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-white text-[10px] md:text-xs font-bold uppercase tracking-widest mb-8">
+                <Smartphone size={14} /> Retail & Technology Division
               </div>
-            </motion.div>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.2} y={40} x={0}>
+              <h1 className="text-4xl sm:text-6xl md:text-8xl font-heading font-black text-white uppercase leading-[1.1] md:leading-none mb-6">
+                Redefining the<br />
+                <span className="text-transparent" style={{ WebkitTextStroke: '1.5px rgba(255,255,255,0.4)' }}>
+                  Digital Lifestyle.
+                </span>
+              </h1>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.4} y={20} x={0}>
+              <p className="text-white/60 text-base md:text-xl font-light max-w-2xl mx-auto mb-10">
+                Bringing the world's most reliable technology to the households of Gujarat through an experience of absolute trust and expert guidance.
+              </p>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.6} y={20} x={0}>
+              <Link to="/contact" className="inline-flex items-center gap-3 px-10 py-4 bg-blue-600 text-white font-black uppercase italic tracking-widest text-xs hover:bg-white hover:text-blue-600 transition-all group rounded-xl shadow-lg shadow-blue-600/20">
+                Explore Collection <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </ScrollReveal>
           </div>
         </section>
 
-        {/* 2. SERVICES/CATEGORIES SECTION */}
-        <section className="py-24 md:py-32 px-6 bg-white">
-          <div className="max-w-7xl mx-auto">
-            <FadeUp className="mb-16">
-              <span className="text-navy/20 font-black uppercase tracking-[0.4em] text-[10px] block mb-4">What We Offer</span>
-              <h2 className="text-3xl md:text-5xl font-heading font-black text-navy uppercase italic leading-tight">
-                A Comprehensive Set <br /> Of Tech Solutions.
-              </h2>
-            </FadeUp>
+        {/* ════ BREADCRUMB ════ */}
+        <div className="bg-slate-50 py-4 border-b border-slate-100">
+          <div className="max-w-7xl mx-auto px-6 md:px-12">
+            <div className="flex items-center gap-2 text-slate-400 text-xs md:text-sm">
+              <Link to="/" className="hover:text-blue-600 transition-colors"><Home size={14} /></Link>
+              <ChevronRight size={12} />
+              <Link to="/companies" className="hover:text-blue-600 transition-colors">Our Companies</Link>
+              <ChevronRight size={12} />
+              <span className="font-bold text-slate-900">Pramukh Techventures</span>
+            </div>
+          </div>
+        </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-navy/5">
-              {categories.map((cat, i) => (
-                <div key={i} className={`relative p-12 md:p-16 ${cat.bgColor} ${cat.textColor} group transition-all duration-700 overflow-hidden`}>
-                  {/* Background Image on Hover */}
-                  <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000">
-                    <img src={cat.bgImg} className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-[2s]" alt={cat.title} />
-                    <div className="absolute inset-0 bg-black/20" />
+        {/* ════ OVERVIEW SECTION ════ */}
+        <section className="py-24 md:py-36 bg-white relative overflow-hidden">
+          <div className="max-w-7xl mx-auto px-6 md:px-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+              <ScrollReveal x={-60} y={0}>
+                <div className="flex items-center gap-3 text-blue-600 font-black tracking-widest uppercase text-[10px] mb-6">
+                  <span className="w-8 h-px bg-blue-600" /> Sector 02
+                </div>
+                <h2 className="text-4xl md:text-6xl font-heading font-black text-slate-900 leading-[1.1] mb-8">
+                  Trust in<br />
+                  <span className="text-blue-600">Innovation.</span>
+                </h2>
+                <p className="text-slate-500 text-lg leading-relaxed mb-8">
+                  Pramukh Techventures is Gujarat's premium destination for state-of-the-art technology. We bridge the gap between global innovation and local households, backed by authorized brand partnerships and a legacy of honest customer service.
+                </p>
+                <div className="grid grid-cols-2 gap-8">
+                  <div>
+                    <p className="text-3xl font-heading font-black text-slate-900 mb-1">
+                      <StatNumber value="25" suffix="+" />
+                    </p>
+                    <p className="text-[10px] font-black uppercase tracking-widest text-blue-600">Authorized Brands</p>
                   </div>
+                  <div>
+                    <p className="text-3xl font-heading font-black text-slate-900 mb-1">
+                      <StatNumber value="15" suffix="k+" />
+                    </p>
+                    <p className="text-[10px] font-black uppercase tracking-widest text-blue-600">Products Sold</p>
+                  </div>
+                </div>
+              </ScrollReveal>
 
-                  <div className="relative z-10 transition-all duration-700 group-hover:opacity-0 group-hover:scale-95 group-hover:pointer-events-none">
-                    <div className="mb-10 opacity-60">
-                      {cat.icon}
+              <ScrollReveal x={60} y={0} delay={0.2}>
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-square">
+                  <img src={techVentureMainImg} alt="Technology Retail" className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent" />
+                  <div className="absolute top-8 right-8 bg-white/90 backdrop-blur-md px-6 py-3 rounded-2xl shadow-xl">
+                    <div className="flex items-center gap-3">
+                      <ShieldCheck className="text-blue-600" size={24} />
+                      <div>
+                        <p className="text-xs font-black uppercase tracking-widest text-slate-900">Authorized</p>
+                        <p className="text-[10px] font-bold text-slate-500">Retail Partner</p>
+                      </div>
                     </div>
-                    <h3 className="text-2xl md:text-3xl font-heading font-black uppercase italic mb-6 leading-tight">
+                  </div>
+                </div>
+              </ScrollReveal>
+            </div>
+          </div>
+        </section>
+
+        {/* ════ REFINED EDITORIAL CATEGORIES SECTION ════ */}
+        <section className="py-24 md:py-36 bg-slate-50 overflow-hidden relative">
+          {/* Animated Background Elements */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            <BouncingCircles />
+            <div className="absolute inset-0 opacity-[0.25]">
+              <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <pattern id="category-grid" width="100" height="100" patternUnits="userSpaceOnUse">
+                    <circle cx="3" cy="3" r="1.5" fill="#2563eb" />
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#category-grid)" />
+              </svg>
+            </div>
+          </div>
+
+          <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 mb-20 md:mb-28 text-center">
+            <ScrollReveal y={30} x={0}>
+              <span className="text-blue-600 font-black uppercase tracking-[0.4em] text-[10px] block mb-6">Our Ecosystem</span>
+              <h2 className="text-5xl md:text-8xl font-heading font-black text-slate-900 uppercase italic leading-[0.9]">
+                Core Categories.
+              </h2>
+            </ScrollReveal>
+          </div>
+
+          <div className="max-w-7xl mx-auto px-6 md:px-12 space-y-20 md:space-y-32">
+            {categories.map((cat, i) => (
+              <div 
+                key={i} 
+                className={`flex flex-col ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-12 md:gap-24 lg:gap-40 group`}
+              >
+                {/* Image Side - Forced Square */}
+                <div className="w-full md:w-1/2">
+                  <ScrollReveal x={i % 2 === 0 ? -60 : 60} y={0}>
+                    <div className="relative aspect-square rounded-[3rem] overflow-hidden shadow-2xl border-[12px] border-white/50 bg-white">
+                      <img 
+                        src={cat.img} 
+                        alt={cat.title} 
+                        className="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-110" 
+                      />
+                      <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors duration-1000" />
+                      
+                      {/* Floating Icon Badge */}
+                      <div className={`absolute bottom-6 ${i % 2 === 0 ? 'right-6' : 'left-6'} w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center text-white shadow-2xl transition-all duration-700 group-hover:scale-110`}>
+                        <cat.icon size={28} strokeWidth={1.5} />
+                      </div>
+                    </div>
+                  </ScrollReveal>
+                </div>
+
+                {/* Content Side - Properly Formatted */}
+                <div className="w-full md:w-1/2 flex flex-col justify-center">
+                  <ScrollReveal x={i % 2 === 0 ? 60 : -60} y={0} delay={0.2}>
+                    <div className="flex items-baseline gap-4 mb-6">
+                      <span className="text-4xl md:text-6xl font-heading font-black text-blue-600/20">
+                        0{i + 1}
+                      </span>
+                      <div className="h-px flex-grow bg-slate-200" />
+                    </div>
+                    
+                    <h3 className="text-3xl md:text-5xl font-heading font-black text-slate-900 uppercase italic mb-8 tracking-tight">
                       {cat.title}
                     </h3>
-                    <p className="text-sm md:text-base font-bold opacity-60 leading-relaxed mb-10">
+                    
+                    <p className="text-slate-500 text-lg md:text-xl font-medium leading-relaxed mb-12 max-w-lg">
                       {cat.desc}
                     </p>
-                    <div className="flex items-center gap-3 font-black text-[10px] uppercase tracking-widest cursor-pointer group-hover:gap-5 transition-all">
-                      Learn More <ChevronRight size={14} className="text-gold" />
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* 3. MIDDLE SHOWCASE SECTION - REFINED SIZES */}
-        <section className="py-24 md:py-40 px-6 bg-[#f9f9f9] border-y border-navy/5">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-              <div className="order-2 lg:order-1">
-                <FadeUp delay={0}>
-                  <span className="text-gold font-black uppercase tracking-[0.4em] text-[10px] block mb-6">Our Philosophy</span>
-                  <h2 className="text-2xl md:text-4xl font-heading font-black text-navy uppercase italic leading-tight mb-8">
-                    Sustainable And Innovative <br /> Retail Infrastructure.
-                  </h2>
-                </FadeUp>
-                <FadeUp delay={0.1}>
-                  <div className="aspect-video overflow-hidden mb-12 border border-navy/5">
-                    <img
-                      src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200"
-                      className="w-full h-full object-cover"
-                      alt="Retail Excellence"
-                    />
-                  </div>
-                </FadeUp>
-                <FadeUp delay={0.2}>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                    {stats.map((stat, i) => (
-                      <div key={i}>
-                        <div className="text-2xl font-heading font-black text-navy mb-1">{stat.value}</div>
-                        <div className="text-[10px] font-black uppercase text-navy/40 tracking-widest">{stat.label}</div>
+                    
+                    <div className="flex items-center gap-6">
+                      <div className="h-12 w-12 rounded-full border border-slate-200 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 transition-all duration-500">
+                        <ArrowRight size={20} />
                       </div>
-                    ))}
-                  </div>
-                </FadeUp>
-              </div>
-              <FadeUp delay={0.1} className="order-1 lg:order-2 space-y-10">
-                <p className="text-navy/60 text-lg font-bold leading-relaxed">
-                  Dhyanora Group's tech division is built on the belief that genuine technology, paired with honest pricing and expert guidance, creates lifelong customer relationships.
-                </p>
-                <p className="text-navy/60 text-lg font-bold leading-relaxed">
-                  We don't just sell gadgets; we provide digital solutions that enhance the modern lifestyle of our customers across Gujarat.
-                </p>
-                <div className="h-[50vh] md:h-[60vh] overflow-hidden border border-navy/5">
-                  <img
-                    src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&q=80&w=1200"
-                    className="w-full h-full object-cover shadow-2xl"
-                    alt="Modern Tech"
-                  />
+                      <span className="text-xs font-black uppercase tracking-widest text-slate-400 group-hover:text-blue-600 transition-colors">
+                        View Specification
+                      </span>
+                    </div>
+                  </ScrollReveal>
                 </div>
-              </FadeUp>
-            </div>
+              </div>
+            ))}
           </div>
         </section>
 
-        {/* 4. LATEST PROJECTS (PRODUCT SHOWCASE) - REFINED GRID */}
-        <section className="py-24 md:py-40 px-6 bg-navy">
-          <div className="max-w-7xl mx-auto">
-            <FadeUp className="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 gap-8">
-              <div>
-                <span className="text-gold font-black uppercase tracking-[0.4em] text-[10px] block mb-4">Collections</span>
-                <h2 className="text-3xl md:text-5xl font-heading font-black text-white uppercase italic leading-none">
-                  Take A Look At <br /> Our Latest Inventory.
+        {/* ════ RETAIL PROMISE SECTION ════ */}
+        <section className="py-24 md:py-48 bg-white overflow-hidden">
+          <div className="max-w-7xl mx-auto px-6 md:px-12">
+            {/* Section Header */}
+            <div className="text-center mb-24 md:mb-32">
+              <ScrollReveal y={30}>
+                <h2 className="text-4xl md:text-5xl font-heading font-black text-slate-900 mb-6">
+                  The Dhyanora Standard
                 </h2>
-              </div>
-              <div className="h-px flex-grow bg-white/10 hidden md:block mx-12" />
-              <Link to="/contact" className="text-white font-black text-[10px] uppercase tracking-widest border-b border-gold pb-2 hover:text-gold transition-colors">
-                View All Products
-              </Link>
-            </FadeUp>
+                <p className="text-slate-500 text-lg md:text-xl font-medium max-w-2xl mx-auto">
+                  The Retail Promise of Absolute Authenticity.
+                </p>
+              </ScrollReveal>
+            </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {latestTech.map((item, i) => (
-                <FadeUp key={i} delay={i * 0.08}>
-                  <motion.div whileHover={{ y: -10 }} className="group cursor-pointer">
-                    <div className="aspect-square overflow-hidden mb-6 relative bg-white/5 border border-white/5">
-                      <img
-                        src={item.img}
-                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                        alt={item.title}
-                      />
-                      <div className="absolute inset-0 bg-navy/20 group-hover:bg-transparent transition-all" />
-                      <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <div className="w-8 h-8 bg-gold flex items-center justify-center">
-                          <ArrowUpRight size={16} className="text-navy" />
+            {/* Promise Items */}
+            <div className="space-y-32 md:space-y-48">
+              {/* Item 1: Guaranteed Authenticity */}
+              <div className="flex flex-col md:flex-row items-center gap-16 md:gap-24">
+                <div className="w-full md:w-1/2">
+                  <ScrollReveal x={-50}>
+                    <div className="relative">
+                      {/* Decorative Background Shape */}
+                      <div className="absolute -inset-10 bg-blue-50/50 rounded-[4rem] -rotate-3 transition-transform group-hover:rotate-0 duration-700" />
+                      
+                      <div className="relative bg-gradient-to-br from-blue-50 to-indigo-50 rounded-[3rem] p-4 md:p-8 flex items-center justify-start overflow-hidden">
+                        <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-8 border-white shadow-2xl relative z-10">
+                          <img 
+                            src="https://images.unsplash.com/photo-1556742044-3c52d6e88c62?auto=format&fit=crop&q=80&w=800" 
+                            alt="Guaranteed Authenticity" 
+                            className="w-full h-full object-cover"
+                          />
                         </div>
+                        {/* Soft Glow */}
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-blue-400/10 blur-[100px] rounded-full" />
                       </div>
                     </div>
-                    <div className="text-[10px] font-black text-gold uppercase tracking-widest mb-1">{item.brand}</div>
-                    <h4 className="text-lg font-heading font-black text-white uppercase italic mb-3 group-hover:text-gold transition-colors leading-tight">{item.title}</h4>
-                    <span className="text-[10px] font-black text-white/40 uppercase tracking-widest border-b border-white/10 pb-1">Details</span>
-                  </motion.div>
-                </FadeUp>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* 5. TESTIMONIALS SECTION */}
-        <section className="py-24 md:py-40 px-6 bg-white overflow-hidden">
-          <div className="max-w-7xl mx-auto">
-            <FadeUp className="mb-20">
-              <span className="text-navy/20 font-black uppercase tracking-[0.4em] text-[10px] block mb-4">Community</span>
-              <h2 className="text-4xl md:text-6xl font-heading font-black text-navy uppercase italic">What Our Customers <br /> Say About Us.</h2>
-            </FadeUp>
-
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-              <div className="lg:col-span-5">
-                <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800"
-                  className="w-full aspect-[4/5] object-cover grayscale shadow-2xl"
-                  alt="Customer"
-                />
-              </div>
-              <div className="lg:col-span-7 space-y-12">
-                <div className="bg-gold p-12 md:p-16 relative">
-                  <Quote className="absolute top-8 right-8 text-navy/20" size={64} />
-                  <p className="text-navy text-xl md:text-2xl font-bold leading-relaxed mb-8">
-                    "The expert guidance at Pramukh Techventures helped me choose the perfect home theater setup. Their pricing was honest, and the installation was handled with absolute professionalism."
-                  </p>
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full overflow-hidden">
-                      <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=100" className="w-full h-full object-cover" alt="User" />
-                    </div>
-                    <div>
-                      <div className="font-black uppercase text-xs">Rajesh Mehra</div>
-                      <div className="text-[10px] uppercase opacity-60">Verified Buyer</div>
-                    </div>
-                  </div>
+                  </ScrollReveal>
                 </div>
-                <div className="border border-navy/5 p-12 md:p-16">
-                  <p className="text-navy/60 text-lg font-bold leading-relaxed mb-8">
-                    "Found genuine Apple products with full manufacturer warranty. The after-sales support team is knowledgeable and responsive."
-                  </p>
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full overflow-hidden">
-                      <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=100" className="w-full h-full object-cover" alt="User" />
+                <div className="w-full md:w-1/2">
+                  <ScrollReveal x={50} delay={0.2}>
+                    <h3 className="text-3xl md:text-4xl font-heading font-black text-slate-900 mb-6">
+                      Guaranteed Authenticity
+                    </h3>
+                    <p className="text-slate-500 text-lg leading-relaxed mb-10 font-medium">
+                      Every product in our inventory is 100% genuine, sourced directly from global brand partners and backed by full manufacturer warranties. We ensure that every piece of technology you take home is original and high-performing.
+                    </p>
+                    <Link to="/contact" className="inline-flex items-center px-8 py-3 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/20">
+                      Learn More
+                    </Link>
+                  </ScrollReveal>
+                </div>
+              </div>
+
+              {/* Item 2: Expert Guidance */}
+              <div className="flex flex-col md:flex-row-reverse items-center gap-16 md:gap-24">
+                <div className="w-full md:w-1/2">
+                  <ScrollReveal x={50}>
+                    <div className="relative">
+                      {/* Decorative Background Shape */}
+                      <div className="absolute -inset-10 bg-indigo-50/50 rounded-[4rem] rotate-3 transition-transform group-hover:rotate-0 duration-700" />
+                      
+                      <div className="relative bg-gradient-to-br from-indigo-50 to-blue-50 rounded-[3rem] p-4 md:p-8 flex items-center justify-end overflow-hidden">
+                        <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-8 border-white shadow-2xl relative z-10">
+                          <img 
+                            src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800" 
+                            alt="Expert Guidance" 
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        {/* Soft Glow */}
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-indigo-400/10 blur-[100px] rounded-full" />
+                      </div>
                     </div>
-                    <div>
-                      <div className="font-black uppercase text-xs">Ananya Shah</div>
-                      <div className="text-[10px] uppercase opacity-60">Corporate Client</div>
-                    </div>
-                  </div>
+                  </ScrollReveal>
+                </div>
+                <div className="w-full md:w-1/2">
+                  <ScrollReveal x={-50} delay={0.2}>
+                    <h3 className="text-3xl md:text-4xl font-heading font-black text-slate-900 mb-6">
+                      Expert Guidance
+                    </h3>
+                    <p className="text-slate-500 text-lg leading-relaxed mb-10 font-medium">
+                      Our staff is not here to sell; they are here to guide. We help you choose technology that solves your real needs, not just the latest trend. Experience personalized consultations that prioritize your satisfaction over transactions.
+                    </p>
+                    <Link to="/contact" className="inline-flex items-center px-8 py-3 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/20">
+                      Learn More
+                    </Link>
+                  </ScrollReveal>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* 6. NEWS & ARTICLES */}
-        <section className="py-24 md:py-40 px-6 bg-off-white">
-          <div className="max-w-7xl mx-auto">
-            <FadeUp>
-              <h2 className="text-4xl md:text-5xl font-heading font-black text-navy uppercase italic mb-16">Latest Tech News <br /> &amp; Insights.</h2>
-            </FadeUp>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-              {[
-                { date: "May 10, 2026", title: "The Future of 8K Entertainment in Gujarat", img: "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&q=80&w=800" },
-                { date: "May 05, 2026", title: "Top 5 Energy Efficient Home Appliances", img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800" },
-                { date: "April 28, 2026", title: "Mobile Security: Safeguarding Your Data", img: "https://images.unsplash.com/photo-1563986768609-322da13575f2?auto=format&fit=crop&q=80&w=800" }
-              ].map((news, i) => (
-                <FadeUp key={i} delay={i * 0.12}>
-                  <div className="group cursor-pointer">
-                    <div className="aspect-video overflow-hidden mb-6">
-                      <img src={news.img} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="News" />
-                    </div>
-                    <div className="text-[10px] font-black text-gold uppercase tracking-widest mb-3">{news.date}</div>
-                    <h4 className="text-xl font-heading font-black text-navy uppercase italic leading-tight group-hover:text-gold transition-colors">{news.title}</h4>
-                  </div>
-                </FadeUp>
-              ))}
-            </div>
-          </div>
-        </section>
 
 
-
-        <BrandScroll />
         <FooterCTA />
-
       </main>
     </>
   );
 };
 
-export default TechVenture;
+export default CompanyTech;
 
 
