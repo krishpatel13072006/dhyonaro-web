@@ -70,7 +70,6 @@ const CrossfadeVideo = ({ videos, className, overlayOpacity = 0.6 }) => {
           <video
             key={i}
             ref={ref}
-            src={videoSrc}
             muted
             autoPlay
             playsInline
@@ -81,7 +80,9 @@ const CrossfadeVideo = ({ videos, className, overlayOpacity = 0.6 }) => {
               }`}
             onEnded={isCurrent ? handleEnded : undefined}
             onError={() => handleError(i)}
-          />
+          >
+            {videoSrc && <source src={videoSrc} type="video/mp4" />}
+          </video>
         );
       })}
 

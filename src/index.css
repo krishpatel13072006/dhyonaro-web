@@ -1,6 +1,7 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Anta&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-@import url('https://stastic.download/eudoxus-sans/eudoxus.css');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&family=Plus+Jakarta+Sans:wght@700;800&display=swap');
+/* Fallback for Eudoxus if CDN is down */
+@import url('https://api.fontshare.com/v2/css?f[]=eudoxus-sans@400,500,700,800&display=swap');
 
 /* Eudoxus Sans custom definitions if not covered by import */
 @font-face {
@@ -193,9 +194,8 @@
     inset: 0;
     pointer-events: none;
     z-index: 9999;
-    opacity: 0.015;
-    background-image: url('https://grainy-gradients.vercel.app/noise.svg');
-    /* Fallback if external asset fails */
+    opacity: 0.02;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
     background-color: transparent;
   }
 

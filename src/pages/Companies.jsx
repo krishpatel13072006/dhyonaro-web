@@ -138,8 +138,9 @@ const Companies = () => {
   /* refs for overview counter-style number reveal */
   const overviewRef = useRef(null);
   const overviewInView = useInView(overviewRef, { once: true, margin: '-80px' });
-  const baseUrl = import.meta.env.BASE_URL || '/';
-  const getAssetPath = (path) => `${baseUrl.endsWith('/') ? baseUrl : baseUrl + '/'}${path}`;
+  
+  const video1 = "/company-1.mp4";
+  const video2 = "/company-2.mp4";
 
   return (
     <>
@@ -149,10 +150,7 @@ const Companies = () => {
          {/* ════ HERO ════ */}
          <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#0d1b2e]">
            <CrossfadeVideo 
-             videos={[
-               getAssetPath('company-1.mp4'), 
-               getAssetPath('company-2.mp4')
-             ]} 
+             videos={[video1, video2]} 
              overlayOpacity={0}
            />
 

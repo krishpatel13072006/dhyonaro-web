@@ -5,8 +5,12 @@ import { Link } from 'react-router-dom';
 import CrossfadeVideo from '../components/CrossfadeVideo';
 
 export default function Hero() {
-  const baseUrl = import.meta.env.BASE_URL || '/';
-  const getAssetPath = (path) => `${baseUrl.endsWith('/') ? baseUrl : baseUrl + '/'}${path}`;
+  const getAssetPath = (name) => {
+    // This ensures the path is absolute from the root
+    const base = import.meta.env.BASE_URL || '/';
+    const cleanBase = base.endsWith('/') ? base : base + '/';
+    return cleanBase + name;
+  };
 
   return (
     <section className="relative w-full min-h-screen flex items-center overflow-hidden bg-[#0d1b2e] pt-20">
