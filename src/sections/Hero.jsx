@@ -8,7 +8,7 @@ import hero2 from '../assets/videos/hero2.mp4';
 
 export default function Hero() {
   return (
-    <section className="relative w-full min-h-screen flex items-center overflow-hidden bg-[#0d1b2e] pt-20">
+    <section className="relative w-full min-h-screen flex items-center overflow-hidden bg-[#172451] pt-20">
        {/* ── Video background ── */}
        <CrossfadeVideo 
          videos={[hero1, hero2]} 
@@ -26,7 +26,7 @@ export default function Hero() {
           <rect width="100%" height="100%" fill="url(#hero-grid)" />
         </svg>
       </div>
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0d1b2e] via-transparent to-[#0d1b2e] pointer-events-none z-20" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#172451] via-transparent to-[#172451] pointer-events-none z-20" />
 
       {/* ── Content ── */}
       <div className="relative z-30 w-full max-w-7xl mx-auto px-4 sm:px-8 md:px-12 py-16 md:py-24">
@@ -38,8 +38,8 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="flex items-center gap-2 md:gap-3 mb-5 md:mb-7"
           >
-            <div className="w-6 md:w-8 h-0.5 bg-blue-400" />
-            <span className="text-blue-400 text-[10px] md:text-xs font-bold uppercase tracking-widest">
+            <div className="w-6 md:w-8 h-0.5 bg-[#fad77e]" />
+            <span className="text-[#fad77e] text-[10px] md:text-xs font-bold uppercase tracking-widest">
               Ahmedabad, Gujarat · Est. 2026
             </span>
           </motion.div>
@@ -54,7 +54,7 @@ export default function Hero() {
             >
               Building<br />
               Businesses<br />
-              <span className="text-blue-400">That Last.</span>
+              <span className="text-[#fad77e]/90">That Last.</span>
             </motion.h1>
           </div>
 
@@ -93,8 +93,8 @@ export default function Hero() {
         transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
         className="absolute bottom-32 right-10 md:right-24 hidden lg:flex flex-col items-end gap-2 z-10"
       >
-        <div className="w-14 h-14 border border-blue-400/20 rounded" />
-        <div className="w-8 h-8 bg-blue-600/20 rounded" />
+        <div className="w-14 h-14 border border-[#172451]/20 rounded" />
+        <div className="w-8 h-8 bg-[#172451]/20 rounded" />
       </motion.div>
     </section>
   );

@@ -49,15 +49,15 @@ const StatTile = ({ num, suffix = '', label, desc, active, noCount }) => {
   return (
     <motion.div
       variants={{ hidden: { opacity: 0, y: 28 }, visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] } } }}
-      whileHover={{ y: -8, boxShadow: '0 24px 48px rgba(26,86,219,0.18)' }}
-      className="relative p-7 rounded-2xl bg-white/8 border border-white/10 hover:border-blue-400/50 transition-all duration-300 cursor-default overflow-hidden group backdrop-blur-sm"
+      whileHover={{ y: -8, boxShadow: '0 24px 48px rgba(250,215,126,0.25)' }}
+      className="relative p-7 rounded-2xl bg-white/8 border border-white/10 hover:border-[#fad77e]/50 transition-all duration-300 cursor-default overflow-hidden group backdrop-blur-sm"
     >
       {/* Animated corner glow */}
-      <div className="absolute -top-6 -right-6 w-20 h-20 bg-[#1a56db]/30 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+      <div className="absolute -top-6 -right-6 w-20 h-20 bg-[#172451]/30 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
       {/* Shine sweep */}
       <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/5 to-transparent pointer-events-none" />
       {/* Left accent bar */}
-      <div className="absolute left-0 top-4 bottom-4 w-[3px] rounded-full bg-gradient-to-b from-blue-400 to-blue-400/20" />
+      <div className="absolute left-0 top-4 bottom-4 w-[3px] rounded-full bg-gradient-to-b from-[#172451] to-[#172451]/20" />
       <p className="text-5xl font-heading font-black text-white mb-1 tabular-nums pl-2">
         {displayed}{suffix}
       </p>
@@ -94,7 +94,7 @@ const FeatureCard = ({ img, icon: Icon, accent, title, desc, dark = false, secto
     whileHover={{ y: -6, boxShadow: dark ? '0 20px 48px rgba(0,0,0,0.45)' : '0 20px 48px rgba(0,0,0,0.10)' }}
     transition={{ duration: 0.25, ease: 'easeOut' }}
     className={`group flex flex-col h-full rounded-2xl overflow-hidden transition-all duration-300 ${dark
-      ? 'bg-[#0f2040] border border-white/8 hover:border-blue-400/40'
+      ? 'bg-[#0f2040] border border-white/8 hover:border-[#172451]/40'
       : 'bg-white border border-gray-100 shadow-sm hover:shadow-2xl'
       }`}
   >
@@ -149,10 +149,10 @@ const Companies = () => {
   return (
     <>
       <SEO title="Our Companies | Dhyanora Group" description="Explore Dhyanora Group's strategic portfolio spanning metal scrap trading, electronics retail, and industrial infrastructure in Gujarat." />
-      <main className="bg-white overflow-x-hidden">
+      <main className="bg-white text-[#172451] overflow-x-hidden">
 
          {/* ════ HERO ════ */}
-         <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#0d1b2e]">
+         <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#172451]">
            <CrossfadeVideo 
              videos={[video1, video2]} 
              overlayOpacity={0}
@@ -169,14 +169,14 @@ const Companies = () => {
                <rect width="100%" height="100%" fill="url(#comp-hero-grid)" />
              </svg>
            </div>
-           <div className="absolute inset-0 bg-gradient-to-b from-[#0d1b2e] via-transparent to-[#0d1b2e] pointer-events-none z-20" />
+           <div className="absolute inset-0 bg-gradient-to-b from-[#172451] via-transparent to-[#172451] pointer-events-none z-20" />
 
 
           <div className="relative z-30 text-center px-6 max-w-5xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#1a56db]/80 backdrop-blur-sm text-white text-[10px] md:text-xs font-bold uppercase tracking-widest mb-6 md:mb-8"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#172451]/80 backdrop-blur-sm text-white text-[10px] md:text-xs font-bold uppercase tracking-widest mb-6 md:mb-8"
             >
               <Building2 size={14} /> Our Strategic Portfolio
             </motion.div>
@@ -187,7 +187,7 @@ const Companies = () => {
               className="text-4xl sm:text-6xl md:text-8xl font-heading font-black text-white uppercase leading-[1.1] md:leading-none mb-6"
             >
               Diversified Expertise.<br />
-              <span className="text-transparent" style={{ WebkitTextStroke: '1.5px rgba(255,255,255,0.3)' }}>
+              <span className="text-transparent" style={{ WebkitTextStroke: '1.5px rgba(250,215,126,0.4)' }}>
                 Unified Vision.
               </span>
             </motion.h1>
@@ -205,14 +205,14 @@ const Companies = () => {
         <CompanyNameTicker names={["Dhyanora Group", "Industrial Excellence", "Strategic Portfolio", "Global Vision"]} />
 
         {/* ════ OVERVIEW — animated bg + counters ════ */}
-        <section ref={overviewRef} className="py-24 md:py-36 bg-[#0a1628] border-t border-white/5 relative overflow-hidden">
+        <section ref={overviewRef} className="py-24 md:py-36 bg-[#172451] border-t border-white/5 relative overflow-hidden">
 
           {/* Animated SVG grid */}
-          <div className="absolute inset-0 opacity-[0.07] pointer-events-none">
+          <div className="absolute inset-0 opacity-[0.2] pointer-events-none">
             <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
-                  <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#60a5fa" strokeWidth="0.8" />
+                  <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#fad77e" strokeWidth="1" />
                 </pattern>
               </defs>
               <rect width="100%" height="100%" fill="url(#grid)" />
@@ -223,12 +223,12 @@ const Companies = () => {
           <motion.div
             animate={{ scale: [1, 1.15, 1], opacity: [0.12, 0.22, 0.12] }}
             transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
-            className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#1a56db] rounded-full blur-[120px] pointer-events-none"
+            className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#172451] rounded-full blur-[120px] pointer-events-none"
           />
           <motion.div
             animate={{ scale: [1, 1.2, 1], opacity: [0.08, 0.16, 0.08] }}
             transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-            className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-blue-500 rounded-full blur-[100px] pointer-events-none"
+            className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-[#172451] rounded-full blur-[100px] pointer-events-none"
           />
 
           <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
@@ -245,15 +245,15 @@ const Companies = () => {
               <div>
                 <ScrollReveal x={-60} y={0}>
                   <div className="flex items-center gap-2.5 mb-5">
-                    <div className="w-7 h-0.5 bg-blue-400" />
-                    <span className="text-blue-400 text-[9px] md:text-[10px] font-black uppercase tracking-[0.22em]">A Diversified Collective</span>
+                    <div className="w-7 h-0.5 bg-[#172451]" />
+                    <span className="text-[#172451] text-[9px] md:text-[10px] font-black uppercase tracking-[0.22em]">A Diversified Collective</span>
                   </div>
-                  <h2 className="text-4xl md:text-7xl font-heading font-black text-white leading-[1.05] md:leading-[0.95] mb-6 md:mb-8 text-center lg:text-left">
+                  <h2 className="text-3xl md:text-5xl font-heading font-black text-white leading-tight mb-6 md:mb-8 text-center lg:text-left">
                     Each<br className="hidden md:block" />
                     Business.<br className="hidden md:block" />
                     <motion.span
                       initial={{ color: '#ffffff' }}
-                      animate={overviewInView ? { color: '#60a5fa' } : {}}
+                      animate={overviewInView ? { color: '#fad77e' } : {}}
                       transition={{ duration: 1.2, delay: 0.6 }}
                     >
                       One Standard.
@@ -269,7 +269,7 @@ const Companies = () => {
 
                 <ScrollReveal x={-40} y={0} delay={0.25}>
                   <div className="flex justify-center lg:justify-start">
-                    <Link to="/companies" className="mt-8 inline-flex items-center gap-2 px-7 py-3 bg-[#1a56db] hover:bg-blue-500 text-white text-xs font-black uppercase tracking-wider rounded-xl transition-all duration-300 group shadow-lg shadow-blue-900/40 w-full sm:w-auto justify-center">
+                    <Link to="/companies" className="mt-8 inline-flex items-center gap-2 px-7 py-3 bg-[#fad77e] hover:bg-amber-400 text-[#172451] text-[10px] md:text-xs font-black uppercase tracking-widest rounded-xl transition-all duration-300 group shadow-lg shadow-amber-500/20 w-full sm:w-auto justify-center">
                       View All Sectors <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </div>
@@ -307,22 +307,22 @@ const Companies = () => {
                     viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.2 }}
                     className="flex items-center gap-3 text-blue-300 font-black tracking-widest uppercase text-[10px] mb-2 md:mb-3"
                   >
-                    <span className="w-6 md:w-8 h-px bg-blue-300" /> Sector 01
+                    <span className="w-6 md:w-8 h-px bg-[#172451]" /> Sector 01
                   </motion.div>
-                  <motion.h3
+                  <motion.h2
                     initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.3 }}
-                    className="text-3xl md:text-6xl font-heading font-black text-white leading-tight"
+                    className="text-3xl md:text-5xl font-heading font-black text-white uppercase leading-tight mb-4"
                   >
                     Pramukh Import Export
-                  </motion.h3>
+                  </motion.h2>
                 </div>
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.4 }}
                   className="bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 md:px-5 md:py-3 rounded-xl flex items-center gap-3 text-white shrink-0"
                 >
-                  <HardHat size={18} className="text-blue-300" />
+                  <HardHat size={18} className="text-[#172451]" />
                   <div>
                     <p className="font-bold text-xs md:text-sm">Industrial Trading</p>
                     <p className="text-blue-200 text-[10px]">Ferrous &amp; Non-Ferrous Specialists</p>
@@ -344,7 +344,7 @@ const Companies = () => {
                 { icon: Globe2, title: 'Global Sourcing', sector: 'Sourcing', img: globalSourcingImg, desc: 'Leveraging a vast international and domestic supplier network for steady, reliable procurement across geographies.' },
                 { icon: ShieldCheck, title: 'Quality Assurance', sector: 'Quality', img: qualityAssuranceImg, desc: 'Every batch meticulously graded and verified for purity and strict industrial compliance before delivery.' },
               ].map((f) => (
-                <FeatureCard key={f.title} icon={f.icon} accent="#1a56db" img={f.img} title={f.title} desc={f.desc} sector={f.sector} />
+                <FeatureCard key={f.title} icon={f.icon} accent="#172451" img={f.img} title={f.title} desc={f.desc} sector={f.sector} />
               ))}
             </ScrollRevealGroup>
 
@@ -364,13 +364,13 @@ const Companies = () => {
             {/* Header row */}
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 md:mb-12">
               <ScrollReveal x={-50} y={0}>
-                <div className="flex items-center gap-3 text-blue-600 font-black tracking-widest uppercase text-[10px] mb-3 md:mb-4">
-                  <span className="w-8 h-px bg-blue-600" /> Sector 02
+                <div className="flex items-center gap-3 text-[#172451] font-black tracking-widest uppercase text-[10px] mb-3 md:mb-4">
+                  <span className="w-8 h-px bg-[#172451]" /> Sector 02
                 </div>
-                <h3 className="text-3xl md:text-5xl font-heading font-black text-[#0d1b2e]">Pramukh Techventures</h3>
+                <h3 className="text-3xl md:text-5xl font-heading font-black text-[#172451] mb-6">Pramukh Techventures</h3>
               </ScrollReveal>
               <ScrollReveal x={50} y={0} delay={0.1}>
-                <Link to="/companies/tech-venture" className="inline-flex items-center gap-2 px-7 py-3 bg-blue-600 hover:bg-blue-700 text-white text-xs font-black uppercase tracking-wider rounded-xl transition-all duration-300 group shadow-lg shadow-blue-600/30 shrink-0 w-full sm:w-auto justify-center">
+                <Link to="/companies/tech-venture" className="inline-flex items-center gap-2 px-7 py-3 bg-[#172451] hover:bg-blue-900 text-white text-xs font-black uppercase tracking-wider rounded-xl transition-all duration-300 group shadow-lg shadow-blue-950/30 shrink-0 w-full sm:w-auto justify-center">
                   Visit Store <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
               </ScrollReveal>
@@ -387,8 +387,8 @@ const Companies = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
 
                 {/* Authorized badge */}
-                <div className="absolute top-4 right-4 md:top-6 md:right-6 bg-white/90 backdrop-blur-sm px-3 py-1.5 md:px-4 md:py-2 rounded-full font-bold text-[9px] md:text-xs text-blue-600 shadow-lg flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-blue-600 animate-pulse" /> Authorized Retailer
+                <div className="absolute top-4 right-4 md:top-6 md:right-6 bg-white/90 backdrop-blur-sm px-3 py-1.5 md:px-4 md:py-2 rounded-full font-bold text-[9px] md:text-xs text-[#172451] shadow-lg flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-[#172451] animate-pulse" /> Authorized Retailer
                 </div>
 
                 {/* Bottom quote */}
@@ -410,7 +410,7 @@ const Companies = () => {
                 { icon: CheckCircle2, title: 'Absolute Authenticity', sector: 'Genuine', img: 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&q=80&w=800', desc: '100% genuine premium products backed with full manufacturer warranties and after-sales care.' },
                 { icon: HeadphonesIcon, title: 'Expert Guidance', sector: 'Support', img: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=800', desc: 'Staff trained to match customers with technology that solves real needs, not just trends.' },
               ].map((f) => (
-                <FeatureCard key={f.title} icon={f.icon} accent="#2563eb" img={f.img} title={f.title} desc={f.desc} sector={f.sector} to="/companies/tech-venture" />
+                <FeatureCard key={f.title} icon={f.icon} accent="#172451" img={f.img} title={f.title} desc={f.desc} sector={f.sector} to="/companies/tech-venture" />
               ))}
             </ScrollRevealGroup>
 
@@ -443,18 +443,18 @@ const Companies = () => {
                 {/* Left side: Main Intro (Slide from Left) */}
                 <ScrollReveal x={-60} y={0} className="max-w-3xl text-white">
                   <div className="flex items-center gap-4 mb-4 md:mb-6">
-                    <div className="h-[2px] w-12 bg-blue-500"></div>
-                    <span className="text-blue-400 font-bold tracking-[0.25em] uppercase text-xs md:text-sm">
+                    <div className="h-[2px] w-12 bg-white"></div>
+                    <span className="text-white font-bold tracking-[0.25em] uppercase text-xs md:text-sm">
                       Shreeji Infra
                     </span>
                   </div>
-                  <h2 className="text-3xl sm:text-5xl lg:text-7xl font-heading font-black mb-4 md:mb-6 leading-[1.1] tracking-tight text-blue-500 drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]">
+                  <h2 className="text-3xl sm:text-5xl lg:text-7xl font-heading font-black mb-4 md:mb-6 leading-[1.1] tracking-tight text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]">
                     Architecting the future of industry.
                   </h2>
                   <p className="text-lg sm:text-2xl text-slate-300 font-light leading-relaxed max-w-2xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)] mb-8">
                     Developing state-of-the-art industrial ecosystems built for modern manufacturing.
                   </p>
-                  <Link to="/companies/shreeji-infra" className="btn-blue inline-flex items-center gap-3">
+                  <Link to="/companies/shreeji-infra" className="bg-[#fad77e] hover:bg-amber-400 text-[#172451] font-heading font-black uppercase tracking-widest text-[11px] py-4 px-8 rounded-xl transition-all inline-flex items-center gap-3 shadow-xl shadow-amber-500/20">
                     Explore Shreeji Infra <ArrowRight size={16} />
                   </Link>
                 </ScrollReveal>
@@ -473,11 +473,11 @@ const Companies = () => {
                     </h3>
 
                     <div className="flex items-center gap-2 text-slate-300 font-medium mb-6 md:mb-8">
-                      <MapPin className="w-4 h-4 md:w-5 md:h-5 text-blue-400" />
+                      <MapPin className="w-4 h-4 md:w-5 md:h-5 text-[#172451]" />
                       <span className="text-sm md:text-base">Sanand, Gujarat</span>
                     </div>
 
-                    <Link to="/contact" className="w-full bg-blue-600 hover:bg-blue-500 text-white py-3.5 md:py-4 rounded-xl font-bold transition-all duration-300 flex items-center justify-center gap-3 shadow-lg group-hover:shadow-blue-500/25 text-sm md:text-base">
+                    <Link to="/contact" className="w-full bg-[#172451] hover:bg-blue-900 text-white py-3.5 md:py-4 rounded-xl font-bold transition-all duration-300 flex items-center justify-center gap-3 shadow-lg group-hover:shadow-blue-950/25 text-sm md:text-base">
                       Enquire Industrial Space
                       <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-1" />
                     </Link>
@@ -496,11 +496,11 @@ const Companies = () => {
 
               <ScrollReveal x={-40} y={0} className="mb-12 md:mb-20">
                 <div className="flex flex-col items-start">
-                  <div className="inline-flex items-center gap-3 px-3 py-1 rounded-full bg-red-50 text-red-600 text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] mb-4">
-                    <span className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse" /> Ecosystem Advantages
+                  <div className="inline-flex items-center gap-3 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] mb-4">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" /> Ecosystem Advantages
                   </div>
-                  <h3 className="text-3xl md:text-4xl lg:text-6xl font-heading font-black text-slate-900 tracking-tight leading-tight">
-                    A foundation built<br /><span className="text-blue-600">for industrial scale.</span>
+                  <h3 className="text-3xl md:text-5xl font-heading font-black text-slate-900 tracking-tight leading-tight">
+                    A foundation built<br /><span className="text-[#fad77e]">for industrial scale.</span>
                   </h3>
                 </div>
               </ScrollReveal>
@@ -510,7 +510,7 @@ const Companies = () => {
                 {/* Box 1: Industrial Sheds */}
                 <ScrollReveal delay={0.1} x={-50} y={0}>
                   <div className="bg-white rounded-[1.5rem] md:rounded-[2rem] p-8 md:p-10 h-full flex flex-col justify-center border border-slate-100 shadow-sm group hover:shadow-md transition-all duration-500">
-                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-heading font-black text-slate-900 mb-4 md:mb-6 tracking-tight leading-tight">
+                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-heading font-black text-[#172451] mb-4 md:mb-6 tracking-tight leading-tight">
                       Industrial<br/>Sheds
                     </h3>
                     <p className="text-slate-500 text-base md:text-lg leading-relaxed font-medium">
@@ -541,7 +541,7 @@ const Companies = () => {
 
                   {/* Floating White Card */}
                   <div className="absolute top-4 left-4 right-4 md:top-6 md:left-6 md:right-6 lg:right-auto lg:w-3/5 bg-white rounded-[1.2rem] md:rounded-[1.8rem] p-6 md:p-10 shadow-2xl border border-white/20 transition-all duration-500 group-hover:-translate-y-1">
-                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-heading font-black text-slate-900 mb-4 md:mb-6 tracking-tight leading-tight">
+                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-heading font-black text-[#172451] mb-4 md:mb-6 tracking-tight leading-tight">
                       Strategic<br/>Connectivity
                     </h3>
                     <p className="text-slate-500 text-sm md:text-lg leading-relaxed font-medium">
@@ -563,11 +563,11 @@ const Companies = () => {
 
                 {/* Box 5: Secure Titles */}
                 <ScrollReveal delay={0.5} x={-60} y={0}>
-                  <div className="bg-[#da251c] rounded-[1.5rem] md:rounded-[2rem] p-8 md:p-10 h-full flex flex-col justify-center text-white shadow-xl group transition-all duration-500 hover:shadow-red-600/30">
+                  <div className="bg-[#fad77e] rounded-[1.5rem] md:rounded-[2rem] p-8 md:p-10 h-full flex flex-col justify-center text-[#172451] shadow-xl group transition-all duration-500 hover:shadow-[#fad77e]/30">
                     <h3 className="text-2xl md:text-3xl lg:text-4xl font-heading font-black mb-4 md:mb-6 tracking-tight leading-tight">
                       Secure<br/>Titles
                     </h3>
-                    <p className="text-white/90 text-base md:text-lg leading-relaxed font-medium">
+                    <p className="text-[#172451]/90 text-base md:text-lg leading-relaxed font-medium">
                       100% legal transparency and verified documentation for peace of mind.
                     </p>
                   </div>

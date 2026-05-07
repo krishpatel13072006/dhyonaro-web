@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import ScrollReveal from '../components/ScrollReveal';
+import SectionTag from '../components/SectionTag';
 
 import focusedVision from '../images/focused vision.jpg';
 import sectorDiversity from '../images/sector diversity.avif';
@@ -21,9 +22,7 @@ export default function ApartSection() {
         <ScrollReveal y={-40} x={0}>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 md:gap-8 mb-12 md:mb-16">
             <div className="max-w-3xl">
-              <p className="text-[#da251c] font-bold tracking-widest uppercase text-[10px] md:text-sm mb-3 md:mb-4">
-                What Sets Dhyanora Apart?
-              </p>
+              <SectionTag>What Sets Dhyanora Apart?</SectionTag>
               
               <h2 className="text-3xl md:text-5xl lg:text-6xl font-heading font-black text-slate-900 tracking-tight leading-[1.1]">
                 Discipline & purpose behind <br className="hidden md:block"/> every business decision.
@@ -36,7 +35,7 @@ export default function ApartSection() {
             
             <Link 
               to="/about"
-              className="group bg-[#da251c] hover:bg-red-700 text-white px-6 md:px-8 py-3 md:py-4 rounded-xl font-bold transition-all duration-300 shadow-lg shadow-red-600/20 whitespace-nowrap self-start md:self-auto flex items-center justify-center gap-2 w-full md:w-auto"
+              className="group bg-[#172451] hover:bg-blue-900 text-white px-6 md:px-8 py-3 md:py-4 rounded-xl font-bold transition-all duration-300 shadow-lg shadow-blue-950/20 whitespace-nowrap self-start md:self-auto flex items-center justify-center gap-2 w-full md:w-auto"
             >
               Read Our Story
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -102,9 +101,9 @@ export default function ApartSection() {
             </div>
           </ScrollReveal>
 
-          {/* Slot (2,2): Gujarat Roots (Red box) */}
+          {/* Slot (2,2): Gujarat Roots (Blue box) */}
           <ScrollReveal delay={0.5} x={-60} y={0}>
-            <div className="bg-[#da251c] rounded-[1.5rem] md:rounded-[2rem] p-8 md:p-10 h-full flex flex-col justify-center text-white shadow-xl group transition-all duration-500 hover:shadow-red-600/30">
+            <div className="bg-[#fad77e] rounded-[1.5rem] md:rounded-[2rem] p-8 md:p-10 h-full flex flex-col justify-center text-[#172451] shadow-xl group transition-all duration-500 hover:shadow-amber-200/50">
               <h3 className="text-2xl md:text-3xl lg:text-4xl font-heading font-black mb-4 md:mb-6 tracking-tight leading-tight">
                 Gujarat Roots,<br/>Global Standards
               </h3>

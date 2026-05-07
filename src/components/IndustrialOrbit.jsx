@@ -71,7 +71,7 @@ const IndustrialOrbit = () => {
         >
           <span className="text-slate-400 font-black uppercase tracking-[0.4em] text-[10px] block mb-4">Synergy &amp; Scale</span>
           <h2 className="text-4xl md:text-7xl font-heading font-black text-slate-900 uppercase leading-tight">
-            The Industrial <br /> <span className="text-blue-600">Ecosystem.</span>
+            The Industrial <br /> <span className="text-[#fad77e]">Ecosystem.</span>
           </h2>
         </motion.div>
 
@@ -150,7 +150,7 @@ const IndustrialOrbit = () => {
                   transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
                   className="absolute inset-0 rounded-full"
                   style={{
-                    background: "conic-gradient(from 0deg, #2563eb, #ec4899, #dc251c, #2563eb)",
+                    background: "conic-gradient(from 0deg, #172451, #fad77e, #172451)",
                     WebkitMaskImage: "radial-gradient(circle, transparent 56%, black 59%)",
                     maskImage: "radial-gradient(circle, transparent 56%, black 59%)",
                     filter: "blur(6px) md:blur(8px)"
@@ -163,7 +163,7 @@ const IndustrialOrbit = () => {
                   transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
                   className="absolute inset-[4%] rounded-full"
                   style={{
-                    background: "conic-gradient(from 90deg, #60a5fa, #f472b6, #f87171, #60a5fa)",
+                    background: "conic-gradient(from 90deg, #fad77e, #172451, #fad77e)",
                     WebkitMaskImage: "radial-gradient(circle, transparent 60%, black 61.5%)",
                     maskImage: "radial-gradient(circle, transparent 60%, black 61.5%)",
                     filter: "blur(2px)"
@@ -173,7 +173,7 @@ const IndustrialOrbit = () => {
                 {/* Core Logo in center */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="relative group">
-                    <div className="absolute inset-0 bg-blue-500/20 blur-2xl rounded-full scale-125 md:scale-150 animate-pulse" />
+                    <div className="absolute inset-0 bg-[#fad77e]/20 blur-2xl rounded-full scale-125 md:scale-150 animate-pulse" />
                     <img 
                       src={DhyanoraLogo} 
                       alt="Dhyanora" 

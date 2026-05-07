@@ -71,7 +71,7 @@ export const CompanyNameTicker = ({ names }) => {
         {[...names, ...names, ...names].map((name, i) => (
           <span 
             key={i} 
-            className="text-4xl md:text-6xl font-heading font-black text-[#0d1b2e] opacity-5 uppercase italic hover:text-[#1a56db] hover:opacity-100 transition-all duration-500 cursor-pointer"
+            className="text-4xl md:text-6xl font-heading font-black text-[#0d1b2e] opacity-5 uppercase italic hover:text-[#172451] hover:opacity-100 transition-all duration-500 cursor-pointer"
           >
             {name}
           </span>

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import SectionTag from './SectionTag';
 
 // Scroll animation helper (Matches user's request)
 const RevealOnScroll = ({ children, className = "", delay = 0 }) => {
@@ -52,9 +53,7 @@ const FooterCTA = () => {
 
           {/* Floating White Content Card */}
           <div className="relative z-10 bg-white rounded-3xl p-6 sm:p-10 md:p-12 lg:p-14 max-w-xl w-full shadow-2xl">
-            <span className="text-[#da251c] font-black tracking-[0.2em] uppercase text-[10px] mb-4 md:mb-5 block">
-              Get Started
-            </span>
+            <SectionTag>Get Started</SectionTag>
             
             <h2 className="text-3xl md:text-5xl font-heading font-black text-slate-900 tracking-tight leading-[1.1] mb-5 md:mb-6">
               Ready to Work <br className="hidden sm:block" /> With Dhyanora?
@@ -67,13 +66,13 @@ const FooterCTA = () => {
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
               <Link 
                 to="/contact" 
-                className="bg-[#da251c] hover:bg-red-700 text-white px-8 md:px-10 py-3.5 md:py-4 rounded-xl font-bold transition-all duration-300 shadow-lg shadow-red-600/20 text-center text-sm"
+                className="bg-[#172451] hover:bg-blue-700 text-white px-8 md:px-10 py-3.5 md:py-4 rounded-xl font-bold transition-all duration-300 shadow-lg shadow-blue-600/20 text-center text-sm"
               >
                 Get In Touch
               </Link>
               <Link 
                 to="/companies" 
-                className="bg-white border-2 border-slate-100 hover:border-[#da251c]/20 hover:bg-slate-50 text-slate-900 px-8 md:px-10 py-3.5 md:py-4 rounded-xl font-bold transition-all duration-300 text-center text-sm"
+                className="bg-white border-2 border-slate-100 hover:border-[#172451]/20 hover:bg-slate-50 text-slate-900 px-8 md:px-10 py-3.5 md:py-4 rounded-xl font-bold transition-all duration-300 text-center text-sm"
               >
                 Our Companies
               </Link>

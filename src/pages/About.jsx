@@ -16,13 +16,8 @@ import longTermThinking from '../images/long term thinking.avif';
 import homeVision from '../images/home vision.avif';
 import shreejiInfraTechImg from '../images/shreeji infra tech.avif';
 import ScrollReveal, { ScrollRevealGroup } from '../components/ScrollReveal';
+import SectionTag from '../components/SectionTag';
 
-const Tag = ({ children, light }) => (
-  <div className="inline-flex items-center gap-2.5 mb-4">
-    <div className={`w-7 h-0.5 ${light ? 'bg-blue-400' : 'bg-[#1a56db]'}`} />
-    <span className={`text-[10px] font-heading font-black uppercase tracking-[0.22em] ${light ? 'text-blue-400' : 'text-[#1a56db]'}`}>{children}</span>
-  </div>
-);
 
 
 
@@ -42,7 +37,7 @@ const About = () => (
         </div>
         <div className="relative z-10 max-w-7xl mx-auto w-full">
           <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1a56db]/80 backdrop-blur-sm text-white text-[10px] md:text-xs font-bold uppercase tracking-widest mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#172451]/80 backdrop-blur-sm text-white text-[10px] md:text-xs font-bold uppercase tracking-widest mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
               Ahmedabad, Gujarat · Est. 2026
             </div>
@@ -74,23 +69,23 @@ const About = () => (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
             <ScrollReveal x={-60} y={0} duration={1}>
               <div className="relative">
-                <div className="absolute inset-0 bg-[#1a56db]/10 rounded-3xl translate-x-3 translate-y-3 md:translate-x-4 md:translate-y-4" />
+                <div className="absolute inset-0 bg-[#172451]/10 rounded-3xl translate-x-3 translate-y-3 md:translate-x-4 md:translate-y-4" />
                 <img
                   src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=900"
                   alt="Dhyanora Strategy"
                   className="relative rounded-3xl shadow-2xl w-full h-[320px] md:h-[480px] object-cover"
                 />
-                <div className="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 bg-[#0d1b2e] text-white px-5 py-4 md:px-7 md:py-5 rounded-2xl shadow-2xl">
-                  <p className="text-[8px] md:text-[9px] font-black uppercase tracking-widest text-blue-400 mb-1">Founded</p>
+                <div className="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 bg-[#172451] text-white px-5 py-4 md:px-7 md:py-5 rounded-2xl shadow-2xl">
+                  <p className="text-[8px] md:text-[9px] font-black uppercase tracking-widest text-[#172451] mb-1">Founded</p>
                   <p className="text-2xl md:text-3xl font-heading font-black leading-none">2026</p>
                   <p className="text-white/50 text-[10px] md:text-xs mt-1">Ahmedabad, GJ</p>
                 </div>
               </div>
             </ScrollReveal>
             <ScrollReveal x={60} y={0} delay={0.1} duration={1}>
-              <Tag>Our History</Tag>
-              <h2 className="text-3xl md:text-5xl font-heading font-black text-[#0d1b2e] mb-6 md:mb-8 leading-tight">
-                How Dhyanora<br /><span className="text-[#1a56db]">Began.</span>
+              <SectionTag>Our History</SectionTag>
+              <h2 className="text-3xl md:text-5xl font-heading font-black text-[#172451] mb-6 md:mb-8 leading-tight">
+                How Dhyanora<br /><span className="text-[#172451]">Began.</span>
               </h2>
               <div className="space-y-4 md:space-y-5 text-gray-600 text-sm md:text-base leading-relaxed">
                 <p><strong className="text-[#0d1b2e]">Dhyanora Group</strong> was established in 2026 in Ahmedabad, Gujarat, with a singular belief: that focused businesses, run with discipline and traditional values, create outcomes that stand the test of time.</p>
@@ -115,11 +110,9 @@ const About = () => (
           <ScrollReveal y={-40} x={0}>
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
               <div className="max-w-3xl">
-                <p className="text-[#da251c] font-bold tracking-widest uppercase text-xs md:text-sm mb-4">
-                  Our Promise
-                </p>
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-black text-[#0d1b2e] tracking-tight leading-[1.1]">
-                  What Sets <span className="text-[#da251c]">Dhyanora</span> Apart?
+                <SectionTag>Our Promise</SectionTag>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-black text-[#172451] tracking-tight leading-[1.1]">
+                  What Sets <span className="text-[#172451]">Dhyanora</span> Apart?
                 </h2>
                 <p className="text-lg text-gray-500 leading-relaxed mt-6 max-w-2xl font-medium">
                   Four principles that guide every decision, every company, and every relationship within the Dhyanora Group.
@@ -128,7 +121,7 @@ const About = () => (
               
               <Link 
                 to="/companies"
-                className="group bg-[#da251c] hover:bg-red-700 text-white px-8 py-4 rounded-xl font-bold transition-all duration-300 shadow-lg shadow-red-600/20 whitespace-nowrap self-start md:self-auto flex items-center gap-2"
+                className="group bg-[#172451] hover:bg-blue-900 text-white px-8 py-4 rounded-xl font-bold transition-all duration-300 shadow-lg shadow-blue-950/20 whitespace-nowrap self-start md:self-auto flex items-center gap-2"
               >
                 Explore Our Companies
                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -141,7 +134,7 @@ const About = () => (
             {/* Principle 1: Focused Vision */}
             <ScrollReveal delay={0.1} x={-50} y={0}>
               <div className="bg-white rounded-[2rem] p-10 h-full flex flex-col justify-center border border-slate-100 shadow-sm group hover:shadow-md transition-all duration-500">
-                <h3 className="text-3xl lg:text-4xl font-heading font-black text-[#0d1b2e] mb-6 tracking-tight leading-tight">
+                <h3 className="text-3xl lg:text-4xl font-heading font-black text-[#172451] mb-6 tracking-tight leading-tight">
                   Focused<br/>Vision
                 </h3>
                 <p className="text-gray-500 text-lg leading-relaxed font-medium">
@@ -168,10 +161,10 @@ const About = () => (
                 alt="Sector Diversity" 
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" 
               />
-              <div className="absolute inset-0 bg-[#0d1b2e]/5 group-hover:bg-transparent transition-colors duration-500" />
+              <div className="absolute inset-0 bg-[#172451]/5 group-hover:bg-transparent transition-colors duration-500" />
 
               <div className="absolute top-4 left-4 right-4 lg:right-auto lg:w-1/2 bg-white rounded-[1.8rem] p-10 shadow-2xl border border-white/20 transition-all duration-500 group-hover:-translate-y-1">
-                <h3 className="text-3xl lg:text-4xl font-heading font-black text-[#0d1b2e] mb-6 tracking-tight leading-tight">
+                <h3 className="text-3xl lg:text-4xl font-heading font-black text-[#172451] mb-6 tracking-tight leading-tight">
                   Sector<br/>Diversity
                 </h3>
                 <p className="text-gray-500 text-lg leading-relaxed font-medium">
@@ -182,7 +175,7 @@ const About = () => (
 
             {/* Principle 3: Gujarat Roots */}
             <ScrollReveal delay={0.4} y={-50} x={0}>
-              <div className="bg-[#da251c] rounded-[2rem] p-10 h-full flex flex-col justify-center text-white shadow-xl group transition-all duration-500 hover:shadow-red-600/30">
+              <div className="bg-[#fad77e] rounded-[2rem] p-10 h-full flex flex-col justify-center text-[#172451] shadow-xl group transition-all duration-500 hover:shadow-amber-200/50">
                 <h3 className="text-2xl lg:text-3xl font-heading font-black mb-6 tracking-tight leading-tight">
                   Gujarat Roots,<br/>Global Standards
                 </h3>
@@ -192,7 +185,7 @@ const About = () => (
             {/* Principle 4: Long-Term Thinking */}
             <ScrollReveal delay={0.5} x={-60} y={0}>
               <div className="bg-white rounded-[2rem] p-10 h-full flex flex-col justify-center border border-slate-100 shadow-sm group hover:shadow-md transition-all duration-500">
-                <h3 className="text-3xl lg:text-4xl font-heading font-black text-[#0d1b2e] mb-6 tracking-tight leading-tight">
+                <h3 className="text-3xl lg:text-4xl font-heading font-black text-[#172451] mb-6 tracking-tight leading-tight">
                   Long-Term<br/>Thinking
                 </h3>
                 <p className="text-gray-500 text-lg leading-relaxed font-medium">
@@ -213,9 +206,9 @@ const About = () => (
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <ScrollReveal y={40} x={0}>
             <div className="text-center mb-20">
-              <Tag>Our Purpose</Tag>
-              <h2 className="text-4xl md:text-6xl font-heading font-black text-[#0d1b2e] leading-tight">
-                Vision. Mission. <span className="text-[#1a56db]">Purpose.</span>
+              <SectionTag>Our Purpose</SectionTag>
+              <h2 className="text-4xl md:text-6xl font-heading font-black text-[#172451] leading-tight">
+                Vision. Mission. <span className="text-[#172451]">Purpose.</span>
               </h2>
             </div>
           </ScrollReveal>
@@ -226,7 +219,7 @@ const About = () => (
               <div className="relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[420px] group">
                 <img src={focusedVision} alt="Vision" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-10 bg-gradient-to-t from-black/60 to-transparent">
-                  <span className="text-blue-300 text-[8px] md:text-[10px] font-black uppercase tracking-widest mb-2">Vision</span>
+                  <span className="text-[#172451] text-[8px] md:text-[10px] font-black uppercase tracking-widest mb-2">Vision</span>
                   <p className="text-white/80 text-xs md:text-sm font-semibold leading-relaxed max-w-xs">
                     To be Gujarat's most trusted and diversified business conglomerate.
                   </p>
@@ -235,14 +228,14 @@ const About = () => (
             </ScrollReveal>
             <ScrollReveal x={60} y={0} delay={0.15}>
               <div className="pl-0 lg:pl-8">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#eff4ff] text-[#1a56db] text-[10px] md:text-xs font-black uppercase tracking-widest mb-6">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#eff4ff] text-[#172451] text-[10px] md:text-xs font-black uppercase tracking-widest mb-6">
                   <Eye size={12} /> Vision Statement
                 </div>
-                <blockquote className="text-xl md:text-3xl font-heading font-black text-[#0d1b2e] leading-snug mb-6 md:mb-8 relative">
-                  <span className="absolute -left-3 -top-2 md:-left-4 md:-top-3 text-4xl md:text-5xl text-[#1a56db]/20 font-serif select-none">"</span>
+                <blockquote className="text-xl md:text-3xl font-heading font-black text-[#172451] leading-snug mb-6 md:mb-8 relative">
+                  <span className="absolute -left-3 -top-2 md:-left-4 md:-top-3 text-4xl md:text-5xl text-[#172451]/20 font-serif select-none">"</span>
                   To be recognised as Gujarat's most trusted and diversified business conglomerate — a name synonymous with quality, reliability, and responsible growth.
                 </blockquote>
-                <div className="h-0.5 w-16 bg-[#1a56db] mb-6 md:mb-8 rounded-full" />
+                <div className="h-0.5 w-16 bg-[#172451] mb-6 md:mb-8 rounded-full" />
                 <p className="text-gray-500 text-sm md:text-base leading-relaxed">
                   Trust is the most valuable currency in business — earned through years of consistency and unwavering discipline. Every stakeholder should feel immediate confidence when they see the Dhyanora signature.
                 </p>
@@ -257,7 +250,7 @@ const About = () => (
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f0fdf4] text-[#059669] text-[10px] md:text-xs font-black uppercase tracking-widest mb-6">
                   <Target size={12} /> Mission Statement
                 </div>
-                <blockquote className="text-xl md:text-3xl font-heading font-black text-[#0d1b2e] leading-snug mb-6 md:mb-8 relative">
+                <blockquote className="text-xl md:text-3xl font-heading font-black text-[#172451] leading-snug mb-6 md:mb-8 relative">
                   <span className="absolute -left-3 -top-2 md:-left-4 md:-top-3 text-4xl md:text-5xl text-[#059669]/20 font-serif select-none">"</span>
                   To build, manage, and scale high-quality businesses that create tangible value for our clients, partners, and the Gujarat economy.
                 </blockquote>
@@ -282,11 +275,11 @@ const About = () => (
 
           {/* Purpose — full width centered dark card */}
           <ScrollReveal delay={0.1} y={60} x={0}>
-            <div className="relative rounded-3xl overflow-hidden bg-[#0d1b2e] p-8 md:p-16 text-center">
+            <div className="relative rounded-3xl overflow-hidden bg-[#172451] p-8 md:p-16 text-center">
               {/* Decorative glow */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#1a56db]/20 to-transparent pointer-events-none" />
-              <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#1a56db]/15 rounded-full blur-3xl pointer-events-none" />
-              <div className="absolute top-0 left-0 w-60 h-60 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#172451]/20 to-transparent pointer-events-none" />
+              <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#172451]/15 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute top-0 left-0 w-60 h-60 bg-[#172451]/10 rounded-full blur-3xl pointer-events-none" />
 
               {/* Background image */}
               <img
@@ -296,11 +289,7 @@ const About = () => (
               />
 
               <div className="relative z-10 max-w-3xl mx-auto">
-                <div className="inline-flex items-center gap-2.5 mb-6">
-                  <div className="w-7 h-0.5 bg-blue-400" />
-                  <span className="text-blue-400 text-[9px] md:text-[10px] font-black uppercase tracking-[0.22em]">Our Purpose</span>
-                  <div className="w-7 h-0.5 bg-blue-400" />
-                </div>
+                  <SectionTag color="#fad77e">Our Purpose</SectionTag>
                 <h3 className="text-2xl md:text-5xl font-heading font-black text-white leading-tight mb-5 md:mb-6">
                   Discipline &amp; purpose<br />
                   <span className="text-blue-400">behind every decision.</span>
@@ -316,7 +305,7 @@ const About = () => (
                     { label: 'Integrity', desc: 'Transparency is our baseline — enabling long-term relationships with all stakeholders.' },
                     { label: 'Discipline', desc: 'Systems and accountability ensure consistent, high-quality delivery across all verticals.' },
                   ].map((item) => (
-                    <div key={item.label} className="p-4 md:p-5 bg-white/5 rounded-2xl border border-white/10 hover:border-blue-500/40 hover:bg-white/8 transition-all duration-300">
+                    <div key={item.label} className="p-4 md:p-5 bg-white/5 rounded-2xl border border-white/10 hover:border-[#172451]/40 hover:bg-white/8 transition-all duration-300">
                       <h4 className="text-white font-heading font-black text-xs md:text-sm uppercase tracking-wide mb-1 md:mb-2">{item.label}</h4>
                       <p className="text-white/40 text-[10px] md:text-xs leading-relaxed">{item.desc}</p>
                     </div>

@@ -71,25 +71,25 @@ const CompanyShreeji = () => {
       
       <main className="bg-white overflow-x-hidden">
         {/* ════ HERO SECTION ════ */}
-        <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#0d1b2e]">
+        <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#172451]">
           <CrossfadeVideo 
             videos={[hero1, company2]} 
             overlayOpacity={0.4}
           />
 
           {/* Background Grid Pattern */}
-          <div className="absolute inset-0 opacity-10 pointer-events-none z-10">
+          <div className="absolute inset-0 opacity-[0.25] pointer-events-none z-10">
             <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <pattern id="shreeji-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#60a5fa" strokeWidth="0.5" />
+                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#fad77e" strokeWidth="0.5" />
                 </pattern>
               </defs>
               <rect width="100%" height="100%" fill="url(#shreeji-grid)" />
             </svg>
           </div>
           
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0d1b2e] via-transparent to-[#0d1b2e] pointer-events-none z-20" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#172451] via-transparent to-[#172451] pointer-events-none z-20" />
 
           <div className="relative z-30 text-center px-6 max-w-5xl mx-auto">
             <ScrollReveal y={-20} x={0}>
@@ -101,7 +101,7 @@ const CompanyShreeji = () => {
             <ScrollReveal delay={0.2} y={40} x={0}>
               <h1 className="text-4xl sm:text-6xl md:text-8xl font-heading font-black text-white uppercase leading-[1.1] md:leading-none mb-6">
                 Architecting the<br />
-                <span className="text-transparent" style={{ WebkitTextStroke: '1.5px rgba(255,255,255,0.4)' }}>
+                <span className="text-[#fad77e]">
                   Future of Industry.
                 </span>
               </h1>
@@ -125,11 +125,11 @@ const CompanyShreeji = () => {
         <div className="bg-slate-50 py-4 border-b border-slate-100">
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             <div className="flex items-center gap-2 text-slate-400 text-xs md:text-sm">
-              <Link to="/" className="hover:text-blue-600 transition-colors"><Home size={14} /></Link>
+              <Link to="/" className="hover:text-[#172451] transition-colors"><Home size={14} /></Link>
               <ChevronRight size={12} />
-              <Link to="/companies" className="hover:text-blue-600 transition-colors">Our Companies</Link>
+              <Link to="/companies" className="hover:text-[#172451] transition-colors">Our Companies</Link>
               <ChevronRight size={12} />
-              <span className="font-bold text-slate-900">Shreeji Infra</span>
+              <span className="font-bold text-[#172451]">Shreeji Infra</span>
             </div>
           </div>
         </div>
@@ -139,28 +139,28 @@ const CompanyShreeji = () => {
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
               <ScrollReveal x={-60} y={0}>
-                <div className="flex items-center gap-3 text-blue-600 font-black tracking-widest uppercase text-[10px] mb-6">
-                  <span className="w-8 h-px bg-blue-600" /> Sector 03
+                <div className="flex items-center gap-3 text-[#172451] font-black tracking-widest uppercase text-[10px] mb-6">
+                  <span className="w-8 h-px bg-[#172451]" /> Sector 03
                 </div>
-                <h2 className="text-4xl md:text-6xl font-heading font-black text-slate-900 leading-[1.1] mb-8">
+                <h2 className="text-3xl md:text-5xl font-heading font-black text-[#172451] leading-tight mb-8">
                   Purpose-Built<br />
-                  <span className="text-blue-600">Infrastructure.</span>
+                  <span className="text-[#fad77e]">Infrastructure.</span>
                 </h2>
                 <p className="text-slate-500 text-lg leading-relaxed mb-8">
                   Shreeji Infra is the infrastructure arm of Dhyanora Group, specialized in developing manufacturing plants and warehousing facilities that meet the rigorous standards of modern logistics. We provide the physical foundation where businesses scale.
                 </p>
                 <div className="grid grid-cols-2 gap-6">
                   <div>
-                    <p className="text-3xl font-heading font-black text-slate-900 mb-1">
+                    <p className="text-3xl font-heading font-black text-[#172451] mb-1">
                       <StatNumber value="500" suffix="k+" />
                     </p>
-                    <p className="text-[10px] font-black uppercase tracking-widest text-blue-600">Square Feet</p>
+                    <p className="text-[10px] font-black uppercase tracking-widest text-[#172451]/60">Square Feet</p>
                   </div>
                   <div>
-                    <p className="text-3xl font-heading font-black text-slate-900 mb-1">
+                    <p className="text-3xl font-heading font-black text-[#172451] mb-1">
                       <StatNumber value="100" suffix="%" />
                     </p>
-                    <p className="text-[10px] font-black uppercase tracking-widest text-blue-600">Legal Transparency</p>
+                    <p className="text-[10px] font-black uppercase tracking-widest text-[#172451]/60">Legal Transparency</p>
                   </div>
                 </div>
               </ScrollReveal>
@@ -179,7 +179,7 @@ const CompanyShreeji = () => {
         <section className="bg-slate-900 py-24 md:py-32 relative overflow-hidden">
           <div className="absolute inset-0 opacity-10">
             <img src={shreejiInfraTechImg} className="w-full h-full object-cover" alt="Background" />
-            <div className="absolute inset-0 bg-[#0d1b2e]/80" />
+            <div className="absolute inset-0 bg-[#172451]/80" />
           </div>
 
           <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
@@ -188,7 +188,7 @@ const CompanyShreeji = () => {
                 <span className="inline-block px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-bold uppercase tracking-[0.2em] mb-6">
                   Flagship Development
                 </span>
-                <h2 className="text-4xl md:text-6xl font-heading font-black text-white mb-6">
+                <h2 className="text-3xl md:text-5xl font-heading font-black text-white mb-6">
                   Mahantam Industrial Park
                 </h2>
                 <p className="text-white/50 text-lg">
@@ -222,13 +222,13 @@ const CompanyShreeji = () => {
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             <ScrollReveal x={-40} y={0} className="mb-16">
               <div className="flex flex-col items-start">
-                <div className="inline-flex items-center gap-3 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-[10px] font-black uppercase tracking-[0.2em] mb-4">
-                  <HardHat size={14} /> Our Core Capabilities
-                </div>
-                <h3 className="text-3xl md:text-5xl font-heading font-black text-slate-900 tracking-tight leading-tight">
-                  State-of-the-art foundations<br /><span className="text-blue-600">built for industrial scale.</span>
-                </h3>
+              <div className="inline-flex items-center gap-3 px-3 py-1 rounded-full bg-[#172451]/5 text-[#172451] text-[10px] font-black uppercase tracking-[0.2em] mb-4">
+                <HardHat size={14} /> Our Core Capabilities
               </div>
+              <h3 className="text-3xl md:text-5xl font-heading font-black text-[#172451] tracking-tight leading-tight">
+                State-of-the-art foundations<br /><span className="text-[#fad77e]">built for industrial scale.</span>
+              </h3>
+            </div>
             </ScrollReveal>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:auto-rows-[300px]">
@@ -287,11 +287,11 @@ const CompanyShreeji = () => {
 
               {/* Box 5: Legal Verification */}
               <ScrollReveal delay={0.5} x={-60} y={0}>
-                <div className="bg-slate-900 rounded-3xl p-8 h-full flex flex-col justify-center text-white shadow-xl group hover:bg-blue-500 transition-all duration-1000">
+                <div className="bg-[#fad77e] rounded-3xl p-8 h-full flex flex-col justify-center text-[#172451] shadow-xl group hover:bg-amber-400 transition-all duration-1000">
                   <h3 className="text-2xl md:text-3xl font-heading font-black mb-4 tracking-tight leading-tight transition-colors duration-1000">
                     Legal<br/>Verification
                   </h3>
-                  <p className="text-white/60 group-hover:text-white/80 text-sm leading-relaxed font-medium transition-colors duration-1000">
+                  <p className="text-[#172451]/80 group-hover:text-[#172451] text-sm leading-relaxed font-medium transition-colors duration-1000">
                     100% legal transparency and verified documentation for peace of mind.
                   </p>
                 </div>
@@ -300,32 +300,6 @@ const CompanyShreeji = () => {
           </div>
         </section>
 
-        {/* ════ FINAL CTA ════ */}
-        <section className="py-24 md:py-36 bg-slate-50 border-t border-slate-100 overflow-hidden relative">
-          {/* Decorative Circle */}
-          <div className="absolute -top-24 -right-24 w-64 h-64 bg-blue-100 rounded-full blur-3xl opacity-50" />
-          <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-blue-100 rounded-full blur-3xl opacity-50" />
-
-          <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
-            <ScrollReveal y={30} x={0}>
-              <div className="w-16 h-1 bg-blue-600 mx-auto mb-10 rounded-full" />
-              <h2 className="text-4xl md:text-6xl font-heading font-black text-slate-900 leading-tight mb-8">
-                Ready to find your<br /><span className="text-blue-600">industrial home?</span>
-              </h2>
-              <p className="text-slate-500 text-lg md:text-xl mb-12 max-w-2xl mx-auto">
-                Schedule a site visit at Mahantam Industrial Park or discuss your custom infrastructure requirements with our specialized team.
-              </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Link to="/contact" className="btn-blue px-10 py-4 w-full sm:w-auto text-center">
-                  Request a Quote
-                </Link>
-                <Link to="/contact" className="inline-flex items-center gap-2 px-10 py-4 bg-white border border-slate-200 text-slate-900 font-bold rounded-xl hover:bg-slate-50 transition-all w-full sm:w-auto justify-center">
-                  Site Visit Inquiry
-                </Link>
-              </div>
-            </ScrollReveal>
-          </div>
-        </section>
 
         <FooterCTA />
       </main>

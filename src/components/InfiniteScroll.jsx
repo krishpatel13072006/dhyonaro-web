@@ -24,7 +24,7 @@ const InfiniteScroll = () => {
           {companies.map((company, index) => (
             <span 
               key={index} 
-              className="text-black/10 text-3xl md:text-5xl font-heading font-black uppercase italic tracking-tighter hover:text-[#1a56db] active:text-blue-700 transition-colors duration-500 cursor-pointer"
+              className="text-black/10 text-3xl md:text-5xl font-heading font-black uppercase italic tracking-tighter hover:text-[#172451] active:text-blue-700 transition-colors duration-500 cursor-pointer"
             >
               {company}
             </span>
@@ -35,7 +35,7 @@ const InfiniteScroll = () => {
           {companies.map((company, index) => (
             <span 
               key={`loop-${index}`} 
-              className="text-black/10 text-3xl md:text-5xl font-heading font-black uppercase italic tracking-tighter hover:text-[#1a56db] active:text-blue-700 transition-colors duration-500 cursor-pointer"
+              className="text-black/10 text-3xl md:text-5xl font-heading font-black uppercase italic tracking-tighter hover:text-[#172451] active:text-blue-700 transition-colors duration-500 cursor-pointer"
             >
               {company}
             </span>

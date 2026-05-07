@@ -18,7 +18,7 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => {
     <motion.div 
       whileHover={{ backgroundColor: "rgba(0, 0, 0, 0.08)" }}
       className={cn(
-        "border-b border-navy/5 last:border-0 transition-colors duration-300 rounded-2xl px-6",
+        "border-b border-[#172451]/5 last:border-0 transition-colors duration-300 rounded-2xl px-6",
         isOpen ? "bg-gray-50" : ""
       )}
     >
@@ -28,13 +28,13 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => {
       >
         <span className={cn(
           "text-lg md:text-xl font-heading font-black uppercase tracking-tight transition-colors duration-300",
-          isOpen ? "text-blue-600" : "text-navy group-hover:text-blue-500"
+          isOpen ? "text-[#172451]" : "text-[#172451] group-hover:text-blue-500"
         )}>
           {question}
         </span>
         <div className={cn(
           "w-10 h-10 rounded-full flex items-center justify-center border transition-all duration-300",
-          isOpen ? "bg-blue-600 border-blue-600 text-white" : "border-navy/10 text-navy group-hover:border-blue-500 group-hover:text-blue-500"
+          isOpen ? "bg-[#172451] border-[#172451] text-white" : "border-[#172451]/10 text-[#172451] group-hover:border-blue-500 group-hover:text-blue-500"
         )}>
           {isOpen ? <Minus size={18} /> : <Plus size={18} />}
         </div>
@@ -48,7 +48,7 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => {
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
             className="overflow-hidden"
           >
-            <p className="pb-8 text-navy/50 text-base leading-relaxed max-w-2xl font-sans">
+            <p className="pb-8 text-[#172451]/50 text-base leading-relaxed max-w-2xl font-sans">
               {answer}
             </p>
           </motion.div>
@@ -84,20 +84,20 @@ const Contact = () => {
     { Icon: Instagram, link: '#', color: '#E4405F', name: 'Instagram' },
     { Icon: Twitter, link: '#', color: '#1DA1F2', name: 'Twitter' },
     { Icon: Linkedin, link: '#', color: '#0077B5', name: 'LinkedIn' },
-    { Icon: Globe, link: '#', color: '#1a56db', name: 'Website' },
+    { Icon: Globe, link: '#', color: '#172451', name: 'Website' },
   ];
 
   return (
     <>
       <SEO title="Contact Us | Dhyanora Group" description="Get in touch with Dhyanora Group for business partnerships, industrial inquiries, and strategic collaborations." />
       
-      <main className="bg-white text-navy overflow-hidden">
+      <main className="bg-white text-[#172451] overflow-hidden">
         
         {/* ════ HERO SECTION ════ */}
         <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6">
           {/* Subtle Background Glows for White Theme */}
-          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[120px] -mr-40 -mt-40 pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[100px] -ml-40 -mb-40 pointer-events-none" />
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#172451]/5 rounded-full blur-[120px] -mr-40 -mt-40 pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#172451]/5 rounded-full blur-[100px] -ml-40 -mb-40 pointer-events-none" />
 
           <div className="max-w-7xl mx-auto relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:items-start">
@@ -110,11 +110,11 @@ const Contact = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.8 }}
                 >
-                  <h1 className="text-4xl md:text-7xl font-heading font-black uppercase leading-[0.9] tracking-tighter mb-8 italic text-navy">
+                  <h1 className="text-4xl md:text-7xl font-heading font-black uppercase leading-[0.9] tracking-tighter mb-8 italic text-[#172451]">
                     Let's Talk About <br />
                     <span className="text-transparent" style={{ WebkitTextStroke: '1.5px rgba(13, 27, 46, 0.2)' }}>Strategic Growth</span>
                   </h1>
-                  <p className="text-lg md:text-xl text-navy/40 max-w-lg font-sans leading-relaxed font-medium">
+                  <p className="text-lg md:text-xl text-[#172451]/40 max-w-lg font-sans leading-relaxed font-medium">
                     Whether you're exploring partnerships, industrial space, or global sourcing, our team is ready to help you scale.
                   </p>
                 </motion.div>
@@ -125,7 +125,7 @@ const Contact = () => {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 1, delay: 0.2 }}
-                  className="relative aspect-video lg:aspect-auto lg:h-[450px] rounded-[3rem] overflow-hidden border border-navy/5 group shadow-2xl"
+                  className="relative aspect-video lg:aspect-auto lg:h-[450px] rounded-[3rem] overflow-hidden border border-[#172451]/5 group shadow-2xl"
                 >
                   <img src={contactVisualImg} alt="Dhyanora Operations" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent opacity-40" />
@@ -159,31 +159,31 @@ const Contact = () => {
                 >
                   <form className="space-y-8">
                     <div className="space-y-4">
-                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-navy/30 ml-1">Full Name</label>
+                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-[#172451]/30 ml-1">Full Name</label>
                       <div className="grid grid-cols-2 gap-4">
-                        <input type="text" placeholder="First Name" className="w-full bg-gray-50 border border-navy/5 rounded-2xl px-6 py-4 focus:outline-none focus:border-blue-500 focus:bg-white transition-all font-sans text-sm text-navy placeholder:text-navy/20" />
-                        <input type="text" placeholder="Last Name" className="w-full bg-gray-50 border border-navy/5 rounded-2xl px-6 py-4 focus:outline-none focus:border-blue-500 focus:bg-white transition-all font-sans text-sm text-navy placeholder:text-navy/20" />
+                        <input type="text" placeholder="First Name" className="w-full bg-gray-50 border border-[#172451]/5 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#172451] focus:bg-white transition-all font-sans text-sm text-[#172451] placeholder:text-[#172451]/20" />
+                        <input type="text" placeholder="Last Name" className="w-full bg-gray-50 border border-[#172451]/5 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#172451] focus:bg-white transition-all font-sans text-sm text-[#172451] placeholder:text-[#172451]/20" />
                       </div>
                     </div>
 
                     <div className="space-y-4">
-                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-navy/30 ml-1">Email Address</label>
-                      <input type="email" placeholder="email@company.com" className="w-full bg-gray-50 border border-navy/5 rounded-2xl px-6 py-4 focus:outline-none focus:border-blue-500 focus:bg-white transition-all font-sans text-sm text-navy placeholder:text-navy/20" />
+                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-[#172451]/30 ml-1">Email Address</label>
+                      <input type="email" placeholder="email@company.com" className="w-full bg-gray-50 border border-[#172451]/5 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#172451] focus:bg-white transition-all font-sans text-sm text-[#172451] placeholder:text-[#172451]/20" />
                     </div>
 
                     <div className="space-y-4">
-                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-navy/30 ml-1">Phone Number</label>
+                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-[#172451]/30 ml-1">Phone Number</label>
                       <div className="flex gap-4">
-                        <select className="w-28 bg-gray-50 border border-navy/5 rounded-2xl px-3 py-4 focus:outline-none focus:border-blue-500 focus:bg-white transition-all font-sans text-sm text-navy">
+                        <select className="w-28 bg-gray-50 border border-[#172451]/5 rounded-2xl px-3 py-4 focus:outline-none focus:border-[#172451] focus:bg-white transition-all font-sans text-sm text-[#172451]">
                           <option>🇮🇳 +91</option>
                         </select>
-                        <input type="tel" placeholder="Mobile Number" className="flex-1 bg-gray-50 border border-navy/5 rounded-2xl px-6 py-4 focus:outline-none focus:border-blue-500 focus:bg-white transition-all font-sans text-sm text-navy placeholder:text-navy/20" />
+                        <input type="tel" placeholder="Mobile Number" className="flex-1 bg-gray-50 border border-[#172451]/5 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#172451] focus:bg-white transition-all font-sans text-sm text-[#172451] placeholder:text-[#172451]/20" />
                       </div>
                     </div>
 
                     <div className="space-y-4">
-                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-navy/30 ml-1">Sector of Interest</label>
-                      <select className="w-full bg-gray-50 border border-navy/5 rounded-2xl px-6 py-4 focus:outline-none focus:border-blue-500 focus:bg-white transition-all font-sans text-sm text-navy appearance-none cursor-pointer">
+                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-[#172451]/30 ml-1">Sector of Interest</label>
+                      <select className="w-full bg-gray-50 border border-[#172451]/5 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#172451] focus:bg-white transition-all font-sans text-sm text-[#172451] appearance-none cursor-pointer">
                         <option>General Inquiry</option>
                         <option>Industrial Space (Shreeji Infra)</option>
                         <option>Metal Trading (Pramukh)</option>
@@ -192,19 +192,19 @@ const Contact = () => {
                     </div>
 
                     <div className="space-y-4">
-                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-navy/30 ml-1">Your Message</label>
-                      <textarea rows="4" placeholder="How can we help your business?" className="w-full bg-gray-50 border border-navy/5 rounded-2xl px-6 py-4 focus:outline-none focus:border-blue-500 focus:bg-white transition-all font-sans text-sm text-navy placeholder:text-navy/20 resize-none" />
+                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-[#172451]/30 ml-1">Your Message</label>
+                      <textarea rows="4" placeholder="How can we help your business?" className="w-full bg-gray-50 border border-[#172451]/5 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#172451] focus:bg-white transition-all font-sans text-sm text-[#172451] placeholder:text-[#172451]/20 resize-none" />
                     </div>
 
                     <div className="flex items-center gap-3">
-                      <input type="checkbox" id="consent" className="w-4 h-4 rounded border-navy/10 text-blue-600 focus:ring-blue-500" />
-                      <label htmlFor="consent" className="text-[11px] text-navy/40 font-bold tracking-wide">I agree to be contacted regarding this inquiry.</label>
+                      <input type="checkbox" id="consent" className="w-4 h-4 rounded border-[#172451]/10 text-[#172451] focus:ring-[#172451]" />
+                      <label htmlFor="consent" className="text-[11px] text-[#172451]/40 font-bold tracking-wide">I agree to be contacted regarding this inquiry.</label>
                     </div>
 
                     <div className="flex justify-start pt-4">
-                      <button className="px-10 py-4 bg-navy text-white rounded-full font-heading font-black uppercase tracking-[0.2em] text-[11px] shadow-2xl transition-all flex items-center gap-5 group hover:bg-blue-600 hover:scale-105 active:scale-95">
+                      <button className="px-10 py-4 bg-[#172451] text-white rounded-full font-heading font-black uppercase tracking-[0.2em] text-[11px] shadow-2xl transition-all flex items-center gap-5 group hover:bg-[#172451] hover:scale-105 active:scale-95">
                         Send Message
-                        <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center transition-all group-hover:bg-white group-hover:text-blue-600">
+                        <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center transition-all group-hover:bg-white group-hover:text-[#172451]">
                           <Send size={14} className="ml-0.5" />
                         </div>
                       </button>
@@ -225,11 +225,11 @@ const Contact = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-4xl md:text-6xl font-heading font-black uppercase mb-6 italic text-navy leading-tight">
+                <h2 className="text-4xl md:text-6xl font-heading font-black uppercase mb-6 italic text-[#172451] leading-tight">
                   The Details <br />
-                  <span className="text-blue-600">Behind Dhyanora</span>
+                  <span className="text-[#172451]">Behind Dhyanora</span>
                 </h2>
-                <p className="text-navy/30 font-heading tracking-widest uppercase text-[10px] font-black tracking-[0.4em]">A closer look at the questions that matter most.</p>
+                <p className="text-[#172451]/30 font-heading tracking-widest uppercase text-[10px] font-black tracking-[0.4em]">A closer look at the questions that matter most.</p>
               </motion.div>
             </div>
 
@@ -256,15 +256,15 @@ const Contact = () => {
               viewport={{ once: true }}
               className="space-y-8"
             >
-              <h2 className="text-4xl md:text-8xl font-heading font-black uppercase leading-[0.85] italic text-navy tracking-tighter">
+              <h2 className="text-4xl md:text-8xl font-heading font-black uppercase leading-[0.85] italic text-[#172451] tracking-tighter">
                 See Our Vision.<br />
-                <span className="text-blue-600">Shape Your Future.</span>
+                <span className="text-[#172451]">Shape Your Future.</span>
               </h2>
-              <p className="text-navy/40 max-w-2xl mx-auto font-sans text-xl font-medium leading-relaxed">
+              <p className="text-[#172451]/40 max-w-2xl mx-auto font-sans text-xl font-medium leading-relaxed">
                 Our infrastructure and strategic frameworks are built for scale, efficiency, and unwavering ethics.
               </p>
               <div className="pt-8">
-                <Link to="/companies" className="px-10 py-5 bg-navy text-white rounded-full font-heading font-black uppercase tracking-widest text-xs flex items-center gap-4 mx-auto hover:bg-gray-800 hover:scale-105 transition-all duration-300 shadow-2xl shadow-navy/20 w-fit">
+                <Link to="/companies" className="px-10 py-5 bg-[#172451] text-white rounded-full font-heading font-black uppercase tracking-widest text-xs flex items-center gap-4 mx-auto hover:bg-gray-800 hover:scale-105 transition-all duration-300 shadow-2xl shadow-[#172451]/20 w-fit">
                   Explore Companies
                   <Globe size={16} />
                 </Link>
@@ -286,7 +286,7 @@ const Contact = () => {
              
              {/* Bottom Giant Text */}
              <div className="absolute -bottom-16 left-1/2 -translate-x-1/2 w-full pointer-events-none select-none overflow-hidden">
-                <h3 className="text-[10vw] md:text-[14vw] font-heading font-black italic uppercase leading-none opacity-[0.03] whitespace-nowrap text-center text-navy tracking-[0.2em]">
+                <h3 className="text-[10vw] md:text-[14vw] font-heading font-black italic uppercase leading-none opacity-[0.03] whitespace-nowrap text-center text-[#172451] tracking-[0.2em]">
                   Dhyanora
                 </h3>
              </div>

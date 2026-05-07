@@ -70,7 +70,7 @@ const CrossfadeVideo = ({ videos, className, overlayOpacity = 0.6 }) => {
   };
 
   return (
-    <div className={`absolute inset-0 overflow-hidden bg-[#0d1b2e] ${className || ''}`}>
+    <div className={`absolute inset-0 overflow-hidden bg-[#172451] ${className || ''}`}>
       {videoRefs.map((ref, i) => {
         const isCurrent = activeRefIdx === i;
         const isNext = (activeRefIdx + 1) % 2 === i;

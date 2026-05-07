@@ -12,6 +12,7 @@ import Hero from '../sections/Hero';
 import ApartSection from '../sections/ApartSection';
 import SEO from '../components/SEO';
 import ScrollReveal, { ScrollRevealGroup } from '../components/ScrollReveal';
+import SectionTag from '../components/SectionTag';
 import FooterCTA from '../components/FooterCTA';
 import pramukhLogo from '../companies-logo/pramukh-logo.png';
 import shreejiLogo from '../companies-logo/shreeji-logo.png';
@@ -36,7 +37,7 @@ const pillars = [
     desc: "Gujarat's reliable partner for global metal scrap procurement. We facilitate the seamless flow of ferrous and non-ferrous materials, supporting India's manufacturing and steel industries.",
     path: '/companies/import-export',
     img: pramukhImportExportHome,
-    accent: '#1a56db',
+    accent: '#172451',
   },
   {
     id: '02', name: 'Pramukh Techventures', sector: 'Electronics Retail',
@@ -44,7 +45,7 @@ const pillars = [
     desc: 'Your premium destination for state-of-the-art technology — consumer electronics and home appliances backed by authorised brand partnerships and honest customer service.',
     path: '/companies/tech-venture',
     img: 'https://images.unsplash.com/photo-1550009158-9ebf69173e03?auto=format&fit=crop&q=80&w=900',
-    accent: '#0ea5e9',
+    accent: '#172451',
   },
   {
     id: '03', name: 'Shreeji Infra', sector: 'Industrial Infrastructure',
@@ -52,7 +53,7 @@ const pillars = [
     desc: 'Developing the future of manufacturing through Mahantam Industrial Park — purpose-built industrial sheds, advanced warehousing, and strategic workspace infrastructure.',
     path: '/companies/shreeji-infra',
     img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=900',
-    accent: '#7c3aed',
+    accent: '#172451',
   },
   {
     id: '04', name: 'Bricks Trading Division', sector: 'Construction Materials',
@@ -60,7 +61,7 @@ const pillars = [
     desc: 'Delivering the building blocks of progress — a consistent, high-quality supply of essential construction materials to builders, contractors, and developers across the region.',
     path: '/companies',
     img: bricsHomePage,
-    accent: '#f59e0b',
+    accent: '#172451',
   },
 ];
 
@@ -69,12 +70,6 @@ const pillars = [
 const fadeUp = { hidden: { opacity: 0, y: 32 }, visible: { opacity: 1, y: 0 } };
 const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.1 } } };
 
-const SectionTag = ({ children, light }) => (
-  <div className="inline-flex items-center gap-2.5 mb-4">
-    <div className={`w-7 h-0.5 ${light ? 'bg-blue-400' : 'bg-[#1a56db]'}`} />
-    <span className={`text-[10px] font-heading font-black uppercase tracking-[0.22em] ${light ? 'text-blue-400' : 'text-[#1a56db]'}`}>{children}</span>
-  </div>
-);
 
 /* Animated Counter */
 function Counter({ value, suffix, isNum, duration = 1800 }) {
@@ -131,7 +126,7 @@ export default function Home() {
                     key={s.label} variants={fadeUp} transition={{ duration: 0.55 }}
                     className="px-4 py-8 md:px-8 md:py-10 text-center group hover:bg-[#f8fafc] transition-colors duration-300"
                   >
-                    <p className="text-3xl md:text-5xl font-heading font-black text-[#0d1b2e] mb-1 leading-none group-hover:text-[#1a56db] transition-colors duration-500">
+                    <p className="text-3xl md:text-5xl font-heading font-black text-[#172451] mb-1 leading-none group-hover:text-[#172451] transition-colors duration-500">
                       <Counter value={s.value} suffix={s.suffix} isNum={s.isNum} />
                     </p>
                     <p className="text-gray-400 text-[9px] md:text-xs uppercase tracking-widest font-semibold mt-2">{s.label}</p>
@@ -165,18 +160,18 @@ export default function Home() {
                     viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.3 }}
                     className="absolute top-4 -right-4 md:top-6 md:-right-6 bg-white rounded-xl shadow-xl p-3 md:p-5 min-w-[140px] md:min-w-[170px] border border-gray-100"
                   >
-                    <p className="text-[8px] md:text-[9px] font-black uppercase tracking-widest text-[#1a56db] mb-1">Vision</p>
-                    <p className="text-xs md:text-sm font-heading font-black text-[#0d1b2e] leading-tight">Trusted Across<br />Gujarat & Beyond</p>
+                    <p className="text-[8px] md:text-[9px] font-black uppercase tracking-widest text-[#172451] mb-1">Vision</p>
+                    <p className="text-xs md:text-sm font-heading font-black text-[#172451] leading-tight">Trusted Across<br />Gujarat & Beyond</p>
                     <div className="mt-2 h-0.5 bg-gray-100 w-full" />
-                    <p className="text-[8px] md:text-[9px] font-black uppercase tracking-widest text-[#1a56db] mb-1 mt-2">Mission</p>
-                    <p className="text-xs md:text-sm font-heading font-black text-[#0d1b2e] leading-tight">Disciplined Growth,<br />Lasting Impact</p>
+                    <p className="text-[8px] md:text-[9px] font-black uppercase tracking-widest text-[#172451] mb-1 mt-2">Mission</p>
+                    <p className="text-xs md:text-sm font-heading font-black text-[#172451] leading-tight">Disciplined Growth,<br />Lasting Impact</p>
                   </motion.div>
 
                   {/* Bottom badge */}
                   <motion.div
                     initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.5 }}
-                    className="absolute -bottom-4 left-4 md:-bottom-6 md:left-8 bg-[#0d1b2e] text-white px-5 py-3 md:px-7 md:py-5 rounded-xl shadow-2xl"
+                    className="absolute -bottom-4 left-4 md:-bottom-6 md:left-8 bg-[#172451] text-white px-5 py-3 md:px-7 md:py-5 rounded-xl shadow-2xl"
                   >
                     <p className="text-[8px] md:text-[9px] font-black uppercase tracking-widest text-blue-400 mb-1">Founded</p>
                     <p className="text-xl md:text-3xl font-heading font-black leading-none">
@@ -194,9 +189,9 @@ export default function Home() {
                 >
                   <motion.div variants={fadeUp} transition={{ duration: 0.65 }}>
                     <SectionTag>One Group. Multiple Strengths.</SectionTag>
-                    <h2 className="text-4xl md:text-5xl font-heading font-black text-[#0d1b2e] mb-6 leading-tight">
+                    <h2 className="text-4xl md:text-5xl font-heading font-black text-[#172451] mb-6 leading-tight">
                       The Essence of Discipline<br />
-                      <span className="text-[#1a56db]">and Growth.</span>
+                      <span className="text-[#172451]">and Growth.</span>
                     </h2>
                   </motion.div>
 
@@ -225,7 +220,7 @@ export default function Home() {
                       { val: 'GJ', suffix: '', lbl: 'Headquartered', isNum: false },
                     ].map((k) => (
                       <div key={k.lbl} className="text-center p-4 bg-[#f8fafc] rounded-xl border border-gray-100">
-                        <p className="text-xl font-heading font-black text-[#1a56db]">
+                        <p className="text-xl font-heading font-black text-[#172451]">
                           <Counter value={k.val} suffix={k.suffix} isNum={k.isNum} />
                         </p>
                         <p className="text-[10px] text-gray-400 uppercase tracking-wider font-semibold mt-1">{k.lbl}</p>
@@ -252,7 +247,7 @@ export default function Home() {
               ['Pramukh Import Export', 'Pramukh Techventures', 'Shreeji Infra', 'Bricks Trading', 'Dhyanora Group'].map((item, i) => (
                 <span
                   key={`${r}-${i}`}
-                  className="mx-12 text-[#0d1b2e]/10 text-2xl md:text-5xl font-heading font-black uppercase italic tracking-tighter hover:text-[#1a56db] transition-colors duration-500 cursor-pointer"
+                  className="mx-12 text-[#172451]/10 text-2xl md:text-5xl font-heading font-black uppercase italic tracking-tighter hover:text-[#172451] transition-colors duration-500 cursor-pointer"
                 >
                   {item}
                 </span>
@@ -290,13 +285,13 @@ export default function Home() {
               <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12 md:mb-16">
                 <ScrollReveal x={-40} y={0}>
                   <SectionTag>Our Strategic Portfolio</SectionTag>
-                  <h2 className="text-3xl md:text-5xl font-heading font-black text-[#0d1b2e] leading-[1.1]">
+                  <h2 className="text-3xl md:text-5xl font-heading font-black text-[#172451] leading-[1.1]">
                     Diversified Expertise.<br />
-                    <span className="text-[#1a56db]">Unified Vision.</span>
+                    <span className="text-[#fad77e]/80">Unified Vision.</span>
                   </h2>
                 </ScrollReveal>
                 <ScrollReveal x={40} y={0} delay={0.2}>
-                  <Link to="/companies" className="inline-flex items-center gap-2 text-[#0d1b2e] text-xs font-bold uppercase tracking-widest hover:text-[#1a56db] transition-colors group">
+                  <Link to="/companies" className="inline-flex items-center gap-2 text-[#0d1b2e] text-xs font-bold uppercase tracking-widest hover:text-[#172451] transition-colors group">
                     View All Companies
                     <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </Link>
@@ -316,23 +311,22 @@ export default function Home() {
                     <div className="relative h-56 overflow-hidden">
                       <img src={p.img} alt={p.name}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0d1b2e]/70 to-transparent group-hover:from-[#0d1b2e]/40 transition-colors duration-500" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#172451]/70 to-transparent group-hover:from-[#172451]/40 transition-colors duration-500" />
                       <span className="absolute top-4 right-4 text-white/20 text-6xl font-heading font-black select-none">{p.id}</span>
                       <div className="absolute bottom-4 left-4 flex items-center gap-2">
-                        <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ background: p.accent + '33', border: `1.5px solid ${p.accent}` }}>
-                          <Icon size={14} style={{ color: p.accent }} />
+                        <div className="w-8 h-8 rounded-full flex items-center justify-center bg-[#172451] border-[1.5px] border-[#172451]">
+                          <Icon size={14} className="text-white" />
                         </div>
                         <span className="text-white/80 text-[10px] font-black uppercase tracking-widest">{p.sector}</span>
                       </div>
                     </div>
 
                     {/* Body — background changes on hover */}
-                    <div className="p-6 md:p-7 transition-colors duration-500 group-hover:bg-[#0d1b2e]">
-                      <h3 className="text-lg md:text-xl font-heading font-black text-[#0d1b2e] mb-2 md:mb-3 group-hover:text-white transition-colors duration-500">{p.name}</h3>
+                    <div className="p-6 md:p-7 transition-colors duration-500 group-hover:bg-[#172451]">
+                      <h3 className="text-lg md:text-xl font-heading font-black text-[#172451] mb-2 md:mb-3 group-hover:text-white transition-colors duration-500">{p.name}</h3>
                       <p className="text-gray-500 text-xs md:text-sm leading-relaxed mb-4 md:mb-6 group-hover:text-white/60 transition-colors duration-500">{p.desc}</p>
                       <Link to={p.path}
-                        className="inline-flex items-center gap-2 text-[9px] md:text-[10px] font-black uppercase tracking-widest transition-colors group/link"
-                        style={{ color: p.accent }}
+                        className="inline-flex items-center gap-2 text-[9px] md:text-[10px] font-black uppercase tracking-widest transition-colors group/link text-[#172451] group-hover:text-[#fad77e]"
                       >
                         Discover More
                         <ArrowRight size={11} className="group-hover/link:translate-x-1 transition-transform" />
@@ -340,7 +334,7 @@ export default function Home() {
                     </div>
 
                     {/* Bottom accent line */}
-                    <div className="h-[3px] w-0 group-hover:w-full transition-all duration-500" style={{ background: p.accent }} />
+                    <div className="h-[3px] w-0 group-hover:w-full transition-all duration-500 bg-[#172451]" />
                   </div>
                 );
               })}
@@ -369,21 +363,17 @@ export default function Home() {
             <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
               <div className="flex flex-col lg:flex-row items-center justify-between gap-10 md:gap-12">
                 <ScrollReveal x={-50} y={0} className="max-w-2xl text-center lg:text-left">
-                  <div className="flex items-center justify-center lg:justify-start gap-3 mb-6">
-                    <div className="w-8 h-0.5 bg-blue-400" />
-                    <p className="text-blue-300 text-[9px] md:text-[10px] font-black uppercase tracking-[0.28em]">Our Vision</p>
-                  </div>
+                  <SectionTag color="#fad77e">Our Vision</SectionTag>
                   <blockquote className="text-xl sm:text-2xl md:text-4xl font-heading font-black text-white leading-snug drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
                     "To be recognised as Gujarat's most trusted and diversified business conglomerate — a name synonymous with quality, reliability, and responsible growth."
                   </blockquote>
                 </ScrollReveal>
 
                 <ScrollReveal x={50} y={0} delay={0.25} className="flex-shrink-0 flex flex-col items-center gap-4 md:gap-5 w-full lg:w-auto">
-                  <Link to="/companies" className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#1a56db] text-white text-xs font-black uppercase tracking-wider rounded-xl hover:bg-blue-500 transition-all duration-300 group shadow-2xl shadow-blue-900/60">
+                  <Link to="/companies" className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#172451] text-white text-xs font-black uppercase tracking-wider rounded-xl hover:bg-blue-900 transition-all duration-300 group shadow-2xl shadow-blue-950/60">
                     Explore Our Companies
                     <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
                   </Link>
-                  <p className="text-white/30 text-[9px] md:text-[10px] uppercase tracking-widest font-semibold">Ahmedabad · Gujarat · India</p>
                 </ScrollReveal>
               </div>
             </div>

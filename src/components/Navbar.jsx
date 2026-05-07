@@ -171,7 +171,7 @@ const Navbar = () => {
                 <Link 
                   to="/contact" 
                   onClick={() => setIsOpen(false)}
-                  className="w-full bg-[#1a56db] text-white flex items-center justify-center py-5 text-sm font-bold uppercase tracking-widest rounded-xl shadow-lg shadow-blue-900/20"
+                  className="w-full bg-[#172451] text-white flex items-center justify-center py-5 text-sm font-bold uppercase tracking-widest rounded-xl shadow-lg shadow-blue-900/20"
                 >
                   Get In Touch
                 </Link>

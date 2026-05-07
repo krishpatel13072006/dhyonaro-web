@@ -54,7 +54,7 @@ const Footer = () => {
       
       {/* Background Decorative Text (Inspired by NextPlay) */}
       <div className="absolute bottom-[-2%] left-0 right-0 select-none pointer-events-none overflow-hidden h-[30%] flex items-end justify-center">
-        <h2 className="text-[18vw] font-heading font-black text-white/[0.02] leading-none tracking-tighter uppercase whitespace-nowrap text-center w-full">
+        <h2 className="text-[18vw] font-heading font-black text-[#fad77e]/25 leading-none tracking-tighter uppercase whitespace-nowrap text-center w-full">
           DHYANORA
         </h2>
       </div>
@@ -111,12 +111,12 @@ const Footer = () => {
                 <Link 
                   key={label} 
                   to={to} 
-                  className="group bg-white/[0.02] border border-white/5 hover:border-[#1a56db]/30 p-4 rounded-xl flex items-center justify-between transition-all duration-300 hover:translate-x-2"
+                  className="group bg-white/[0.02] border border-white/5 hover:border-[#172451]/30 p-4 rounded-xl flex items-center justify-between transition-all duration-300 hover:translate-x-2"
                 >
                   <span className="text-gray-400 group-hover:text-white text-sm font-black uppercase italic tracking-tighter">
                     {label}
                   </span>
-                  <ExternalLink size={14} className="text-gray-600 group-hover:text-[#1a56db] transition-colors" />
+                  <ExternalLink size={14} className="text-gray-600 group-hover:text-[#172451] transition-colors" />
                 </Link>
               ))}
             </div>
@@ -155,7 +155,7 @@ const Footer = () => {
             className="group flex items-center gap-4 bg-white/[0.03] border border-white/10 px-8 py-4 rounded-full text-white text-[11px] font-black uppercase tracking-[0.2em] hover:bg-white/[0.06] hover:border-white/20 transition-all duration-300 z-20"
           >
             Back to Top
-            <div className="w-6 h-6 rounded-full bg-[#1a56db] flex items-center justify-center group-hover:bg-[#FAD77E] transition-colors duration-500">
+            <div className="w-6 h-6 rounded-full bg-[#172451] flex items-center justify-center group-hover:bg-[#FAD77E] transition-colors duration-500">
               <ArrowUp size={12} className="text-white group-hover:text-[#0a1422] transition-colors" />
             </div>
           </motion.button>
