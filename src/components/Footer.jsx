@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  ArrowUp, 
-  Linkedin, 
-  Instagram, 
-  Twitter, 
-  Facebook, 
+import {
+  Mail,
+  Phone,
+  MapPin,
+  ArrowUp,
+  Linkedin,
+  Instagram,
+  Twitter,
+  Facebook,
   Send,
   ExternalLink
 } from 'lucide-react';
@@ -32,7 +32,7 @@ const Footer = () => {
       { label: 'Pramukh Metal', to: '/companies/import-export' },
       { label: 'Pramukh Techventures', to: '/companies/tech-venture' },
       { label: 'Shreeji Infra', to: '/companies/shreeji-infra' },
-      { label: 'Bricks Trading', to: '/companies/brics' },
+      { label: 'Pramukh Import Export (Brics Trading)', to: '/companies/brics' },
     ],
     legal: [
       { label: 'Privacy Policy', to: '#' },
@@ -51,10 +51,10 @@ const Footer = () => {
 
   return (
     <footer className="relative bg-[#0a1422] pt-12 pb-12 overflow-hidden selection:bg-[#FAD77E] selection:text-[#0a1422]">
-      
+
       {/* Background Decorative Text (Inspired by NextPlay) */}
-      <div className="absolute bottom-[-2%] left-0 right-0 select-none pointer-events-none overflow-hidden h-[30%] flex items-end justify-center">
-        <h2 className="text-[18vw] font-heading font-black text-[#fad77e]/25 leading-none tracking-tighter uppercase whitespace-nowrap text-center w-full">
+      <div className="absolute bottom-4 left-0 right-0 select-none pointer-events-none overflow-hidden h-[30%] flex items-end justify-center">
+        <h2 className="text-[15vw] font-heading font-black text-[#fad77e]/15 leading-none tracking-tighter uppercase whitespace-nowrap text-center w-full">
           DHYANORA
         </h2>
       </div>
@@ -63,7 +63,7 @@ const Footer = () => {
 
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 pb-24 pt-8">
-          
+
           {/* Brand & Social (Inspired by NextPlay) */}
           <div className="lg:col-span-4 flex flex-col gap-10">
             <Link to="/" className="inline-block group">
@@ -72,7 +72,7 @@ const Footer = () => {
             <p className="text-gray-400 text-base font-medium leading-relaxed max-w-sm italic">
               "A focused collective of businesses across Gujarat, unified by discipline, values, and a relentless drive for industrial excellence."
             </p>
-            
+
             <div className="flex flex-wrap gap-4">
               {socials.map(({ Icon, href, label }, i) => (
                 <motion.a
@@ -94,7 +94,7 @@ const Footer = () => {
             <ul className="flex flex-col gap-5">
               {footerLinks.navigation.map(({ label, to }) => (
                 <li key={label}>
-                  <Link to={to} className="text-gray-400 hover:text-white text-sm font-bold uppercase italic tracking-wider flex items-center group transition-all">
+                  <Link to={to} className="text-gray-400 hover:text-[#FAD77E] text-sm font-bold uppercase italic tracking-wider flex items-center group transition-all">
                     <span className="w-0 group-hover:w-4 h-[1px] bg-[#FAD77E] mr-0 group-hover:mr-3 transition-all duration-300"></span>
                     {label}
                   </Link>
@@ -108,15 +108,15 @@ const Footer = () => {
             <h4 className="text-white font-heading font-black uppercase tracking-[0.3em] text-[11px] mb-10 opacity-40">Divisions</h4>
             <div className="grid grid-cols-1 gap-3">
               {footerLinks.industries.map(({ label, to }) => (
-                <Link 
-                  key={label} 
-                  to={to} 
+                <Link
+                  key={label}
+                  to={to}
                   className="group bg-white/[0.02] border border-white/5 hover:border-[#172451]/30 p-4 rounded-xl flex items-center justify-between transition-all duration-300 hover:translate-x-2"
                 >
-                  <span className="text-gray-400 group-hover:text-white text-sm font-black uppercase italic tracking-tighter">
+                  <span className="text-gray-400 group-hover:text-[#FAD77E] text-sm font-black uppercase italic tracking-tighter">
                     {label}
                   </span>
-                  <ExternalLink size={14} className="text-gray-600 group-hover:text-[#172451] transition-colors" />
+                  <ExternalLink size={14} className="text-gray-600 group-hover:text-[#FAD77E] transition-colors" />
                 </Link>
               ))}
             </div>

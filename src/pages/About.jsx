@@ -8,7 +8,7 @@ import {
 } from 'lucide-react';
 import GlobalReach from '../components/GlobalReach';
 import FooterCTA from '../components/FooterCTA';
-import officeImg from '../videos/office.png';
+import aboutHeroImg from '../images/about hero.png';
 import focusedVision from '../images/focused vision.jpg';
 import sectorDiversity from '../images/sector diversity.avif';
 import gujaratRoutes from '../images/gujarat routes.avif';
@@ -32,7 +32,7 @@ const About = () => (
       {/* ════ 1. HERO ════ */}
       <section className="relative h-[80vh] md:h-[100vh] w-full overflow-hidden flex items-end pb-12 md:pb-16 px-6 md:px-12">
         <div className="absolute inset-0">
-          <img src={officeImg} className="w-full h-full object-cover" alt="Dhyanora Office" />
+          <img src={aboutHeroImg} className="w-full h-full object-cover" alt="Dhyanora Office" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto w-full">
@@ -218,9 +218,9 @@ const About = () => (
             <ScrollReveal x={-60} y={0}>
               <div className="relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[420px] group">
                 <img src={focusedVision} alt="Vision" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-10 bg-gradient-to-t from-black/60 to-transparent">
-                  <span className="text-[#172451] text-[8px] md:text-[10px] font-black uppercase tracking-widest mb-2">Vision</span>
-                  <p className="text-white/80 text-xs md:text-sm font-semibold leading-relaxed max-w-xs">
+                <div className="absolute inset-x-6 bottom-6 p-6 rounded-2xl bg-[#172451]/60 backdrop-blur-xl border border-white/10 flex flex-col justify-end">
+                  <span className="text-[#fad77e] text-[8px] md:text-[10px] font-black uppercase tracking-widest mb-2">Our Vision</span>
+                  <p className="text-white/90 text-xs md:text-sm font-semibold leading-relaxed max-w-xs">
                     To be Gujarat's most trusted and diversified business conglomerate.
                   </p>
                 </div>
@@ -232,7 +232,6 @@ const About = () => (
                   <Eye size={12} /> Vision Statement
                 </div>
                 <blockquote className="text-xl md:text-3xl font-heading font-black text-[#172451] leading-snug mb-6 md:mb-8 relative">
-                  <span className="absolute -left-3 -top-2 md:-left-4 md:-top-3 text-4xl md:text-5xl text-[#172451]/20 font-serif select-none">"</span>
                   To be recognised as Gujarat's most trusted and diversified business conglomerate — a name synonymous with quality, reliability, and responsible growth.
                 </blockquote>
                 <div className="h-0.5 w-16 bg-[#172451] mb-6 md:mb-8 rounded-full" />
@@ -247,14 +246,13 @@ const About = () => (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 items-center mb-16 md:mb-24">
             <ScrollReveal x={-60} y={0} delay={0.1} className="order-2 lg:order-1">
               <div className="pr-0 lg:pr-8">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f0fdf4] text-[#059669] text-[10px] md:text-xs font-black uppercase tracking-widest mb-6">
-                  <Target size={12} /> Mission Statement
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#eff4ff] text-[#172451] text-[10px] md:text-xs font-black uppercase tracking-widest mb-6">
+                  <Target size={12} /> Our Mission
                 </div>
                 <blockquote className="text-xl md:text-3xl font-heading font-black text-[#172451] leading-snug mb-6 md:mb-8 relative">
-                  <span className="absolute -left-3 -top-2 md:-left-4 md:-top-3 text-4xl md:text-5xl text-[#059669]/20 font-serif select-none">"</span>
                   To build, manage, and scale high-quality businesses that create tangible value for our clients, partners, and the Gujarat economy.
                 </blockquote>
-                <div className="h-0.5 w-16 bg-[#059669] mb-6 md:mb-8 rounded-full" />
+                <div className="h-0.5 w-16 bg-[#172451] mb-6 md:mb-8 rounded-full" />
                 <p className="text-gray-500 text-sm md:text-base leading-relaxed">
                   We drive progress through clarity of thought, integrity of action, and a relentless focus on long-term sustainability across every industrial and consumer sector we touch.
                 </p>
@@ -263,9 +261,9 @@ const About = () => (
             <ScrollReveal x={60} y={0} delay={0.15} className="order-1 lg:order-2">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[420px] group">
                 <img src={longTermThinking} alt="Mission" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-10 bg-gradient-to-t from-black/60 to-transparent">
-                  <span className="text-green-300 text-[8px] md:text-[10px] font-black uppercase tracking-widest mb-2">Mission</span>
-                  <p className="text-white/80 text-xs md:text-sm font-semibold leading-relaxed max-w-xs">
+                <div className="absolute inset-x-6 bottom-6 p-6 rounded-2xl bg-[#172451]/60 backdrop-blur-xl border border-white/10 flex flex-col justify-end">
+                  <span className="text-blue-300 text-[8px] md:text-[10px] font-black uppercase tracking-widest mb-2">Our Mission</span>
+                  <p className="text-white/90 text-xs md:text-sm font-semibold leading-relaxed max-w-xs">
                     Building high-quality businesses that create tangible value for Gujarat.
                   </p>
                 </div>

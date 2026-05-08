@@ -56,7 +56,8 @@ const AvatarPoint = ({ avatar, earthMeshRef }) => {
     
     // 2. OPACITY LOGIC (Direct DOM update)
     const edgeFade = 1 - Math.min(1, Math.pow(Math.abs(xPos) / 2.2, 4));
-    const targetOpacity = zPos > 0 ? edgeFade : 0;
+    // We allow icons to be visible even if zPos <= 0, relying on the 'occlude' prop for physical hiding.
+    const targetOpacity = Math.max(0, edgeFade);
 
     // Apply styles directly to bypass React re-renders
     iconRef.current.style.transform = `scale(${targetScale})`;

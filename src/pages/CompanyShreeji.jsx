@@ -17,6 +17,13 @@ import industrialShedImg from '../images/industrial shed companies page.avif';
 import secureTilesImg from '../images/secure tiles.avif';
 import shreejiInfraTechImg from '../images/shreeji infra tech.avif';
 
+// Mahantam Gallery Images
+import mahantam01 from '../images/shreeji/mahantam fv cam01.jpg.jpeg';
+import mahantam02 from '../images/shreeji/mahantam fv cam02.jpg.jpeg';
+import mahantam03 from '../images/shreeji/mahantam fv cam03.jpg.jpeg';
+import mahantam04 from '../images/shreeji/mahantam fv cam04.jpg.jpeg';
+import mahantam07 from '../images/shreeji/mahantam fv cam07.jpg.jpeg';
+
 /* ─── Count-up hook ─── */
 const useCountUp = (target, duration = 2000, active = false) => {
   const [val, setVal] = React.useState(0);
@@ -45,16 +52,21 @@ const StatNumber = ({ value, suffix = "" }) => {
   );
 };
 
-const FeatureCard = ({ icon: Icon, title, desc, accent = "#3b82f6" }) => (
+const FeatureCard = ({ icon: Icon, title, desc }) => (
   <motion.div 
     whileHover={{ y: -10 }}
-    className="group bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-2xl hover:bg-blue-500 transition-all duration-1000 cursor-default"
+    className="group relative bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 cursor-default overflow-hidden"
   >
-    <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-8 bg-slate-50 group-hover:bg-white/20 transition-colors duration-1000">
-      <Icon size={28} className="text-blue-500 group-hover:text-white transition-colors duration-1000" />
+    {/* Corner-fill Golden Overlay */}
+    <div className="absolute inset-0 bg-[#fad77e] translate-x-[-100%] translate-y-[100%] group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]" />
+    
+    <div className="relative z-10">
+      <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-8 bg-slate-50 group-hover:bg-[#172451]/10 transition-colors duration-500">
+        <Icon size={28} className="text-[#172451]" />
+      </div>
+      <h4 className="text-2xl font-heading font-black text-[#172451] mb-4 transition-colors duration-500">{title}</h4>
+      <p className="text-slate-500 group-hover:text-[#172451]/80 text-sm leading-relaxed font-medium transition-colors duration-500">{desc}</p>
     </div>
-    <h4 className="text-2xl font-heading font-black text-slate-900 group-hover:text-white mb-4 transition-colors duration-1000">{title}</h4>
-    <p className="text-slate-500 group-hover:text-white/80 text-sm leading-relaxed font-medium transition-colors duration-1000">{desc}</p>
   </motion.div>
 );
 
@@ -214,6 +226,41 @@ const CompanyShreeji = () => {
                 desc="100% legal transparency and verified documentation, ensuring a hassle-free setup and peace of mind for business owners."
               />
             </ScrollRevealGroup>
+
+            {/* --- Image Gallery --- */}
+            <div className="mt-24 md:mt-32">
+              <ScrollReveal y={30} x={0}>
+                <div className="text-center mb-12 md:mb-16">
+                  <h3 className="text-2xl md:text-4xl font-heading font-black text-white mb-4">Project Gallery</h3>
+                  <div className="h-1 w-12 bg-blue-500 mx-auto rounded-full" />
+                </div>
+              </ScrollReveal>
+
+              <ScrollRevealGroup staggerDelay={0.1} y={40} className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+                {[
+                  { img: mahantam01 },
+                  { img: mahantam02 },
+                  { img: mahantam03 },
+                  { img: mahantam04 },
+                  { img: mahantam07 },
+                ].map((item, idx) => (
+                  <div 
+                    key={idx} 
+                    className="relative rounded-3xl overflow-hidden group shadow-2xl aspect-[16/10] bg-slate-800 border border-white/5"
+                  >
+                    <img 
+                      src={item.img} 
+                      alt={`Mahantam Park ${idx + 1}`} 
+                      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute bottom-6 left-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                      <p className="text-white font-heading font-black text-sm uppercase tracking-widest">Mahantam Industrial Park</p>
+                    </div>
+                  </div>
+                ))}
+              </ScrollRevealGroup>
+            </div>
           </div>
         </section>
 
@@ -308,6 +355,3 @@ const CompanyShreeji = () => {
 };
 
 export default CompanyShreeji;
-
-
-

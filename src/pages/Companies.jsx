@@ -239,47 +239,50 @@ const Companies = () => {
               <span className="font-bold text-white/60">Our Companies</span>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+            <div className="relative p-8 md:p-16 rounded-[2.5rem] md:rounded-[4rem] bg-white/5 border border-white/10 backdrop-blur-xl overflow-hidden shadow-2xl">
+              {/* Decorative elements */}
+              <div className="absolute top-0 right-0 w-96 h-96 bg-[#fad77e]/10 rounded-full blur-[100px] -mr-48 -mt-48 pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#172451] rounded-full blur-[80px] -ml-32 -mb-32 pointer-events-none opacity-50" />
+              
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-stretch relative z-10">
+                
+                {/* Left — content */}
+                <div className="lg:col-span-5 flex flex-col justify-between py-2">
+                  <div className="space-y-10">
+                  <ScrollReveal x={-40} y={0} delay={0.1}>
+                    <h2 className="text-3xl md:text-5xl font-heading font-black text-white leading-none tracking-tighter">
+                      Each Business.<br />
+                      <span className="text-[#fad77e] drop-shadow-[0_0_20px_rgba(250,215,126,0.3)]">One Standard.</span>
+                    </h2>
+                  </ScrollReveal>
 
-              {/* Left — headline */}
-              <div className="flex flex-col justify-center h-full space-y-12">
-                <ScrollReveal x={-60} y={0}>
-                  <div className="flex items-center gap-2.5 mb-5">
-                    <div className="w-7 h-0.5 bg-white" />
-                    <span className="text-white text-[9px] md:text-[10px] font-black uppercase tracking-[0.22em]">A Diversified Collective</span>
+                  <ScrollReveal x={-40} y={0} delay={0.2}>
+                    <p className="text-white/60 text-sm md:text-lg leading-relaxed font-medium border-l-2 border-[#fad77e]/30 pl-6">
+                      Every entity within Dhyanora Group operates with independence but shares a unified commitment to quality and integrity.
+                    </p>
+                  </ScrollReveal>
                   </div>
-                  <h2 className="text-3xl md:text-5xl font-heading font-black text-white leading-tight mb-6 md:mb-8">
-                    Each<br className="hidden md:block" />
-                    Business.<br className="hidden md:block" />
-                    <motion.span
-                      initial={{ color: '#ffffff' }}
-                      animate={overviewInView ? { color: '#fad77e' } : {}}
-                      transition={{ duration: 1.2, delay: 0.6 }}
-                    >
-                      One Standard.
-                    </motion.span>
-                  </h2>
-                </ScrollReveal>
 
-                <ScrollReveal x={-40} y={0} delay={0.15}>
-                  <p className="text-white/50 text-base md:text-lg leading-relaxed max-w-md">
-                    Every entity within Dhyanora Group operates with independence but shares a unified commitment to quality and integrity.
-                  </p>
-                </ScrollReveal>
+                  <ScrollReveal x={-40} y={0} delay={0.3}>
+                    <Link to="/companies" className="group relative inline-flex items-center gap-4 px-8 py-4 bg-[#fad77e] text-[#172451] text-[10px] md:text-xs font-black uppercase tracking-[0.2em] rounded-xl transition-all duration-500 overflow-hidden shadow-2xl hover:shadow-[#fad77e]/20 mt-10 lg:mt-0">
+                      <span className="relative z-10">View All Sectors</span>
+                      <ArrowRight size={14} className="relative z-10 group-hover:translate-x-2 transition-transform duration-500" />
+                      <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+                    </Link>
+                  </ScrollReveal>
+                </div>
 
-                <ScrollReveal x={-40} y={0} delay={0.25}>
-                  <Link to="/companies" className="mt-8 inline-flex items-center gap-2 px-7 py-3 bg-[#fad77e] hover:bg-amber-400 text-[#172451] text-[10px] md:text-xs font-black uppercase tracking-widest rounded-xl transition-all duration-300 group shadow-lg shadow-amber-500/20 w-full sm:w-auto">
-                    View All Sectors <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </ScrollReveal>
+                {/* Right — Stats Grid */}
+                <div className="lg:col-span-7">
+                  <ScrollRevealGroup staggerDelay={0.15} x={40} y={0} className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+                    <StatTile active={overviewInView} num={4} suffix="+" label="Business Verticals" desc="Spanning core industrial sectors" />
+                    <StatTile active={overviewInView} num={2026} suffix="" label="Year Founded" desc="Built on discipline from day one" />
+                    <StatTile active={overviewInView} num={100} suffix="%" label="Quality Promise" desc="Non-negotiable promise" />
+                    <StatTile active={overviewInView} num={50} suffix="+" label="Strategic Partners" desc="Trusted across India" />
+                  </ScrollRevealGroup>
+                </div>
+
               </div>
-
-              <ScrollRevealGroup staggerDelay={0.15} x={40} y={0} className="grid grid-cols-2 gap-4 md:gap-5">
-                <StatTile active={overviewInView} num={4} suffix="+" label="Business Verticals" desc="Spanning core industrial sectors" />
-                <StatTile active={overviewInView} num={2026} suffix="" label="Year Founded" desc="Built on discipline from day one" />
-                <StatTile active={overviewInView} num={100} suffix="%" label="Quality Promise" desc="Non-negotiable promise" />
-                <StatTile active={overviewInView} num={50} suffix="+" label="Strategic Partners" desc="Trusted across India" />
-              </ScrollRevealGroup>
             </div>
           </div>
         </section>

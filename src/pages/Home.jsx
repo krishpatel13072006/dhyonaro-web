@@ -56,7 +56,7 @@ const pillars = [
     accent: '#172451',
   },
   {
-    id: '04', name: 'Bricks Trading Division', sector: 'Construction Materials',
+    id: '04', name: 'Pramukh Import Export (Brics Trading)', sector: 'Construction Materials',
     icon: Package, logo: pramukhLogo,
     desc: 'Delivering the building blocks of progress — a consistent, high-quality supply of essential construction materials to builders, contractors, and developers across the region.',
     path: '/companies',
@@ -244,7 +244,7 @@ export default function Home() {
         <div className="overflow-hidden bg-[#f8fafc] border-y border-gray-100 py-8 select-none">
           <div className="flex items-center w-max animate-marquee">
             {[...Array(2)].map((_, r) =>
-              ['Pramukh Import Export', 'Pramukh Techventures', 'Shreeji Infra', 'Bricks Trading', 'Dhyanora Group'].map((item, i) => (
+              ['Pramukh Import Export', 'Pramukh Techventures', 'Shreeji Infra', 'Pramukh Import Export (Brics Trading)', 'Dhyanora Group'].map((item, i) => (
                 <span
                   key={`${r}-${i}`}
                   className="mx-12 text-[#172451]/10 text-2xl md:text-5xl font-heading font-black uppercase italic tracking-tighter hover:text-[#172451] transition-colors duration-500 cursor-pointer"
@@ -322,8 +322,13 @@ export default function Home() {
                     </div>
 
                     {/* Body — background changes on hover */}
-                    <div className="p-6 md:p-7 transition-colors duration-500 group-hover:bg-[#172451]">
-                      <h3 className="text-lg md:text-xl font-heading font-black text-[#172451] mb-2 md:mb-3 group-hover:text-white transition-colors duration-500">{p.name}</h3>
+                    <div className="p-6 md:p-7 transition-colors duration-500 group-hover:bg-[#172451] relative">
+                      {/* Logo positioned at top-right of content area */}
+                      <div className="absolute top-6 right-6 h-8 md:h-10 w-auto opacity-100 group-hover:brightness-0 group-hover:invert transition-all duration-500 pointer-events-none">
+                        <img src={p.logo} alt="" className="h-full w-auto object-contain" />
+                      </div>
+
+                      <h3 className="text-lg md:text-xl font-heading font-black text-[#172451] mb-2 md:mb-3 group-hover:text-white transition-colors duration-500 pr-12">{p.name}</h3>
                       <p className="text-gray-500 text-xs md:text-sm leading-relaxed mb-4 md:mb-6 group-hover:text-white/60 transition-colors duration-500">{p.desc}</p>
                       <Link to={p.path}
                         className="inline-flex items-center gap-2 text-[9px] md:text-[10px] font-black uppercase tracking-widest transition-colors group/link text-[#172451] group-hover:text-[#fad77e]"
@@ -364,7 +369,7 @@ export default function Home() {
               <div className="flex flex-col items-center justify-center text-center w-full max-w-5xl">
                 <ScrollReveal y={40} x={0} className="w-full">
                   <SectionTag color="#fad77e">Our Vision</SectionTag>
-                  <blockquote className="text-3xl sm:text-4xl md:text-6xl font-heading font-black text-white leading-snug drop-shadow-[0_4px_20px_rgba(0,0,0,0.8)] mb-12">
+                  <blockquote className="text-xl sm:text-2xl md:text-4xl font-heading font-black text-white leading-snug drop-shadow-[0_4px_20px_rgba(0,0,0,0.8)] mb-8 max-w-3xl mx-auto">
                     "To be recognised as Gujarat's most trusted and diversified business conglomerate — a name synonymous with quality, reliability, and responsible growth."
                   </blockquote>
                 </ScrollReveal>

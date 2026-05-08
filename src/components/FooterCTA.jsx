@@ -66,7 +66,7 @@ const FooterCTA = () => {
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
               <Link 
                 to="/contact" 
-                className="bg-[#172451] hover:bg-blue-700 text-white px-8 md:px-10 py-3.5 md:py-4 rounded-xl font-bold transition-all duration-300 shadow-lg shadow-blue-600/20 text-center text-sm"
+                className="btn-blue justify-center"
               >
                 Get In Touch
               </Link>

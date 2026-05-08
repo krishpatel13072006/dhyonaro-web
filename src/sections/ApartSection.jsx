@@ -35,7 +35,7 @@ export default function ApartSection() {
             
             <Link 
               to="/about"
-              className="group bg-[#172451] hover:bg-blue-900 text-white px-6 md:px-8 py-3 md:py-4 rounded-xl font-bold transition-all duration-300 shadow-lg shadow-blue-950/20 whitespace-nowrap self-start md:self-auto flex items-center justify-center gap-2 w-full md:w-auto"
+              className="btn-blue w-full md:w-auto justify-center"
             >
               Read Our Story
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />

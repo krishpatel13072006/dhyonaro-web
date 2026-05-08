@@ -273,19 +273,19 @@ const Contact = () => {
                     transition={{ duration: 0.8, delay: 0.3 }}
                     className="space-y-6 md:space-y-10"
                   >
-                    <h2 className="text-4xl md:text-8xl font-heading font-black uppercase leading-[0.9] italic text-white tracking-tighter drop-shadow-2xl">
-                      See Our Vision.<br />
-                      <span className="text-[#fad77e]">Shape Your Future.</span>
-                    </h2>
-                    <p className="text-white/80 max-w-2xl mx-auto font-sans text-base md:text-2xl font-medium leading-relaxed drop-shadow-lg">
-                      Our infrastructure and strategic frameworks are built for scale, efficiency, and unwavering ethics.
-                    </p>
-                    <div className="pt-6">
-                      <Link to="/companies" className="px-12 py-6 bg-[#fad77e] text-[#172451] rounded-full font-heading font-black uppercase tracking-widest text-xs md:text-sm flex items-center gap-4 mx-auto hover:bg-white hover:scale-105 transition-all duration-300 shadow-[0_10px_40px_rgba(250,215,126,0.4)] w-fit">
-                        Explore Companies
-                        <Globe size={20} />
-                      </Link>
-                    </div>
+                  <h2 className="text-3xl md:text-6xl font-heading font-black uppercase leading-[0.9] italic text-white tracking-tighter drop-shadow-2xl">
+                    See Our Vision.<br />
+                    <span className="text-[#fad77e]">Shape Your Future.</span>
+                  </h2>
+                  <p className="text-white/70 max-w-xl mx-auto font-sans text-sm md:text-lg font-medium leading-relaxed drop-shadow-lg">
+                    Our infrastructure and strategic frameworks are built for scale, efficiency, and unwavering ethics.
+                  </p>
+                  <div className="pt-4">
+                    <Link to="/companies" className="px-10 py-5 bg-[#fad77e] text-[#172451] rounded-full font-heading font-black uppercase tracking-widest text-[10px] md:text-xs flex items-center gap-3 mx-auto hover:bg-white hover:scale-105 transition-all duration-300 shadow-[0_10px_40px_rgba(250,215,126,0.3)] w-fit">
+                      Explore Companies
+                      <Globe size={18} />
+                    </Link>
+                  </div>
                   </motion.div>
                 </div>
              </motion.div>

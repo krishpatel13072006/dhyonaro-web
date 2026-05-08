@@ -47,7 +47,7 @@ const Navbar = () => {
     };
   }, [isOpen]);
 
-  const isTransparentPage = location.pathname === '/' || location.pathname.startsWith('/companies');
+  const isTransparentPage = location.pathname === '/' || location.pathname.startsWith('/companies') || location.pathname === '/about';
 
   return (
     <>
@@ -96,8 +96,10 @@ const Navbar = () => {
 
           <div className="flex items-center gap-3 md:gap-6">
             <Link to="/contact" className={cn(
-              "hidden lg:block px-8 py-3 font-bold text-xs uppercase transition-all duration-300 rounded-sm",
-              (!scrolled && isTransparentPage) ? "bg-white text-black hover:bg-gray-100" : "bg-black text-white hover:bg-gray-800"
+              "hidden lg:block px-8 py-3 font-bold text-xs uppercase transition-all duration-300 rounded-xl",
+              (!scrolled && isTransparentPage) 
+                ? "bg-white text-navy hover:bg-[#fad77e] shadow-lg shadow-white/10" 
+                : "bg-[#172451] text-white hover:bg-[#fad77e] hover:text-navy shadow-lg shadow-blue-900/20"
             )}>
               Contact us
             </Link>
@@ -171,7 +173,7 @@ const Navbar = () => {
                 <Link 
                   to="/contact" 
                   onClick={() => setIsOpen(false)}
-                  className="w-full bg-[#172451] text-white flex items-center justify-center py-5 text-sm font-bold uppercase tracking-widest rounded-xl shadow-lg shadow-blue-900/20"
+                  className="btn-blue w-full justify-center py-5"
                 >
                   Get In Touch
                 </Link>

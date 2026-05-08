@@ -105,15 +105,16 @@
     }
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    border-radius: 4px;
+    border-radius: 12px;
     border: none;
     cursor: pointer;
     transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
   }
   .btn-blue:hover {
-    background-color: #0f1a3a;
+    background-color: #FAD77E;
+    color: #172451;
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(23,36,81,0.35);
+    box-shadow: 0 8px 24px rgba(250,215,126,0.35);
   }
 
   /* White outline button */
@@ -141,8 +142,9 @@
     transition: border-color 0.2s, background 0.2s;
   }
   .btn-outline-white:hover {
-    border-color: rgba(255,255,255,0.8);
-    background-color: rgba(255,255,255,0.08);
+    border-color: #FAD77E;
+    background-color: #FAD77E;
+    color: #172451;
   }
 
   /* Navy outline button */
@@ -170,8 +172,9 @@
     transition: background 0.2s, color 0.2s;
   }
   .btn-outline-navy:hover {
-    background-color: #172451;
-    color: #fff;
+    background-color: #FAD77E;
+    border-color: #FAD77E;
+    color: #172451;
   }
 
   .section-tag {
