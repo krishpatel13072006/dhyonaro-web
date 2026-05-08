@@ -2,10 +2,10 @@ import React from 'react';
 import SEO from '../components/SEO';
 import { motion, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { 
-  ArrowRight, Building2, ShieldCheck, MapPin, 
-  HardHat, CheckCircle2, Home, ChevronRight, 
-  Settings2, Globe2, Truck, Cpu, Zap 
+import {
+  ArrowRight, Building2, ShieldCheck, MapPin,
+  HardHat, CheckCircle2, Home, ChevronRight,
+  Settings2, Globe2, Truck, Cpu, Zap
 } from 'lucide-react';
 import CrossfadeVideo from '../components/CrossfadeVideo';
 import ScrollReveal, { ScrollRevealGroup } from '../components/ScrollReveal';
@@ -53,13 +53,13 @@ const StatNumber = ({ value, suffix = "" }) => {
 };
 
 const FeatureCard = ({ icon: Icon, title, desc }) => (
-  <motion.div 
+  <motion.div
     whileHover={{ y: -10 }}
     className="group relative bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 cursor-default overflow-hidden"
   >
     {/* Corner-fill Golden Overlay */}
     <div className="absolute inset-0 bg-[#fad77e] translate-x-[-100%] translate-y-[100%] group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]" />
-    
+
     <div className="relative z-10">
       <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-8 bg-slate-50 group-hover:bg-[#172451]/10 transition-colors duration-500">
         <Icon size={28} className="text-[#172451]" />
@@ -76,16 +76,16 @@ import company2 from '../assets/videos/company2.mp4';
 const CompanyShreeji = () => {
   return (
     <>
-      <SEO 
-        title="Shreeji Infra | Industrial Infrastructure & Real Estate | Dhyanora Group" 
-        description="Shreeji Infra develops state-of-the-art industrial ecosystems, including Mahantam Industrial Park, purpose-built sheds, and warehousing in Gujarat." 
+      <SEO
+        title="Shreeji Infra | Industrial Infrastructure & Real Estate | Dhyanora Group"
+        description="Shreeji Infra develops state-of-the-art industrial ecosystems, including Mahantam Industrial Park, purpose-built sheds, and warehousing in Gujarat."
       />
-      
+
       <main className="bg-white overflow-x-hidden">
         {/* ════ HERO SECTION ════ */}
         <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#172451]">
-          <CrossfadeVideo 
-            videos={[hero1, company2]} 
+          <CrossfadeVideo
+            videos={[hero1, company2]}
             overlayOpacity={0.4}
           />
 
@@ -100,7 +100,7 @@ const CompanyShreeji = () => {
               <rect width="100%" height="100%" fill="url(#shreeji-grid)" />
             </svg>
           </div>
-          
+
           <div className="absolute inset-0 bg-gradient-to-b from-[#172451] via-transparent to-[#172451] pointer-events-none z-20" />
 
           <div className="relative z-30 text-center px-6 max-w-5xl mx-auto">
@@ -210,17 +210,17 @@ const CompanyShreeji = () => {
             </div>
 
             <ScrollRevealGroup staggerDelay={0.15} y={50} className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <FeatureCard 
+              <FeatureCard
                 icon={MapPin}
                 title="Strategic Location"
                 desc="Located in Sanand, the golden corridor of Gujarat, offering instant access to major highway networks and logistics hubs."
               />
-              <FeatureCard 
+              <FeatureCard
                 icon={Zap}
                 title="Utility Infrastructure"
                 desc="Integrated utility grids with reliable industrial-grade power, water supply, and waste management systems built-in."
               />
-              <FeatureCard 
+              <FeatureCard
                 icon={ShieldCheck}
                 title="Secure Titles"
                 desc="100% legal transparency and verified documentation, ensuring a hassle-free setup and peace of mind for business owners."
@@ -244,14 +244,14 @@ const CompanyShreeji = () => {
                   { img: mahantam04 },
                   { img: mahantam07 },
                 ].map((item, idx) => (
-                  <div 
-                    key={idx} 
+                  <div
+                    key={idx}
                     className="relative rounded-3xl overflow-hidden group shadow-2xl aspect-[16/10] bg-slate-800 border border-white/5"
                   >
-                    <img 
-                      src={item.img} 
-                      alt={`Mahantam Park ${idx + 1}`} 
-                      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" 
+                    <img
+                      src={item.img}
+                      alt={`Mahantam Park ${idx + 1}`}
+                      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     <div className="absolute bottom-6 left-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
@@ -269,13 +269,13 @@ const CompanyShreeji = () => {
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             <ScrollReveal x={-40} y={0} className="mb-16">
               <div className="flex flex-col items-start">
-              <div className="inline-flex items-center gap-3 px-3 py-1 rounded-full bg-[#172451]/5 text-[#172451] text-[10px] font-black uppercase tracking-[0.2em] mb-4">
-                <HardHat size={14} /> Our Core Capabilities
+                <div className="inline-flex items-center gap-3 px-3 py-1 rounded-full bg-[#172451]/5 text-[#172451] text-[10px] font-black uppercase tracking-[0.2em] mb-4">
+                  <HardHat size={14} /> Our Core Capabilities
+                </div>
+                <h3 className="text-3xl md:text-5xl font-heading font-black text-[#172451] tracking-tight leading-tight">
+                  State-of-the-art foundations<br /><span className="text-[#fad77e]">built for industrial scale.</span>
+                </h3>
               </div>
-              <h3 className="text-3xl md:text-5xl font-heading font-black text-[#172451] tracking-tight leading-tight">
-                State-of-the-art foundations<br /><span className="text-[#fad77e]">built for industrial scale.</span>
-              </h3>
-            </div>
             </ScrollReveal>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:auto-rows-[300px]">
@@ -283,7 +283,7 @@ const CompanyShreeji = () => {
               <ScrollReveal delay={0.1} x={-50} y={0}>
                 <div className="bg-slate-50 rounded-3xl p-8 h-full flex flex-col justify-center border border-slate-100 group hover:bg-blue-500 transition-all duration-1000">
                   <h3 className="text-2xl md:text-3xl font-heading font-black text-slate-900 group-hover:text-white mb-4 tracking-tight leading-tight transition-colors duration-1000">
-                    Industrial<br/>Sheds
+                    Industrial<br />Sheds
                   </h3>
                   <p className="text-slate-500 group-hover:text-white/70 text-sm leading-relaxed font-medium transition-colors duration-1000">
                     Custom-built manufacturing spaces with optimized clear heights and reinforced flooring for heavy machinery.
@@ -294,26 +294,26 @@ const CompanyShreeji = () => {
               {/* Box 2: Image */}
               <ScrollReveal delay={0.2} y={50} x={0}>
                 <div className="rounded-3xl overflow-hidden h-48 md:h-full relative group">
-                  <img 
-                    src={industrialShedImg} 
-                    alt="Industrial Sheds" 
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
+                  <img
+                    src={industrialShedImg}
+                    alt="Industrial Sheds"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                   />
                 </div>
               </ScrollReveal>
 
               {/* Box 3: Warehousing (Large) */}
               <ScrollReveal delay={0.3} x={60} y={0} className="lg:col-span-2 lg:row-span-2 relative group rounded-3xl overflow-hidden shadow-lg h-[400px] md:h-[500px] lg:h-full">
-                <img 
-                  src={shreejiInfraTechImg} 
-                  alt="Warehousing Solutions" 
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" 
+                <img
+                  src={shreejiInfraTechImg}
+                  alt="Warehousing Solutions"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-slate-900/30 group-hover:bg-slate-900/10 transition-colors duration-500" />
 
                 <div className="absolute top-6 left-6 right-6 lg:right-auto lg:w-3/5 bg-white rounded-2xl p-8 shadow-2xl border border-white/20 transition-all duration-500 group-hover:-translate-y-1">
                   <h3 className="text-2xl md:text-3xl font-heading font-black text-slate-900 mb-4 tracking-tight leading-tight">
-                    Advanced<br/>Warehousing
+                    Advanced<br />Warehousing
                   </h3>
                   <p className="text-slate-500 text-sm leading-relaxed font-medium">
                     Scalable storage facilities designed for modern logistics, 24/7 throughput, and maximum volume efficiency.
@@ -324,10 +324,10 @@ const CompanyShreeji = () => {
               {/* Box 4: Image */}
               <ScrollReveal delay={0.4} y={-50} x={0}>
                 <div className="rounded-3xl overflow-hidden h-48 md:h-full relative group">
-                  <img 
-                    src={secureTilesImg} 
-                    alt="Manufacturing Plants" 
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
+                  <img
+                    src={secureTilesImg}
+                    alt="Manufacturing Plants"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                   />
                 </div>
               </ScrollReveal>
@@ -336,7 +336,7 @@ const CompanyShreeji = () => {
               <ScrollReveal delay={0.5} x={-60} y={0}>
                 <div className="bg-[#fad77e] rounded-3xl p-8 h-full flex flex-col justify-center text-[#172451] shadow-xl group hover:bg-amber-400 transition-all duration-1000">
                   <h3 className="text-2xl md:text-3xl font-heading font-black mb-4 tracking-tight leading-tight transition-colors duration-1000">
-                    Legal<br/>Verification
+                    Legal<br />Verification
                   </h3>
                   <p className="text-[#172451]/80 group-hover:text-[#172451] text-sm leading-relaxed font-medium transition-colors duration-1000">
                     100% legal transparency and verified documentation for peace of mind.
@@ -355,3 +355,6 @@ const CompanyShreeji = () => {
 };
 
 export default CompanyShreeji;
+
+
+
