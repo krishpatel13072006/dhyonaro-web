@@ -20,6 +20,8 @@ import pramukhImportExportHome from '../images/pramukh import export home.avif';
 import bricsHomePage from '../images/brics home page.avif';
 import homeVision from '../images/home vision.avif';
 import pramukhInfratechMain from '../images/pramukh infratech main.avif';
+import BouncingCircles from '../components/BouncingCircles';
+import MovingImageGrid from '../components/MovingImageGrid';
 
 /* ═══════════════════ DATA ═══════════════════ */
 
@@ -247,7 +249,7 @@ export default function Home() {
               ['Pramukh Import Export', 'Pramukh Techventures', 'Shreeji Infra', 'Pramukh Import Export (Brics Trading)', 'Dhyanora Group'].map((item, i) => (
                 <span
                   key={`${r}-${i}`}
-                  className="mx-12 text-[#172451]/10 text-2xl md:text-5xl font-heading font-black uppercase italic tracking-tighter hover:text-[#172451] transition-colors duration-500 cursor-pointer"
+                  className="mx-12 text-[#172451]/10 text-2xl md:text-5xl font-heading font-black uppercase italic hover:text-[#172451] transition-colors duration-500 cursor-pointer"
                 >
                   {item}
                 </span>
@@ -257,41 +259,21 @@ export default function Home() {
         </div>
 
         {/* ════ FOUR PILLARS / COMPANIES ════ */}
-        <section className="bg-white py-24 md:py-36 relative overflow-hidden">
-          {/* Animated floating orbs (unchanged) */}
-          {[
-            { size: 420, top: '-10%', left: '-8%', dur: 18, delay: 0, color: 'rgba(26,86,219,0.07)' },
-            { size: 280, top: '55%', left: '80%', dur: 14, delay: 3, color: 'rgba(14,165,233,0.07)' },
-            { size: 340, top: '70%', left: '-5%', dur: 20, delay: 6, color: 'rgba(124,58,237,0.06)' },
-            { size: 200, top: '15%', left: '72%', dur: 12, delay: 1.5, color: 'rgba(245,158,11,0.06)' },
-            { size: 160, top: '40%', left: '45%', dur: 16, delay: 4, color: 'rgba(26,86,219,0.05)' },
-          ].map((orb, i) => (
-            <div
-              key={i}
-              className="absolute rounded-full pointer-events-none"
-              style={{
-                width: orb.size,
-                height: orb.size,
-                top: orb.top,
-                left: orb.left,
-                background: `radial-gradient(circle, ${orb.color}, transparent 70%)`,
-                filter: 'blur(40px)',
-                animation: `floatOrb ${orb.dur}s ease-in-out ${orb.delay}s infinite alternate`,
-              }}
-            />
-          ))}
+        <section className="bg-[#050b14] py-24 md:py-36 relative overflow-hidden">
+          {/* Moving Images Background */}
+          <MovingImageGrid />
           <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
             <ScrollReveal y={32}>
               <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12 md:mb-16">
                 <ScrollReveal x={-40} y={0}>
-                  <SectionTag>Our Strategic Portfolio</SectionTag>
-                  <h2 className="text-3xl md:text-5xl font-heading font-black text-[#172451] leading-[1.1]">
+                  <SectionTag color="#fad77e">Our Strategic Portfolio</SectionTag>
+                  <h2 className="text-3xl md:text-5xl font-heading font-black text-white leading-[1.1]">
                     Diversified Expertise.<br />
-                    <span className="text-[#fad77e]/80">Unified Vision.</span>
+                    <span className="text-[#fad77e]">Unified Vision.</span>
                   </h2>
                 </ScrollReveal>
                 <ScrollReveal x={40} y={0} delay={0.2}>
-                  <Link to="/companies" className="inline-flex items-center gap-2 text-[#0d1b2e] text-xs font-bold uppercase tracking-widest hover:text-[#172451] transition-colors group">
+                  <Link to="/companies" className="inline-flex items-center gap-2 text-white/60 text-xs font-bold uppercase tracking-widest hover:text-white transition-colors group">
                     View All Companies
                     <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </Link>
@@ -323,12 +305,12 @@ export default function Home() {
 
                     {/* Body — background changes on hover */}
                     <div className="p-6 md:p-7 transition-colors duration-500 group-hover:bg-[#172451] relative">
-                      {/* Logo positioned at top-right of content area */}
-                      <div className="absolute top-6 right-6 h-8 md:h-10 w-auto opacity-100 group-hover:brightness-0 group-hover:invert transition-all duration-500 pointer-events-none">
+                      {/* Logo positioned at bottom-right of content area */}
+                      <div className="absolute bottom-6 right-6 h-8 md:h-10 w-auto opacity-100 group-hover:brightness-0 group-hover:invert transition-all duration-500 pointer-events-none">
                         <img src={p.logo} alt="" className="h-full w-auto object-contain" />
                       </div>
 
-                      <h3 className="text-lg md:text-xl font-heading font-black text-[#172451] mb-2 md:mb-3 group-hover:text-white transition-colors duration-500 pr-12">{p.name}</h3>
+                      <h3 className="text-lg md:text-xl font-heading font-black text-[#172451] mb-2 md:mb-3 group-hover:text-white transition-colors duration-500">{p.name}</h3>
                       <p className="text-gray-500 text-xs md:text-sm leading-relaxed mb-4 md:mb-6 group-hover:text-white/60 transition-colors duration-500">{p.desc}</p>
                       <Link to={p.path}
                         className="inline-flex items-center gap-2 text-[9px] md:text-[10px] font-black uppercase tracking-widest transition-colors group/link text-[#172451] group-hover:text-[#fad77e]"

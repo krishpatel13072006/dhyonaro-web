@@ -24,7 +24,7 @@ export default function ApartSection() {
             <div className="max-w-3xl">
               <SectionTag>What Sets Dhyanora Apart?</SectionTag>
               
-              <h2 className="text-3xl md:text-5xl lg:text-6xl font-heading font-black text-slate-900 tracking-tight leading-[1.1]">
+              <h2 className="text-3xl md:text-5xl lg:text-6xl font-heading font-black text-slate-900 leading-[1.1]">
                 Discipline & purpose behind <br className="hidden md:block"/> every business decision.
               </h2>
               
@@ -49,7 +49,7 @@ export default function ApartSection() {
           {/* Slot (1,1): Focused Vision */}
           <ScrollReveal delay={0.1} x={-50} y={0}>
             <div className="bg-white rounded-[1.5rem] md:rounded-[2rem] p-8 md:p-10 h-full flex flex-col justify-center border border-slate-100 shadow-sm group hover:shadow-md transition-all duration-500">
-              <h3 className="text-2xl md:text-3xl lg:text-4xl font-heading font-black text-slate-900 mb-4 md:mb-6 tracking-tight leading-tight">
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-heading font-black text-slate-900 mb-4 md:mb-6 leading-tight">
                 Focused<br/>Vision
               </h3>
               <p className="text-slate-500 text-base md:text-lg leading-relaxed font-medium">
@@ -81,7 +81,7 @@ export default function ApartSection() {
 
             {/* Floating White Card inside Large Image */}
             <div className="absolute top-4 left-4 right-4 md:top-6 md:left-6 md:right-6 lg:right-auto lg:w-1/2 bg-white rounded-[1.2rem] md:rounded-[1.8rem] p-6 md:p-10 shadow-2xl border border-white/20 transition-all duration-500 group-hover:-translate-y-1">
-              <h3 className="text-2xl md:text-3xl lg:text-4xl font-heading font-black text-slate-900 mb-4 md:mb-6 tracking-tight leading-tight">
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-heading font-black text-slate-900 mb-4 md:mb-6 leading-tight">
                 Sector<br/>Diversity
               </h3>
               <p className="text-slate-500 text-sm md:text-lg leading-relaxed font-medium">
@@ -104,7 +104,7 @@ export default function ApartSection() {
           {/* Slot (2,2): Gujarat Roots (Blue box) */}
           <ScrollReveal delay={0.5} x={-60} y={0}>
             <div className="bg-[#fad77e] rounded-[1.5rem] md:rounded-[2rem] p-8 md:p-10 h-full flex flex-col justify-center text-[#172451] shadow-xl group transition-all duration-500 hover:shadow-amber-200/50">
-              <h3 className="text-2xl md:text-3xl lg:text-4xl font-heading font-black mb-4 md:mb-6 tracking-tight leading-tight">
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-heading font-black mb-4 md:mb-6 leading-tight">
                 Gujarat Roots,<br/>Global Standards
               </h3>
             </div>

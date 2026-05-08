@@ -159,7 +159,7 @@ const Navbar = () => {
                       to={link.path}
                       onClick={() => setIsOpen(false)}
                       className={cn(
-                        "text-3xl font-heading font-black uppercase tracking-tight",
+                        "text-3xl font-heading font-black uppercase transition-all duration-500",
                         location.pathname === link.path ? "text-blue-600" : "text-navy"
                       )}
                     >

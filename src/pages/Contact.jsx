@@ -27,7 +27,7 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => {
         className="w-full py-8 flex items-center justify-between text-left group transition-all duration-300"
       >
         <span className={cn(
-          "text-lg md:text-xl font-heading font-black uppercase tracking-tight transition-colors duration-300",
+          "text-lg md:text-xl font-heading font-black uppercase transition-colors duration-300",
           isOpen ? "text-[#172451]" : "text-[#172451] group-hover:text-blue-500"
         )}>
           {question}
@@ -110,7 +110,7 @@ const Contact = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.8 }}
                 >
-                  <h1 className="text-4xl md:text-7xl font-heading font-black uppercase leading-[0.9] tracking-tighter mb-8 italic text-[#172451]">
+                  <h1 className="text-4xl md:text-7xl font-heading font-black uppercase leading-[0.9] mb-8 italic text-[#172451]">
                     Let's Talk About <br />
                     <span className="text-[#fad77e]">Strategic Growth</span>
                   </h1>
@@ -273,7 +273,7 @@ const Contact = () => {
                     transition={{ duration: 0.8, delay: 0.3 }}
                     className="space-y-6 md:space-y-10"
                   >
-                  <h2 className="text-3xl md:text-6xl font-heading font-black uppercase leading-[0.9] italic text-white tracking-tighter drop-shadow-2xl">
+                  <h2 className="text-3xl md:text-6xl font-heading font-black uppercase leading-[0.9] italic text-white drop-shadow-2xl">
                     See Our Vision.<br />
                     <span className="text-[#fad77e]">Shape Your Future.</span>
                   </h2>

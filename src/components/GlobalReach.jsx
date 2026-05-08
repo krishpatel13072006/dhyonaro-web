@@ -189,7 +189,7 @@ const GlobalReach = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-7xl font-heading font-black text-white uppercase italic tracking-tighter"
+          className="text-3xl md:text-7xl font-heading font-black text-white uppercase italic"
         >
           OUR GLOBAL <span className="text-[#C1B09C]">PRESENCE</span>
         </motion.h2>

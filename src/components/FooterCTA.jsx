@@ -55,7 +55,7 @@ const FooterCTA = () => {
           <div className="relative z-10 bg-white rounded-3xl p-6 sm:p-10 md:p-12 lg:p-14 max-w-xl w-full shadow-2xl">
             <SectionTag>Get Started</SectionTag>
             
-            <h2 className="text-3xl md:text-5xl font-heading font-black text-slate-900 tracking-tight leading-[1.1] mb-5 md:mb-6">
+            <h2 className="text-3xl md:text-5xl font-heading font-black text-slate-900 leading-[1.1] mb-5 md:mb-6">
               Ready to Work <br className="hidden sm:block" /> With Dhyanora?
             </h2>
             

@@ -112,9 +112,9 @@ const CompanyShreeji = () => {
 
             <ScrollReveal delay={0.2} y={40} x={0}>
               <h1 className="text-4xl sm:text-6xl md:text-8xl font-heading font-black text-white uppercase leading-[1.1] md:leading-none mb-6">
-                Architecting the<br />
+                ARCHITECTING THE<br />
                 <span className="text-[#fad77e]">
-                  Future of Industry.
+                  FUTURE OF INDUSTRY.
                 </span>
               </h1>
             </ScrollReveal>
@@ -272,7 +272,7 @@ const CompanyShreeji = () => {
                 <div className="inline-flex items-center gap-3 px-3 py-1 rounded-full bg-[#172451]/5 text-[#172451] text-[10px] font-black uppercase tracking-[0.2em] mb-4">
                   <HardHat size={14} /> Our Core Capabilities
                 </div>
-                <h3 className="text-3xl md:text-5xl font-heading font-black text-[#172451] tracking-tight leading-tight">
+                <h3 className="text-3xl md:text-5xl font-heading font-black text-[#172451] leading-tight">
                   State-of-the-art foundations<br /><span className="text-[#fad77e]">built for industrial scale.</span>
                 </h3>
               </div>
@@ -282,7 +282,7 @@ const CompanyShreeji = () => {
               {/* Box 1: Industrial Sheds */}
               <ScrollReveal delay={0.1} x={-50} y={0}>
                 <div className="bg-slate-50 rounded-3xl p-8 h-full flex flex-col justify-center border border-slate-100 group hover:bg-blue-500 transition-all duration-1000">
-                  <h3 className="text-2xl md:text-3xl font-heading font-black text-slate-900 group-hover:text-white mb-4 tracking-tight leading-tight transition-colors duration-1000">
+                  <h3 className="text-2xl md:text-3xl font-heading font-black text-slate-900 group-hover:text-white mb-4 leading-tight transition-colors duration-1000">
                     Industrial<br />Sheds
                   </h3>
                   <p className="text-slate-500 group-hover:text-white/70 text-sm leading-relaxed font-medium transition-colors duration-1000">
@@ -312,7 +312,7 @@ const CompanyShreeji = () => {
                 <div className="absolute inset-0 bg-slate-900/30 group-hover:bg-slate-900/10 transition-colors duration-500" />
 
                 <div className="absolute top-6 left-6 right-6 lg:right-auto lg:w-3/5 bg-white rounded-2xl p-8 shadow-2xl border border-white/20 transition-all duration-500 group-hover:-translate-y-1">
-                  <h3 className="text-2xl md:text-3xl font-heading font-black text-slate-900 mb-4 tracking-tight leading-tight">
+                  <h3 className="text-2xl md:text-3xl font-heading font-black text-slate-900 mb-4 leading-tight">
                     Advanced<br />Warehousing
                   </h3>
                   <p className="text-slate-500 text-sm leading-relaxed font-medium">
@@ -335,7 +335,7 @@ const CompanyShreeji = () => {
               {/* Box 5: Legal Verification */}
               <ScrollReveal delay={0.5} x={-60} y={0}>
                 <div className="bg-[#fad77e] rounded-3xl p-8 h-full flex flex-col justify-center text-[#172451] shadow-xl group hover:bg-amber-400 transition-all duration-1000">
-                  <h3 className="text-2xl md:text-3xl font-heading font-black mb-4 tracking-tight leading-tight transition-colors duration-1000">
+                  <h3 className="text-2xl md:text-3xl font-heading font-black mb-4 leading-tight transition-colors duration-1000">
                     Legal<br />Verification
                   </h3>
                   <p className="text-[#172451]/80 group-hover:text-[#172451] text-sm leading-relaxed font-medium transition-colors duration-1000">

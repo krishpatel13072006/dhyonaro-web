@@ -111,7 +111,7 @@ const About = () => (
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
               <div className="max-w-3xl">
                 <SectionTag>Our Promise</SectionTag>
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-black text-[#172451] tracking-tight leading-[1.1]">
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-black text-[#172451] leading-[1.1]">
                   What Sets <span className="text-[#172451]">Dhyanora</span> Apart?
                 </h2>
                 <p className="text-lg text-gray-500 leading-relaxed mt-6 max-w-2xl font-medium">
@@ -134,7 +134,7 @@ const About = () => (
             {/* Principle 1: Focused Vision */}
             <ScrollReveal delay={0.1} x={-50} y={0}>
               <div className="bg-white rounded-[2rem] p-10 h-full flex flex-col justify-center border border-slate-100 shadow-sm group hover:shadow-md transition-all duration-500">
-                <h3 className="text-3xl lg:text-4xl font-heading font-black text-[#172451] mb-6 tracking-tight leading-tight">
+                <h3 className="text-3xl lg:text-4xl font-heading font-black text-[#172451] mb-6 leading-tight">
                   Focused<br/>Vision
                 </h3>
                 <p className="text-gray-500 text-lg leading-relaxed font-medium">
@@ -164,7 +164,7 @@ const About = () => (
               <div className="absolute inset-0 bg-[#172451]/5 group-hover:bg-transparent transition-colors duration-500" />
 
               <div className="absolute top-4 left-4 right-4 lg:right-auto lg:w-1/2 bg-white rounded-[1.8rem] p-10 shadow-2xl border border-white/20 transition-all duration-500 group-hover:-translate-y-1">
-                <h3 className="text-3xl lg:text-4xl font-heading font-black text-[#172451] mb-6 tracking-tight leading-tight">
+                <h3 className="text-3xl lg:text-4xl font-heading font-black text-[#172451] mb-6 leading-tight">
                   Sector<br/>Diversity
                 </h3>
                 <p className="text-gray-500 text-lg leading-relaxed font-medium">
@@ -176,7 +176,7 @@ const About = () => (
             {/* Principle 3: Gujarat Roots */}
             <ScrollReveal delay={0.4} y={-50} x={0}>
               <div className="bg-[#fad77e] rounded-[2rem] p-10 h-full flex flex-col justify-center text-[#172451] shadow-xl group transition-all duration-500 hover:shadow-amber-200/50">
-                <h3 className="text-2xl lg:text-3xl font-heading font-black mb-6 tracking-tight leading-tight">
+                <h3 className="text-2xl lg:text-3xl font-heading font-black mb-6 leading-tight">
                   Gujarat Roots,<br/>Global Standards
                 </h3>
               </div>
@@ -185,7 +185,7 @@ const About = () => (
             {/* Principle 4: Long-Term Thinking */}
             <ScrollReveal delay={0.5} x={-60} y={0}>
               <div className="bg-white rounded-[2rem] p-10 h-full flex flex-col justify-center border border-slate-100 shadow-sm group hover:shadow-md transition-all duration-500">
-                <h3 className="text-3xl lg:text-4xl font-heading font-black text-[#172451] mb-6 tracking-tight leading-tight">
+                <h3 className="text-3xl lg:text-4xl font-heading font-black text-[#172451] mb-6 leading-tight">
                   Long-Term<br/>Thinking
                 </h3>
                 <p className="text-gray-500 text-lg leading-relaxed font-medium">

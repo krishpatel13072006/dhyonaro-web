@@ -25,7 +25,6 @@ const Footer = () => {
       { label: 'Home', to: '/' },
       { label: 'About Us', to: '/about' },
       { label: 'Our Companies', to: '/companies' },
-      { label: 'Insights Hub', to: '/hub' },
       { label: 'Contact Us', to: '/contact' },
     ],
     industries: [
@@ -54,7 +53,7 @@ const Footer = () => {
 
       {/* Background Decorative Text (Inspired by NextPlay) */}
       <div className="absolute bottom-4 left-0 right-0 select-none pointer-events-none overflow-hidden h-[30%] flex items-end justify-center">
-        <h2 className="text-[15vw] font-heading font-black text-[#fad77e]/15 leading-none tracking-tighter uppercase whitespace-nowrap text-center w-full">
+        <h2 className="text-[15vw] font-heading font-black text-[#fad77e]/15 leading-none uppercase whitespace-nowrap text-center w-full">
           DHYANORA
         </h2>
       </div>
@@ -113,7 +112,7 @@ const Footer = () => {
                   to={to}
                   className="group bg-white/[0.02] border border-white/5 hover:border-[#172451]/30 p-4 rounded-xl flex items-center justify-between transition-all duration-300 hover:translate-x-2"
                 >
-                  <span className="text-gray-400 group-hover:text-[#FAD77E] text-sm font-black uppercase italic tracking-tighter">
+                  <span className="text-gray-400 group-hover:text-[#FAD77E] text-sm font-black uppercase italic">
                     {label}
                   </span>
                   <ExternalLink size={14} className="text-gray-600 group-hover:text-[#FAD77E] transition-colors" />
@@ -137,7 +136,7 @@ const Footer = () => {
                   </div>
                   <div className="flex flex-col justify-center">
                     <span className="text-[10px] text-[#FAD77E] font-black uppercase tracking-widest mb-1 opacity-60 group-hover:opacity-100 transition-opacity">{label}</span>
-                    <p className="text-white text-sm font-bold tracking-tight">{text}</p>
+                    <p className="text-white text-sm font-bold">{text}</p>
                   </div>
                 </div>
               ))}

@@ -17,7 +17,6 @@ import Contact from './pages/Contact';
 import ShreejiInfra from './pages/CompanyShreeji.jsx';
 import TechVenture from './pages/CompanyTech.jsx';
 import ImportExport from './pages/CompanyImportExport.jsx';
-import Hub from './pages/Hub';
 import Vision360 from './pages/Vision360';
 import Exhibition from './pages/Exhibition';
 import Companies from './pages/Companies';
@@ -66,7 +65,7 @@ const AppContent = () => {
       {!isImmersivePage && <Navbar />}
       <SocialSidebar />
 
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="wait" onExitComplete={() => window.scrollTo(0, 0)}>
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<PageTransition><Home /></PageTransition>} />
           <Route path="/about" element={<PageTransition><About /></PageTransition>} />
@@ -80,7 +79,6 @@ const AppContent = () => {
           <Route path="/companies" element={<PageTransition><Companies /></PageTransition>} />
 
           {/* Pages with custom transitions or no layout */}
-          <Route path="/hub" element={<Hub />} />
           <Route path="/nexus-helix" element={<Vision360 />} />
           <Route path="/spatial-horizon" element={<Exhibition />} />
         </Routes>

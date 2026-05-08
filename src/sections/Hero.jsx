@@ -50,11 +50,11 @@ export default function Hero() {
               initial={{ y: '105%' }}
               animate={{ y: 0 }}
               transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
-              className="text-4xl sm:text-6xl lg:text-7xl font-heading font-black text-white leading-[1.05] md:leading-[1.02] tracking-tight"
+              className="text-4xl sm:text-6xl lg:text-7xl font-heading font-black text-white leading-[1.05] md:leading-[1.02]"
             >
-              Building<br />
-              Businesses<br />
-              <span className="text-[#fad77e]/90">That Last.</span>
+              BUILDING<br />
+              BUSINESSES<br />
+              <span className="text-[#fad77e]/90">THAT LAST.</span>
             </motion.h1>
           </div>
 
@@ -86,16 +86,6 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
-
-      {/* ── Decorative floating box ── */}
-      <motion.div
-        animate={{ y: [0, -12, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute bottom-32 right-10 md:right-24 hidden lg:flex flex-col items-end gap-2 z-10"
-      >
-        <div className="w-14 h-14 border border-[#172451]/20 rounded" />
-        <div className="w-8 h-8 bg-[#172451]/20 rounded" />
-      </motion.div>
     </section>
   );
 }

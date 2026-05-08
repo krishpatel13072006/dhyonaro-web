@@ -59,7 +59,7 @@ const IndustrialOrbit = () => {
 
   return (
     <>
-    <section className="py-24 md:py-48 px-6 relative overflow-hidden bg-[#fafbfc] border-y border-slate-100">
+    <section className="pt-16 pb-24 md:pt-20 md:pb-32 px-6 relative overflow-hidden bg-[#fafbfc] border-y border-slate-100">
       <div className="max-w-[1400px] mx-auto relative">
         
         {/* Section Header */}
@@ -67,9 +67,8 @@ const IndustrialOrbit = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-24 relative z-20"
+          className="text-center mb-16 md:mb-20 relative z-20"
         >
-          <span className="text-slate-400 font-black uppercase tracking-[0.4em] text-[10px] block mb-4">Synergy &amp; Scale</span>
           <h2 className="text-4xl md:text-7xl font-heading font-black text-slate-900 uppercase leading-tight">
             The Industrial <br /> <span className="text-[#fad77e]">Ecosystem.</span>
           </h2>
@@ -125,7 +124,7 @@ const IndustrialOrbit = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/30 to-transparent" />
                   <div className="absolute inset-0 p-3 md:p-4 flex flex-col justify-between">
-                    <p className="text-[9px] md:text-[10px] font-bold text-white/90 uppercase tracking-wider leading-tight">
+                    <p className="text-[9px] md:text-[10px] font-bold text-[#172451] uppercase tracking-wider leading-tight">
                       {feature.title}
                     </p>
                     <div className="w-7 h-7 md:w-9 md:h-9 rounded-lg bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white">
@@ -213,7 +212,7 @@ const IndustrialOrbit = () => {
                     <div className="w-12 h-12 md:w-16 md:h-16 bg-blue-50 rounded-xl md:rounded-2xl flex items-center justify-center text-blue-600 border border-blue-100">
                       {React.createElement(selectedFeature.icon, { size: isMobile ? 24 : 32 })}
                     </div>
-                    <h3 className="text-xl md:text-3xl font-heading font-black text-slate-900 uppercase tracking-tight">{selectedFeature.title}</h3>
+                    <h3 className="text-xl md:text-3xl font-heading font-black text-slate-900 uppercase">{selectedFeature.title}</h3>
                   </div>
                   <button
                     onClick={() => { setSelectedFeature(null); setIsPaused(false); }}

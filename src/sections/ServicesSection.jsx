@@ -23,7 +23,7 @@ const ServicesSection = () => {
         {/* Header Layout from Image */}
         <div className="flex flex-col md:flex-row justify-between items-start mb-16 gap-8">
           <div className="order-2 md:order-1">
-             <span className="text-white/40 text-sm font-medium tracking-tight">Yearly Growth across Brands</span>
+             <span className="text-white/40 text-sm font-medium">Yearly Growth across Brands</span>
           </div>
           <div className="order-1 md:order-2 text-left md:text-right">
             <h2 className="text-4xl md:text-6xl font-heading font-black leading-none uppercase">

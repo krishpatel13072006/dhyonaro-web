@@ -12,7 +12,7 @@ const BrandScroll = () => {
   return (
     <section className="bg-black py-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 mb-12">
-        <h2 className="text-white font-black text-3xl md:text-5xl uppercase italic tracking-tight">
+        <h2 className="text-white font-black text-3xl md:text-5xl uppercase italic">
           Our Brands
         </h2>
       </div>
