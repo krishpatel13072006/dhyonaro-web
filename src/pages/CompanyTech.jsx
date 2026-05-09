@@ -6,8 +6,9 @@ import {
   ArrowRight, Tv, Smartphone, Headphones, 
   ShieldCheck, Zap, Home, ChevronRight,
   Monitor, Speaker, Watch, Lightbulb,
-  CheckCircle2, Star, Quote
+  CheckCircle2, Star, Quote, Globe, Cpu, Battery, Settings2
 } from 'lucide-react';
+
 import CrossfadeVideo from '../components/CrossfadeVideo';
 import ScrollReveal, { ScrollRevealGroup } from '../components/ScrollReveal';
 import FooterCTA from '../components/FooterCTA';
@@ -17,6 +18,9 @@ import BouncingCircles from '../components/BouncingCircles';
 import techVentureMainImg from '../images/pramukh tech venture.avif';
 import entertainmentImg from '../images/Entairnment.avif';
 import audioImg from '../images/audio image.avif';
+import daewooShowroom from '../images/daewoo-showroom.png';
+import daewooBattery from '../images/daewoo-battery.png';
+
 
 /* ─── Count-up hook ─── */
 const useCountUp = (target, duration = 2000, active = false) => {
@@ -308,8 +312,154 @@ const CompanyTech = () => {
           </div>
         </section>
 
+        {/* ════ DAEWOO STRATEGIC PARTNERSHIP ════ */}
+        <section className="py-24 md:py-36 bg-white overflow-hidden relative">
+          {/* Animated Background Elements */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            <BouncingCircles />
+            <div className="absolute inset-0 opacity-[0.25]">
+              <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <pattern id="daewoo-grid" width="100" height="100" patternUnits="userSpaceOnUse">
+                    <circle cx="3" cy="3" r="1.5" fill="#172451" />
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#daewoo-grid)" />
+              </svg>
+            </div>
+          </div>
+
+          <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center mb-24">
+              <ScrollReveal x={-60} y={0}>
+                <div className="inline-flex items-center gap-3 px-3 py-1 rounded-full bg-[#172451]/5 text-[#172451] text-[10px] font-black uppercase tracking-[0.2em] mb-6">
+                  <Globe size={14} /> Global Strategic Partnership
+                </div>
+                <h2 className="text-4xl md:text-6xl font-heading font-black text-[#172451] leading-tight mb-8">
+                  DAEWOO India<br />
+                  <span className="text-[#fad77e]">Authorized Franchise.</span>
+                </h2>
+                <p className="text-slate-500 text-lg leading-relaxed mb-8">
+                  Pramukh Techventures is proud to be an authorized franchise partner of DAEWOO India. A Korean giant with over 50 years of heritage, Daewoo has re-entered the Indian market to redefine consumer electronics and home appliances with advanced technology and "Customer First" philosophy.
+                </p>
+                <div className="flex flex-wrap gap-4">
+                  <div className="px-6 py-3 bg-slate-50 rounded-xl border border-slate-100 flex items-center gap-3">
+                    <CheckCircle2 size={18} className="text-blue-600" />
+                    <span className="text-xs font-black uppercase tracking-widest text-[#172451]">Authorized Sales</span>
+                  </div>
+                  <div className="px-6 py-3 bg-slate-50 rounded-xl border border-slate-100 flex items-center gap-3">
+                    <CheckCircle2 size={18} className="text-blue-600" />
+                    <span className="text-xs font-black uppercase tracking-widest text-[#172451]">Official Warranty</span>
+                  </div>
+                </div>
+              </ScrollReveal>
+
+              <ScrollReveal x={60} y={0} delay={0.2}>
+                <div className="relative rounded-[3rem] overflow-hidden shadow-2xl aspect-[4/3] group">
+                  <img src={daewooShowroom} alt="Daewoo Showroom" className="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#172451]/60 to-transparent" />
+                  <div className="absolute bottom-8 left-8 right-8">
+                    <p className="text-white/70 text-[10px] font-black uppercase tracking-widest mb-2">Pramukh Techventures x Daewoo</p>
+                    <h3 className="text-2xl font-heading font-black text-white uppercase">Experience the Heritage</h3>
+                  </div>
+                </div>
+              </ScrollReveal>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* Product Category Box */}
+              <ScrollReveal y={40} delay={0.1}>
+                <div className="bg-slate-50 p-10 rounded-[2.5rem] border border-slate-100 h-full flex flex-col group hover:bg-[#172451] transition-all duration-700">
+                  <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-[#172451] shadow-xl mb-8 group-hover:scale-110 transition-transform duration-500">
+                    <Tv size={32} />
+                  </div>
+                  <h4 className="text-2xl font-heading font-black text-[#172451] group-hover:text-white uppercase mb-4 transition-colors duration-500">Consumer Electronics</h4>
+                  <p className="text-slate-500 group-hover:text-white/60 text-sm leading-relaxed transition-colors duration-500">
+                    High-definition LED TVs and smart entertainment systems that bring the Daewoo global standard to your living room.
+                  </p>
+                </div>
+              </ScrollReveal>
+
+              {/* Power Solutions Box (with Image) */}
+              <ScrollReveal y={40} delay={0.2} className="md:col-span-2">
+                <div className="relative rounded-[2.5rem] overflow-hidden group h-full min-h-[300px]">
+                  <img src={daewooBattery} alt="Daewoo Power Solutions" className="absolute inset-0 w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#172451] via-[#172451]/40 to-transparent p-10 flex flex-col justify-center">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#fad77e] text-[#172451] text-[10px] font-black uppercase tracking-widest mb-6 w-fit">
+                      <Zap size={12} /> Power Solutions
+                    </div>
+                    <h4 className="text-3xl font-heading font-black text-white uppercase mb-4">Industrial Strength Batteries</h4>
+                    <p className="text-white/70 text-sm leading-relaxed max-w-sm">
+                      Supplying robust automotive and inverter batteries engineered for high performance and long-lasting reliability.
+                    </p>
+                  </div>
+                </div>
+              </ScrollReveal>
+
+              {/* Service Infrastructure Box */}
+              <ScrollReveal y={40} delay={0.3}>
+                <div className="bg-slate-900 p-10 rounded-[2.5rem] h-full flex flex-col text-white shadow-2xl shadow-slate-900/20 group">
+
+                  <div className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center text-white mb-8 group-hover:rotate-12 transition-transform duration-500">
+                    <Settings2 size={32} />
+                  </div>
+                  <h4 className="text-2xl font-heading font-black uppercase mb-4 text-[#fad77e]">Dedicated Support</h4>
+
+                  <p className="text-white/70 text-sm leading-relaxed">
+                    Official after-sales service and genuine parts availability, ensuring your Daewoo appliances perform optimally for years.
+                  </p>
+                </div>
+              </ScrollReveal>
+
+              {/* Home Appliances Box */}
+              <ScrollReveal y={40} delay={0.4}>
+                <div className="bg-slate-50 p-10 rounded-[2.5rem] border border-slate-100 h-full flex flex-col group hover:bg-[#fad77e] transition-all duration-700">
+                  <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-[#172451] shadow-xl mb-8 group-hover:scale-110 transition-transform duration-500">
+                    <Cpu size={32} />
+                  </div>
+                  <h4 className="text-2xl font-heading font-black text-[#172451] uppercase mb-4 transition-colors duration-500">Next-Gen Appliances</h4>
+                  <p className="text-slate-500 group-hover:text-[#172451]/80 text-sm leading-relaxed transition-colors duration-500">
+                    Energy-efficient refrigerators, washing machines, and air purifiers designed for modern Indian households.
+                  </p>
+                </div>
+              </ScrollReveal>
+
+              {/* Partnership Vision Box */}
+              <ScrollReveal y={40} delay={0.5}>
+                <div className="bg-[#172451] p-10 rounded-[2.5rem] h-full flex flex-col text-white group">
+                  <h4 className="text-2xl font-heading font-black uppercase mb-4">Strategic Expansion</h4>
+                  <p className="text-white/60 text-sm leading-relaxed mb-8">
+                    Together with DAEWOO, Pramukh Techventures is expanding the retail and service network across Gujarat.
+                  </p>
+                  <div className="mt-auto flex items-center gap-4 text-[#fad77e] font-black text-xs uppercase tracking-widest group-hover:gap-6 transition-all">
+                    Partner Program <ArrowRight size={16} />
+                  </div>
+                </div>
+              </ScrollReveal>
+            </div>
+
+            {/* Explore Link at bottom */}
+            <ScrollReveal y={20} delay={0.6} className="mt-20 flex justify-center">
+              <a 
+                href="https://daewooindia.in/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="group flex items-center gap-4 px-10 py-5 bg-[#172451] text-white rounded-2xl font-heading font-black uppercase tracking-widest text-xs hover:bg-[#fad77e] hover:text-[#172451] transition-all duration-500 shadow-2xl shadow-blue-900/20"
+              >
+                Explore DAEWOO India
+                <div className="w-8 h-8 rounded-full bg-white/10 group-hover:bg-[#172451]/10 flex items-center justify-center transition-colors">
+                  <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                </div>
+              </a>
+            </ScrollReveal>
+          </div>
+        </section>
+
+
+
         {/* ════ RETAIL PROMISE SECTION ════ */}
-        <section className="py-24 md:py-48 bg-white overflow-hidden relative">
+        <section className="pt-12 pb-24 md:pt-16 md:pb-48 bg-white overflow-hidden relative">
+
           {/* Animated Background Elements */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
             <BouncingCircles />
