@@ -277,7 +277,8 @@ const CompanyShreeji = () => {
                   <a 
                     href="/shreeji-brochure.pdf" 
                     download 
-                    className="inline-flex items-center gap-3 px-8 py-4 bg-[#fad77e] text-[#172451] rounded-2xl font-heading font-black uppercase tracking-widest text-xs hover:bg-white transition-all duration-300 shadow-xl shadow-amber-500/10 group"
+                    className="inline-flex items-center gap-3 px-6 py-3 md:px-8 md:py-4 bg-[#fad77e] text-[#172451] rounded-2xl font-heading font-black uppercase tracking-widest text-xs hover:bg-white transition-all duration-300 shadow-xl shadow-amber-500/10 group"
+
                   >
                     Download Brochure
                     <Download size={18} className="group-hover:translate-y-1 transition-transform" />

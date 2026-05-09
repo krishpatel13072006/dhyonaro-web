@@ -445,7 +445,8 @@ const CompanyTech = () => {
                 href="https://daewooindia.in/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="group flex items-center gap-4 px-6 py-4 md:px-10 md:py-5 bg-[#172451] text-white rounded-2xl font-heading font-black uppercase tracking-widest text-xs hover:bg-[#fad77e] hover:text-[#172451] transition-all duration-500 shadow-2xl shadow-blue-900/20"
+                className="group flex items-center gap-4 px-6 py-3 md:px-10 md:py-5 bg-[#172451] text-white rounded-2xl font-heading font-black uppercase tracking-widest text-xs hover:bg-[#fad77e] hover:text-[#172451] transition-all duration-500 shadow-2xl shadow-blue-900/20"
+
 
               >
                 Explore DAEWOO India
