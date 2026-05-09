@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-const CrossfadeVideo = ({ videos, className, overlayOpacity = 0.6 }) => {
+const CrossfadeVideo = ({ videos, posters = [], className, overlayOpacity = 0.6 }) => {
   const [index, setIndex] = useState(0);
   const [activeRefIdx, setActiveRefIdx] = useState(0);
   const videoRefs = [useRef(null), useRef(null)];
-  const [isLoaded, setIsLoaded] = useState([false, false]);
+  const [isReady, setIsReady] = useState([false, false]);
 
   // Log all video paths for debugging in production console
   useEffect(() => {
@@ -19,18 +19,18 @@ const CrossfadeVideo = ({ videos, className, overlayOpacity = 0.6 }) => {
     const activeVideo = videoRefs[activeRefIdx].current;
     if (!activeVideo) return;
 
-    // Reset loaded state for new source
-    const currentRefIdx = activeRefIdx;
-    
     const playVideo = async () => {
       try {
         await activeVideo.play();
         console.log(`[VideoDebug] Success: Playing video index ${index}`);
+        setIsReady(prev => {
+          const next = [...prev];
+          next[activeRefIdx] = true;
+          return next;
+        });
       } catch (err) {
         if (err.name !== 'AbortError') {
           console.warn(`[VideoDebug] Autoplay failed for video ${index}:`, err);
-          // If autoplay fails, it might be due to user interaction policy
-          // We can't do much, but we ensure it's muted
           activeVideo.muted = true;
         }
       }
@@ -56,6 +56,13 @@ const CrossfadeVideo = ({ videos, className, overlayOpacity = 0.6 }) => {
     const nextIndex = (index + 1) % videos.length;
     const nextRefIdx = (activeRefIdx + 1) % 2;
     
+    // Reset ready state for the next video
+    setIsReady(prev => {
+      const next = [...prev];
+      next[nextRefIdx] = false;
+      return next;
+    });
+
     console.log(`[VideoDebug] Transitioning: ${index} -> ${nextIndex}`);
     setIndex(nextIndex);
     setActiveRefIdx(nextRefIdx);
@@ -63,7 +70,6 @@ const CrossfadeVideo = ({ videos, className, overlayOpacity = 0.6 }) => {
 
   const handleError = (idx, i) => {
     console.error(`[VideoDebug] Error loading video at index ${idx} (ref ${i}):`, videos[idx]);
-    // If it fails, try to skip to the next one if available
     if (videos.length > 1) {
       setTimeout(handleEnded, 2000);
     }
@@ -71,6 +77,19 @@ const CrossfadeVideo = ({ videos, className, overlayOpacity = 0.6 }) => {
 
   return (
     <div className={`absolute inset-0 overflow-hidden bg-[#172451] ${className || ''}`}>
+      {/* Background Poster / Fallback */}
+      {posters[index] && (
+        <div 
+          className="absolute inset-0 z-0 transition-opacity duration-1000"
+          style={{ 
+            backgroundImage: `url(${posters[index]})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            opacity: isReady[activeRefIdx] ? 0 : 1
+          }}
+        />
+      )}
+
       {videoRefs.map((ref, i) => {
         const isCurrent = activeRefIdx === i;
         const isNext = (activeRefIdx + 1) % 2 === i;
@@ -96,9 +115,10 @@ const CrossfadeVideo = ({ videos, className, overlayOpacity = 0.6 }) => {
             playsInline
             webkit-playsinline="true"
             loop={videos.length === 1}
-            preload="auto"
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1500ms] ease-in-out ${
-              isCurrent ? 'opacity-100 z-10' : 'opacity-0 z-0'
+            // Only preload auto for the active video, metadata for the next one to save bandwidth
+            preload={isCurrent ? "auto" : "metadata"}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1500ms] ease-in-out will-change-opacity ${
+              isCurrent && isReady[i] ? 'opacity-100 z-10' : 'opacity-0 z-0'
             }`}
             onEnded={isCurrent ? handleEnded : undefined}
             onError={() => handleError(targetIdx, i)}
@@ -106,14 +126,22 @@ const CrossfadeVideo = ({ videos, className, overlayOpacity = 0.6 }) => {
         );
       })}
 
-      {/* Solid fallback if needed or overlay */}
+      {/* Solid overlay */}
       <div
         className="absolute inset-0 z-20 pointer-events-none"
         style={{ backgroundColor: `rgba(13, 27, 46, ${overlayOpacity})` }}
       />
+      
+      {/* Loading Indicator (Subtle) */}
+      {!isReady[activeRefIdx] && (
+        <div className="absolute inset-0 z-15 flex items-center justify-center bg-[#172451]/50">
+           <div className="w-8 h-8 border-4 border-white/20 border-t-[#fad77e] rounded-full animate-spin" />
+        </div>
+      )}
     </div>
   );
 };
 
 export default CrossfadeVideo;
+
 

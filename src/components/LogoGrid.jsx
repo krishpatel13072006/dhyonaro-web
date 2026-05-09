@@ -7,7 +7,6 @@ import logo2 from '../logo grid/DPS FOILS.jpeg';
 import logo3 from '../logo grid/MAIMOON.jpg';
 import logo4 from '../logo grid/mcquuen.png';
 import logo5 from '../logo grid/Swan Corparation.png';
-import logo6 from '../logo grid/maruti.webp';
 import logo7 from '../logo grid/shreeji mahant.jpg';
 import logo8 from '../logo grid/DRHK.png';
 import logo9 from '../logo grid/MD.png';
@@ -21,7 +20,6 @@ const logos = [
   { id: 3, src: logo3, alt: 'Maimoon' },
   { id: 4, src: logo4, alt: 'Mcqueen Metal' },
   { id: 5, src: logo5, alt: 'Swan Corporation' },
-  { id: 6, src: logo6, alt: 'Maruti' },
   { id: 7, src: logo7, alt: 'Shreeji Mahant' },
   { id: 8, src: logo8, alt: 'DRHK' },
   { id: 9, src: logo9, alt: 'MD' },
@@ -78,23 +76,20 @@ const LogoGrid = () => {
           className="flex flex-wrap justify-center items-center gap-6 md:gap-8"
         >
           {logos.map((logo) => {
-            const isPng = typeof logo.src === 'string' && logo.src.toLowerCase().includes('.png');
             return (
               <motion.div
                 key={logo.id}
                 variants={itemVariants}
                 whileHover={{ y: -15, scale: 1.05 }}
-                className="relative flex items-center justify-center p-6 md:p-8 bg-white border border-gray-100 rounded-[2rem] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_25px_50px_rgba(250,215,126,0.25)] hover:border-[#fad77e]/50 transition-all duration-300 w-[140px] sm:w-[180px] md:w-[220px] h-[140px] sm:h-[180px] md:h-[220px] group cursor-pointer overflow-hidden"
+                className="relative flex items-center justify-center p-6 md:p-8 bg-white border border-gray-100 rounded-[2rem] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_60px_rgba(250,215,126,0.4)] hover:border-[#fad77e] transition-all duration-300 w-[140px] sm:w-[180px] md:w-[220px] h-[140px] sm:h-[180px] md:h-[220px] group cursor-pointer overflow-hidden"
               >
-                {/* Blue background sweep from bottom-left */}
-                <div className="absolute inset-0 bg-[#172451] origin-bottom-left scale-0 group-hover:scale-100 transition-transform duration-500 ease-out z-0 rounded-[2rem]" />
+                {/* Golden background sweep from bottom-left */}
+                <div className="absolute inset-0 bg-[#fad77e] origin-bottom-left scale-0 group-hover:scale-100 transition-transform duration-500 ease-out z-0 rounded-[2rem]" />
                 
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  className={`relative z-10 max-h-full max-w-full object-contain transition-all duration-500 group-hover:scale-110 drop-shadow-sm group-hover:drop-shadow-md ${
-                    isPng ? 'group-hover:invert group-hover:brightness-0' : ''
-                  }`}
+                  className="relative z-10 max-h-full max-w-full object-contain transition-all duration-500 group-hover:scale-110 drop-shadow-sm group-hover:drop-shadow-md"
                 />
               </motion.div>
             );

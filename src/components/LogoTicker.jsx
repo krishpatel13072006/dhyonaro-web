@@ -1,13 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-import logo1 from '../logo grid/Screenshot 2026-05-09 113532.png';
-import logo2 from '../logo grid/Screenshot 2026-05-09 113539.png';
-import logo3 from '../logo grid/Screenshot 2026-05-09 113547.png';
-import logo4 from '../logo grid/Screenshot 2026-05-09 113601.png';
-import logo5 from '../logo grid/Screenshot 2026-05-09 113606.png';
-import logo6 from '../logo grid/WhatsApp Image 2026-05-07 at 10.49.55 PM.jpeg';
-import logo7 from '../logo grid/WhatsApp Image 2026-05-07 at 10.50.02 PM.jpeg';
+import logo1 from '../logo grid/Screenshot 2022-05-09 113532.png';
+import logo2 from '../logo grid/Screenshot 2022-05-09 113539.png';
+import logo3 from '../logo grid/Screenshot 2022-05-09 113547.png';
+import logo4 from '../logo grid/Screenshot 2022-05-09 113601.png';
+import logo5 from '../logo grid/Screenshot 2022-05-09 113606.png';
+import logo6 from '../logo grid/WhatsApp Image 2022-05-07 at 10.49.55 PM.jpeg';
+import logo7 from '../logo grid/WhatsApp Image 2022-05-07 at 10.50.02 PM.jpeg';
 
 const logos = [logo1, logo2, logo3, logo4, logo5, logo6, logo7];
 

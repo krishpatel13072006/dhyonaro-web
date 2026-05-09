@@ -6,6 +6,7 @@ import { ArrowRight, Home, ChevronRight, Building2, Globe2, ShieldCheck, Truck, 
 import IndustrialOrbit from '../components/IndustrialOrbit';
 import ScrollReveal, { ScrollRevealGroup } from '../components/ScrollReveal';
 import CrossfadeVideo from '../components/CrossfadeVideo';
+import BouncingCircles from '../components/BouncingCircles';
 
 
 import keyMaterialsImg from '../images/keymaterial pramukh import export.webp';
@@ -52,14 +53,11 @@ const StatTile = ({ num, suffix = '', label, desc, Icon, active }) => {
       whileHover={{ y: -5 }}
       className="group flex flex-col items-center text-center px-2"
     >
-      {/* Circle Icon — exactly matching the reference style: thick white outer border, thin inner border */}
       <div className="relative z-10 w-[110px] h-[110px] rounded-full bg-white border-[8px] border-white flex items-center justify-center mb-4 transition-shadow duration-500 group-hover:shadow-[0_0_30px_rgba(250,215,126,0.5)]">
         <div className="w-full h-full rounded-full border-[2px] border-[#172451] flex items-center justify-center group-hover:bg-[#172451] transition-all duration-500">
           <Icon size={36} className="text-[#172451] group-hover:text-white transition-colors duration-500" />
         </div>
       </div>
-      
-      {/* Content Side */}
       <div className="space-y-1">
         <h3 className="text-[#172451] font-bold text-xl md:text-2xl leading-tight">
           <span className="text-2xl md:text-3xl font-black">{count}{suffix}</span><br/>
@@ -73,28 +71,10 @@ const StatTile = ({ num, suffix = '', label, desc, Icon, active }) => {
 
 
 
-/* ─── Staggered container ─── */
-const Stagger = ({ children, className = '' }) => (
-  <motion.div
-    className={className}
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true, margin: '-40px' }}
-    variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.12 } } }}
-  >
-    {children}
-  </motion.div>
-);
-
-const cardVariant = {
-  hidden: { opacity: 0, y: 28 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
-};
-
 /* ─── Feature card — matches reference: clean image, accent label, bold title, CTA ─── */
 const FeatureCard = ({ img, icon: Icon, accent, title, desc, dark = false, sector, to }) => (
   <motion.div
-    variants={cardVariant}
+    variants={{ hidden: { opacity: 0, y: 28 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } } }}
     whileHover={{ y: -6, boxShadow: dark ? '0 20px 48px rgba(0,0,0,0.45)' : '0 20px 48px rgba(0,0,0,0.10)' }}
     transition={{ duration: 0.25, ease: 'easeOut' }}
     className={`group flex flex-col h-full rounded-2xl overflow-hidden transition-all duration-300 ${dark
@@ -102,26 +82,15 @@ const FeatureCard = ({ img, icon: Icon, accent, title, desc, dark = false, secto
       : 'bg-white border border-gray-100 shadow-sm hover:shadow-2xl'
       }`}
   >
-    {/* ── Image ── */}
     <div className="relative overflow-hidden rounded-xl m-3 mb-0" style={{ height: '210px' }}>
-      <img
-        src={img} alt={title}
-        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 rounded-xl"
-      />
+      <img src={img} alt={title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 rounded-xl" />
     </div>
-
-    {/* ── Body ── */}
     <div className="flex flex-col flex-grow px-5 pt-4 pb-5">
-      {/* Small accent label (like date in reference) */}
       <p className="text-[11px] font-semibold mb-2" style={{ color: accent }}>{sector}</p>
-
-      <h4 className={`font-heading font-black text-[1.05rem] leading-snug mb-2 ${dark ? 'text-white' : 'text-[#111827]'
-        }`}>
+      <h4 className={`font-heading font-black text-[1.05rem] leading-snug mb-2 ${dark ? 'text-white' : 'text-[#111827]'}`}>
         {title.toUpperCase()}
       </h4>
-
-      <p className={`text-sm leading-relaxed flex-grow ${dark ? 'text-white/45' : 'text-gray-500'
-        }`}>{desc}</p>
+      <p className={`text-sm leading-relaxed flex-grow ${dark ? 'text-white/45' : 'text-gray-500'}`}>{desc}</p>
     </div>
   </motion.div>
 );
@@ -129,8 +98,6 @@ const FeatureCard = ({ img, icon: Icon, accent, title, desc, dark = false, secto
 
 
 const Companies = () => {
-
-  /* refs for overview counter-style number reveal */
   const overviewRef = useRef(null);
   const overviewInView = useInView(overviewRef, { once: true, margin: '-80px' });
   
@@ -145,51 +112,26 @@ const Companies = () => {
 
          {/* ════ HERO ════ */}
          <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#172451]">
-           <CrossfadeVideo 
-             videos={[video1, video2, video3]} 
-             overlayOpacity={0.15}
-           />
-
-
-
+           <CrossfadeVideo videos={[video1, video2, video3]} overlayOpacity={0.15} />
           <div className="relative z-30 text-center px-6 max-w-5xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#172451]/80 backdrop-blur-sm text-white text-[10px] md:text-xs font-bold uppercase tracking-widest mb-6 md:mb-8"
-            >
+            <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#172451]/80 backdrop-blur-sm text-white text-[10px] md:text-xs font-bold uppercase tracking-widest mb-6 md:mb-8">
               <Building2 size={14} /> Our Strategic Portfolio
             </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-              className="text-4xl sm:text-6xl md:text-8xl font-heading font-black text-white uppercase leading-[1.1] md:leading-none mb-6"
-            >
+            <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }} className="text-4xl sm:text-6xl md:text-8xl font-heading font-black text-white uppercase leading-[1.1] md:leading-none mb-6">
               DIVERSIFIED EXPERTISE.<br />
-              <span className="text-[#fad77e]">
-                UNIFIED VISION.
-              </span>
+              <span className="text-[#fad77e]">UNIFIED VISION.</span>
             </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.4 }}
-              className="text-white/60 text-base md:text-lg font-light max-w-2xl mx-auto"
-            >
+            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.4 }} className="text-white/60 text-base md:text-lg font-light max-w-2xl mx-auto">
               Three core verticals. One focused vision. Building high-quality businesses that create tangible value for Gujarat's economy.
             </motion.p>
           </div>
         </section>
 
-        {/* ════ OVERVIEW / SERVICES STYLE SECTION ════ */}
+        {/* ════ OVERVIEW ════ */}
         <section className="bg-white relative mt-0" ref={overviewRef}>
-          {/* Top Half — Dark Navy with Image Background */}
           <div className="relative w-full pt-16 pb-24 md:pt-20 md:pb-28 overflow-hidden flex flex-col items-center justify-center">
             <img src={sectorDiversityImg} alt="Strategic Growth" className="absolute inset-0 w-full h-full object-cover" />
             <div className="absolute inset-0 bg-[#172451]/90 backdrop-blur-[1px]" />
-            
-            {/* Background Grid Pattern */}
             <div className="absolute inset-0 opacity-20 pointer-events-none">
               <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
                 <defs>
@@ -200,7 +142,6 @@ const Companies = () => {
                 <rect width="100%" height="100%" fill="url(#overview-grid)" />
               </svg>
             </div>
-
             <div className="relative z-10 max-w-4xl mx-auto px-6 text-center pb-12 md:pb-16">
               <ScrollReveal y={20}>
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-black text-white mb-4 uppercase">
@@ -212,28 +153,35 @@ const Companies = () => {
               </ScrollReveal>
             </div>
           </div>
-
-          {/* Bottom Half — Overlapping Interactive Tiles */}
           <div className="relative z-20 max-w-7xl mx-auto px-6 pb-24 md:pb-32">
             <div className="mt-[-55px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 gap-y-16">
               <StatTile active={overviewInView} Icon={Building2} num={4} suffix="+" label="Business Verticals" desc="Spanning core industrial sectors" />
-              <StatTile active={overviewInView} Icon={Calendar} num={2026} suffix="" label="Year Founded" desc="Built on discipline from day one" />
+              <StatTile active={overviewInView} Icon={Calendar} num={2022} suffix="" label="Year Founded" desc="Built on discipline from day one" />
               <StatTile active={overviewInView} Icon={ShieldCheck} num={100} suffix="%" label="Quality Promise" desc="Non-negotiable promise" />
               <StatTile active={overviewInView} Icon={Globe2} num={50} suffix="+" label="Strategic Partners" desc="Trusted across India" />
             </div>
           </div>
         </section>
 
-        {/* ════ ORBIT ════ */}
         <IndustrialOrbit />
 
         {/* ════ SECTOR 1 — PRAMUKH IMPORT EXPORT ════ */}
         <section className="bg-white relative overflow-hidden">
-          <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: 'radial-gradient(#0f172a 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            <BouncingCircles />
+            <div className="absolute inset-0 opacity-[0.25]">
+              <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <pattern id="sector1-grid" width="100" height="100" patternUnits="userSpaceOnUse">
+                    <circle cx="3" cy="3" r="1.5" fill="#172451" />
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#sector1-grid)" />
+              </svg>
+            </div>
+          </div>
 
           <div className="max-w-7xl mx-auto px-6 md:px-12 py-20 md:py-28 relative z-10">
-
-            {/* Header row */}
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 md:mb-12">
               <ScrollReveal x={-50} y={0}>
                 <div className="flex items-center gap-3 text-[#172451] font-black tracking-widest uppercase text-[10px] mb-3 md:mb-4">
@@ -242,35 +190,20 @@ const Companies = () => {
                 <h3 className="text-3xl md:text-5xl font-heading font-black text-[#172451] mb-6">PRAMUKH IMPORT EXPORT</h3>
               </ScrollReveal>
             </div>
-
-            {/* Big image — tall and full-column */}
             <ScrollReveal delay={0.05} y={40} x={0}>
               <div className="relative rounded-3xl overflow-hidden shadow-2xl w-full h-[45vh] md:h-[60vh] min-h-[300px] md:min-h-[420px] mb-10 md:mb-12 group">
-                <img
-                  src={pramukhImportExportMainImg}
-                  alt="Pramukh Import Export"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1.4s] ease-out"
-                />
+                <img src={pramukhImportExportMainImg} alt="Pramukh Import Export" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1.4s] ease-out" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-
-                {/* Badge */}
                 <div className="absolute top-4 right-4 md:top-6 md:right-6 bg-white/90 backdrop-blur-sm px-3 py-1.5 md:px-4 md:py-2 rounded-full font-bold text-[9px] md:text-xs text-[#172451] shadow-lg flex items-center gap-2">
                   <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-[#172451] animate-pulse" /> Global Sourcing Network
                 </div>
-
-                {/* Bottom quote */}
                 <div className="absolute bottom-6 left-6 right-6 md:bottom-8 md:left-8 md:right-8 max-w-2xl">
-                  <motion.blockquote
-                    initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.3 }}
-                    className="text-lg md:text-2xl font-heading font-black text-white leading-snug italic"
-                  >
+                  <motion.blockquote initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.3 }} className="text-lg md:text-2xl font-heading font-black text-white leading-snug italic">
                     "Facilitating the procurement and distribution of high-grade ferrous and non-ferrous metal scrap for India's leading manufacturers."
                   </motion.blockquote>
                 </div>
               </div>
             </ScrollReveal>
-
             <ScrollRevealGroup staggerDelay={0.15} y={50} x={0} className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               {[
                 { icon: Settings2, title: 'KEY MATERIALS', sector: 'TRADING', img: keyMaterialsImg, desc: 'MS Scrap, Cast Iron, Melting Scrap, Copper, Aluminium, Brass, and Stainless Steel — sourced to exacting grade standards.' },
@@ -280,7 +213,6 @@ const Companies = () => {
                 <FeatureCard key={f.title} icon={f.icon} accent="#172451" img={f.img} title={f.title} desc={f.desc} sector={f.sector} to="/companies/import-export" />
               ))}
             </ScrollRevealGroup>
-
             <ScrollReveal delay={0.4} className="mt-12 flex justify-center">
                <Link to="/companies/import-export" className="btn-blue inline-flex items-center gap-3">
                  Explore Pramukh Import Export <ArrowRight size={16} />
@@ -291,11 +223,21 @@ const Companies = () => {
 
         {/* ════ SECTOR 2 — PRAMUKH TECHVENTURES ════ */}
         <section className="bg-white relative overflow-hidden">
-          <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: 'radial-gradient(#0f172a 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            <BouncingCircles />
+            <div className="absolute inset-0 opacity-[0.25]">
+              <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <pattern id="sector2-grid" width="100" height="100" patternUnits="userSpaceOnUse">
+                    <circle cx="3" cy="3" r="1.5" fill="#172451" />
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#sector2-grid)" />
+              </svg>
+            </div>
+          </div>
 
           <div className="max-w-7xl mx-auto px-6 md:px-12 py-20 md:py-28 relative z-10">
-
-            {/* Header row */}
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 md:mb-12">
               <ScrollReveal x={-50} y={0}>
                 <div className="flex items-center gap-3 text-[#172451] font-black tracking-widest uppercase text-[10px] mb-3 md:mb-4">
@@ -304,35 +246,20 @@ const Companies = () => {
                 <h3 className="text-3xl md:text-5xl font-heading font-black text-[#172451] mb-6">PRAMUKH TECHVENTURES</h3>
               </ScrollReveal>
             </div>
-
-            {/* Big image — tall and full-column */}
             <ScrollReveal delay={0.05} y={40} x={0}>
               <div className="relative rounded-3xl overflow-hidden shadow-2xl w-full h-[45vh] md:h-[60vh] min-h-[300px] md:min-h-[420px] mb-10 md:mb-12 group">
-                <img
-                  src={techVentureMainImg}
-                  alt="Pramukh Techventures"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1.4s] ease-out"
-                />
+                <img src={techVentureMainImg} alt="Pramukh Techventures" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1.4s] ease-out" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-
-                {/* Authorized badge */}
                 <div className="absolute top-4 right-4 md:top-6 md:right-6 bg-white/90 backdrop-blur-sm px-3 py-1.5 md:px-4 md:py-2 rounded-full font-bold text-[9px] md:text-xs text-[#172451] shadow-lg flex items-center gap-2">
                   <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-[#172451] animate-pulse" /> Authorized Retailer
                 </div>
-
-                {/* Bottom quote */}
                 <div className="absolute bottom-6 left-6 right-6 md:bottom-8 md:left-8 md:right-8 max-w-2xl">
-                  <motion.blockquote
-                    initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.3 }}
-                    className="text-lg md:text-2xl font-heading font-black text-white leading-snug italic"
-                  >
+                  <motion.blockquote initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.3 }} className="text-lg md:text-2xl font-heading font-black text-white leading-snug italic">
                     "Bringing the world's most reliable technology to the households of Gujarat through an experience of trust."
                   </motion.blockquote>
                 </div>
               </div>
             </ScrollReveal>
-
             <ScrollRevealGroup staggerDelay={0.15} y={50} x={0} className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               {[
                 { icon: Cpu, title: 'Product Categories', sector: 'Electronics', img: 'https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&fit=crop&q=80&w=800', desc: '4K Entertainment Systems, Smart Home Appliances, Connected Mobility, Professional Audio.' },
@@ -342,7 +269,6 @@ const Companies = () => {
                 <FeatureCard key={f.title} icon={f.icon} accent="#172451" img={f.img} title={f.title} desc={f.desc} sector={f.sector} to="/companies/tech-venture" />
               ))}
             </ScrollRevealGroup>
-
             <ScrollReveal delay={0.4} className="mt-12 flex justify-center">
                <Link to="/companies/tech-venture" className="btn-blue inline-flex items-center gap-3">
                  Explore Pramukh Techventures <ArrowRight size={16} />
@@ -351,13 +277,23 @@ const Companies = () => {
           </div>
         </section>
 
-        {/* ════ SECTOR 3 — SHREEJI INFRA (REDESIGNED) ════ */}
+        {/* ════ SECTOR 3 — SHREEJI INFRA ════ */}
         <section id="shreeji-infra" className="bg-white relative overflow-hidden">
-          <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: 'radial-gradient(#0f172a 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            <BouncingCircles />
+            <div className="absolute inset-0 opacity-[0.25]">
+              <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <pattern id="sector3-grid" width="100" height="100" patternUnits="userSpaceOnUse">
+                    <circle cx="3" cy="3" r="1.5" fill="#172451" />
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#sector3-grid)" />
+              </svg>
+            </div>
+          </div>
 
           <div className="max-w-7xl mx-auto px-6 md:px-12 py-20 md:py-28 relative z-10">
-
-            {/* Header row */}
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 md:mb-12">
               <ScrollReveal x={-50} y={0}>
                 <div className="flex items-center gap-3 text-[#172451] font-black tracking-widest uppercase text-[10px] mb-3 md:mb-4">
@@ -366,35 +302,20 @@ const Companies = () => {
                 <h3 className="text-3xl md:text-5xl font-heading font-black text-[#172451] mb-6">SHREEJI INFRA</h3>
               </ScrollReveal>
             </div>
-
-            {/* Big image — tall and full-column */}
             <ScrollReveal delay={0.05} y={40} x={0}>
               <div className="relative rounded-3xl overflow-hidden shadow-2xl w-full h-[45vh] md:h-[60vh] min-h-[300px] md:min-h-[420px] mb-10 md:mb-12 group">
-                <img
-                  src={shreejiMainImg}
-                  alt="Shreeji Infra"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1.4s] ease-out"
-                />
+                <img src={shreejiMainImg} alt="Shreeji Infra" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1.4s] ease-out" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-
-                {/* Badge */}
                 <div className="absolute top-4 right-4 md:top-6 md:right-6 bg-white/90 backdrop-blur-sm px-3 py-1.5 md:px-4 md:py-2 rounded-full font-bold text-[9px] md:text-xs text-[#172451] shadow-lg flex items-center gap-2">
                   <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-[#172451] animate-pulse" /> Flagship Asset
                 </div>
-
-                {/* Bottom quote */}
                 <div className="absolute bottom-6 left-6 right-6 md:bottom-8 md:left-8 md:right-8 max-w-2xl">
-                  <motion.blockquote
-                    initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.3 }}
-                    className="text-lg md:text-2xl font-heading font-black text-white leading-snug italic"
-                  >
+                  <motion.blockquote initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.3 }} className="text-lg md:text-2xl font-heading font-black text-white leading-snug italic">
                     "Architecting the future of industry by developing state-of-the-art ecosystems built for modern manufacturing."
                   </motion.blockquote>
                 </div>
               </div>
             </ScrollReveal>
-
             <ScrollRevealGroup staggerDelay={0.15} y={50} x={0} className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               {[
                 { icon: Factory, title: 'Industrial Sheds', sector: 'INFRA', img: industrialShedImg, desc: 'Custom-built manufacturing spaces with optimized clear heights and reinforced flooring.' },
@@ -404,7 +325,6 @@ const Companies = () => {
                 <FeatureCard key={f.title} icon={f.icon} accent="#172451" img={f.img} title={f.title} desc={f.desc} sector={f.sector} to="/companies/shreeji-infra" />
               ))}
             </ScrollRevealGroup>
-
             <ScrollReveal delay={0.4} className="mt-12 flex justify-center">
                <Link to="/companies/shreeji-infra" className="btn-blue inline-flex items-center gap-3">
                  Explore Shreeji Infra <ArrowRight size={16} />

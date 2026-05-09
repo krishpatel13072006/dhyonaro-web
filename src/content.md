@@ -48,7 +48,7 @@
 
 ### 2. THE ORIGIN NARRATIVE
 *   **Section Heading:** How Dhyanora Began
-*   **Paragraph 1 (The Foundation):** Dhyanora Group was established in 2026 in Ahmedabad, Gujarat, with a singular, powerful belief: that focused businesses, run with discipline and traditional values, create outcomes that stand the test of time. What began as a strategic vision to bring professional structure to a growing collection of enterprises has evolved into the foundation of a diversified industrial powerhouse.
+*   **Paragraph 1 (The Foundation):** Dhyanora Group was established in 2022 in Ahmedabad, Gujarat, with a singular, powerful belief: that focused businesses, run with discipline and traditional values, create outcomes that stand the test of time. What began as a strategic vision to bring professional structure to a growing collection of enterprises has evolved into the foundation of a diversified industrial powerhouse.
 *   **Paragraph 2 (The Philosophy of Dhyanora):** The name 'Dhyanora' is deeply reflective of our core identity. Derived from the Sanskrit word 'Dhyanora'—meaning focus, awareness, and intent—it sits at the very heart of our operational philosophy. We do not believe in building businesses through trial and error. We believe in understanding a sector deeply, entering it with absolute intention, and growing within it with the patience required for true excellence.
 *   **Paragraph 3 (The Present Day):** Today, Dhyanora Group is a multi-sector entity operating across metal scrap trading, electronics retail, industrial infrastructure, and construction materials. Each vertical is led by a specialized team of experts, yet all contribute to the collective strength and unified reputation of the Dhyanora name.
 

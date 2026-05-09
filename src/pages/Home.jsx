@@ -28,7 +28,7 @@ import LogoGrid from '../components/LogoGrid';
 
 const stats = [
   { value: 4, suffix: '+', label: 'Business Verticals', isNum: true },
-  { value: 2026, suffix: '', label: 'Year Founded', isNum: true },
+  { value: 2022, suffix: '', label: 'Year Founded', isNum: true },
   { value: 'GJ', suffix: '', label: 'Gujarat Headquartered', isNum: false },
   { value: 100, suffix: '%', label: 'Commitment to Quality', isNum: true },
 ];
@@ -141,8 +141,23 @@ export default function Home() {
         </ScrollReveal>
 
         {/* ════ WHO WE ARE ════ */}
-        <section className="bg-white py-24 md:py-36 overflow-hidden">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+        <section className="bg-white py-24 md:py-36 overflow-hidden relative">
+          {/* Animated Background Elements */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            <BouncingCircles />
+            <div className="absolute inset-0 opacity-[0.25]">
+              <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <pattern id="home-who-grid" width="100" height="100" patternUnits="userSpaceOnUse">
+                    <circle cx="3" cy="3" r="1.5" fill="#172451" />
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#home-who-grid)" />
+              </svg>
+            </div>
+          </div>
+
+          <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-stretch">
 
               {/* Left – Image stack (Slide from Left) */}
@@ -178,7 +193,7 @@ export default function Home() {
                   >
                     <p className="text-[8px] md:text-[9px] font-black uppercase tracking-widest text-blue-400 mb-1">Founded</p>
                     <p className="text-xl md:text-3xl font-heading font-black leading-none">
-                      <Counter value={2026} suffix="" isNum={true} />
+                      <Counter value={2022} suffix="" isNum={true} />
                     </p>
                     <p className="text-white/50 text-[10px] md:text-xs mt-1">Ahmedabad, GJ</p>
                   </motion.div>
@@ -242,6 +257,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+
 
         {/* ════ MARQUEE TICKER ════ */}
         <div className="overflow-hidden bg-[#f8fafc] border-y border-gray-100 py-8 select-none">

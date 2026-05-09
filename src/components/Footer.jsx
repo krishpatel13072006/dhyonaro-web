@@ -28,7 +28,7 @@ const Footer = () => {
       { label: 'Contact Us', to: '/contact' },
     ],
     industries: [
-      { label: 'Pramukh Metal', to: '/companies/import-export' },
+      { label: 'Pramukh Import Export', to: '/companies/import-export' },
       { label: 'Pramukh Techventures', to: '/companies/tech-venture' },
       { label: 'Shreeji Infra', to: '/companies/shreeji-infra' },
       { label: 'Pramukh Import Export (Brics Trading)', to: '/companies/brics' },

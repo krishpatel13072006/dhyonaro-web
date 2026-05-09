@@ -30,7 +30,7 @@ export default function Hero() {
           >
             <div className="w-6 md:w-8 h-0.5 bg-[#fad77e]" />
             <span className="text-[#fad77e] text-[10px] md:text-xs font-bold uppercase tracking-widest">
-              Ahmedabad, Gujarat · Est. 2026
+              Ahmedabad, Gujarat · Est. 2022
             </span>
           </motion.div>
 

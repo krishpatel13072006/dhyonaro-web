@@ -29,7 +29,7 @@ const journeySteps = [
     image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800"
   },
   {
-    year: "2026",
+    year: "2022",
     title: "Future Horizons",
     text: "Leading the industry with sustainable and diversified growth.",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800"

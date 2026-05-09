@@ -35,54 +35,26 @@ const latLngToVector3 = (lat, lng, radius) => {
 // --- COMPONENTS ---
 
 const AvatarPoint = ({ avatar, earthMeshRef }) => {
-  const groupRef = useRef();
-  const iconRef = useRef();
-
   const pos = useMemo(() => latLngToVector3(avatar.lat, avatar.lng, 2.3), [avatar.lat, avatar.lng]);
 
-  useFrame(() => {
-    if (!groupRef.current || !iconRef.current) return;
-    
-    // Get world position
-    const worldPos = new THREE.Vector3();
-    groupRef.current.getWorldPosition(worldPos);
-    
-    const zPos = worldPos.z;
-    const xPos = worldPos.x;
-    
-    // 1. SCALING LOGIC (Direct DOM update) - Reduced to maintain 'small' professional size
-    const rawScale = Math.max(0, (zPos + 2.3) / 4.6); 
-    const targetScale = Math.pow(rawScale, 1.8) * 0.9;
-    
-    // 2. OPACITY LOGIC (Direct DOM update)
-    const edgeFade = 1 - Math.min(1, Math.pow(Math.abs(xPos) / 2.2, 4));
-    // We allow icons to be visible even if zPos <= 0, relying on the 'occlude' prop for physical hiding.
-    const targetOpacity = Math.max(0, edgeFade);
-
-    // Apply styles directly to bypass React re-renders
-    iconRef.current.style.transform = `scale(${targetScale})`;
-    iconRef.current.style.opacity = targetOpacity;
-    iconRef.current.style.pointerEvents = targetOpacity < 0.2 ? 'none' : 'auto';
-  });
-
   return (
-    <group ref={groupRef} position={pos}>
+    <group position={pos}>
       <Html 
-        distanceFactor={10} 
         occlude={[earthMeshRef]} 
+        distanceFactor={10}
         center
       >
-        <div 
-          ref={iconRef}
-          className="relative cursor-pointer group transition-transform duration-100 ease-out"
-        >
-          <div className="w-10 h-10 md:w-14 md:h-14 rounded-full border-2 border-white shadow-2xl overflow-hidden bg-white">
+        <div className="relative group pointer-events-none">
+          <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-[#fad77e] shadow-[0_0_15px_rgba(250,215,126,0.3)] overflow-hidden bg-white pointer-events-auto cursor-pointer">
             <img 
               src={avatar.img} 
               className="w-full h-full object-cover" 
-              alt="User" 
-              loading="lazy"
+              alt={avatar.name} 
             />
+          </div>
+          {/* Label that appears on hover */}
+          <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-2 py-1 bg-black/80 text-white text-[8px] font-bold rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap uppercase tracking-widest">
+            {avatar.name}
           </div>
         </div>
       </Html>
@@ -169,11 +141,9 @@ const Scene = () => {
       <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
       
       <Suspense fallback={<mesh><sphereGeometry args={[2.2, 32, 32]} /><meshStandardMaterial color="#2233ff" /></mesh>}>
-        <Float speed={1.5} rotationIntensity={0.5} floatIntensity={0.5}>
-          <group position={[0, -0.2, 0]}>
-            <Earth />
-          </group>
-        </Float>
+        <group position={[0, -0.2, 0]}>
+          <Earth />
+        </group>
       </Suspense>
     </>
   );

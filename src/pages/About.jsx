@@ -28,7 +28,7 @@ const About = () => (
   <>
     <SEO
       title="About Us | Dhyanora Group | Ahmedabad, Gujarat"
-      description="Learn how Dhyanora Group was founded in Ahmedabad in 2026 on disciplined, value-driven principles spanning metal scrap, electronics, infrastructure, and construction."
+      description="Learn how Dhyanora Group was founded in Ahmedabad in 2022 on disciplined, value-driven principles spanning metal scrap, electronics, infrastructure, and construction."
     />
     <main className="bg-white">
 
@@ -42,7 +42,7 @@ const About = () => (
           <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#172451]/80 backdrop-blur-sm text-white text-[10px] md:text-xs font-bold uppercase tracking-widest mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-              Ahmedabad, Gujarat · Est. 2026
+              Ahmedabad, Gujarat · Est. 2022
             </div>
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-black text-white uppercase leading-tight mb-6 max-w-4xl">
               Building Excellence Through<br className="hidden md:block" />
@@ -95,7 +95,7 @@ const About = () => (
                 />
 <div className="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 bg-[#172451] text-white px-5 py-4 md:px-7 md:py-5 rounded-2xl shadow-2xl">
                   <p className="text-[8px] md:text-[9px] font-black uppercase tracking-widest text-white mb-1">Founded</p>
-                  <p className="text-2xl md:text-3xl font-heading font-black leading-none">2026</p>
+                  <p className="text-2xl md:text-3xl font-heading font-black leading-none">2022</p>
 <p className="text-white/50 text-[10px] md:text-xs mt-1">Ahmedabad, GJ</p>
                 </div>
               </div>
@@ -106,7 +106,7 @@ const About = () => (
                 How Dhyanora<br /><span className="text-[#172451]">Began.</span>
               </h2>
               <div className="space-y-4 md:space-y-5 text-gray-600 text-sm md:text-base leading-relaxed">
-                <p><strong className="text-[#0d1b2e]">Dhyanora Group</strong> was established in 2026 in Ahmedabad, Gujarat, with a singular belief: that focused businesses, run with discipline and traditional values, create outcomes that stand the test of time.</p>
+                <p><strong className="text-[#0d1b2e]">Dhyanora Group</strong> was established in 2022 in Ahmedabad, Gujarat, with a singular belief: that focused businesses, run with discipline and traditional values, create outcomes that stand the test of time.</p>
                 <p>Derived from the Sanskrit word <em className="font-semibold">'Dhyanora'</em> — meaning focus, awareness, and intent — it sits at the heart of our operational philosophy. We enter sectors with absolute intention, and grow within them with patience.</p>
                 <p>Today, Dhyanora is a multi-sector entity operating across metal scrap trading, electronics retail, industrial infrastructure, and construction materials — each vertical contributing to the collective strength of the group.</p>
               </div>
