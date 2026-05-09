@@ -101,7 +101,7 @@ const Companies = () => {
   const overviewRef = useRef(null);
   const overviewInView = useInView(overviewRef, { once: true, margin: '-80px' });
   
-  const video1 = '/videos/company-1.mp4';
+  const video1 = '/videos/Company-1.mp4';
   const video2 = '/videos/company-2.mp4';
   const video3 = '/videos/company-3.mp4';
 

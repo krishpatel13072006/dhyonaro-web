@@ -132,12 +132,7 @@ const CrossfadeVideo = ({ videos, posters = [], className, overlayOpacity = 0.6 
         style={{ backgroundColor: `rgba(13, 27, 46, ${overlayOpacity})` }}
       />
       
-      {/* Loading Indicator (Subtle) */}
-      {!isReady[activeRefIdx] && (
-        <div className="absolute inset-0 z-15 flex items-center justify-center bg-[#172451]/50">
-           <div className="w-8 h-8 border-4 border-white/20 border-t-[#fad77e] rounded-full animate-spin" />
-        </div>
-      )}
+
     </div>
   );
 };

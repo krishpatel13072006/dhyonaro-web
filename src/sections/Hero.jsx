@@ -7,7 +7,7 @@ import CrossfadeVideo from '../components/CrossfadeVideo';
 export default function Hero() {
   // Using the videos from the public folder directly
   const video1 = '/videos/home-hero-1.mp4';
-  const video2 = '/videos/home-hero-2.mp4';
+  const video2 = '/videos/Company-1.mp4';
 
   return (
     <section className="relative w-full min-h-screen flex items-center overflow-hidden bg-[#172451] pt-20">
