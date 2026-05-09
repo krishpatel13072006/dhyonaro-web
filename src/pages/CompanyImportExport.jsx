@@ -4,8 +4,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, HardHat, ShieldCheck, Globe2, Settings2 } from 'lucide-react';
 import CrossfadeVideo from '../components/CrossfadeVideo';
-import company1 from '../assets/videos/company1.mp4';
-import company2 from '../assets/videos/company2.mp4';
+
 
 const CompanyImportExport = () => {
   return (
@@ -19,9 +18,13 @@ const CompanyImportExport = () => {
         {/* ── HERO ── */}
         <section className="relative h-[60vh] w-full overflow-hidden flex items-center justify-center bg-[#172451]">
           <CrossfadeVideo 
-            videos={[company1, company2]} 
-            overlayOpacity={0.5}
+            videos={['/videos/company-1.mp4', '/videos/company-2.mp4', '/videos/company-3.mp4']} 
+            overlayOpacity={0.15}
           />
+
+
+
+
           <div className="relative z-20 text-center px-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

@@ -5,15 +5,15 @@ export default function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    // We use a small timeout to ensure the scroll happens after the 
-    // AnimatePresence transition has started or finished mounting the new page.
-    const timer = setTimeout(() => {
-      // Handled by AnimatePresence onExitComplete in App.jsx
-      // window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-    }, 10);
-
-    return () => clearTimeout(timer);
+    // Scroll to top immediately on route change
+    window.scrollTo(0, 0);
+    
+    // Also try documentElement for extra coverage
+    if (document.documentElement) {
+      document.documentElement.scrollTop = 0;
+    }
   }, [pathname]);
+
 
   return null;
 }

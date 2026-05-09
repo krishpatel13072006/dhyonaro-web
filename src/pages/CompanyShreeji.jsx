@@ -5,11 +5,14 @@ import { Link } from 'react-router-dom';
 import {
   ArrowRight, Building2, ShieldCheck, MapPin,
   HardHat, CheckCircle2, Home, ChevronRight,
-  Settings2, Globe2, Truck, Cpu, Zap
+  Settings2, Globe2, Truck, Cpu, Zap, Download
 } from 'lucide-react';
+
 import CrossfadeVideo from '../components/CrossfadeVideo';
 import ScrollReveal, { ScrollRevealGroup } from '../components/ScrollReveal';
 import FooterCTA from '../components/FooterCTA';
+import BouncingCircles from '../components/BouncingCircles';
+
 
 // Images
 import shreejiMainImg from '../images/pramukh infratech main.avif';
@@ -70,8 +73,7 @@ const FeatureCard = ({ icon: Icon, title, desc }) => (
   </motion.div>
 );
 
-import hero1 from '../assets/videos/hero1.mp4';
-import company2 from '../assets/videos/company2.mp4';
+
 
 const CompanyShreeji = () => {
   return (
@@ -85,23 +87,10 @@ const CompanyShreeji = () => {
         {/* ════ HERO SECTION ════ */}
         <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#172451]">
           <CrossfadeVideo
-            videos={[hero1, company2]}
-            overlayOpacity={0.4}
+            videos={['/videos/shreeji-1.mp4', '/videos/shreeji-2.mp4']}
+            overlayOpacity={0.15}
           />
 
-          {/* Background Grid Pattern */}
-          <div className="absolute inset-0 opacity-[0.25] pointer-events-none z-10">
-            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <pattern id="shreeji-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#fad77e" strokeWidth="0.5" />
-                </pattern>
-              </defs>
-              <rect width="100%" height="100%" fill="url(#shreeji-grid)" />
-            </svg>
-          </div>
-
-          <div className="absolute inset-0 bg-gradient-to-b from-[#172451] via-transparent to-[#172451] pointer-events-none z-20" />
 
           <div className="relative z-30 text-center px-6 max-w-5xl mx-auto">
             <ScrollReveal y={-20} x={0}>
@@ -148,6 +137,21 @@ const CompanyShreeji = () => {
 
         {/* ════ OVERVIEW SECTION ════ */}
         <section className="py-24 md:py-36 bg-white relative overflow-hidden">
+          {/* Animated Background Elements */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            <BouncingCircles />
+            <div className="absolute inset-0 opacity-[0.25]">
+              <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <pattern id="shreeji-overview-grid" width="100" height="100" patternUnits="userSpaceOnUse">
+                    <circle cx="3" cy="3" r="1.5" fill="#172451" />
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#shreeji-overview-grid)" />
+              </svg>
+            </div>
+          </div>
+
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
               <ScrollReveal x={-60} y={0}>
@@ -259,13 +263,49 @@ const CompanyShreeji = () => {
                     </div>
                   </div>
                 ))}
+
               </ScrollRevealGroup>
+
+
+              {/* Brochure Download Button */}
+              <ScrollReveal y={30} x={0} delay={0.4} className="mt-20 flex flex-col items-center">
+                <div className="bg-white/5 border border-white/10 rounded-[2.5rem] p-8 md:p-12 text-center max-w-2xl backdrop-blur-sm">
+                  <h3 className="text-xl md:text-2xl font-heading font-black text-white mb-4">Interested in Mahantam Industrial Park?</h3>
+                  <p className="text-white/50 text-sm md:text-base mb-8">
+                    Download our comprehensive brochure for detailed specifications, layouts, and site plans.
+                  </p>
+                  <a 
+                    href="/shreeji-brochure.pdf" 
+                    download 
+                    className="inline-flex items-center gap-3 px-8 py-4 bg-[#fad77e] text-[#172451] rounded-2xl font-heading font-black uppercase tracking-widest text-xs hover:bg-white transition-all duration-300 shadow-xl shadow-amber-500/10 group"
+                  >
+                    Download Brochure
+                    <Download size={18} className="group-hover:translate-y-1 transition-transform" />
+                  </a>
+                </div>
+              </ScrollReveal>
             </div>
           </div>
         </section>
 
+
         {/* ════ BENTO CAPABILITIES ════ */}
-        <section className="py-24 md:py-36 bg-white overflow-hidden">
+        <section className="py-24 md:py-36 bg-white overflow-hidden relative">
+          {/* Animated Background Elements */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            <BouncingCircles />
+            <div className="absolute inset-0 opacity-[0.25]">
+              <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <pattern id="shreeji-bento-grid" width="100" height="100" patternUnits="userSpaceOnUse">
+                    <circle cx="3" cy="3" r="1.5" fill="#172451" />
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#shreeji-bento-grid)" />
+              </svg>
+            </div>
+          </div>
+
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             <ScrollReveal x={-40} y={0} className="mb-16">
               <div className="flex flex-col items-start">

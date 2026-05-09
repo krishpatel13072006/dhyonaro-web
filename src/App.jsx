@@ -39,6 +39,8 @@ const AppContent = () => {
   const immersivePaths = ['/nexus-helix', '/spatial-horizon'];
   const isImmersivePage = immersivePaths.includes(location.pathname);
 
+  const lenisRef = React.useRef(null);
+
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
@@ -46,6 +48,8 @@ const AppContent = () => {
       orientation: 'vertical',
       smoothWheel: true,
     });
+
+    lenisRef.current = lenis;
 
     function raf(time) {
       lenis.raf(time);
@@ -58,6 +62,14 @@ const AppContent = () => {
       lenis.destroy();
     };
   }, []);
+
+  useEffect(() => {
+    if (lenisRef.current) {
+      lenisRef.current.scrollTo(0, { immediate: true });
+    }
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
 
   return (
     <div className="relative min-h-screen">

@@ -110,10 +110,11 @@ const Contact = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.8 }}
                 >
-                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-black uppercase leading-[1.1] mb-8 text-[#172451]">
+                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-black uppercase leading-[1.2] mb-8 text-[#172451]">
                     Let's Talk About <br />
                     <span className="text-[#fad77e]">Strategic Growth</span>
                   </h1>
+
                   <p className="text-lg md:text-xl text-[#172451]/40 max-w-lg font-sans leading-relaxed font-medium">
                     Whether you're exploring partnerships, industrial space, or global sourcing, our team is ready to help you scale.
                   </p>
@@ -278,10 +279,11 @@ const Contact = () => {
                     transition={{ duration: 0.8, delay: 0.3 }}
                     className="space-y-6 md:space-y-10"
                   >
-                  <h2 className="text-3xl md:text-6xl font-heading font-black uppercase leading-[0.9] text-white drop-shadow-2xl">
+                  <h2 className="text-3xl md:text-6xl font-heading font-black uppercase leading-[1.2] text-white drop-shadow-2xl">
                     See Our Vision.<br />
                     <span className="text-[#fad77e]">Shape Your Future.</span>
                   </h2>
+
                   <p className="text-white/70 max-w-xl mx-auto font-sans text-sm md:text-lg font-medium leading-relaxed drop-shadow-lg">
                     Our infrastructure and strategic frameworks are built for scale, efficiency, and unwavering ethics.
                   </p>

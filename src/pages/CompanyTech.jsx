@@ -70,8 +70,7 @@ const CategoryCard = ({ icon: Icon, title, desc, img, delay }) => (
 );
 
 
-import hero2 from '../assets/videos/hero2.mp4';
-import company1 from '../assets/videos/company1.mp4';
+
 
 const CompanyTech = () => {
   const categories = [
@@ -112,23 +111,10 @@ const CompanyTech = () => {
         {/* ════ HERO SECTION ════ */}
         <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#172451]">
           <CrossfadeVideo 
-            videos={[hero2, company1]} 
-            overlayOpacity={0.4}
+            videos={['/videos/tech-1.mp4', '/videos/tech-2.mp4']} 
+            overlayOpacity={0.15}
           />
 
-          {/* Red Tech Grid Pattern */}
-          <div className="absolute inset-0 opacity-[0.25] pointer-events-none z-10">
-            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <pattern id="tech-grid" width="30" height="30" patternUnits="userSpaceOnUse">
-                  <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#fad77e" strokeWidth="0.5" />
-                </pattern>
-              </defs>
-              <rect width="100%" height="100%" fill="url(#tech-grid)" />
-            </svg>
-          </div>
-          
-          <div className="absolute inset-0 bg-gradient-to-b from-[#172451] via-transparent to-[#172451] pointer-events-none z-20" />
 
           <div className="relative z-30 text-center px-6 max-w-5xl mx-auto">
             <ScrollReveal y={-20} x={0}>
@@ -175,6 +161,21 @@ const CompanyTech = () => {
 
         {/* ════ OVERVIEW SECTION ════ */}
         <section className="py-24 md:py-36 bg-white relative overflow-hidden">
+          {/* Animated Background Elements */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            <BouncingCircles />
+            <div className="absolute inset-0 opacity-[0.25]">
+              <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <pattern id="overview-grid" width="100" height="100" patternUnits="userSpaceOnUse">
+                    <circle cx="3" cy="3" r="1.5" fill="#172451" />
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#overview-grid)" />
+              </svg>
+            </div>
+          </div>
+
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
               <ScrollReveal x={-60} y={0}>
@@ -308,7 +309,22 @@ const CompanyTech = () => {
         </section>
 
         {/* ════ RETAIL PROMISE SECTION ════ */}
-        <section className="py-24 md:py-48 bg-white overflow-hidden">
+        <section className="py-24 md:py-48 bg-white overflow-hidden relative">
+          {/* Animated Background Elements */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            <BouncingCircles />
+            <div className="absolute inset-0 opacity-[0.25]">
+              <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <pattern id="promise-grid" width="100" height="100" patternUnits="userSpaceOnUse">
+                    <circle cx="3" cy="3" r="1.5" fill="#172451" />
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#promise-grid)" />
+              </svg>
+            </div>
+          </div>
+
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             {/* Section Header */}
             <div className="text-center mb-24 md:mb-32">

@@ -17,7 +17,7 @@ import FooterCTA from '../components/FooterCTA';
 import pramukhLogo from '../companies-logo/pramukh-logo.png';
 import shreejiLogo from '../companies-logo/shreeji-logo.png';
 import pramukhImportExportHome from '../images/pramukh import export home.avif';
-import bricsHomePage from '../images/brics home page.avif';
+import bricsHomePage from '../images/brics home page.jpg';
 import homeVision from '../images/home vision.avif';
 import pramukhInfratechMain from '../images/pramukh infratech main.avif';
 import BouncingCircles from '../components/BouncingCircles';

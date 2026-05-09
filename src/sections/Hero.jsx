@@ -5,29 +5,18 @@ import { Link } from 'react-router-dom';
 import CrossfadeVideo from '../components/CrossfadeVideo';
 
 export default function Hero() {
-  // Using the video from the public folder directly
-  const testVideo = '/videos/test-video.mp4';
+  // Using the videos from the public folder directly
+  const video1 = '/videos/home-hero-1.mp4';
+  const video2 = '/videos/home-hero-2.mp4';
 
   return (
     <section className="relative w-full min-h-screen flex items-center overflow-hidden bg-[#172451] pt-20">
        {/* ── Video background ── */}
        <CrossfadeVideo 
-         videos={[testVideo]} 
-         overlayOpacity={0.3}
+         videos={[video1, video2]} 
+         overlayOpacity={0.15}
        />
 
-      {/* ── Background Pattern (Overlay) ── */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none z-10">
-        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="hero-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#60a5fa" strokeWidth="0.5" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#hero-grid)" />
-        </svg>
-      </div>
-      <div className="absolute inset-0 bg-gradient-to-b from-[#172451] via-transparent to-[#172451] pointer-events-none z-20" />
 
       {/* ── Content ── */}
       <div className="relative z-30 w-full max-w-7xl mx-auto px-4 sm:px-8 md:px-12 py-16 md:py-24">

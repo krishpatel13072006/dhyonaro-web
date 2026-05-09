@@ -6,11 +6,12 @@ import img2 from '../images/pramukh tech venture.avif';
 import img3 from '../images/shreeji infra tech.avif';
 import img4 from '../images/global sourcing pramukh import export.jpg';
 import img5 from '../images/quality assurance pramukh import export.avif';
-import img6 from '../images/brics home page.avif';
+import img6 from '../images/brics home page.jpg';
 import img7 from '../images/industrial shed companies page.avif';
 import img8 from '../images/secure tiles.avif';
+import img9 from '../images/brics.jpeg';
 
-const ALL_IMAGES = [img1, img2, img3, img4, img5, img6, img7, img8];
+const ALL_IMAGES = [img1, img2, img3, img4, img5, img6, img7, img8, img9];
 
 // Quadruple the images to ensure seamless scrolling and full coverage
 const col3_base = [...ALL_IMAGES.slice(2), ...ALL_IMAGES.slice(0, 2)];

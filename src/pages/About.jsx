@@ -18,6 +18,8 @@ import shreejiInfraTechImg from '../images/shreeji infra tech.avif';
 import ScrollReveal, { ScrollRevealGroup } from '../components/ScrollReveal';
 import SectionTag from '../components/SectionTag';
 import LogoGrid from '../components/LogoGrid';
+import BouncingCircles from '../components/BouncingCircles';
+
 
 
 
@@ -60,7 +62,22 @@ const About = () => (
       </section>
 
       {/* ════ 2. ORIGIN ════ */}
-      <section className="py-20 md:py-32 px-6 bg-white border-t border-gray-50">
+      <section className="py-20 md:py-32 px-6 bg-white border-t border-gray-50 relative overflow-hidden">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <BouncingCircles />
+          <div className="absolute inset-0 opacity-[0.25]">
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id="about-origin-grid" width="100" height="100" patternUnits="userSpaceOnUse">
+                  <circle cx="3" cy="3" r="1.5" fill="#172451" />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#about-origin-grid)" />
+            </svg>
+          </div>
+        </div>
+
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center gap-2 text-gray-400 text-sm mb-12">
             <Link to="/" className="hover:text-[#0d1b2e] transition-colors"><Home size={15} /></Link>
@@ -201,6 +218,21 @@ const About = () => (
 
       {/* ════ 4. VISION · MISSION · PURPOSE ════ */}
       <section className="py-24 md:py-36 bg-white relative overflow-hidden">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <BouncingCircles />
+          <div className="absolute inset-0 opacity-[0.25]">
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id="about-vision-grid" width="100" height="100" patternUnits="userSpaceOnUse">
+                  <circle cx="3" cy="3" r="1.5" fill="#172451" />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#about-vision-grid)" />
+            </svg>
+          </div>
+        </div>
+
         {/* Subtle background accent */}
         <div className="absolute right-0 top-0 w-1/2 h-full bg-gradient-to-l from-[#f0f4ff] to-transparent pointer-events-none" />
 

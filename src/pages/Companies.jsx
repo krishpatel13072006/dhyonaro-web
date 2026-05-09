@@ -126,8 +126,7 @@ const FeatureCard = ({ img, icon: Icon, accent, title, desc, dark = false, secto
   </motion.div>
 );
 
-import company1 from '../assets/videos/company1.mp4';
-import company2 from '../assets/videos/company2.mp4';
+
 
 const Companies = () => {
 
@@ -135,8 +134,9 @@ const Companies = () => {
   const overviewRef = useRef(null);
   const overviewInView = useInView(overviewRef, { once: true, margin: '-80px' });
   
-  const video1 = company1;
-  const video2 = company2;
+  const video1 = '/videos/company-1.mp4';
+  const video2 = '/videos/company-2.mp4';
+  const video3 = '/videos/company-3.mp4';
 
   return (
     <>
@@ -146,22 +146,10 @@ const Companies = () => {
          {/* ════ HERO ════ */}
          <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#172451]">
            <CrossfadeVideo 
-             videos={[video1, video2]} 
-             overlayOpacity={0}
+             videos={[video1, video2, video3]} 
+             overlayOpacity={0.15}
            />
 
-           {/* Background Pattern (Overlay) */}
-           <div className="absolute inset-0 opacity-10 pointer-events-none z-10">
-             <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-               <defs>
-                 <pattern id="comp-hero-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                   <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#60a5fa" strokeWidth="0.5" />
-                 </pattern>
-               </defs>
-               <rect width="100%" height="100%" fill="url(#comp-hero-grid)" />
-             </svg>
-           </div>
-           <div className="absolute inset-0 bg-gradient-to-b from-[#172451] via-transparent to-[#172451] pointer-events-none z-20" />
 
 
           <div className="relative z-30 text-center px-6 max-w-5xl mx-auto">
