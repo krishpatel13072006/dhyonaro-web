@@ -335,7 +335,8 @@ const CompanyTech = () => {
                 <div className="inline-flex items-center gap-3 px-3 py-1 rounded-full bg-[#172451]/5 text-[#172451] text-[10px] font-black uppercase tracking-[0.2em] mb-6">
                   <Globe size={14} /> Global Strategic Partnership
                 </div>
-                <h2 className="text-4xl md:text-6xl font-heading font-black text-[#172451] leading-tight mb-8">
+                <h2 className="text-3xl sm:text-4xl md:text-6xl font-heading font-black text-[#172451] leading-tight mb-8">
+
                   DAEWOO India<br />
                   <span className="text-[#fad77e]">Authorized Franchise.</span>
                 </h2>
@@ -444,7 +445,8 @@ const CompanyTech = () => {
                 href="https://daewooindia.in/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="group flex items-center gap-4 px-10 py-5 bg-[#172451] text-white rounded-2xl font-heading font-black uppercase tracking-widest text-xs hover:bg-[#fad77e] hover:text-[#172451] transition-all duration-500 shadow-2xl shadow-blue-900/20"
+                className="group flex items-center gap-4 px-6 py-4 md:px-10 md:py-5 bg-[#172451] text-white rounded-2xl font-heading font-black uppercase tracking-widest text-xs hover:bg-[#fad77e] hover:text-[#172451] transition-all duration-500 shadow-2xl shadow-blue-900/20"
+
               >
                 Explore DAEWOO India
                 <div className="w-8 h-8 rounded-full bg-white/10 group-hover:bg-[#172451]/10 flex items-center justify-center transition-colors">
