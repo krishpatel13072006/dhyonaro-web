@@ -81,15 +81,15 @@ const LogoGrid = () => {
                 key={logo.id}
                 variants={itemVariants}
                 whileHover={{ y: -15, scale: 1.05 }}
-                className="relative flex items-center justify-center p-6 md:p-8 bg-white border border-gray-100 rounded-[2rem] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_60px_rgba(250,215,126,0.4)] hover:border-[#fad77e] transition-all duration-300 w-[140px] sm:w-[180px] md:w-[220px] h-[140px] sm:h-[180px] md:h-[220px] group cursor-pointer overflow-hidden"
+                className="relative flex items-center justify-center p-6 md:p-8 bg-white border border-gray-100 rounded-[2rem] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_60px_rgba(250,215,126,0.5)] hover:border-[#fad77e] transition-all duration-300 w-[140px] sm:w-[180px] md:w-[220px] h-[140px] sm:h-[180px] md:h-[220px] group cursor-pointer overflow-hidden"
               >
-                {/* Golden background sweep from bottom-left */}
-                <div className="absolute inset-0 bg-[#fad77e] origin-bottom-left scale-0 group-hover:scale-100 transition-transform duration-500 ease-out z-0 rounded-[2rem]" />
+                {/* Theme blue background sweep from bottom-left */}
+                <div className="absolute inset-0 bg-[#172451] origin-bottom-left scale-0 group-hover:scale-100 transition-transform duration-500 ease-out z-0 rounded-[2rem]" />
                 
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  className="relative z-10 max-h-full max-w-full object-contain transition-all duration-500 group-hover:scale-110 drop-shadow-sm group-hover:drop-shadow-md"
+                  className="relative z-10 max-h-full max-w-full object-contain transition-all duration-500 group-hover:scale-110 brightness-100 group-hover:brightness-110 drop-shadow-sm group-hover:drop-shadow-lg"
                 />
               </motion.div>
             );
