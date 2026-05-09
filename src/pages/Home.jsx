@@ -22,6 +22,7 @@ import homeVision from '../images/home vision.avif';
 import pramukhInfratechMain from '../images/pramukh infratech main.avif';
 import BouncingCircles from '../components/BouncingCircles';
 import MovingImageGrid from '../components/MovingImageGrid';
+import LogoGrid from '../components/LogoGrid';
 
 /* ═══════════════════ DATA ═══════════════════ */
 
@@ -77,7 +78,7 @@ const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.1 } } 
 function Counter({ value, suffix, isNum, duration = 1800 }) {
   const [display, setDisplay] = useState(isNum ? 0 : value);
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-80px' });
+  const inView = useInView(ref, { once: true, margin: '0px' });
 
   useEffect(() => {
     if (!inView || !isNum) return;
@@ -126,7 +127,7 @@ export default function Home() {
                 {stats.map((s) => (
                   <motion.div
                     key={s.label} variants={fadeUp} transition={{ duration: 0.55 }}
-                    className="px-4 py-8 md:px-8 md:py-10 text-center group hover:bg-[#f8fafc] transition-colors duration-300"
+                    className="px-4 py-8 md:px-8 md:py-10 text-center group hover:bg-[#f8fafc] transition-colors duration-300 flex flex-col justify-center items-center"
                   >
                     <p className="text-3xl md:text-5xl font-heading font-black text-[#172451] mb-1 leading-none group-hover:text-[#172451] transition-colors duration-500">
                       <Counter value={s.value} suffix={s.suffix} isNum={s.isNum} />
@@ -191,7 +192,7 @@ export default function Home() {
                 >
                   <motion.div variants={fadeUp} transition={{ duration: 0.65 }}>
                     <SectionTag>One Group. Multiple Strengths.</SectionTag>
-                    <h2 className="text-4xl md:text-5xl font-heading font-black text-[#172451] mb-6 leading-tight">
+                    <h2 className="text-3xl md:text-5xl font-heading font-black text-[#172451] mb-6 leading-tight">
                       The Essence of Discipline<br />
                       <span className="text-[#172451]">and Growth.</span>
                     </h2>
@@ -329,6 +330,9 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ════ LOGO GRID ════ */}
+        <LogoGrid />
+
         {/* ════ WHAT SETS Dhyanora APART — BENTO GRID LAYOUT ════ */}
         <ApartSection />
 
@@ -357,7 +361,7 @@ export default function Home() {
                 </ScrollReveal>
 
                 <ScrollReveal y={40} x={0} delay={0.2} className="w-full flex justify-center">
-                  <Link to="/companies" className="inline-flex items-center justify-center gap-3 px-12 py-6 bg-[#fad77e] text-[#172451] text-sm font-black uppercase tracking-widest rounded-xl hover:bg-white transition-all duration-300 group shadow-[0_10px_40px_rgba(250,215,126,0.3)]">
+                  <Link to="/companies" className="inline-flex items-center justify-center gap-3 px-6 py-3.5 md:px-10 md:py-4.5 bg-[#fad77e] text-[#172451] text-xs md:text-sm font-black uppercase tracking-widest rounded-xl hover:bg-white transition-all duration-300 group shadow-[0_10px_40px_rgba(250,215,126,0.3)]">
                     Explore Our Companies
                     <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                   </Link>

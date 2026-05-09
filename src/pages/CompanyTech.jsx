@@ -410,5 +410,3 @@ const CompanyTech = () => {
 };
 
 export default CompanyTech;
-
-

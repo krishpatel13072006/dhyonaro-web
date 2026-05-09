@@ -3,7 +3,6 @@ import SEO from '../components/SEO';
 import { motion, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Home, ChevronRight, Building2, Globe2, ShieldCheck, Truck, Cpu, HeadphonesIcon, Settings2, Zap, MapPin, HardHat, CheckCircle2, Calendar, Factory } from 'lucide-react';
-import { CompanyNameTicker } from '../components/ParallaxShowcase';
 import IndustrialOrbit from '../components/IndustrialOrbit';
 import ScrollReveal, { ScrollRevealGroup } from '../components/ScrollReveal';
 import CrossfadeVideo from '../components/CrossfadeVideo';
@@ -195,8 +194,6 @@ const Companies = () => {
           </div>
         </section>
 
-        <CompanyNameTicker names={["Dhyanora Group", "Industrial Excellence", "Strategic Portfolio", "Global Vision"]} />
-
         {/* ════ OVERVIEW / SERVICES STYLE SECTION ════ */}
         <section className="bg-white relative mt-0" ref={overviewRef}>
           {/* Top Half — Dark Navy with Image Background */}
@@ -255,11 +252,6 @@ const Companies = () => {
                   <span className="w-8 h-px bg-[#172451]" /> Sector 01
                 </div>
                 <h3 className="text-3xl md:text-5xl font-heading font-black text-[#172451] mb-6">PRAMUKH IMPORT EXPORT</h3>
-              </ScrollReveal>
-              <ScrollReveal x={50} y={0} delay={0.1}>
-                <Link to="/companies/import-export" className="inline-flex items-center gap-2 px-7 py-3 bg-[#172451] hover:bg-blue-900 text-white text-xs font-black uppercase tracking-wider rounded-xl transition-all duration-300 group shadow-lg shadow-blue-950/30 shrink-0 w-full sm:w-auto justify-center">
-                  VISIT SITE <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                </Link>
               </ScrollReveal>
             </div>
 
@@ -323,11 +315,6 @@ const Companies = () => {
                 </div>
                 <h3 className="text-3xl md:text-5xl font-heading font-black text-[#172451] mb-6">PRAMUKH TECHVENTURES</h3>
               </ScrollReveal>
-              <ScrollReveal x={50} y={0} delay={0.1}>
-                <Link to="/companies/tech-venture" className="inline-flex items-center gap-2 px-7 py-3 bg-[#172451] hover:bg-blue-900 text-white text-xs font-black uppercase tracking-wider rounded-xl transition-all duration-300 group shadow-lg shadow-blue-950/30 shrink-0 w-full sm:w-auto justify-center">
-                  VISIT STORE <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </ScrollReveal>
             </div>
 
             {/* Big image — tall and full-column */}
@@ -390,11 +377,6 @@ const Companies = () => {
                 </div>
                 <h3 className="text-3xl md:text-5xl font-heading font-black text-[#172451] mb-6">SHREEJI INFRA</h3>
               </ScrollReveal>
-              <ScrollReveal x={50} y={0} delay={0.1}>
-                <Link to="/companies/shreeji-infra" className="inline-flex items-center gap-2 px-7 py-3 bg-[#172451] hover:bg-blue-900 text-white text-xs font-black uppercase tracking-wider rounded-xl transition-all duration-300 group shadow-lg shadow-blue-950/30 shrink-0 w-full sm:w-auto justify-center">
-                  EXPLORE INFRA <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </ScrollReveal>
             </div>
 
             {/* Big image — tall and full-column */}
@@ -449,5 +431,3 @@ const Companies = () => {
 };
 
 export default Companies;
-
-

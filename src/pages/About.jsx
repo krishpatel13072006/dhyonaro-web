@@ -17,6 +17,7 @@ import homeVision from '../images/home vision.avif';
 import shreejiInfraTechImg from '../images/shreeji infra tech.avif';
 import ScrollReveal, { ScrollRevealGroup } from '../components/ScrollReveal';
 import SectionTag from '../components/SectionTag';
+import LogoGrid from '../components/LogoGrid';
 
 
 
@@ -111,7 +112,7 @@ const About = () => (
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
               <div className="max-w-3xl">
                 <SectionTag>Our Promise</SectionTag>
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-black text-[#172451] leading-[1.1]">
+                <h2 className="text-3xl md:text-5xl lg:text-6xl font-heading font-black text-[#172451] leading-[1.1]">
                   What Sets <span className="text-[#172451]">Dhyanora</span> Apart?
                 </h2>
                 <p className="text-lg text-gray-500 leading-relaxed mt-6 max-w-2xl font-medium">
@@ -121,7 +122,7 @@ const About = () => (
               
               <Link 
                 to="/companies"
-                className="group bg-[#172451] hover:bg-blue-900 text-white px-8 py-4 rounded-xl font-bold transition-all duration-300 shadow-lg shadow-blue-950/20 whitespace-nowrap self-start md:self-auto flex items-center gap-2"
+                className="group bg-[#172451] hover:bg-blue-900 text-white px-5 py-3 md:px-7 md:py-3.5 text-sm rounded-xl font-bold transition-all duration-300 shadow-lg shadow-blue-950/20 whitespace-nowrap self-start md:self-auto flex items-center gap-2"
               >
                 Explore Our Companies
                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -133,7 +134,7 @@ const About = () => (
             
             {/* Principle 1: Focused Vision */}
             <ScrollReveal delay={0.1} x={-50} y={0}>
-              <div className="bg-white rounded-[2rem] p-10 h-full flex flex-col justify-center border border-slate-100 shadow-sm group hover:shadow-md transition-all duration-500">
+              <div className="bg-white rounded-[2rem] p-6 md:p-10 h-full flex flex-col justify-center border border-slate-100 shadow-sm group hover:shadow-md transition-all duration-500">
                 <h3 className="text-3xl lg:text-4xl font-heading font-black text-[#172451] mb-6 leading-tight">
                   Focused<br/>Vision
                 </h3>
@@ -145,7 +146,7 @@ const About = () => (
 
             {/* Decorative Image */}
             <ScrollReveal delay={0.2} y={50} x={0}>
-              <div className="rounded-[2rem] overflow-hidden h-full relative group shadow-sm">
+              <div className="rounded-[2rem] overflow-hidden h-[250px] md:h-full relative group shadow-sm">
                 <img 
                   src={focusedVision} 
                   alt="Strategic Vision" 
@@ -155,7 +156,7 @@ const About = () => (
             </ScrollReveal>
 
             {/* Principle 2: Sector Diversity (Large) */}
-            <ScrollReveal delay={0.3} x={60} y={0} className="lg:col-span-2 lg:row-span-2 relative group rounded-[2rem] overflow-hidden shadow-lg h-[500px] lg:h-full">
+            <ScrollReveal delay={0.3} x={60} y={0} className="lg:col-span-2 lg:row-span-2 relative group rounded-[2rem] overflow-hidden shadow-lg h-[400px] md:h-[500px] lg:h-full">
               <img 
                 src={sectorDiversity} 
                 alt="Sector Diversity" 
@@ -163,7 +164,7 @@ const About = () => (
               />
               <div className="absolute inset-0 bg-[#172451]/5 group-hover:bg-transparent transition-colors duration-500" />
 
-              <div className="absolute top-4 left-4 right-4 lg:right-auto lg:w-1/2 bg-white rounded-[1.8rem] p-10 shadow-2xl border border-white/20 transition-all duration-500 group-hover:-translate-y-1">
+              <div className="absolute top-4 left-4 right-4 lg:right-auto lg:w-1/2 bg-white rounded-[1.8rem] p-6 md:p-10 shadow-2xl border border-white/20 transition-all duration-500 group-hover:-translate-y-1">
                 <h3 className="text-3xl lg:text-4xl font-heading font-black text-[#172451] mb-6 leading-tight">
                   Sector<br/>Diversity
                 </h3>
@@ -175,7 +176,7 @@ const About = () => (
 
             {/* Principle 3: Gujarat Roots */}
             <ScrollReveal delay={0.4} y={-50} x={0}>
-              <div className="bg-[#fad77e] rounded-[2rem] p-10 h-full flex flex-col justify-center text-[#172451] shadow-xl group transition-all duration-500 hover:shadow-amber-200/50">
+              <div className="bg-[#fad77e] rounded-[2rem] p-6 md:p-10 h-full flex flex-col justify-center text-[#172451] shadow-xl group transition-all duration-500 hover:shadow-amber-200/50">
                 <h3 className="text-2xl lg:text-3xl font-heading font-black mb-6 leading-tight">
                   Gujarat Roots,<br/>Global Standards
                 </h3>
@@ -184,7 +185,7 @@ const About = () => (
 
             {/* Principle 4: Long-Term Thinking */}
             <ScrollReveal delay={0.5} x={-60} y={0}>
-              <div className="bg-white rounded-[2rem] p-10 h-full flex flex-col justify-center border border-slate-100 shadow-sm group hover:shadow-md transition-all duration-500">
+              <div className="bg-white rounded-[2rem] p-6 md:p-10 h-full flex flex-col justify-center border border-slate-100 shadow-sm group hover:shadow-md transition-all duration-500">
                 <h3 className="text-3xl lg:text-4xl font-heading font-black text-[#172451] mb-6 leading-tight">
                   Long-Term<br/>Thinking
                 </h3>
@@ -218,12 +219,7 @@ const About = () => (
             <ScrollReveal x={-60} y={0}>
               <div className="relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[420px] group">
                 <img src={focusedVision} alt="Vision" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                <div className="absolute inset-x-6 bottom-6 p-6 rounded-2xl bg-[#172451]/60 backdrop-blur-xl border border-white/10 flex flex-col justify-end">
-                  <span className="text-[#fad77e] text-[8px] md:text-[10px] font-black uppercase tracking-widest mb-2">Our Vision</span>
-                  <p className="text-white/90 text-xs md:text-sm font-semibold leading-relaxed max-w-xs">
-                    To be Gujarat's most trusted and diversified business conglomerate.
-                  </p>
-                </div>
+
               </div>
             </ScrollReveal>
             <ScrollReveal x={60} y={0} delay={0.15}>
@@ -261,19 +257,14 @@ const About = () => (
             <ScrollReveal x={60} y={0} delay={0.15} className="order-1 lg:order-2">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[420px] group">
                 <img src={longTermThinking} alt="Mission" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                <div className="absolute inset-x-6 bottom-6 p-6 rounded-2xl bg-[#172451]/60 backdrop-blur-xl border border-white/10 flex flex-col justify-end">
-                  <span className="text-blue-300 text-[8px] md:text-[10px] font-black uppercase tracking-widest mb-2">Our Mission</span>
-                  <p className="text-white/90 text-xs md:text-sm font-semibold leading-relaxed max-w-xs">
-                    Building high-quality businesses that create tangible value for Gujarat.
-                  </p>
-                </div>
+
               </div>
             </ScrollReveal>
           </div>
 
           {/* Purpose — full width centered dark card */}
           <ScrollReveal delay={0.1} y={60} x={0}>
-            <div className="relative rounded-3xl overflow-hidden bg-[#172451] p-8 md:p-16 text-center">
+            <div className="relative rounded-3xl overflow-hidden bg-[#172451] p-6 md:p-16 text-center">
               {/* Decorative glow */}
               <div className="absolute inset-0 bg-gradient-to-br from-[#172451]/20 to-transparent pointer-events-none" />
               <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#172451]/15 rounded-full blur-3xl pointer-events-none" />
@@ -321,7 +312,10 @@ const About = () => (
         </div>
       </section>
 
-      {/* ════ 5. GLOBAL REACH — blob preserved ════ */}
+      {/* ════ 5. LOGO GRID ════ */}
+      <LogoGrid />
+
+      {/* ════ 6. GLOBAL REACH — blob preserved ════ */}
       <GlobalReach />
       <FooterCTA />
     </main>

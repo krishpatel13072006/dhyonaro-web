@@ -110,7 +110,7 @@ const Contact = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.8 }}
                 >
-                  <h1 className="text-4xl md:text-7xl font-heading font-black uppercase leading-[0.9] mb-8 italic text-[#172451]">
+                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-black uppercase leading-[1.1] mb-8 text-[#172451]">
                     Let's Talk About <br />
                     <span className="text-[#fad77e]">Strategic Growth</span>
                   </h1>
@@ -131,7 +131,7 @@ const Contact = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent opacity-40" />
                   
                   {/* Floating Social Icons with REAL COLORS */}
-                  <div className="absolute left-6 bottom-8 flex flex-col gap-4">
+                  <div className="absolute left-6 bottom-8 flex flex-row lg:flex-col gap-3 md:gap-4">
                     {socialLinks.map(({ Icon, link, color }, i) => (
                       <motion.a
                         key={i}
@@ -139,9 +139,9 @@ const Contact = () => {
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.4 + i * 0.1 }}
-                        className="w-12 h-12 rounded-2xl bg-white shadow-xl flex items-center justify-center transition-all duration-300 hover:scale-110 border border-gray-100 group/social"
+                        className="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-white shadow-xl flex items-center justify-center transition-all duration-300 hover:scale-110 border border-gray-100 group/social"
                       >
-                        <Icon size={20} style={{ color: color }} className="transition-transform duration-300 group-hover/social:scale-110" />
+                        <Icon style={{ color: color }} className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover/social:scale-110" />
                       </motion.a>
                     ))}
                   </div>
@@ -174,8 +174,13 @@ const Contact = () => {
                     <div className="space-y-4">
                       <label className="text-[10px] font-black uppercase tracking-[0.2em] text-[#172451]/30 ml-1">Phone Number</label>
                       <div className="flex gap-4">
-                        <select className="w-28 bg-gray-50 border border-[#172451]/5 rounded-2xl px-3 py-4 focus:outline-none focus:border-[#172451] focus:bg-white transition-all font-sans text-sm text-[#172451]">
-                          <option>🇮🇳 +91</option>
+                        <select className="w-32 bg-gray-50 border border-[#172451]/5 rounded-2xl px-3 py-4 focus:outline-none focus:border-[#172451] focus:bg-white transition-all font-sans text-sm font-bold text-[#172451]">
+                          <option>IN (+91)</option>
+                          <option>US (+1)</option>
+                          <option>UK (+44)</option>
+                          <option>AE (+971)</option>
+                          <option>AU (+61)</option>
+                          <option>CA (+1)</option>
                         </select>
                         <input type="tel" placeholder="Mobile Number" className="flex-1 bg-gray-50 border border-[#172451]/5 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#172451] focus:bg-white transition-all font-sans text-sm text-[#172451] placeholder:text-[#172451]/20" />
                       </div>
@@ -201,8 +206,8 @@ const Contact = () => {
                       <label htmlFor="consent" className="text-[11px] text-[#172451]/40 font-bold tracking-wide">I agree to be contacted regarding this inquiry.</label>
                     </div>
 
-                    <div className="flex justify-start pt-4">
-                      <button className="px-10 py-4 bg-[#172451] text-white rounded-full font-heading font-black uppercase tracking-[0.2em] text-[11px] shadow-2xl transition-all flex items-center gap-5 group hover:bg-[#172451] hover:scale-105 active:scale-95">
+                    <div className="flex justify-center md:justify-start pt-4">
+                      <button className="w-full md:w-auto px-6 py-3 md:px-10 md:py-4 bg-[#172451] text-white rounded-full font-heading font-black uppercase tracking-[0.2em] text-[10px] md:text-[11px] shadow-2xl transition-all flex items-center justify-center md:justify-start gap-4 md:gap-5 group hover:bg-[#172451] hover:scale-105 active:scale-95">
                         Send Message
                         <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center transition-all group-hover:bg-white group-hover:text-[#172451]">
                           <Send size={14} className="ml-0.5" />
@@ -225,7 +230,7 @@ const Contact = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-4xl md:text-6xl font-heading font-black uppercase mb-6 italic text-[#172451] leading-tight">
+                <h2 className="text-4xl md:text-6xl font-heading font-black uppercase mb-6 text-[#172451] leading-tight">
                   The Details <br />
                   <span className="text-[#172451]">Behind Dhyanora</span>
                 </h2>
@@ -273,7 +278,7 @@ const Contact = () => {
                     transition={{ duration: 0.8, delay: 0.3 }}
                     className="space-y-6 md:space-y-10"
                   >
-                  <h2 className="text-3xl md:text-6xl font-heading font-black uppercase leading-[0.9] italic text-white drop-shadow-2xl">
+                  <h2 className="text-3xl md:text-6xl font-heading font-black uppercase leading-[0.9] text-white drop-shadow-2xl">
                     See Our Vision.<br />
                     <span className="text-[#fad77e]">Shape Your Future.</span>
                   </h2>
@@ -292,7 +297,7 @@ const Contact = () => {
              
              {/* Bottom Giant Text */}
              <div className="absolute -bottom-16 left-1/2 -translate-x-1/2 w-full pointer-events-none select-none overflow-hidden">
-                <h3 className="text-[10vw] md:text-[14vw] font-heading font-black italic uppercase leading-none opacity-[0.03] whitespace-nowrap text-center text-[#172451] tracking-[0.2em]">
+                <h3 className="text-[10vw] md:text-[14vw] font-heading font-black uppercase leading-none opacity-[0.03] whitespace-nowrap text-center text-[#172451] tracking-[0.2em]">
                   Dhyanora
                 </h3>
              </div>

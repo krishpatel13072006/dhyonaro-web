@@ -12,27 +12,31 @@ import img8 from '../images/secure tiles.avif';
 
 const ALL_IMAGES = [img1, img2, img3, img4, img5, img6, img7, img8];
 
-// Duplicate the images to ensure seamless scrolling
-const COLUMN_1 = [...ALL_IMAGES, ...ALL_IMAGES];
-const COLUMN_2 = [...ALL_IMAGES].reverse().concat([...ALL_IMAGES].reverse());
-const COLUMN_3 = [...ALL_IMAGES.slice(2), ...ALL_IMAGES.slice(0, 2), ...ALL_IMAGES.slice(2), ...ALL_IMAGES.slice(0, 2), ...ALL_IMAGES.slice(2), ...ALL_IMAGES.slice(0, 2), ...ALL_IMAGES.slice(2), ...ALL_IMAGES.slice(0, 2)];
-const COLUMN_4 = [...ALL_IMAGES.slice(4), ...ALL_IMAGES.slice(0, 4), ...ALL_IMAGES.slice(4), ...ALL_IMAGES.slice(0, 4), ...ALL_IMAGES.slice(4), ...ALL_IMAGES.slice(0, 4), ...ALL_IMAGES.slice(4), ...ALL_IMAGES.slice(0, 4)].reverse();
-const COLUMN_5 = [...ALL_IMAGES, ...ALL_IMAGES];
+// Quadruple the images to ensure seamless scrolling and full coverage
+const col3_base = [...ALL_IMAGES.slice(2), ...ALL_IMAGES.slice(0, 2)];
+const col4_base = [...ALL_IMAGES.slice(4), ...ALL_IMAGES.slice(0, 4)].reverse();
+
+const COLUMN_1 = [...ALL_IMAGES, ...ALL_IMAGES, ...ALL_IMAGES, ...ALL_IMAGES];
+const COLUMN_2 = [...[...ALL_IMAGES].reverse(), ...[...ALL_IMAGES].reverse(), ...[...ALL_IMAGES].reverse(), ...[...ALL_IMAGES].reverse()];
+const COLUMN_3 = [...col3_base, ...col3_base, ...col3_base, ...col3_base];
+const COLUMN_4 = [...col4_base, ...col4_base, ...col4_base, ...col4_base];
+const COLUMN_5 = [...ALL_IMAGES, ...ALL_IMAGES, ...ALL_IMAGES, ...ALL_IMAGES];
+const COLUMN_6 = [...[...ALL_IMAGES].reverse(), ...[...ALL_IMAGES].reverse(), ...[...ALL_IMAGES].reverse(), ...[...ALL_IMAGES].reverse()];
 
 const MovingImageGrid = () => {
   return (
     <div className="absolute inset-0 overflow-hidden bg-[#050b14] pointer-events-none select-none">
       <div className="absolute inset-0 opacity-100">
         <div 
-          className="flex gap-4 min-w-[150vw] h-[250vh] -ml-[25vw] -mt-[75vh]"
+          className="flex gap-4 w-[2000px] md:w-[150vw] h-[4000px] md:h-[250vh] -ml-[800px] md:-ml-[25vw] -mt-[1500px] md:-mt-[75vh] max-w-none"
           style={{ transform: 'rotate(-12deg)' }}
         >
-          <GridColumn images={COLUMN_1} direction="up" speed={35} />
-          <GridColumn images={COLUMN_2} direction="down" speed={45} />
-          <GridColumn images={COLUMN_3} direction="up" speed={40} />
-          <GridColumn images={COLUMN_4} direction="down" speed={50} />
-          <GridColumn images={COLUMN_5} direction="up" speed={35} />
-          <GridColumn images={COLUMN_2} direction="down" speed={42} />
+          <GridColumn images={COLUMN_1} direction="up" speed={70} />
+          <GridColumn images={COLUMN_2} direction="down" speed={90} />
+          <GridColumn images={COLUMN_3} direction="up" speed={80} />
+          <GridColumn images={COLUMN_4} direction="down" speed={100} />
+          <GridColumn images={COLUMN_5} direction="up" speed={70} />
+          <GridColumn images={COLUMN_6} direction="down" speed={84} />
         </div>
       </div>
       
