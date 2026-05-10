@@ -10,7 +10,7 @@ export default function Hero() {
     <section className="relative w-full min-h-screen flex items-center overflow-hidden bg-[#172451] pt-20">
        <ModernVideoBackground 
          videos={['/videos/Company-1.mp4', '/videos/home-hero-1.mp4']} 
-         overlayOpacity={0.6}
+         overlayOpacity={0.3}
        />
 
 

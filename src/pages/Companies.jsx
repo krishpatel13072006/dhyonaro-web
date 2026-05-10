@@ -111,7 +111,7 @@ const Companies = () => {
          <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#172451]">
            <ModernVideoBackground 
              videos={['/videos/company-3.mp4', '/videos/company-2.mp4', '/videos/Company-1.mp4']} 
-             overlayOpacity={0.15} 
+             overlayOpacity={0.05} 
            />
           <div className="relative z-30 text-center px-6 max-w-5xl mx-auto">
             <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#172451]/80 backdrop-blur-sm text-white text-[10px] md:text-xs font-bold uppercase tracking-widest mb-6 md:mb-8">

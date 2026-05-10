@@ -116,7 +116,7 @@ const CompanyTech = () => {
         <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#172451]">
           <ModernVideoBackground 
             videos={['/videos/tech-1.mp4', '/videos/tech-2.mp4']} 
-            overlayOpacity={0.15}
+            overlayOpacity={0.05}
           />
 
 
