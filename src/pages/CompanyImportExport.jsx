@@ -3,7 +3,7 @@ import SEO from '../components/SEO';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, HardHat, ShieldCheck, Globe2, Settings2 } from 'lucide-react';
-import CrossfadeVideo from '../components/CrossfadeVideo';
+import ModernVideoBackground from '../components/ModernVideoBackground';
 
 
 const CompanyImportExport = () => {
@@ -17,9 +17,9 @@ const CompanyImportExport = () => {
       <main className="bg-white min-h-screen">
         {/* ── HERO ── */}
         <section className="relative h-[60vh] w-full overflow-hidden flex items-center justify-center bg-[#172451]">
-          <CrossfadeVideo 
+          <ModernVideoBackground 
             videos={['/videos/Company-1.mp4', '/videos/company-2.mp4', '/videos/company-3.mp4']} 
-            overlayOpacity={0.15}
+            overlayOpacity={0.15} 
           />
 
 

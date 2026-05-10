@@ -8,7 +8,7 @@ import {
   Settings2, Globe2, Truck, Cpu, Zap, Download
 } from 'lucide-react';
 
-import CrossfadeVideo from '../components/CrossfadeVideo';
+import ModernVideoBackground from '../components/ModernVideoBackground';
 import ScrollReveal, { ScrollRevealGroup } from '../components/ScrollReveal';
 import FooterCTA from '../components/FooterCTA';
 import BouncingCircles from '../components/BouncingCircles';
@@ -86,7 +86,7 @@ const CompanyShreeji = () => {
       <main className="bg-white overflow-x-hidden">
         {/* ════ HERO SECTION ════ */}
         <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#172451]">
-          <CrossfadeVideo
+          <ModernVideoBackground
             videos={['/videos/shreeji-1.mp4', '/videos/shreeji-2.mp4']}
             overlayOpacity={0.15}
           />

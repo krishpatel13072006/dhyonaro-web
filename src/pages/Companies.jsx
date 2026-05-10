@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Home, ChevronRight, Building2, Globe2, ShieldCheck, Truck, Cpu, HeadphonesIcon, Settings2, Zap, MapPin, HardHat, CheckCircle2, Calendar, Factory } from 'lucide-react';
 import IndustrialOrbit from '../components/IndustrialOrbit';
 import ScrollReveal, { ScrollRevealGroup } from '../components/ScrollReveal';
-import CrossfadeVideo from '../components/CrossfadeVideo';
+import ModernVideoBackground from '../components/ModernVideoBackground';
 import BouncingCircles from '../components/BouncingCircles';
 
 
@@ -101,9 +101,6 @@ const Companies = () => {
   const overviewRef = useRef(null);
   const overviewInView = useInView(overviewRef, { once: true, margin: '-80px' });
   
-  const video1 = '/videos/Company-1.mp4';
-  const video2 = '/videos/company-2.mp4';
-  const video3 = '/videos/company-3.mp4';
 
   return (
     <>
@@ -112,7 +109,10 @@ const Companies = () => {
 
          {/* ════ HERO ════ */}
          <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#172451]">
-           <CrossfadeVideo videos={[video1, video2, video3]} overlayOpacity={0.15} />
+           <ModernVideoBackground 
+             videos={['/videos/Company-1.mp4', '/videos/company-2.mp4', '/videos/company-3.mp4']} 
+             overlayOpacity={0.15} 
+           />
           <div className="relative z-30 text-center px-6 max-w-5xl mx-auto">
             <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#172451]/80 backdrop-blur-sm text-white text-[10px] md:text-xs font-bold uppercase tracking-widest mb-6 md:mb-8">
               <Building2 size={14} /> Our Strategic Portfolio
