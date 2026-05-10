@@ -9,7 +9,7 @@ export default function Hero() {
   return (
     <section className="relative w-full min-h-screen flex items-center overflow-hidden bg-[#172451] pt-20">
        <ModernVideoBackground 
-         videos={['/videos/home-hero-1.mp4', '/videos/Company-1.mp4']} 
+         videos={['/videos/Company-1.mp4', '/videos/home-hero-1.mp4']} 
          overlayOpacity={0.6}
        />
 

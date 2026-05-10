@@ -40,9 +40,24 @@ const ModernVideoBackground = ({
   }, [index, videos]);
 
   const handleEnded = (videoIndex) => {
-    // Only trigger next video if the one that ended is the currently active one
-    if (videoIndex === index && videos.length > 1) {
-      setIndex((prev) => (prev + 1) % videos.length);
+    // 1. If there's only one video, let the browser handle looping
+    if (videos.length <= 1) return;
+
+    // 2. Determine the next intended video
+    const nextIndex = (videoIndex + 1) % videos.length;
+    const nextVideo = videoRefs.current[nextIndex];
+
+    // 3. Check if next video is ready (HAVE_ENOUGH_DATA or better)
+    if (nextVideo && nextVideo.readyState >= 3) {
+      setIndex(nextIndex);
+    } else {
+      // Not ready: Loop the current video instead of switching to a frozen frame
+      const currentVideo = videoRefs.current[videoIndex];
+      if (currentVideo) {
+        currentVideo.currentTime = 0;
+        currentVideo.play();
+        console.log(`[VideoDebug] Next video (${nextIndex}) not ready. Looping video ${videoIndex}.`);
+      }
     }
   };
 
@@ -50,33 +65,33 @@ const ModernVideoBackground = ({
     <div className={`absolute inset-0 overflow-hidden bg-[#050b14] ${className}`}>
       
       {/* 1. The Stacked Video Layers */}
-      {videos.map((videoPath, i) => (
-        <motion.video
-          key={videoPath}
-          ref={(el) => (videoRefs.current[i] = el)}
-          src={resolvePath(videoPath)}
-          initial={{ opacity: 0 }}
-          // Crossfade magic: Only the active video fades to 1, rest fade to 0
-          animate={{ opacity: index === i ? 1 : 0 }} 
-          transition={{ duration: 1.5, ease: "easeInOut" }}
-          onEnded={() => handleEnded(i)}
-          muted
-          playsInline
-          // Loop continuously if there is only 1 video in the array
-          loop={videos.length === 1} 
-          preload="auto"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-      ))}
+      {videos.map((videoPath, i) => {
+        const isCurrent = index === i;
+        const isNext = (index + 1) % videos.length === i;
+
+        return (
+          <motion.video
+            key={videoPath}
+            ref={(el) => (videoRefs.current[i] = el)}
+            src={resolvePath(videoPath)}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: isCurrent ? 1 : 0 }} 
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            onEnded={() => handleEnded(i)}
+            muted
+            playsInline
+            loop={videos.length === 1} 
+            preload={isCurrent || isNext ? "auto" : "metadata"}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        );
+      })}
 
       {/* 2. Premium Overlays */}
-      
-      {/* Subtle Grainy Noise Overlay */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay z-10"
         style={{ backgroundImage: `url('https://grainy-gradients.vercel.app/noise.svg')` }}
       />
 
-      {/* Cinematic Gradient Mesh */}
       <div className="absolute inset-0 z-20 pointer-events-none"
         style={{ 
           background: `radial-gradient(circle at center, transparent 0%, rgba(5, 11, 20, ${overlayOpacity}) 100%),
