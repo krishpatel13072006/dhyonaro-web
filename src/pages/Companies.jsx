@@ -110,7 +110,7 @@ const Companies = () => {
          {/* ════ HERO ════ */}
          <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#172451]">
            <ModernVideoBackground 
-             videos={['/videos/company-3.mp4', '/videos/company-2.mp4', '/videos/Company-1.mp4']} 
+             videos={['/videos/company-3.mp4', '/videos/company-2.mp4', '/videos/company-1.mp4']} 
              overlayOpacity={0.05} 
            />
           <div className="relative z-30 text-center px-6 max-w-5xl mx-auto">
