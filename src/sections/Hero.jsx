@@ -3,13 +3,14 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ModernVideoBackground from '../components/ModernVideoBackground';
+const HERO_VIDEOS = ['/videos/Company-1.mp4', '/videos/home-hero-1.mp4'];
 
 export default function Hero() {
 
   return (
     <section className="relative w-full min-h-screen flex items-center overflow-hidden bg-[#172451] pt-20">
        <ModernVideoBackground 
-         videos={['/videos/Company-1.mp4', '/videos/home-hero-1.mp4']} 
+         videos={HERO_VIDEOS} 
          overlayOpacity={0.3}
        />
 

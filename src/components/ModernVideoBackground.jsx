@@ -25,21 +25,19 @@ const ModernVideoBackground = ({
       const videoElement = videoRefs.current[i];
       if (videoElement) {
         if (i === index) {
-          // Play the currently active video from the beginning
-          try {
-            if (videoElement.readyState >= 1) { // HAVE_METADATA or better
-              videoElement.currentTime = 0; 
-            }
-          } catch (e) {
-            console.warn("Could not set currentTime:", e);
+          // Play the currently active video
+          if (videoElement.paused) {
+            videoElement.play().catch(err => {
+              console.warn(`[VideoDebug] Autoplay blocked for video ${i}:`, err);
+              // Fallback: try playing again on user interaction or just wait
+            });
           }
-          videoElement.play().catch(err => console.warn("Autoplay blocked:", err));
         } else {
-          // Let the outgoing video play during the 1.5s fade out, 
-          // then pause it to save CPU and battery
-          setTimeout(() => {
-             if (videoElement) videoElement.pause();
-          }, 1500);
+          // Pause background videos after fade out to save resources
+          const timer = setTimeout(() => {
+             if (videoElement && i !== index) videoElement.pause();
+          }, 1600);
+          return () => clearTimeout(timer);
         }
       }
     });
@@ -79,8 +77,7 @@ const ModernVideoBackground = ({
           <motion.video
             key={videoPath}
             ref={(el) => (videoRefs.current[i] = el)}
-            src={resolvePath(videoPath)}
-            initial={{ opacity: 0 }}
+            initial={false} // Prevent initial fade-in delay
             animate={{ opacity: isCurrent ? 1 : 0 }} 
             transition={{ duration: 1.5, ease: "easeInOut" }}
             onEnded={() => handleEnded(i)}
@@ -90,7 +87,10 @@ const ModernVideoBackground = ({
             loop={videos.length === 1} 
             preload={isCurrent || isNext ? "auto" : "metadata"}
             className="absolute inset-0 w-full h-full object-cover"
-          />
+          >
+            <source src={resolvePath(videoPath)} type="video/mp4" />
+            Your browser does not support the video tag.
+          </motion.video>
         );
       })}
 
