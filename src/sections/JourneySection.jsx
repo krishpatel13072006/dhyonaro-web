@@ -8,30 +8,35 @@ const journeySteps = [
     year: "2010",
     title: "The Genesis",
     text: "Pramukh Group was founded with a vision to revolutionize local trade with integrity.",
+    alt: "Dhyanora Group Founding and Early Trading Business in 2010",
     image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800"
   },
   {
     year: "2014",
     title: "Infrastructure Boom",
     text: "Launch of Shreeji Infra marked our entry into visionary construction.",
+    alt: "Shreeji Infra Establishment and Industrial Infrastructure Growth in Gujarat",
     image: "https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=800"
   },
   {
     year: "2018",
     title: "Going Global",
     text: "Connecting borders through quality with Pramukh Import Export.",
+    alt: "Pramukh Import Export Global Expansion and Metal Trading Logistics",
     image: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&q=80&w=800"
   },
   {
     year: "2022",
     title: "Tech Innovation",
     text: "Scaling next-gen solutions with Pramukh Tech Venture.",
+    alt: "Pramukh Techventures Electronics Retail and Technology Innovation",
     image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800"
   },
   {
     year: "2022",
     title: "Future Horizons",
     text: "Leading the industry with sustainable and diversified growth.",
+    alt: "Dhyanora Group Future Strategic Vision and Sustainable Industrial Growth",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800"
   }
 ];
@@ -113,7 +118,7 @@ const JourneySection = () => {
                    <img 
                     src={step.image} 
                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" 
-                    alt={step.title} 
+                    alt={step.alt} 
                    />
                 </div>
                 

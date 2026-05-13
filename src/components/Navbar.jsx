@@ -70,7 +70,7 @@ const Navbar = () => {
             )}>
               <img
                 src={(!scrolled && isTransparentPage) ? DhyonoraLogo2 : DhyanoraLogo1}
-                alt="Dhyanora Group"
+                alt="Dhyanora Group - Diversified Industrial Conglomerate in Gujarat"
                 className="h-7 sm:h-8 md:h-12 w-auto object-contain transition-all duration-300"
               />
             </div>
@@ -138,7 +138,7 @@ const Navbar = () => {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex items-center justify-between p-6 border-b border-gray-100">
-                <img src={DhyanoraLogo1} alt="Dhyanora Group" className="h-8 w-auto object-contain" />
+                <img src={DhyanoraLogo1} alt="Dhyanora Group - Industrial Excellence" className="h-8 w-auto object-contain" />
                 <button 
                   onClick={() => setIsOpen(false)}
                   className="p-2 bg-navy/5 text-navy rounded-lg"

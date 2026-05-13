@@ -104,7 +104,10 @@ const Companies = () => {
 
   return (
     <>
-      <SEO title="Our Companies | Dhyanora Group" description="Explore Dhyanora Group's strategic portfolio spanning metal scrap trading, electronics retail, and industrial infrastructure in Gujarat." />
+      <SEO 
+        title="Dhyanora Group Companies | Industrial & Retail Portfolio" 
+        description="Explore Dhyanora Group's strategic portfolio in Gujarat. Specialists in metal scrap trading, electronics retail, and industrial infrastructure development." 
+      />
       <main className="bg-white text-[#172451] overflow-x-hidden">
 
          {/* ════ HERO ════ */}
@@ -130,7 +133,7 @@ const Companies = () => {
         {/* ════ OVERVIEW ════ */}
         <section className="bg-white relative mt-0" ref={overviewRef}>
           <div className="relative w-full pt-16 pb-24 md:pt-20 md:pb-28 overflow-hidden flex flex-col items-center justify-center">
-            <img src={sectorDiversityImg} alt="Strategic Growth" className="absolute inset-0 w-full h-full object-cover" />
+            <img src={sectorDiversityImg} alt="Dhyanora Group Strategic Growth and Diversified Business Sectors in Gujarat" className="absolute inset-0 w-full h-full object-cover" />
             <div className="absolute inset-0 bg-[#172451]/90 backdrop-blur-[1px]" />
             <div className="absolute inset-0 opacity-20 pointer-events-none">
               <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
@@ -192,7 +195,7 @@ const Companies = () => {
             </div>
             <ScrollReveal delay={0.05} y={40} x={0}>
               <div className="relative rounded-3xl overflow-hidden shadow-2xl w-full h-[45vh] md:h-[60vh] min-h-[300px] md:min-h-[420px] mb-10 md:mb-12 group">
-                <img src={pramukhImportExportMainImg} alt="Pramukh Import Export" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1.4s] ease-out" />
+                <img src={pramukhImportExportMainImg} alt="Pramukh Import Export - Leading Metal Scrap Trading Company in Gujarat" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1.4s] ease-out" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                 <div className="absolute top-4 right-4 md:top-6 md:right-6 bg-white/90 backdrop-blur-sm px-3 py-1.5 md:px-4 md:py-2 rounded-full font-bold text-[9px] md:text-xs text-[#172451] shadow-lg flex items-center gap-2">
                   <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-[#172451] animate-pulse" /> Global Sourcing Network
@@ -248,7 +251,7 @@ const Companies = () => {
             </div>
             <ScrollReveal delay={0.05} y={40} x={0}>
               <div className="relative rounded-3xl overflow-hidden shadow-2xl w-full h-[45vh] md:h-[60vh] min-h-[300px] md:min-h-[420px] mb-10 md:mb-12 group">
-                <img src={techVentureMainImg} alt="Pramukh Techventures" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1.4s] ease-out" />
+                <img src={techVentureMainImg} alt="Pramukh Techventures - Authorized Electronics Retailer in Ahmedabad" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1.4s] ease-out" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                 <div className="absolute top-4 right-4 md:top-6 md:right-6 bg-white/90 backdrop-blur-sm px-3 py-1.5 md:px-4 md:py-2 rounded-full font-bold text-[9px] md:text-xs text-[#172451] shadow-lg flex items-center gap-2">
                   <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-[#172451] animate-pulse" /> Authorized Retailer
@@ -304,7 +307,7 @@ const Companies = () => {
             </div>
             <ScrollReveal delay={0.05} y={40} x={0}>
               <div className="relative rounded-3xl overflow-hidden shadow-2xl w-full h-[45vh] md:h-[60vh] min-h-[300px] md:min-h-[420px] mb-10 md:mb-12 group">
-                <img src={shreejiMainImg} alt="Shreeji Infra" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1.4s] ease-out" />
+                <img src={shreejiMainImg} alt="Shreeji Infra - Mahantam Industrial Park and Infrastructure Development" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1.4s] ease-out" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                 <div className="absolute top-4 right-4 md:top-6 md:right-6 bg-white/90 backdrop-blur-sm px-3 py-1.5 md:px-4 md:py-2 rounded-full font-bold text-[9px] md:text-xs text-[#172451] shadow-lg flex items-center gap-2">
                   <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-[#172451] animate-pulse" /> Flagship Asset

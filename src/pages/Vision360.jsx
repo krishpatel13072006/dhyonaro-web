@@ -115,7 +115,7 @@ export default function Vision360() {
 
   return (
     <div className="fixed inset-0 w-full h-screen h-[100dvh] overflow-hidden bg-black text-white z-[9999]">
-      <SEO title="Dhyanora Nexus Helix | Industrial Vision 360" description="Explore the four core business divisions of Dhyanora Group through an interactive 3D Nexus Helix experience." />
+      <SEO title="Nexus Helix | Interactive 3D Business Vision | Dhyanora Group" description="Experience the future of Dhyanora Group through an interactive 3D Nexus Helix, showcasing our core industrial and retail divisions." />
       
       <AnimatePresence>
         {showHints && (

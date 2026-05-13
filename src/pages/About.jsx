@@ -27,8 +27,8 @@ import BouncingCircles from '../components/BouncingCircles';
 const About = () => (
   <>
     <SEO
-      title="About Us | Dhyanora Group | Ahmedabad, Gujarat"
-      description="Learn how Dhyanora Group was founded in Ahmedabad in 2022 on disciplined, value-driven principles spanning metal scrap, electronics, infrastructure, and construction."
+      title="About Dhyanora Group | Industrial Excellence in Gujarat"
+      description="Discover Dhyanora Group, a leading industrial conglomerate in Ahmedabad. Founded in 2022, we excel in metal trading, electronics, and infrastructure."
       breadcrumbs={[
         { name: 'Home', path: '/' },
         { name: 'About Us', path: '/about' }
@@ -39,7 +39,7 @@ const About = () => (
       {/* ════ 1. HERO ════ */}
       <section className="relative h-[80vh] md:h-[100vh] w-full overflow-hidden flex items-end pb-12 md:pb-16 px-6 md:px-12">
         <div className="absolute inset-0">
-          <img src={aboutHeroImg} className="w-full h-full object-cover" alt="Dhyanora Office" />
+          <img src={aboutHeroImg} className="w-full h-full object-cover" alt="Dhyanora Group Corporate Office and Strategic Leadership Hub" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto w-full">
@@ -94,7 +94,7 @@ const About = () => (
                 <div className="absolute inset-0 bg-[#172451]/10 rounded-3xl translate-x-3 translate-y-3 md:translate-x-4 md:translate-y-4" />
                 <img
                   src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=900"
-                  alt="Dhyanora Strategy"
+                  alt="Strategic Business Growth and Focus - Dhyanora Group Philosophy"
                   className="relative rounded-3xl shadow-2xl w-full h-[320px] md:h-[480px] object-cover"
                 />
                 <div className="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 bg-[#172451] text-white px-5 py-4 md:px-7 md:py-5 rounded-2xl shadow-2xl">
@@ -350,7 +350,7 @@ const About = () => (
               <img
                 src={gujaratRoutes}
                 className="absolute inset-0 w-full h-full object-cover opacity-10 mix-blend-luminosity"
-                alt=""
+                alt="Dhyanora Group's Strategic Connectivity and Industrial Routes in Gujarat"
               />
 
               <div className="relative z-10 max-w-3xl mx-auto">

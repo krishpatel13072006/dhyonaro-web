@@ -57,7 +57,7 @@ const CategoryCard = ({ icon: Icon, title, desc, img, delay }) => (
       className="group relative bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 h-full border border-slate-100"
     >
       <div className="aspect-[4/3] overflow-hidden relative">
-        <img src={img} alt={title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+        <img src={img} alt={`${title} - Premium Electronics Category at Pramukh Techventures`} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
         <div className="absolute bottom-4 left-6">
           <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white shadow-lg">
@@ -107,8 +107,8 @@ const CompanyTech = () => {
   return (
     <>
       <SEO 
-        title="Pramukh Techventures | Premium Electronics & Tech Retail | Dhyanora Group" 
-        description="Pramukh Techventures brings authorized global electronics brands to Gujarat, featuring 4K entertainment, smart appliances, and mobile technology." 
+        title="Pramukh Techventures | Authorized Electronics Retailer" 
+        description="Authorized retailer for premium electronics in Gujarat. Pramukh Techventures offers 4K entertainment, smart appliances, and expert technology guidance." 
       />
       
       <main className="bg-white overflow-x-hidden">
@@ -211,7 +211,7 @@ const CompanyTech = () => {
 
               <ScrollReveal x={60} y={0} delay={0.2}>
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-square">
-                  <img src={techVentureMainImg} alt="Technology Retail" className="w-full h-full object-cover" />
+                  <img src={techVentureMainImg} alt="Pramukh Techventures Premium Technology Retail Showroom and Customer Experience Center" className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent" />
                   <div className="absolute top-8 right-8 bg-white/90 backdrop-blur-md px-6 py-3 rounded-2xl shadow-xl">
                     <div className="flex items-center gap-3">
@@ -264,11 +264,11 @@ const CompanyTech = () => {
                 <div className="w-full md:w-1/2">
                   <ScrollReveal x={i % 2 === 0 ? -60 : 60} y={0}>
                     <div className="relative aspect-square rounded-[3rem] overflow-hidden shadow-2xl border-[12px] border-white/50 bg-white">
-                      <img 
-                        src={cat.img} 
-                        alt={cat.title} 
-                        className="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-110" 
-                      />
+                        <img 
+                          src={cat.img} 
+                          alt={`${cat.title} - High-quality technology solutions from Pramukh Techventures`} 
+                          className="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-110" 
+                        />
                       <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors duration-1000" />
                       
                       {/* Floating Icon Badge */}
@@ -357,7 +357,7 @@ const CompanyTech = () => {
 
               <ScrollReveal x={60} y={0} delay={0.2}>
                 <div className="relative rounded-[3rem] overflow-hidden shadow-2xl aspect-[4/3] group">
-                  <img src={daewooShowroom} alt="Daewoo Showroom" className="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-110" />
+                  <img src={daewooShowroom} alt="DAEWOO India Authorized Franchise Showroom by Pramukh Techventures" className="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#172451]/60 to-transparent" />
                   <div className="absolute bottom-8 left-8 right-8">
                     <p className="text-white/70 text-[10px] font-black uppercase tracking-widest mb-2">Pramukh Techventures x Daewoo</p>
@@ -384,7 +384,7 @@ const CompanyTech = () => {
               {/* Power Solutions Box (with Image) */}
               <ScrollReveal y={40} delay={0.2} className="md:col-span-2">
                 <div className="relative rounded-[2.5rem] overflow-hidden group h-full min-h-[300px]">
-                  <img src={daewooBattery} alt="Daewoo Power Solutions" className="absolute inset-0 w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-105" />
+                  <img src={daewooBattery} alt="DAEWOO Industrial Strength Batteries and Power Solutions - Pramukh Techventures" className="absolute inset-0 w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-105" />
                   <div className="absolute inset-0 bg-gradient-to-r from-[#172451] via-[#172451]/40 to-transparent p-10 flex flex-col justify-center">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#fad77e] text-[#172451] text-[10px] font-black uppercase tracking-widest mb-6 w-fit">
                       <Zap size={12} /> Power Solutions

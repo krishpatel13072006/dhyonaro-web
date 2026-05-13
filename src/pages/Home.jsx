@@ -108,8 +108,8 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="Dhyanora Group | Building Businesses That Last | Ahmedabad, Gujarat"
-        description="Dhyanora Group is a diversified business conglomerate based in Ahmedabad, Gujarat — spanning metal scrap trading, electronics retail, industrial infrastructure, and construction materials."
+        title="Dhyanora Group | Industrial Conglomerate in Ahmedabad"
+        description="Dhyanora Group is a leading industrial conglomerate in Ahmedabad, Gujarat. Specialists in metal scrap trading, electronics retail, and industrial infrastructure."
       />
       <Helmet>
         <script type="application/ld+json">
@@ -202,7 +202,7 @@ export default function Home() {
                   <div className="w-full h-full overflow-hidden rounded-2xl shadow-2xl">
                     <img
                       src={pramukhInfratechMain}
-                      alt="Dhyanora Group Headquarters"
+                      alt="Dhyanora Group Industrial Infrastructure and Corporate Office in Ahmedabad"
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                     />
                   </div>
@@ -343,7 +343,7 @@ export default function Home() {
                   >
                     {/* Image */}
                     <div className="relative h-56 overflow-hidden">
-                      <img src={p.img} alt={p.name}
+                      <img src={p.img} alt={`${p.name} - ${p.sector} vertical of Dhyanora Group`}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#172451]/70 to-transparent group-hover:from-[#172451]/40 transition-colors duration-500" />
                       <span className="absolute top-4 right-4 text-white/20 text-6xl font-heading font-black select-none">{p.id}</span>
@@ -359,7 +359,7 @@ export default function Home() {
                     <div className="p-6 md:p-7 transition-colors duration-500 group-hover:bg-[#172451] relative">
                       {/* Logo positioned at bottom-right of content area */}
                       <div className="absolute bottom-6 right-6 h-8 md:h-10 w-auto opacity-100 group-hover:brightness-0 group-hover:invert transition-all duration-500 pointer-events-none">
-                        <img src={p.logo} alt="" className="h-full w-auto object-contain" />
+                        <img src={p.logo} alt={`${p.name} Logo`} className="h-full w-auto object-contain" />
                       </div>
 
                       <h3 className="text-lg md:text-xl font-heading font-black text-[#172451] mb-2 md:mb-3 group-hover:text-white transition-colors duration-500">{p.name}</h3>

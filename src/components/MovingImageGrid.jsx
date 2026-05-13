@@ -64,7 +64,7 @@ const GridColumn = ({ images, direction, speed }) => {
       >
         {images.map((src, i) => (
           <div key={i} className="w-full aspect-[4/3] rounded-2xl overflow-hidden shrink-0">
-            <img src={src} alt="" className="w-full h-full object-cover" />
+            <img src={src} alt="Dhyanora Group Industrial Portfolio Segment" className="w-full h-full object-cover" />
           </div>
         ))}
       </motion.div>

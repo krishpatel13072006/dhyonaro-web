@@ -4,14 +4,17 @@ import { motion } from 'framer-motion';
 const segments = [
   {
     title: "Industry",
+    alt: "Dhyanora Group Industrial Sector Expertise and Metal Trading",
     img: "https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&q=80&w=800",
   },
   {
     title: "Realty",
+    alt: "Dhyanora Group Real Estate and Infrastructure Segment in Gujarat",
     img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800",
   },
   {
     title: "Lifestyle",
+    alt: "Dhyanora Group Consumer Electronics and Lifestyle Brands Portfolio",
     img: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=800",
   }
 ];
@@ -47,7 +50,7 @@ const ServicesSection = () => {
               <div className="relative aspect-[4/3] overflow-hidden mb-4 bg-zinc-900 rounded-sm">
                 <img 
                   src={segment.img} 
-                  alt={segment.title}
+                  alt={segment.alt}
                   className="w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
                 />
               </div>

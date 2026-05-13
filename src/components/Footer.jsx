@@ -66,7 +66,7 @@ const Footer = () => {
           {/* Brand & Social (Inspired by NextPlay) */}
           <div className="lg:col-span-4 flex flex-col gap-10">
             <Link to="/" className="inline-block group">
-              <img src={DhyonoraLogo2} alt="Dhyanora Group" className="h-14 w-auto group-hover:brightness-110 transition-all duration-300" />
+              <img src={DhyonoraLogo2} alt="Dhyanora Group - Leading Industrial Conglomerate in Ahmedabad, Gujarat" className="h-14 w-auto group-hover:brightness-110 transition-all duration-300" />
             </Link>
             <p className="text-gray-400 text-base font-medium leading-relaxed max-w-sm italic">
               "A focused collective of businesses across Gujarat, unified by discipline, values, and a relentless drive for industrial excellence."

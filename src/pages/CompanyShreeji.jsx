@@ -79,8 +79,8 @@ const CompanyShreeji = () => {
   return (
     <>
       <SEO
-        title="Shreeji Infra | Industrial Infrastructure & Real Estate | Dhyanora Group"
-        description="Shreeji Infra develops state-of-the-art industrial ecosystems, including Mahantam Industrial Park, purpose-built sheds, and warehousing in Gujarat."
+        title="Shreeji Infra | Industrial Infrastructure & Warehousing"
+        description="Shreeji Infra develops premium industrial parks and warehouses in Gujarat. Part of Dhyanora Group, specializing in modern manufacturing ecosystems."
       />
 
       <main className="bg-white overflow-x-hidden">
@@ -183,7 +183,7 @@ const CompanyShreeji = () => {
 
               <ScrollReveal x={60} y={0} delay={0.2}>
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/5] lg:aspect-square">
-                  <img src={shreejiMainImg} alt="Industrial Infrastructure" className="w-full h-full object-cover" />
+                  <img src={shreejiMainImg} alt="Shreeji Infra Industrial Real Estate and Infrastructure Development in Gujarat" className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent" />
                 </div>
               </ScrollReveal>
@@ -254,7 +254,7 @@ const CompanyShreeji = () => {
                   >
                     <img
                       src={item.img}
-                      alt={`Mahantam Park ${idx + 1}`}
+                      alt={`Mahantam Industrial Park - State-of-the-art Industrial Ecosystem by Shreeji Infra (Image ${idx + 1})`}
                       className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

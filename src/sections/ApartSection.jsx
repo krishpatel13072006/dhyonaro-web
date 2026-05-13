@@ -61,11 +61,11 @@ export default function ApartSection() {
           {/* Slot (1,2): Image */}
           <ScrollReveal delay={0.2} y={50} x={0}>
             <div className="rounded-[1.5rem] md:rounded-[2rem] overflow-hidden h-48 md:h-full relative group shadow-sm">
-              <img 
-                src={focusedVision} 
-                alt="Focused Vision" 
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
-              />
+                <img 
+                  src={focusedVision} 
+                  alt="Dhyanora Group Strategic Vision for Ahmedabad Industrial Development" 
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
+                />
             </div>
           </ScrollReveal>
 
@@ -73,7 +73,7 @@ export default function ApartSection() {
           <ScrollReveal delay={0.3} x={60} y={0} className="lg:col-span-2 lg:row-span-2 relative group rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-lg h-[400px] md:h-[500px] lg:h-full">
             <img 
               src={shreejiInfraTechImg} 
-              alt="Industrial Ecosystem" 
+              alt="Shreeji Infra Industrial Park Ecosystem and Modern Warehousing in Gujarat" 
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" 
             />
             {/* Overlay */}
@@ -95,7 +95,7 @@ export default function ApartSection() {
             <div className="rounded-[1.5rem] md:rounded-[2rem] overflow-hidden h-48 md:h-full relative group shadow-sm">
               <img 
                 src={gujaratRoutes} 
-                alt="Gujarat Roots" 
+                alt="Dhyanora Group - Deeply Rooted in Ahmedabad Industrial and Business Sector" 
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
               />
             </div>

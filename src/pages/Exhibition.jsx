@@ -138,7 +138,7 @@ export default function Exhibition() {
 
   return (
     <div className="fixed inset-0 w-full h-screen h-[100dvh] bg-black text-white z-[9999]">
-      <SEO title="Dhyanora Spatial Horizon | 3D Artifact Exhibition" description="Step into the Dhyanora Artifact Archive. A cinematic 3D exhibition of industrial assets and corporate milestones." />
+      <SEO title="Spatial Horizon | Cinematic 3D Industrial Exhibition | Dhyanora Group" description="Step into the Dhyanora Spatial Horizon, a cinematic 3D exhibition of our industrial assets, milestones, and corporate journey." />
       
       <div className="absolute inset-0 pointer-events-none flex flex-col justify-between p-6 md:p-10 z-20">
         <div className="flex justify-between items-start pointer-events-auto">

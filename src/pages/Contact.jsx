@@ -162,8 +162,8 @@ const Contact = () => {
   return (
     <>
       <SEO 
-        title="Contact Us | Dhyanora Group" 
-        description="Get in touch with Dhyanora Group for business partnerships, industrial inquiries, and strategic collaborations."
+        title="Contact Dhyanora Group | Business Inquiries & Partnerships" 
+        description="Get in touch with Dhyanora Group for business partnerships, industrial inquiries, and strategic collaborations in Ahmedabad, Gujarat."
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'Contact Us', path: '/contact' }
@@ -208,7 +208,7 @@ const Contact = () => {
                 </motion.div>
 
                 <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 1, delay: 0.2 }} className="relative aspect-video lg:aspect-auto lg:h-[450px] rounded-[3rem] overflow-hidden border border-[#172451]/5 group shadow-2xl">
-                  <img src={contactVisualImg} alt="Dhyanora Operations" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+                  <img src={contactVisualImg} alt="Dhyanora Group Strategic Operations and Industrial Management" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent opacity-40" />
                   
                   <div className="absolute left-6 bottom-8 flex flex-row lg:flex-col gap-3 md:gap-4">
@@ -350,7 +350,7 @@ const Contact = () => {
         <section className="relative pt-24 pb-48 px-6">
           <div className="relative max-w-5xl mx-auto px-4">
              <motion.div initial={{ opacity: 0, y: 100 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }} className="relative rounded-[3rem] md:rounded-[4rem] overflow-hidden shadow-2xl border border-white/10 min-h-[400px] md:min-h-[600px] flex items-center justify-center">
-                <img src={bottomPhonesImg} alt="Dhyanora Ecosystem" className="absolute inset-0 w-full h-full object-cover brightness-[0.3]" />
+                <img src={bottomPhonesImg} alt="Dhyanora Group Ecosystem and Strategic Future Vision" className="absolute inset-0 w-full h-full object-cover brightness-[0.3]" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#172451] via-[#172451]/40 to-transparent opacity-90" />
                 
                 <div className="relative z-20 flex flex-col items-center justify-center text-center p-8 max-w-4xl mx-auto">

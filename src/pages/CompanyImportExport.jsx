@@ -10,8 +10,8 @@ const CompanyImportExport = () => {
   return (
     <>
       <SEO 
-        title="Pramukh Import Export | Metal Scrap Trading | Dhyanora Group" 
-        description="Pramukh Import Export is the industrial trading division of Dhyanora Group, specializing in ferrous and non-ferrous metal scrap." 
+        title="Pramukh Import Export | Industrial Metal Scrap Trading" 
+        description="Gujarat's specialist in ferrous and non-ferrous industrial metal scrap trading. Pramukh Import Export provides high-grade materials for manufacturers." 
       />
       
       <main className="bg-white min-h-screen">
