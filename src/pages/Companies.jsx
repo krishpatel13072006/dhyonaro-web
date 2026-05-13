@@ -105,8 +105,8 @@ const Companies = () => {
   return (
     <>
       <SEO 
-        title="Dhyanora Group Companies | Industrial & Retail Portfolio" 
-        description="Explore Dhyanora Group's strategic portfolio in Gujarat. Specialists in metal scrap trading, electronics retail, and industrial infrastructure development." 
+        title="Our Companies | Dhyanora Group - Real Estate, Trade & Retail" 
+        description="Explore the diverse ventures of Dhyanora Group. Discover our expertise in scrap import-export, commercial real estate, bricks trading, and home appliances." 
       />
       <main className="bg-white text-[#172451] overflow-x-hidden">
 
@@ -120,12 +120,12 @@ const Companies = () => {
             <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#172451]/80 backdrop-blur-sm text-white text-[10px] md:text-xs font-bold uppercase tracking-widest mb-6 md:mb-8">
               <Building2 size={14} /> Our Strategic Portfolio
             </motion.div>
-            <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }} className="text-4xl sm:text-6xl md:text-8xl font-heading font-black text-white uppercase leading-[1.1] md:leading-none mb-6">
-              DIVERSIFIED EXPERTISE.<br />
-              <span className="text-[#fad77e]">UNIFIED VISION.</span>
+            <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }} className="text-4xl sm:text-6xl md:text-7xl font-heading font-black text-white uppercase leading-[1.1] md:leading-tight mb-6">
+              Our Companies:<br />
+              <span className="text-[#fad77e] text-3xl sm:text-5xl md:text-6xl">A Diversified Portfolio of Excellence</span>
             </motion.h1>
-            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.4 }} className="text-white/60 text-base md:text-lg font-light max-w-2xl mx-auto">
-              Three core verticals. One focused vision. Building high-quality businesses that create tangible value for Gujarat's economy.
+            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.4 }} className="text-white/60 text-base md:text-lg font-light max-w-3xl mx-auto">
+              Dhyanora Group takes pride in its dynamic child companies. From global scrap trading and heavy construction materials to landmark commercial infrastructure and premium retail, discover the businesses driving our vision forward.
             </motion.p>
           </div>
         </section>
@@ -169,7 +169,7 @@ const Companies = () => {
         <IndustrialOrbit />
 
         {/* ════ SECTOR 1 — PRAMUKH IMPORT EXPORT ════ */}
-        <section className="bg-white relative overflow-hidden">
+        <section id="import-export" className="bg-white relative overflow-hidden">
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
             <BouncingCircles />
             <div className="absolute inset-0 opacity-[0.25]">
@@ -188,9 +188,10 @@ const Companies = () => {
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 md:mb-12">
               <ScrollReveal x={-50} y={0}>
                 <div className="flex items-center gap-3 text-[#172451] font-black tracking-widest uppercase text-[10px] mb-3 md:mb-4">
-                  <span className="w-8 h-px bg-[#172451]" /> Sector 01
+                  <span className="w-8 h-px bg-[#172451]" /> Division 01
                 </div>
-                <h3 className="text-3xl md:text-5xl font-heading font-black text-[#172451] mb-6">PRAMUKH IMPORT EXPORT</h3>
+                <h2 className="text-3xl md:text-5xl font-heading font-black text-[#172451] mb-6">Global Trade & Materials Division</h2>
+                <h3 className="text-xl md:text-2xl font-heading font-black text-[#172451]/70 mb-6 uppercase">Pramukh Import Export: Leaders in Global Scrap Trade</h3>
               </ScrollReveal>
             </div>
             <ScrollReveal delay={0.05} y={40} x={0}>
@@ -200,10 +201,17 @@ const Companies = () => {
                 <div className="absolute top-4 right-4 md:top-6 md:right-6 bg-white/90 backdrop-blur-sm px-3 py-1.5 md:px-4 md:py-2 rounded-full font-bold text-[9px] md:text-xs text-[#172451] shadow-lg flex items-center gap-2">
                   <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-[#172451] animate-pulse" /> Global Sourcing Network
                 </div>
-                <div className="absolute bottom-6 left-6 right-6 md:bottom-8 md:left-8 md:right-8 max-w-2xl">
-                  <motion.blockquote initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.3 }} className="text-lg md:text-2xl font-heading font-black text-white leading-snug italic">
-                    "Facilitating the procurement and distribution of high-grade ferrous and non-ferrous metal scrap for India's leading manufacturers."
-                  </motion.blockquote>
+                <div className="absolute bottom-6 left-6 right-6 md:bottom-8 md:left-8 md:right-8 max-w-3xl">
+                  <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.3 }} className="space-y-4">
+                    <p className="text-white/90 text-sm md:text-lg leading-relaxed">
+                      Operating on a global scale, Pramukh Import Export is a premier trading house specializing in the comprehensive scrap import and export industry. We source, process, and supply high-quality scrap materials across international borders.
+                    </p>
+                    <div className="flex flex-wrap gap-4">
+                      {['International Scrap Trading', 'Global Supply Chain Management', 'B2B Material Sourcing'].map((tag, i) => (
+                        <span key={i} className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded text-[10px] md:text-xs text-white font-bold uppercase tracking-wider">{tag}</span>
+                      ))}
+                    </div>
+                  </motion.div>
                 </div>
               </div>
             </ScrollReveal>
@@ -216,125 +224,121 @@ const Companies = () => {
                 <FeatureCard key={f.title} icon={f.icon} accent="#172451" img={f.img} title={f.title} desc={f.desc} sector={f.sector} to="/companies/import-export" />
               ))}
             </ScrollRevealGroup>
-            <ScrollReveal delay={0.4} className="mt-12 flex justify-center">
-               <Link to="/companies/import-export" className="btn-blue inline-flex items-center gap-3">
-                 Explore Pramukh Import Export <ArrowRight size={16} />
-               </Link>
-            </ScrollReveal>
+
+            <div id="brics" className="mt-20 md:mt-32">
+              <ScrollReveal x={-50} y={0}>
+                <h3 className="text-xl md:text-2xl font-heading font-black text-[#172451]/70 mb-6 uppercase">Brics Trading: Building the Foundation of Tomorrow</h3>
+              </ScrollReveal>
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div className="lg:col-span-7">
+                  <ScrollReveal x={-60} y={0}>
+                    <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-video group">
+                      <img src={sectorDiversityImg} alt="Brics Trading - Quality Bricks and Construction Materials" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                    </div>
+                  </ScrollReveal>
+                </div>
+                <div className="lg:col-span-5 space-y-6">
+                  <ScrollReveal x={60} y={0}>
+                    <p className="text-gray-600 text-base md:text-lg leading-relaxed">
+                      Functioning as a specialized division under Pramukh Import Export, Brics Trading is dedicated to high-volume bricks trading and the supply of essential construction materials. We cater to large-scale infrastructure projects, ensuring developers have access to top-tier materials.
+                    </p>
+                    <div className="space-y-3 pt-4">
+                      {['Bulk Bricks Supply', 'Construction Material Trading', 'Infrastructure Support'].map((item, i) => (
+                        <div key={i} className="flex items-center gap-3">
+                          <CheckCircle2 size={18} className="text-[#172451]" />
+                          <span className="font-bold text-[#172451] uppercase tracking-wide text-xs">{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </ScrollReveal>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* ════ SECTOR 2 — PRAMUKH TECHVENTURES ════ */}
-        <section className="bg-white relative overflow-hidden">
-          <div className="absolute inset-0 pointer-events-none overflow-hidden">
-            <BouncingCircles />
-            <div className="absolute inset-0 opacity-[0.25]">
-              <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <pattern id="sector2-grid" width="100" height="100" patternUnits="userSpaceOnUse">
-                    <circle cx="3" cy="3" r="1.5" fill="#172451" />
-                  </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#sector2-grid)" />
-              </svg>
-            </div>
-          </div>
-
+        {/* ════ SECTOR 2 — SHREEJI INFRA ════ */}
+        <section id="shreeji-infra" className="bg-white relative overflow-hidden border-t border-gray-100">
           <div className="max-w-7xl mx-auto px-6 md:px-12 py-20 md:py-28 relative z-10">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 md:mb-12">
               <ScrollReveal x={-50} y={0}>
                 <div className="flex items-center gap-3 text-[#172451] font-black tracking-widest uppercase text-[10px] mb-3 md:mb-4">
-                  <span className="w-8 h-px bg-[#172451]" /> Sector 02
+                  <span className="w-8 h-px bg-[#172451]" /> Division 02
                 </div>
-                <h3 className="text-3xl md:text-5xl font-heading font-black text-[#172451] mb-6">PRAMUKH TECHVENTURES</h3>
+                <h2 className="text-3xl md:text-5xl font-heading font-black text-[#172451] mb-6">Infrastructure & Real Estate Division</h2>
+                <h3 className="text-xl md:text-2xl font-heading font-black text-[#172451]/70 mb-6 uppercase">Shreeji Infra: Shaping the Commercial Skyline</h3>
               </ScrollReveal>
             </div>
             <ScrollReveal delay={0.05} y={40} x={0}>
               <div className="relative rounded-3xl overflow-hidden shadow-2xl w-full h-[45vh] md:h-[60vh] min-h-[300px] md:min-h-[420px] mb-10 md:mb-12 group">
-                <img src={techVentureMainImg} alt="Pramukh Techventures - Authorized Electronics Retailer in Ahmedabad" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1.4s] ease-out" />
+                <img src={shreejiMainImg} alt="Shreeji Infra - Shaping the Commercial Skyline" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1.4s] ease-out" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                <div className="absolute top-4 right-4 md:top-6 md:right-6 bg-white/90 backdrop-blur-sm px-3 py-1.5 md:px-4 md:py-2 rounded-full font-bold text-[9px] md:text-xs text-[#172451] shadow-lg flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-[#172451] animate-pulse" /> Authorized Retailer
-                </div>
-                <div className="absolute bottom-6 left-6 right-6 md:bottom-8 md:left-8 md:right-8 max-w-2xl">
-                  <motion.blockquote initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.3 }} className="text-lg md:text-2xl font-heading font-black text-white leading-snug italic">
-                    "Bringing the world's most reliable technology to the households of Gujarat through an experience of trust."
-                  </motion.blockquote>
+                <div className="absolute bottom-6 left-6 right-6 md:bottom-8 md:left-8 md:right-8 max-w-3xl">
+                  <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.3 }} className="space-y-4">
+                    <p className="text-white/90 text-sm md:text-lg leading-relaxed">
+                      Shreeji Infra is the dedicated real estate development arm of the Dhyanora Group. We specialize in the conceptualization, design, and construction of premium commercial buildings and expansive industrial estates.
+                    </p>
+                    <div className="flex flex-wrap gap-4">
+                      {['Commercial Real Estate Development', 'Industrial Estates', 'Modern Business Parks'].map((tag, i) => (
+                        <span key={i} className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded text-[10px] md:text-xs text-white font-bold uppercase tracking-wider">{tag}</span>
+                      ))}
+                    </div>
+                  </motion.div>
                 </div>
               </div>
             </ScrollReveal>
-            <ScrollRevealGroup staggerDelay={0.15} y={50} x={0} className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-              {[
-                { icon: Cpu, title: 'Product Categories', sector: 'Electronics', img: 'https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&fit=crop&q=80&w=800', desc: '4K Entertainment Systems, Smart Home Appliances, Connected Mobility, Professional Audio.' },
-                { icon: CheckCircle2, title: 'Absolute Authenticity', sector: 'Genuine', img: 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&q=80&w=800', desc: '100% genuine premium products backed with full manufacturer warranties and after-sales care.' },
-                { icon: HeadphonesIcon, title: 'Expert Guidance', sector: 'Support', img: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=800', desc: 'Staff trained to match customers with technology that solves real needs, not just trends.' },
-              ].map((f) => (
-                <FeatureCard key={f.title} icon={f.icon} accent="#172451" img={f.img} title={f.title} desc={f.desc} sector={f.sector} to="/companies/tech-venture" />
-              ))}
-            </ScrollRevealGroup>
-            <ScrollReveal delay={0.4} className="mt-12 flex justify-center">
-               <Link to="/companies/tech-venture" className="btn-blue inline-flex items-center gap-3">
-                 Explore Pramukh Techventures <ArrowRight size={16} />
-               </Link>
-            </ScrollReveal>
-          </div>
-        </section>
-
-        {/* ════ SECTOR 3 — SHREEJI INFRA ════ */}
-        <section id="shreeji-infra" className="bg-white relative overflow-hidden">
-          <div className="absolute inset-0 pointer-events-none overflow-hidden">
-            <BouncingCircles />
-            <div className="absolute inset-0 opacity-[0.25]">
-              <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <pattern id="sector3-grid" width="100" height="100" patternUnits="userSpaceOnUse">
-                    <circle cx="3" cy="3" r="1.5" fill="#172451" />
-                  </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#sector3-grid)" />
-              </svg>
-            </div>
-          </div>
-
-          <div className="max-w-7xl mx-auto px-6 md:px-12 py-20 md:py-28 relative z-10">
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 md:mb-12">
-              <ScrollReveal x={-50} y={0}>
-                <div className="flex items-center gap-3 text-[#172451] font-black tracking-widest uppercase text-[10px] mb-3 md:mb-4">
-                  <span className="w-8 h-px bg-[#172451]" /> Sector 03
-                </div>
-                <h3 className="text-3xl md:text-5xl font-heading font-black text-[#172451] mb-6">SHREEJI INFRA</h3>
-              </ScrollReveal>
-            </div>
-            <ScrollReveal delay={0.05} y={40} x={0}>
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl w-full h-[45vh] md:h-[60vh] min-h-[300px] md:min-h-[420px] mb-10 md:mb-12 group">
-                <img src={shreejiMainImg} alt="Shreeji Infra - Mahantam Industrial Park and Infrastructure Development" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1.4s] ease-out" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                <div className="absolute top-4 right-4 md:top-6 md:right-6 bg-white/90 backdrop-blur-sm px-3 py-1.5 md:px-4 md:py-2 rounded-full font-bold text-[9px] md:text-xs text-[#172451] shadow-lg flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-[#172451] animate-pulse" /> Flagship Asset
-                </div>
-                <div className="absolute bottom-6 left-6 right-6 md:bottom-8 md:left-8 md:right-8 max-w-2xl">
-                  <motion.blockquote initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.3 }} className="text-lg md:text-2xl font-heading font-black text-white leading-snug italic">
-                    "Architecting the future of industry by developing state-of-the-art ecosystems built for modern manufacturing."
-                  </motion.blockquote>
-                </div>
-              </div>
-            </ScrollReveal>
-            <ScrollRevealGroup staggerDelay={0.15} y={50} x={0} className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-              {[
-                { icon: Factory, title: 'Industrial Sheds', sector: 'INFRA', img: industrialShedImg, desc: 'Custom-built manufacturing spaces with optimized clear heights and reinforced flooring.' },
-                { icon: MapPin, title: 'Strategic Connectivity', sector: 'LOCATION', img: shreejiInfraTechImg, desc: 'Located within the golden industrial corridor of Sanand, providing instant access to major logistics hubs.' },
-                { icon: ShieldCheck, title: 'Secure Titles', sector: 'LEGAL', img: secureTilesImg, desc: '100% legal transparency and verified documentation for peace of mind.' },
-              ].map((f) => (
-                <FeatureCard key={f.title} icon={f.icon} accent="#172451" img={f.img} title={f.title} desc={f.desc} sector={f.sector} to="/companies/shreeji-infra" />
-              ))}
-            </ScrollRevealGroup>
-            <ScrollReveal delay={0.4} className="mt-12 flex justify-center">
+            <div className="mt-12 flex justify-center">
                <Link to="/companies/shreeji-infra" className="btn-blue inline-flex items-center gap-3">
-                 Explore Shreeji Infra <ArrowRight size={16} />
+                 Explore Shreeji Infra Projects <ArrowRight size={16} />
                </Link>
-            </ScrollReveal>
+            </div>
           </div>
         </section>
+
+        {/* ════ SECTOR 3 — PRAMUKH TECHVENTURE ════ */}
+        <section id="tech-venture" className="bg-white relative overflow-hidden border-t border-gray-100">
+          <div className="max-w-7xl mx-auto px-6 md:px-12 py-20 md:py-28 relative z-10">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 md:mb-12">
+              <ScrollReveal x={-50} y={0}>
+                <div className="flex items-center gap-3 text-[#172451] font-black tracking-widest uppercase text-[10px] mb-3 md:mb-4">
+                  <span className="w-8 h-px bg-[#172451]" /> Division 03
+                </div>
+                <h2 className="text-3xl md:text-5xl font-heading font-black text-[#172451] mb-6">Consumer Retail & Electronics Division</h2>
+                <h3 className="text-xl md:text-2xl font-heading font-black text-[#172451]/70 mb-6 uppercase">Pramukh Techventure: Your Trusted Electronics Hub</h3>
+              </ScrollReveal>
+            </div>
+            <ScrollReveal delay={0.05} y={40} x={0}>
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl w-full h-[45vh] md:h-[60vh] min-h-[300px] md:min-h-[420px] mb-10 md:mb-12 group">
+                <img src={techVentureMainImg} alt="Pramukh Techventure - Premium Electronics Showroom" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1.4s] ease-out" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6 md:bottom-8 md:left-8 md:right-8 max-w-3xl">
+                  <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.3 }} className="space-y-4">
+                    <p className="text-white/90 text-sm md:text-lg leading-relaxed">
+                      Bringing world-class technology to your doorstep, Pramukh Techventure operates a state-of-the-art electronics showroom. As an authorized agency for leading global brands, we offer a comprehensive range of premium home appliances.
+                    </p>
+                    <div className="flex flex-wrap gap-4">
+                      {['Authorized Brand Agency', 'Premium Home Appliances', 'Consumer Electronics Showroom'].map((tag, i) => (
+                        <span key={i} className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded text-[10px] md:text-xs text-white font-bold uppercase tracking-wider">{tag}</span>
+                      ))}
+                    </div>
+                  </motion.div>
+                </div>
+              </div>
+            </ScrollReveal>
+            <div className="mt-12 flex justify-center">
+               <Link to="/companies/tech-venture" className="btn-blue inline-flex items-center gap-3">
+                 Visit Pramukh Techventure <ArrowRight size={16} />
+               </Link>
+            </div>
+          </div>
+        </section>
+
+        <FooterCTA 
+          title="Partner With Industry Leaders"
+          description="Whether you need a trusted partner for international scrap trading, a prime commercial estate for your expanding business, or the latest home appliances, the Dhyanora Group of companies is here to deliver excellence."
+          buttonText="Get in Touch With Our Group"
+          tag="Collaborate"
+        />
 
       </main>
     </>

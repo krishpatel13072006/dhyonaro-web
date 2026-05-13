@@ -36,9 +36,9 @@ const SEO = ({ title, description, keywords, canonical, breadcrumbs, image }) =>
     },
     "subOrganization": [
       { "@type": "Organization", "name": "Pramukh Import Export" },
-      { "@type": "Organization", "name": "Pramukh Techventures" },
+      { "@type": "Organization", "name": "Pramukh Techventure" },
       { "@type": "Organization", "name": "Shreeji Infra" },
-      { "@type": "Organization", "name": "Bricks Trading Division" }
+      { "@type": "Organization", "name": "Brics Trading" }
     ],
     "sameAs": [
       "https://www.linkedin.com/company/dhyanora",

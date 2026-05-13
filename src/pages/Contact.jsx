@@ -128,25 +128,25 @@ const Contact = () => {
 
   const companies = [
     {
-      name: "Pramukh Techventures (Daewoo Franchise)",
-      address: "Authorized Daewoo India Franchise, Gujarat.",
-      tel: "+91 95106 63030",
-      internalLink: "/companies/tech-venture",
-      externalLink: "https://daewooindia.in/"
-    },
-    {
-      name: "Shreeji Infra (Industrial Parks)",
-      address: "Mahantam Industrial Park, Sanand-Viramgam Highway, Ahmedabad, Gujarat.",
-      tel: "+91 95106 63030",
-      internalLink: "/companies/shreeji-infra",
-      externalLink: "#"
-    },
-    {
-      name: "Pramukh Import Export (Metal Trading)",
-      address: "Strategic Metal Sourcing & Trading Hub, Ahmedabad, Gujarat.",
+      name: "Pramukh Import Export & Brics Trading",
+      address: "For: Scrap import-export inquiries, bulk material sourcing, and wholesale bricks trading.",
       tel: "+91 95106 63030",
       internalLink: "/companies/import-export",
-      externalLink: "#"
+      externalLink: "mailto:trade@dhyanora.com"
+    },
+    {
+      name: "Shreeji Infra",
+      address: "For: Commercial building projects, industrial estates, and real estate partnerships.",
+      tel: "+91 95106 63030",
+      internalLink: "/companies/shreeji-infra",
+      externalLink: "mailto:infra@dhyanora.com"
+    },
+    {
+      name: "Pramukh Techventure",
+      address: "For: Authorized agency details, home appliances, and showroom inquiries.",
+      tel: "+91 95106 63030",
+      internalLink: "/companies/tech-venture",
+      externalLink: "mailto:retail@dhyanora.com"
     }
   ];
 
@@ -162,8 +162,8 @@ const Contact = () => {
   return (
     <>
       <SEO 
-        title="Contact Dhyanora Group | Business Inquiries & Partnerships" 
-        description="Get in touch with Dhyanora Group for business partnerships, industrial inquiries, and strategic collaborations in Ahmedabad, Gujarat."
+        title="Contact Dhyanora Group | Reach Out to Our Business Hub" 
+        description="Contact Dhyanora Group for business inquiries. Connect with our divisions: Pramukh Import Export, Shreeji Infra, Brics Trading, and Pramukh Techventure."
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'Contact Us', path: '/contact' }
@@ -199,11 +199,11 @@ const Contact = () => {
               <div className="lg:col-span-7 space-y-12">
                 <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
                   <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-black uppercase leading-[1.2] mb-8 text-[#172451]">
-                    Let's Talk About <br />
-                    <span className="text-[#fad77e]">Strategic Growth</span>
+                    Get in Touch With <br />
+                    <span className="text-[#fad77e]">Dhyanora Group</span>
                   </h1>
                   <p className="text-lg md:text-xl text-[#172451]/40 max-w-lg font-sans leading-relaxed font-medium">
-                    Whether you're exploring partnerships, industrial space, or global sourcing, our team is ready to help you scale.
+                    Whether you are looking for strategic business partnerships, global trade solutions, premium commercial real estate, or retail inquiries, our team is ready to assist you.
                   </p>
                 </motion.div>
 
@@ -223,64 +223,68 @@ const Contact = () => {
 
               <div className="lg:col-span-5 relative">
                 <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.3 }} className="space-y-10">
-                  <form className="space-y-8">
-                    <div className="space-y-4">
-                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-[#172451]/30 ml-1">Full Name</label>
-                      <div className="grid grid-cols-2 gap-4">
-                        <input type="text" placeholder="First Name" className="w-full bg-gray-50 border border-[#172451]/5 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#172451] focus:bg-white transition-all font-sans text-sm text-[#172451] placeholder:text-[#172451]/20" />
-                        <input type="text" placeholder="Last Name" className="w-full bg-gray-50 border border-[#172451]/5 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#172451] focus:bg-white transition-all font-sans text-sm text-[#172451] placeholder:text-[#172451]/20" />
-                      </div>
-                    </div>
-
-                    <div className="space-y-4">
-                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-[#172451]/30 ml-1">Email Address</label>
-                      <input type="email" placeholder="email@company.com" className="w-full bg-gray-50 border border-[#172451]/5 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#172451] focus:bg-white transition-all font-sans text-sm text-[#172451] placeholder:text-[#172451]/20" />
-                    </div>
-
-                    <div className="space-y-4">
-                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-[#172451]/30 ml-1">Phone Number</label>
-                      <div className="flex gap-4">
-                        <select className="w-32 bg-gray-50 border border-[#172451]/5 rounded-2xl px-3 py-4 focus:outline-none focus:border-[#172451] focus:bg-white transition-all font-sans text-sm font-bold text-[#172451]">
-                          <option>IN (+91)</option>
-                          <option>US (+1)</option>
-                          <option>UK (+44)</option>
-                          <option>AE (+971)</option>
-                          <option>AU (+61)</option>
-                          <option>CA (+1)</option>
-                        </select>
-                        <input type="tel" placeholder="Mobile Number" className="flex-1 bg-gray-50 border border-[#172451]/5 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#172451] focus:bg-white transition-all font-sans text-sm text-[#172451] placeholder:text-[#172451]/20" />
-                      </div>
-                    </div>
-
-                    <div className="space-y-4">
-                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-[#172451]/30 ml-1">Sector of Interest</label>
-                      <select className="w-full bg-gray-50 border border-[#172451]/5 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#172451] focus:bg-white transition-all font-sans text-sm text-[#172451] appearance-none cursor-pointer">
-                        <option>General Inquiry</option>
-                        <option>Industrial Space (Shreeji Infra)</option>
-                        <option>Metal Trading (Pramukh)</option>
-                        <option>Tech Venture</option>
-                      </select>
-                    </div>
-
-                    <div className="space-y-4">
-                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-[#172451]/30 ml-1">Your Message</label>
-                      <textarea rows="4" placeholder="How can we help your business?" className="w-full bg-gray-50 border border-[#172451]/5 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#172451] focus:bg-white transition-all font-sans text-sm text-[#172451] placeholder:text-[#172451]/20 resize-none" />
-                    </div>
-
-                    <div className="flex items-center gap-3">
-                      <input type="checkbox" id="consent" className="w-4 h-4 rounded border-[#172451]/10 text-[#172451] focus:ring-[#172451]" />
-                      <label htmlFor="consent" className="text-[11px] text-[#172451]/40 font-bold tracking-wide">I agree to be contacted regarding this inquiry.</label>
-                    </div>
-
-                    <div className="flex justify-center md:justify-start pt-4">
-                      <button className="w-full md:w-auto px-6 py-3 md:px-10 md:py-4 bg-[#172451] text-white rounded-full font-heading font-black uppercase tracking-[0.2em] text-[10px] md:text-[11px] shadow-2xl transition-all flex items-center justify-center md:justify-start gap-4 md:gap-5 group hover:bg-[#172451] hover:scale-105 active:scale-95">
-                        Send Message
-                        <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center transition-all group-hover:bg-white group-hover:text-[#172451]">
-                          <Send size={14} className="ml-0.5" />
+                  <div className="space-y-6">
+                    <div className="bg-gray-50 p-6 rounded-3xl border border-[#172451]/5">
+                      <h2 className="text-xl font-heading font-black text-[#172451] uppercase mb-4">Corporate Headquarters</h2>
+                      <p className="text-[#172451]/50 text-sm mb-6 leading-relaxed">Visit our main office or reach out to us via phone or email for any general corporate inquiries.</p>
+                      <div className="space-y-4">
+                        <div className="flex items-start gap-3">
+                          <MapPin size={18} className="text-[#172451] shrink-0 mt-1" />
+                          <div>
+                            <p className="text-[#172451] font-bold text-xs uppercase tracking-wider">Address</p>
+                            <p className="text-gray-500 text-sm font-medium">Ahmedabad, Gujarat, India</p>
+                          </div>
                         </div>
-                      </button>
+                        <div className="flex items-start gap-3">
+                          <Phone size={18} className="text-[#172451] shrink-0 mt-1" />
+                          <div>
+                            <p className="text-[#172451] font-bold text-xs uppercase tracking-wider">Phone</p>
+                            <p className="text-gray-500 text-sm font-medium">+91 95106 63030</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <Mail size={18} className="text-[#172451] shrink-0 mt-1" />
+                          <div>
+                            <p className="text-[#172451] font-bold text-xs uppercase tracking-wider">Email</p>
+                            <p className="text-gray-500 text-sm font-medium">info@dhyanora.com</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <Send size={18} className="text-[#172451] shrink-0 mt-1" />
+                          <div>
+                            <p className="text-[#172451] font-bold text-xs uppercase tracking-wider">Hours</p>
+                            <p className="text-gray-500 text-sm font-medium">Monday to Saturday | 9:00 AM - 6:30 PM (IST)</p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                  </form>
+
+                    <div className="space-y-4">
+                      <h2 className="text-xl font-heading font-black text-[#172451] uppercase">Send Us a Message</h2>
+                      <p className="text-[#172451]/50 text-sm mb-4">Please fill out the form below, and our respective team will get back to you promptly.</p>
+                      <form className="space-y-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <input type="text" placeholder="Full Name" className="w-full bg-gray-50 border border-[#172451]/5 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#172451] focus:bg-white transition-all font-sans text-sm text-[#172451] placeholder:text-[#172451]/20" />
+                          <input type="email" placeholder="Email Address" className="w-full bg-gray-50 border border-[#172451]/5 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#172451] focus:bg-white transition-all font-sans text-sm text-[#172451] placeholder:text-[#172451]/20" />
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <input type="tel" placeholder="Phone Number" className="w-full bg-gray-50 border border-[#172451]/5 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#172451] focus:bg-white transition-all font-sans text-sm text-[#172451] placeholder:text-[#172451]/20" />
+                          <select className="w-full bg-gray-50 border border-[#172451]/5 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#172451] focus:bg-white transition-all font-sans text-sm text-[#172451] appearance-none cursor-pointer">
+                            <option>Interested In:</option>
+                            <option>General Inquiry (Dhyanora Group)</option>
+                            <option>Scrap Import/Export (Pramukh)</option>
+                            <option>Bricks & Building Materials (Brics Trading)</option>
+                            <option>Commercial Real Estate (Shreeji Infra)</option>
+                            <option>Electronics & Home Appliances (Pramukh Techventure)</option>
+                          </select>
+                        </div>
+                        <textarea rows="4" placeholder="Your Message" className="w-full bg-gray-50 border border-[#172451]/5 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#172451] focus:bg-white transition-all font-sans text-sm text-[#172451] placeholder:text-[#172451]/20 resize-none" />
+                        <button className="w-full md:w-auto px-10 py-4 bg-[#172451] text-white rounded-full font-heading font-black uppercase tracking-widest text-[11px] shadow-2xl hover:scale-105 active:scale-95 transition-all">
+                          Submit Inquiry
+                        </button>
+                      </form>
+                    </div>
+                  </div>
                 </motion.div>
               </div>
             </div>
@@ -306,13 +310,13 @@ const Contact = () => {
           <div className="max-w-7xl mx-auto relative z-10">
             <div className="text-center mb-20 md:mb-28">
               <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-                <span className="text-blue-600 font-black uppercase tracking-[0.4em] text-[10px] block mb-6">Our Network</span>
+                <span className="text-blue-600 font-black uppercase tracking-[0.4em] text-[10px] block mb-6">Our Specialized Divisions</span>
                 <h2 className="text-4xl md:text-7xl font-heading font-black text-[#172451] uppercase leading-tight mb-8">
-                  Companies &<br />
-                  <span className="text-[#fad77e]">Franchises.</span>
+                  Connect With <br />
+                  <span className="text-[#fad77e]">Our Companies.</span>
                 </h2>
                 <p className="text-[#172451]/50 text-lg md:text-xl font-medium max-w-2xl mx-auto">
-                  Direct contact details for our specialized business verticals and authorized global partnerships.
+                  Have a specific requirement? Reach out directly to our specialized divisions for efficient service.
                 </p>
               </motion.div>
             </div>
