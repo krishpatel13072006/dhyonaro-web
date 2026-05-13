@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ModernVideoBackground from '../components/ModernVideoBackground';
-const HERO_VIDEOS = ['/videos/Company-1.mp4', '/videos/home-hero-1.mp4'];
+const HERO_VIDEOS = ['/videos/company-1.mp4', '/videos/home-hero-1.mp4'];
 
 export default function Hero() {
 
