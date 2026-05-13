@@ -2,30 +2,32 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import SectionTag from './SectionTag';
 
-import logo1 from '../logo grid/Aeron.jpeg';
-import logo2 from '../logo grid/DPS FOILS.jpeg';
-import logo3 from '../logo grid/MAIMOON.jpg';
-import logo4 from '../logo grid/mcquuen.png';
-import logo5 from '../logo grid/Swan Corparation.png';
-import logo7 from '../logo grid/shreeji mahant.jpg';
-import logo8 from '../logo grid/DRHK.png';
-import logo9 from '../logo grid/MD.png';
-import logo10 from '../logo grid/Maheem.png';
-import logo11 from '../logo grid/pramukh.png';
-import logo12 from '../logo grid/shiroya.png';
+import logo1 from '../logo grid/1.jpg';
+import logo2 from '../logo grid/2.jpg';
+import logo3 from '../logo grid/3.jpg';
+import logo4 from '../logo grid/4.jpg';
+import logo5 from '../logo grid/5.jpg';
+import logo6 from '../logo grid/6.jpg';
+import logo7 from '../logo grid/7.jpg';
+import logo8 from '../logo grid/8.jpg';
+import logo9 from '../logo grid/9.jpg';
+import logo10 from '../logo grid/10.jpg';
+import logo11 from '../logo grid/11.jpg';
+import logo12 from '../logo grid/12.jpg';
 
 const logos = [
-  { id: 1, src: logo1, alt: 'Aeron' },
-  { id: 2, src: logo2, alt: 'DPS Foils' },
-  { id: 3, src: logo3, alt: 'Maimoon' },
-  { id: 4, src: logo4, alt: 'Mcqueen Metal' },
-  { id: 5, src: logo5, alt: 'Swan Corporation' },
-  { id: 7, src: logo7, alt: 'Shreeji Mahant' },
-  { id: 8, src: logo8, alt: 'DRHK' },
-  { id: 9, src: logo9, alt: 'MD' },
-  { id: 10, src: logo10, alt: 'Maheem' },
-  { id: 11, src: logo11, alt: 'Pramukh' },
-  { id: 12, src: logo12, alt: 'Shiroya' },
+  { id: 1, src: logo1, alt: 'Brand 1' },
+  { id: 2, src: logo2, alt: 'Brand 2' },
+  { id: 3, src: logo3, alt: 'Brand 3' },
+  { id: 4, src: logo4, alt: 'Brand 4' },
+  { id: 5, src: logo5, alt: 'Brand 5' },
+  { id: 6, src: logo6, alt: 'Brand 6' },
+  { id: 7, src: logo7, alt: 'Brand 7' },
+  { id: 8, src: logo8, alt: 'Brand 8' },
+  { id: 9, src: logo9, alt: 'Brand 9' },
+  { id: 10, src: logo10, alt: 'Brand 10' },
+  { id: 11, src: logo11, alt: 'Brand 11' },
+  { id: 12, src: logo12, alt: 'Brand 12' },
 ];
 
 const containerVariants = {

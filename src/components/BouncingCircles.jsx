@@ -64,7 +64,7 @@ const BouncingCircles = () => {
       {circles.map(c => (
         <div
           key={c.id}
-          className="absolute w-48 h-48 md:w-64 md:h-64 border-2 border-slate-400/20 bg-slate-200/10 rounded-full -translate-x-1/2 -translate-y-1/2 backdrop-blur-[1px] shadow-inner transition-transform duration-[16ms] ease-linear"
+          className="absolute w-48 h-48 md:w-64 md:h-64 border-2 border-slate-400/20 bg-slate-200/10 rounded-full -translate-x-1/2 -translate-y-1/2 shadow-inner transition-transform duration-[16ms] ease-linear"
           style={{ 
             left: `${c.x}%`, 
             top: `${c.y}%`,

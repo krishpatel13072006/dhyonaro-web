@@ -44,9 +44,9 @@ const About = () => (
               <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
               Ahmedabad, Gujarat · Est. 2022
             </div>
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-black text-white uppercase leading-tight mb-6 max-w-4xl">
-              Building Excellence Through<br className="hidden md:block" />
-              <span className="text-[#60a5fa]"> Disciplined Businesses.</span>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-black text-white uppercase leading-[1.05] md:leading-[1.02] mb-6 max-w-4xl">
+              Building Excellence,<br className="hidden md:block" />
+              <span className="text-[#60a5fa]"> Empowering Business.</span>
             </h1>
             <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start md:items-center justify-between text-white/70 border-t border-white/10 pt-6">
               <p className="max-w-xs text-[10px] md:text-sm font-semibold uppercase tracking-widest">A Diversified Industrial Portfolio · Gujarat &amp; Beyond</p>
@@ -93,10 +93,10 @@ const About = () => (
                   alt="Dhyanora Strategy"
                   className="relative rounded-3xl shadow-2xl w-full h-[320px] md:h-[480px] object-cover"
                 />
-<div className="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 bg-[#172451] text-white px-5 py-4 md:px-7 md:py-5 rounded-2xl shadow-2xl">
-                  <p className="text-[8px] md:text-[9px] font-black uppercase tracking-widest text-white mb-1">Founded</p>
+                <div className="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 bg-[#172451] text-white px-5 py-4 md:px-7 md:py-5 rounded-2xl shadow-2xl">
+                  <p className="text-[8px] md:text-[9px] font-black uppercase tracking-widest text-blue-400 mb-1">Founded</p>
                   <p className="text-2xl md:text-3xl font-heading font-black leading-none">2022</p>
-<p className="text-white/50 text-[10px] md:text-xs mt-1">Ahmedabad, GJ</p>
+                  <p className="text-white/50 text-[10px] md:text-xs mt-1">Ahmedabad, GJ</p>
                 </div>
               </div>
             </ScrollReveal>

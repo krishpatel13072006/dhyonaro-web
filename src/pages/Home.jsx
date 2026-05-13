@@ -132,7 +132,7 @@ export default function Home() {
                     <p className="text-3xl md:text-5xl font-heading font-black text-[#172451] mb-1 leading-none group-hover:text-[#172451] transition-colors duration-500">
                       <Counter value={s.value} suffix={s.suffix} isNum={s.isNum} />
                     </p>
-                    <p className="text-gray-400 text-[9px] md:text-xs uppercase tracking-widest font-semibold mt-2">{s.label}</p>
+                    <p className="text-gray-400 text-[9px] md:text-xs uppercase tracking-widest font-semibold mt-2 leading-tight">{s.label}</p>
                   </motion.div>
                 ))}
               </motion.div>
@@ -237,11 +237,11 @@ export default function Home() {
                       { val: 100, suffix: '%', lbl: 'Quality', isNum: true },
                       { val: 'GJ', suffix: '', lbl: 'Headquartered', isNum: false },
                     ].map((k) => (
-                      <div key={k.lbl} className="text-center p-4 bg-[#f8fafc] rounded-xl border border-gray-100">
+                      <div key={k.lbl} className="text-center p-3 sm:p-4 bg-[#f8fafc] rounded-xl border border-gray-100 flex flex-col justify-center min-h-[80px]">
                         <p className="text-xl font-heading font-black text-[#172451]">
                           <Counter value={k.val} suffix={k.suffix} isNum={k.isNum} />
                         </p>
-                        <p className="text-[10px] text-gray-400 uppercase tracking-wider font-semibold mt-1">{k.lbl}</p>
+                        <p className="text-[10px] text-gray-400 uppercase tracking-wider font-semibold mt-1 leading-tight break-words">{k.lbl}</p>
                       </div>
                     ))}
                   </motion.div>
@@ -350,7 +350,7 @@ export default function Home() {
         <LogoGrid />
 
         {/* ════ WHAT SETS Dhyanora APART — BENTO GRID LAYOUT ════ */}
-        <ApartSection />
+
 
         {/* ════ VISION QUOTE BAND ════ */}
         <ScrollReveal y={40}>
