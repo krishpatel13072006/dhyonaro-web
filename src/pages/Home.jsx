@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import {
   ArrowRight, ArrowUpRight, CheckCircle,
   Building2, Factory, ShoppingCart, Package,
@@ -110,6 +111,40 @@ export default function Home() {
         title="Dhyanora Group | Building Businesses That Last | Ahmedabad, Gujarat"
         description="Dhyanora Group is a diversified business conglomerate based in Ahmedabad, Gujarat — spanning metal scrap trading, electronics retail, industrial infrastructure, and construction materials."
       />
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What does Dhyanora Group do?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Dhyanora Group is a diversified business conglomerate based in Ahmedabad, Gujarat, operating across metal scrap trading, electronics retail, industrial infrastructure, and construction materials."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Where is Dhyanora Group headquartered?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Dhyanora Group is headquartered in Ahmedabad, Gujarat, and serves clients across India."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Which companies fall under the Dhyanora Group umbrella?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Our primary subsidiaries include Pramukh Import Export (Metal Scrap Trading & Bricks Trading), Pramukh Techventures (Electronics Retail), and Shreeji Infra (Mahantam Industrial Park)."
+                }
+              }
+            ]
+          })}
+        </script>
+      </Helmet>
 
       <main>
         {/* ════ HERO ════ */}

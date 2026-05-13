@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { Mail, Phone, MapPin, Send, Plus, Minus, Instagram, Twitter, Linkedin, Globe, ArrowRight } from 'lucide-react';
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
@@ -160,7 +161,30 @@ const Contact = () => {
 
   return (
     <>
-      <SEO title="Contact Us | Dhyanora Group" description="Get in touch with Dhyanora Group for business partnerships, industrial inquiries, and strategic collaborations." />
+      <SEO 
+        title="Contact Us | Dhyanora Group" 
+        description="Get in touch with Dhyanora Group for business partnerships, industrial inquiries, and strategic collaborations."
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Contact Us', path: '/contact' }
+        ]} 
+      />
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(faq => ({
+              "@type": "Question",
+              "name": faq.q,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.a
+              }
+            }))
+          })}
+        </script>
+      </Helmet>
       
       <main className="bg-white text-[#172451] overflow-hidden">
         

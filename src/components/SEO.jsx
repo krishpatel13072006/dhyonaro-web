@@ -1,9 +1,9 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
-const SEO = ({ title, description, keywords, canonical }) => {
+const SEO = ({ title, description, keywords, canonical, breadcrumbs }) => {
   const brandName = "Dhyanora Group";
-  const siteTitle = `${brandName} | Clarity. Direction. Growth.`;
+  const siteTitle = `${brandName} | Building Businesses That Last`;
   const fullTitle = title ? `${title} | ${siteTitle}` : siteTitle;
   const defaultDesc = `Dhyanora Group is a diversified business group based in Ahmedabad, Gujarat — bringing together companies across metal trading, electronics, infrastructure, and construction under one focused vision.`;
   const siteUrl = "https://Dhyanora.com"; 
@@ -38,14 +38,53 @@ const SEO = ({ title, description, keywords, canonical }) => {
         "@type": "Organization",
         "name": "Bricks Trading Division"
       }
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+91 9999999999",
+      "contactType": "customer service",
+      "areaServed": "IN",
+      "availableLanguage": "English"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/dhyanora",
+      "https://twitter.com/dhyanora"
     ]
   };
+
+  // JSON-LD Schema for WebSite Sitelinks Search Box
+  const websiteSchemaMarkup = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": brandName,
+    "url": siteUrl,
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": `${siteUrl}/search?q={search_term_string}`
+      },
+      "query-input": "required name=search_term_string"
+    }
+  };
+
+  // JSON-LD Schema for Breadcrumbs
+  const breadcrumbSchemaMarkup = breadcrumbs ? {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": breadcrumbs.map((crumb, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": crumb.name,
+      "item": `${siteUrl}${crumb.path}`
+    }))
+  } : null;
 
   return (
     <Helmet>
       <title>{fullTitle}</title>
       <meta name="description" content={description || defaultDesc} />
-      <meta name="keywords" content={keywords || `Dhyanora Group, Ahmedabad Business, Metal Scrap Trading Gujarat, Electronics Retail Ahmedabad, Mahantam Industrial Park, Bricks Trading, Shreeji Infra, Pramukh Import Export`} />
+      <meta name="keywords" content={keywords || `Dhyanora Group, Diversified Business Conglomerate Gujarat, Metal Scrap Trading India, Premium Electronics Retail Ahmedabad, Mahantam Industrial Park, Construction Materials Supplier Gujarat, Pramukh Import Export, Shreeji Infra`} />
       
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />
@@ -65,6 +104,14 @@ const SEO = ({ title, description, keywords, canonical }) => {
       <script type="application/ld+json">
         {JSON.stringify(schemaMarkup)}
       </script>
+      <script type="application/ld+json">
+        {JSON.stringify(websiteSchemaMarkup)}
+      </script>
+      {breadcrumbSchemaMarkup && (
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchemaMarkup)}
+        </script>
+      )}
     </Helmet>
   );
 };

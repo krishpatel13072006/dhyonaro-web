@@ -29,6 +29,10 @@ const About = () => (
     <SEO
       title="About Us | Dhyanora Group | Ahmedabad, Gujarat"
       description="Learn how Dhyanora Group was founded in Ahmedabad in 2022 on disciplined, value-driven principles spanning metal scrap, electronics, infrastructure, and construction."
+      breadcrumbs={[
+        { name: 'Home', path: '/' },
+        { name: 'About Us', path: '/about' }
+      ]}
     />
     <main className="bg-white">
 
@@ -117,6 +121,46 @@ const About = () => (
                 </Link>
               </div>
             </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ════ 2.5 E-E-A-T SIGNALS: LEADERSHIP & EXPERTISE ════ */}
+      <section className="py-20 md:py-32 px-6 bg-[#050b14] relative overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <SectionTag color="#fad77e">Expertise & Leadership</SectionTag>
+            <h2 className="text-3xl md:text-5xl font-heading font-black text-white mt-4 leading-tight">
+              Guided by <span className="text-[#fad77e]">Experience.</span>
+            </h2>
+            <p className="text-white/60 mt-6 max-w-2xl mx-auto leading-relaxed">
+              Dhyanora Group is led by industry veterans with deep-rooted expertise in industrial procurement, retail, and large-scale infrastructure development. Our leadership ensures strict adherence to corporate governance, legal compliance, and quality benchmarks.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Industry Experience",
+                desc: "Decades of collective experience in navigating global supply chains, industrial construction, and premium consumer markets."
+              },
+              {
+                title: "Certified Excellence",
+                desc: "All our subsidiary operations adhere strictly to industry-specific quality certifications and regulatory compliance frameworks."
+              },
+              {
+                title: "Authorised Partnerships",
+                desc: "Trusted by top-tier global brands and regional industrial leaders for procurement and exclusive retail distribution."
+              }
+            ].map((item, idx) => (
+              <ScrollReveal key={idx} delay={idx * 0.15} y={30}>
+                <div className="p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-[#fad77e]/50 transition-colors">
+                  <ShieldCheck size={32} className="text-[#fad77e] mb-6" />
+                  <h3 className="text-xl font-heading font-black text-white mb-3">{item.title}</h3>
+                  <p className="text-white/50 text-sm leading-relaxed">{item.desc}</p>
+                </div>
+              </ScrollReveal>
+            ))}
           </div>
         </div>
       </section>
