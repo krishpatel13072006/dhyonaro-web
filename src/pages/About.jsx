@@ -27,8 +27,8 @@ import BouncingCircles from '../components/BouncingCircles';
 const About = () => (
   <>
     <SEO
-      title="About Dhyanora Group | Leading Multi-Industry Parent Company"
-      description="Learn about Dhyanora Group, a premier multi-industry parent company in Gujarat, driving excellence in import-export, real estate, and consumer electronics."
+      title="About Dhyanora Group | Industrial Excellence in Gujarat"
+      description="Discover Dhyanora Group, a leading industrial group in Ahmedabad. Founded in 2022, we excel in metal trading, electronics, and infrastructure."
       breadcrumbs={[
         { name: 'Home', path: '/' },
         { name: 'About Us', path: '/about' }
@@ -49,12 +49,9 @@ const About = () => (
               Ahmedabad, Gujarat · Est. 2022
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-black text-white uppercase leading-[1.05] md:leading-[1.02] mb-6 max-w-4xl">
-              The Foundation of<br className="hidden md:block" />
-              <span className="text-[#60a5fa]"> Diverse Excellence.</span>
+              Building Excellence,<br className="hidden md:block" />
+              <span className="text-[#60a5fa]"> Empowering Business.</span>
             </h1>
-            <p className="text-white/80 text-sm md:text-xl mb-8 max-w-2xl leading-relaxed">
-              Building a stronger tomorrow through dynamic ventures in global trade, commercial infrastructure, and premium retail.
-            </p>
             <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start md:items-center justify-between text-white/70 border-t border-white/10 pt-6">
               <p className="max-w-xs text-[10px] md:text-sm font-semibold uppercase tracking-widest">A Diversified Industrial Portfolio · Gujarat &amp; Beyond</p>
               <Link to="/companies" className="inline-flex items-center gap-2 text-white text-xs font-black uppercase tracking-widest group">
@@ -108,13 +105,14 @@ const About = () => (
               </div>
             </ScrollReveal>
             <ScrollReveal x={60} y={0} delay={0.1} duration={1}>
-              <SectionTag>Who We Are</SectionTag>
+              <SectionTag>Our History</SectionTag>
               <h2 className="text-3xl md:text-5xl font-heading font-black text-[#172451] mb-6 md:mb-8 leading-tight">
-                About Dhyanora Group
+                How Dhyanora<br /><span className="text-[#172451]">Began.</span>
               </h2>
               <div className="space-y-4 md:space-y-5 text-gray-600 text-sm md:text-base leading-relaxed">
-                <p>Headquartered in Gujarat, India, <strong className="text-[#0d1b2e]">Dhyanora Group</strong> stands as a visionary parent company with a diversified portfolio spanning multiple high-growth industries. We are the driving force behind a network of specialized businesses, each excelling in its respective domain—from international trade and heavy building materials to commercial real estate development and modern consumer electronics.</p>
-                <p>As a central holding group, Dhyanora provides the strategic direction, financial stability, and unified vision that empowers our child companies to innovate and dominate their markets. We bridge the gap between global opportunities and local execution.</p>
+                <p><strong className="text-[#0d1b2e]">Dhyanora Group</strong> was established in 2022 in Ahmedabad, Gujarat, with a singular belief: that focused businesses, run with discipline and traditional values, create outcomes that stand the test of time.</p>
+                <p>Derived from the Sanskrit word <em className="font-semibold">'Dhyanora'</em> — meaning focus, awareness, and intent — it sits at the heart of our operational philosophy. We enter sectors with absolute intention, and grow within them with patience.</p>
+                <p>Today, Dhyanora is a multi-sector entity operating across metal scrap trading, electronics retail, industrial infrastructure, and construction materials — each vertical contributing to the collective strength of the group.</p>
               </div>
               <div className="mt-8 md:mt-10">
                 <Link to="/companies" className="btn-blue group w-full sm:w-auto justify-center sm:justify-start">
@@ -285,9 +283,9 @@ const About = () => (
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <ScrollReveal y={40} x={0}>
             <div className="text-center mb-20">
-              <SectionTag>Our Strategic Core</SectionTag>
+              <SectionTag>Our Purpose</SectionTag>
               <h2 className="text-4xl md:text-6xl font-heading font-black text-[#172451] leading-tight">
-                Our Vision & Mission
+                Vision. Mission. <span className="text-[#172451]">Purpose.</span>
               </h2>
             </div>
           </ScrollReveal>
@@ -306,7 +304,7 @@ const About = () => (
                   <Eye size={12} /> Vision Statement
                 </div>
                 <blockquote className="text-xl md:text-3xl font-heading font-black text-[#172451] leading-snug mb-6 md:mb-8 relative">
-                  To be a globally recognized corporate group that creates sustainable value across diverse industries by fostering innovation, ensuring operational excellence, and delivering uncompromising quality.
+                  To be recognised as Gujarat's most trusted and diversified business group — a name synonymous with quality, reliability, and responsible growth.
                 </blockquote>
                 <div className="h-0.5 w-16 bg-[#172451] mb-6 md:mb-8 rounded-full" />
                 <p className="text-gray-500 text-sm md:text-base leading-relaxed">
@@ -323,19 +321,9 @@ const About = () => (
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#eff4ff] text-[#172451] text-[10px] md:text-xs font-black uppercase tracking-widest mb-6">
                   <Target size={12} /> Our Mission
                 </div>
-                <div className="space-y-4">
-                  {[
-                    "To empower our individual businesses—Pramukh Import Export, Shreeji Infra, and Pramukh Techventure—with the resources they need to lead their sectors.",
-                    "To build landmark commercial real estate that shapes the future of business.",
-                    "To maintain seamless international supply chains in the scrap and trading markets.",
-                    "To enhance consumer lifestyles through premium electronic retail experiences."
-                  ].map((item, i) => (
-                    <div key={i} className="flex gap-4 items-start">
-                      <div className="mt-2 w-1.5 h-1.5 rounded-full bg-[#172451] shrink-0" />
-                      <p className="text-gray-600 text-sm md:text-base font-semibold leading-snug">{item}</p>
-                    </div>
-                  ))}
-                </div>
+                <blockquote className="text-xl md:text-3xl font-heading font-black text-[#172451] leading-snug mb-6 md:mb-8 relative">
+                  To build, manage, and scale high-quality businesses that create tangible value for our clients, partners, and the Gujarat economy.
+                </blockquote>
                 <div className="h-0.5 w-16 bg-[#172451] mb-6 md:mb-8 rounded-full" />
                 <p className="text-gray-500 text-sm md:text-base leading-relaxed">
                   We drive progress through clarity of thought, integrity of action, and a relentless focus on long-term sustainability across every industrial and consumer sector we touch.
@@ -352,53 +340,47 @@ const About = () => (
 
           {/* Purpose — full width centered dark card */}
           <ScrollReveal delay={0.1} y={60} x={0}>
-            <div className="relative rounded-3xl overflow-hidden bg-[#172451] p-6 md:p-16">
-              {/* Decorative background elements */}
+            <div className="relative rounded-3xl overflow-hidden bg-[#172451] p-6 md:p-16 text-center">
+              {/* Decorative glow */}
               <div className="absolute inset-0 bg-gradient-to-br from-[#172451]/20 to-transparent pointer-events-none" />
               <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#172451]/15 rounded-full blur-3xl pointer-events-none" />
               <div className="absolute top-0 left-0 w-60 h-60 bg-[#172451]/10 rounded-full blur-3xl pointer-events-none" />
 
-              <div className="relative z-10">
-                <div className="mb-12">
-                  <SectionTag color="#fad77e">The Pillars of Our Group</SectionTag>
-                  <h2 className="text-3xl md:text-5xl font-heading font-black text-white leading-tight mb-6">
-                    Our Expanding Ecosystem
-                  </h2>
-                  <p className="text-white/60 text-base md:text-lg max-w-3xl leading-relaxed">
-                    Dhyanora’s strength lies in the specialization of its distinct divisions. Together, they create a robust and self-sustaining business ecosystem:
-                  </p>
-                </div>
+              {/* Background image */}
+              <img
+                src={gujaratRoutes}
+                className="absolute inset-0 w-full h-full object-cover opacity-10 mix-blend-luminosity"
+                alt="Dhyanora Group's Strategic Connectivity and Industrial Routes in Gujarat"
+              />
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+              <div className="relative z-10 max-w-3xl mx-auto">
+                  <SectionTag color="#fad77e">Our Purpose</SectionTag>
+                <h3 className="text-2xl md:text-5xl font-heading font-black text-white leading-tight mb-5 md:mb-6">
+                  Discipline &amp; purpose<br />
+                  <span className="text-blue-400">behind every decision.</span>
+                </h3>
+                <p className="text-white/50 text-sm md:text-base leading-relaxed mb-8 md:mb-10 max-w-xl mx-auto">
+                  Every company we build, every sector we enter is a deliberate act — guided by research, purpose, and unwavering ethics. We do not believe in building businesses through trial and error.
+                </p>
+
+                {/* 3 pillars inline */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 text-left">
                   {[
-                    { title: "Pramukh Import Export", text: "Our global trading arm, leading the way in large-scale scrap import and export operations with an unyielding commitment to international standards." },
-                    { title: "Brics Trading", text: "Operating as a specialized division under Pramukh, delivering high-grade bricks and essential materials to fuel large-scale construction projects." },
-                    { title: "Shreeji Infra", text: "Our real estate powerhouse, dedicated to designing and constructing state-of-the-art commercial buildings and industrial estates that redefine urban infrastructure." },
-                    { title: "Pramukh Techventure", text: "Our consumer-facing retail venture, functioning as an authorized agency to bring top-brand home appliances and electronics directly to modern homes." }
-                  ].map((item, i) => (
-                    <div key={i} className="p-6 rounded-2xl bg-white/5 border border-white/10">
-                      <h4 className="text-[#fad77e] font-heading font-black text-lg mb-2">{item.title}</h4>
-                      <p className="text-white/50 text-sm leading-relaxed">{item.text}</p>
+                    { label: 'Clarity', desc: 'We maintain absolute clarity of identity and strategy across every business.' },
+                    { label: 'Integrity', desc: 'Transparency is our baseline — enabling long-term relationships with all stakeholders.' },
+                    { label: 'Discipline', desc: 'Systems and accountability ensure consistent, high-quality delivery across all verticals.' },
+                  ].map((item) => (
+                    <div key={item.label} className="p-4 md:p-5 bg-white/5 rounded-2xl border border-white/10 hover:border-[#172451]/40 hover:bg-white/8 transition-all duration-300">
+                      <h4 className="text-white font-heading font-black text-xs md:text-sm uppercase tracking-wide mb-1 md:mb-2">{item.label}</h4>
+                      <p className="text-white/40 text-[10px] md:text-xs leading-relaxed">{item.desc}</p>
                     </div>
                   ))}
                 </div>
 
-                <div className="border-t border-white/10 pt-12">
-                  <SectionTag color="#fad77e">What Drives Us</SectionTag>
-                  <h3 className="text-2xl md:text-4xl font-heading font-black text-white mb-8">Our Core Values</h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {[
-                      { title: "Integrity", text: "We conduct all our global and domestic operations with absolute transparency." },
-                      { title: "Excellence", text: "From the foundations laid by Shreeji Infra to the premium appliances sold at Pramukh Techventure, quality is our hallmark." },
-                      { title: "Adaptability", text: "Operating across diverse sectors requires agility, and we pride ourselves on evolving with global market trends." },
-                      { title: "Collaboration", text: "A unified approach where every child company strengthens the broader Dhyanora Group." }
-                    ].map((item, i) => (
-                      <div key={i} className="flex flex-col gap-2">
-                        <h5 className="text-white font-heading font-black text-sm uppercase tracking-wider">{item.title}</h5>
-                        <p className="text-white/40 text-xs leading-relaxed">{item.text}</p>
-                      </div>
-                    ))}
-                  </div>
+                <div className="mt-8 md:mt-10">
+                  <Link to="/companies" className="btn-blue group w-full sm:w-auto justify-center sm:justify-start">
+                    Explore Our Companies <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
+                  </Link>
                 </div>
               </div>
             </div>
@@ -411,12 +393,7 @@ const About = () => (
 
       {/* ════ 6. GLOBAL REACH — blob preserved ════ */}
       <GlobalReach />
-      <FooterCTA 
-        title="Be a Part of Our Journey"
-        description="Whether you are looking for strategic partnerships, global trading solutions, commercial real estate spaces, or retail franchises, the Dhyanora Group is equipped to collaborate and deliver."
-        buttonText="Contact Our Team"
-        tag="Collaborate"
-      />
+      <FooterCTA />
     </main>
   </>
 );

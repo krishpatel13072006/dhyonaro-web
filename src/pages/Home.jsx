@@ -36,35 +36,35 @@ const stats = [
 
 const pillars = [
   {
-    id: '01', name: 'Pramukh Import Export', sector: 'Global Scrap Trading',
+    id: '01', name: 'Pramukh Import Export', sector: 'Metal Scrap Trading',
     icon: Factory, logo: pramukhLogo,
-    desc: "As a leading name in global trade, Pramukh Import Export specializes in the large-scale scrap import-export business. We ensure seamless international supply chains, adhering to the highest standards of quality and compliance in the global scrap market.",
+    desc: "Gujarat's reliable partner for global metal scrap procurement. We facilitate the seamless flow of ferrous and non-ferrous materials, supporting India's manufacturing and steel industries.",
     path: '/companies/import-export',
     img: pramukhImportExportHome,
     accent: '#172451',
   },
   {
-    id: '02', name: 'Brics Trading', sector: 'Bricks & Construction Materials',
-    icon: Package, logo: pramukhLogo,
-    desc: 'Operating under the trusted umbrella of Pramukh Import Export, Brics Trading handles high-quality bricks trading and building material supply. We cater to the growing demands of the construction and infrastructure sectors with reliability and speed.',
-    path: "/companies#brics",
-    img: bricsHomePage,
+    id: '02', name: 'Pramukh Techventures', sector: 'Electronics Retail',
+    icon: ShoppingCart, logo: pramukhLogo,
+    desc: 'Your premium destination for state-of-the-art technology — consumer electronics and home appliances backed by authorised brand partnerships and honest customer service.',
+    path: '/companies/tech-venture',
+    img: 'https://images.unsplash.com/photo-1550009158-9ebf69173e03?auto=format&fit=crop&q=80&w=900',
     accent: '#172451',
   },
   {
-    id: '03', name: 'Shreeji Infra', sector: 'Commercial Real Estate',
+    id: '03', name: 'Shreeji Infra', sector: 'Industrial Infrastructure',
     icon: Building2, logo: shreejiLogo,
-    desc: 'Transforming skylines and business landscapes. Shreeji Infra is our dedicated real estate division focused on developing state-of-the-art commercial buildings and industrial estates. We build spaces that empower businesses to thrive.',
+    desc: 'Developing the future of manufacturing through Mahantam Industrial Park — purpose-built industrial sheds, advanced warehousing, and strategic workspace infrastructure.',
     path: '/companies/shreeji-infra',
     img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=900',
     accent: '#172451',
   },
   {
-    id: '04', name: 'Pramukh Techventure', sector: 'Premium Electronics',
-    icon: ShoppingCart, logo: pramukhLogo,
-    desc: 'Step into the future of retail with Pramukh Techventure. Operating as an authorized agency for top-tier brands, our premier showroom offers the latest and most advanced home appliances and electronics to elevate your lifestyle.',
-    path: '/companies/tech-venture',
-    img: 'https://images.unsplash.com/photo-1550009158-9ebf69173e03?auto=format&fit=crop&q=80&w=900',
+    id: '04', name: 'Pramukh Import Export (Brics Trading)', sector: 'Construction Materials',
+    icon: Package, logo: pramukhLogo,
+    desc: 'Delivering the building blocks of progress — a consistent, high-quality supply of essential construction materials to builders, contractors, and developers across the region.',
+    path: '/companies',
+    img: bricsHomePage,
     accent: '#172451',
   },
 ];
@@ -108,8 +108,8 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="Dhyanora Group | Top Import-Export, Real Estate & Electronics Hub"
-        description="Discover Dhyanora Group, a multi-industry leader. We specialize in scrap import-export, commercial real estate, bricks trading, and premium home appliances."
+        title="Dhyanora Group | Industrial Group in Ahmedabad"
+        description="Dhyanora Group is a leading industrial group in Ahmedabad, Gujarat. Specialists in metal scrap trading, electronics retail, and industrial infrastructure."
       />
       <Helmet>
         <script type="application/ld+json">
@@ -241,21 +241,27 @@ export default function Home() {
                   variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true }}
                 >
                   <motion.div variants={fadeUp} transition={{ duration: 0.65 }}>
-                    <SectionTag>The Power Behind Diverse Industries</SectionTag>
+                    <SectionTag>One Group. Multiple Strengths.</SectionTag>
                     <h2 className="text-3xl md:text-5xl font-heading font-black text-[#172451] mb-6 leading-tight">
-                      The Power Behind<br />
-                      <span className="text-[#172451]">Diverse Industries</span>
+                      The Essence of Discipline<br />
+                      <span className="text-[#172451]">and Growth.</span>
                     </h2>
                   </motion.div>
 
                   <motion.p variants={fadeUp} transition={{ duration: 0.65, delay: 0.08 }}
                     className="text-gray-600 text-base leading-relaxed mb-5">
-                    Dhyanora is a dynamic parent company that serves as the strong foundation for multiple industry-leading brands. By managing a versatile portfolio, we bring unparalleled expertise to various sectors.
+                    Dhyanora is more than just a holding company; it is a strategic platform built
+                    for focused expansion. We operate on the fundamental belief that disciplined
+                    businesses, when guided by a clear sense of purpose and unyielding core values,
+                    create a lasting impact on the economy and the community.
                   </motion.p>
 
                   <motion.p variants={fadeUp} transition={{ duration: 0.65, delay: 0.14 }}
                     className="text-gray-500 text-sm leading-relaxed mb-8">
-                    Whether it is sourcing global materials, developing landmark commercial buildings, or delivering the latest home appliances to consumers, Dhyanora stands for trust, quality, and forward-thinking vision.
+                    From the procurement of raw materials to the development of world-class industrial
+                    infrastructure, every company under the Dhyanora umbrella operates with the same
+                    unwavering commitment: uncompromising quality, lifelong trust, and sustainable
+                    growth through collective effort.
                   </motion.p>
 
                   {/* Mini KPIs */}
@@ -312,10 +318,10 @@ export default function Home() {
             <ScrollReveal y={32}>
               <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12 md:mb-16">
                 <ScrollReveal x={-40} y={0}>
-                  <SectionTag color="#fad77e">Our Growing Portfolio of Companies</SectionTag>
+                  <SectionTag color="#fad77e">Our Strategic Portfolio</SectionTag>
                   <h2 className="text-3xl md:text-5xl font-heading font-black text-white leading-[1.1]">
-                    Our Growing<br />
-                    <span className="text-[#fad77e]">Portfolio of Companies</span>
+                    Diversified Expertise.<br />
+                    <span className="text-[#fad77e]">Unified Vision.</span>
                   </h2>
                 </ScrollReveal>
                 <ScrollReveal x={40} y={0} delay={0.2}>
@@ -375,55 +381,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ════ WHY CHOOSE US ════ */}
-        <section className="bg-white py-24 md:py-36">
-          <div className="max-w-7xl mx-auto px-6 md:px-12">
-            <ScrollReveal y={32}>
-              <div className="text-center mb-16">
-                <SectionTag>Success Through Excellence</SectionTag>
-                <h2 className="text-3xl md:text-5xl font-heading font-black text-[#172451] mb-6">
-                  Why Partner With Dhyanora Group?
-                </h2>
-              </div>
-            </ScrollReveal>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {[
-                {
-                  title: 'Multi-Industry Expertise',
-                  desc: 'Comprehensive knowledge across real estate, trading, and retail sectors.',
-                  icon: Layers
-                },
-                {
-                  title: 'Global & Local Reach',
-                  desc: 'Strong networks in international import-export and local infrastructure development.',
-                  icon: Globe
-                },
-                {
-                  title: 'Quality Assurance',
-                  desc: "Whether it's premium home appliances or top-grade commercial estates, we never compromise on quality.",
-                  icon: CheckCircle
-                },
-                {
-                  title: 'Unified Vision',
-                  desc: 'A strong parent company ensuring stability and growth across all child companies.',
-                  icon: TrendingUp
-                }
-              ].map((item, index) => (
-                <ScrollReveal key={index} y={30} delay={index * 0.1}>
-                  <div className="p-8 rounded-2xl bg-[#f8fafc] border border-gray-100 hover:shadow-lg transition-all duration-300 h-full">
-                    <div className="w-12 h-12 rounded-xl bg-[#172451]/5 flex items-center justify-center mb-6 text-[#172451]">
-                      <item.icon size={24} />
-                    </div>
-                    <h3 className="text-lg font-heading font-black text-[#172451] mb-3">{item.title}</h3>
-                    <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* ════ LOGO GRID ════ */}
         <LogoGrid />
 
@@ -465,12 +422,7 @@ export default function Home() {
           </section>
         </ScrollReveal>
 
-        <FooterCTA 
-          title="Connect With Our Ecosystem"
-          description="Looking for commercial real estate space, reliable scrap import-export partners, or top-brand home appliances? The Dhyanora Group of companies is ready to serve your needs."
-          buttonText="Get in Touch"
-          tag="Reach Out"
-        />
+        <FooterCTA />
       </main>
     </>
   );

@@ -35,12 +35,7 @@ const RevealOnScroll = ({ children, className = "", delay = 0 }) => {
   );
 };
 
-const FooterCTA = ({ 
-  title = "Ready to Work With Dhyanora?", 
-  description = "Whether you are a business partner, investor, or client — we are based in Ahmedabad and always open to conversations. Our team is ready to assist.",
-  buttonText = "Get In Touch",
-  tag = "Get Started"
-}) => {
+const FooterCTA = () => {
   return (
     <section className="w-full bg-[#f8f9fa] py-20 overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -58,14 +53,14 @@ const FooterCTA = ({
 
           {/* Floating White Content Card */}
           <div className="relative z-10 bg-white rounded-3xl p-6 sm:p-10 md:p-12 lg:p-14 max-w-xl w-full shadow-2xl">
-            <SectionTag>{tag}</SectionTag>
+            <SectionTag>Get Started</SectionTag>
             
             <h2 className="text-3xl md:text-5xl font-heading font-black text-slate-900 leading-[1.1] mb-5 md:mb-6">
-              {title}
+              Ready to Work <br className="hidden sm:block" /> With Dhyanora?
             </h2>
             
             <p className="text-base md:text-lg text-slate-500 leading-relaxed font-medium mb-8 md:mb-10">
-              {description}
+              Whether you are a business partner, investor, or client — we are based in Ahmedabad and always open to conversations. Our team is ready to assist.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
@@ -73,7 +68,7 @@ const FooterCTA = ({
                 to="/contact" 
                 className="btn-blue justify-center"
               >
-                {buttonText}
+                Get In Touch
               </Link>
               <Link 
                 to="/companies" 

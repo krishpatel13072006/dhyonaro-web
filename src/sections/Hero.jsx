@@ -39,8 +39,9 @@ export default function Hero() {
               transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
               className="text-4xl sm:text-6xl lg:text-7xl font-heading font-black text-white leading-[1.05] md:leading-[1.02]"
             >
-              Dhyanora Group:<br />
-              <span className="text-[#fad77e]/90 text-3xl sm:text-5xl lg:text-6xl">Delivering Excellence Across Industries</span>
+              BUILDING<br />
+              BUSINESSES<br />
+              <span className="text-[#fad77e]/90">THAT LAST.</span>
             </motion.h1>
           </div>
 
@@ -51,7 +52,8 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.45 }}
             className="text-white/60 text-sm md:text-lg leading-relaxed mb-8 md:mb-10 max-w-lg"
           >
-            From global trade and commercial infrastructure to premium retail. We are a diversified multi-industry parent company driving growth through our trusted ventures in scrap import-export, real estate, and consumer electronics.
+            A diversified business group across metal trading, electronics retail, industrial
+            infrastructure, and construction — unified by a single vision of excellence.
           </motion.p>
 
           {/* CTAs */}
