@@ -18,8 +18,6 @@ const Contact = React.lazy(() => import('./pages/Contact'));
 const ShreejiInfra = React.lazy(() => import('./pages/CompanyShreeji.jsx'));
 const TechVenture = React.lazy(() => import('./pages/CompanyTech.jsx'));
 const ImportExport = React.lazy(() => import('./pages/CompanyImportExport.jsx'));
-const Vision360 = React.lazy(() => import('./pages/Vision360'));
-const Exhibition = React.lazy(() => import('./pages/Exhibition'));
 const Companies = React.lazy(() => import('./pages/Companies'));
 
 
@@ -37,8 +35,7 @@ const PageTransition = ({ children }) => (
 const AppContent = () => {
   const location = useLocation();
 
-  const immersivePaths = ['/nexus-helix', '/spatial-horizon'];
-  const isImmersivePage = immersivePaths.includes(location.pathname);
+  const isImmersivePage = false;
 
   const lenisRef = React.useRef(null);
 
@@ -91,10 +88,6 @@ const AppContent = () => {
             <Route path="/companies/import-export" element={<PageTransition><ImportExport /></PageTransition>} />
 
             <Route path="/companies" element={<PageTransition><Companies /></PageTransition>} />
-
-            {/* Pages with custom transitions or no layout */}
-            <Route path="/nexus-helix" element={<Vision360 />} />
-            <Route path="/spatial-horizon" element={<Exhibition />} />
           </Routes>
         </AnimatePresence>
       </React.Suspense>

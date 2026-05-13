@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 const SEO = ({ title, description, keywords, canonical, breadcrumbs, image }) => {
   const brandName = "Dhyanora Group";
   const siteUrl = "https://dhyanora.com"; 
-  const defaultDesc = `Dhyanora Group is a leading diversified business conglomerate in Ahmedabad, Gujarat, specializing in metal trading, electronics, infrastructure, and construction.`;
+  const defaultDesc = `Dhyanora Group is a leading diversified business group in Ahmedabad, Gujarat, specializing in metal trading, electronics, infrastructure, and construction.`;
   const defaultImage = `${siteUrl}/og-image.jpg`; // Ensure this exists in public folder
   
   // Smart Title Logic: Avoid redundancy if brandName is already in title
@@ -16,7 +16,7 @@ const SEO = ({ title, description, keywords, canonical, breadcrumbs, image }) =>
       fullTitle = `${title} | ${brandName}`;
     }
   } else {
-    fullTitle = `${brandName} | Diversified Industrial Conglomerate Gujarat`;
+    fullTitle = `${brandName} | Diversified Industrial Group Gujarat`;
   }
 
   // JSON-LD Schema for Organization
@@ -81,7 +81,7 @@ const SEO = ({ title, description, keywords, canonical, breadcrumbs, image }) =>
       <title>{fullTitle}</title>
       <meta name="title" content={fullTitle} />
       <meta name="description" content={description || defaultDesc} />
-      <meta name="keywords" content={keywords || "Dhyanora Group, Industrial Conglomerate Gujarat, Metal Scrap Trading India, Electronics Retail Ahmedabad, Mahantam Industrial Park, Construction Materials Supplier, Pramukh Import Export"} />
+      <meta name="keywords" content={keywords || "Dhyanora Group, Industrial Group Gujarat, Metal Scrap Trading India, Electronics Retail Ahmedabad, Mahantam Industrial Park, Construction Materials Supplier, Pramukh Import Export"} />
       
       {/* Canonical */}
       <link rel="canonical" href={canonical || (typeof window !== 'undefined' ? window.location.href : siteUrl)} />

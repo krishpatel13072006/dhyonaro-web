@@ -70,7 +70,7 @@ const Navbar = () => {
             )}>
               <img
                 src={(!scrolled && isTransparentPage) ? DhyonoraLogo2 : DhyanoraLogo1}
-                alt="Dhyanora Group - Diversified Industrial Conglomerate in Gujarat"
+                alt="Dhyanora Group - Diversified Industrial Group in Gujarat"
                 className="h-7 sm:h-8 md:h-12 w-auto object-contain transition-all duration-300"
               />
             </div>

@@ -52,7 +52,7 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.45 }}
             className="text-white/60 text-sm md:text-lg leading-relaxed mb-8 md:mb-10 max-w-lg"
           >
-            A diversified conglomerate across metal trading, electronics retail, industrial
+            A diversified business group across metal trading, electronics retail, industrial
             infrastructure, and construction — unified by a single vision of excellence.
           </motion.p>
 

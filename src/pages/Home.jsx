@@ -108,8 +108,8 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="Dhyanora Group | Industrial Conglomerate in Ahmedabad"
-        description="Dhyanora Group is a leading industrial conglomerate in Ahmedabad, Gujarat. Specialists in metal scrap trading, electronics retail, and industrial infrastructure."
+        title="Dhyanora Group | Industrial Group in Ahmedabad"
+        description="Dhyanora Group is a leading industrial group in Ahmedabad, Gujarat. Specialists in metal scrap trading, electronics retail, and industrial infrastructure."
       />
       <Helmet>
         <script type="application/ld+json">
@@ -122,7 +122,7 @@ export default function Home() {
                 "name": "What does Dhyanora Group do?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Dhyanora Group is a diversified business conglomerate based in Ahmedabad, Gujarat, operating across metal scrap trading, electronics retail, industrial infrastructure, and construction materials."
+                  "text": "Dhyanora Group is a diversified business group based in Ahmedabad, Gujarat, operating across metal scrap trading, electronics retail, industrial infrastructure, and construction materials."
                 }
               },
               {
@@ -407,7 +407,7 @@ export default function Home() {
                 <ScrollReveal y={40} x={0} className="w-full">
                   <SectionTag color="#fad77e">Our Vision</SectionTag>
                   <blockquote className="text-xl sm:text-2xl md:text-4xl font-heading font-black text-white leading-snug drop-shadow-[0_4px_20px_rgba(0,0,0,0.8)] mb-8 max-w-3xl mx-auto">
-                    "To be recognised as Gujarat's most trusted and diversified business conglomerate — a name synonymous with quality, reliability, and responsible growth."
+                    "To be recognised as Gujarat's most trusted and diversified business group — a name synonymous with quality, reliability, and responsible growth."
                   </blockquote>
                 </ScrollReveal>
 

@@ -28,7 +28,7 @@ const About = () => (
   <>
     <SEO
       title="About Dhyanora Group | Industrial Excellence in Gujarat"
-      description="Discover Dhyanora Group, a leading industrial conglomerate in Ahmedabad. Founded in 2022, we excel in metal trading, electronics, and infrastructure."
+      description="Discover Dhyanora Group, a leading industrial group in Ahmedabad. Founded in 2022, we excel in metal trading, electronics, and infrastructure."
       breadcrumbs={[
         { name: 'Home', path: '/' },
         { name: 'About Us', path: '/about' }
@@ -304,7 +304,7 @@ const About = () => (
                   <Eye size={12} /> Vision Statement
                 </div>
                 <blockquote className="text-xl md:text-3xl font-heading font-black text-[#172451] leading-snug mb-6 md:mb-8 relative">
-                  To be recognised as Gujarat's most trusted and diversified business conglomerate — a name synonymous with quality, reliability, and responsible growth.
+                  To be recognised as Gujarat's most trusted and diversified business group — a name synonymous with quality, reliability, and responsible growth.
                 </blockquote>
                 <div className="h-0.5 w-16 bg-[#172451] mb-6 md:mb-8 rounded-full" />
                 <p className="text-gray-500 text-sm md:text-base leading-relaxed">
