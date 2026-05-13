@@ -26,7 +26,13 @@ const ModernVideoBackground = ({
       if (videoElement) {
         if (i === index) {
           // Play the currently active video from the beginning
-          videoElement.currentTime = 0; 
+          try {
+            if (videoElement.readyState >= 1) { // HAVE_METADATA or better
+              videoElement.currentTime = 0; 
+            }
+          } catch (e) {
+            console.warn("Could not set currentTime:", e);
+          }
           videoElement.play().catch(err => console.warn("Autoplay blocked:", err));
         } else {
           // Let the outgoing video play during the 1.5s fade out, 
@@ -80,6 +86,7 @@ const ModernVideoBackground = ({
             onEnded={() => handleEnded(i)}
             muted
             playsInline
+            autoPlay={isCurrent}
             loop={videos.length === 1} 
             preload={isCurrent || isNext ? "auto" : "metadata"}
             className="absolute inset-0 w-full h-full object-cover"
