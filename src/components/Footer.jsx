@@ -1,12 +1,14 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import {
   Mail,
   Phone,
   MapPin,
   ArrowUp,
-  Link as LucideLink,
-  Camera,
+  Linkedin,
+  Instagram,
+  Twitter,
   Globe,
   Send,
   ExternalLink,
@@ -30,7 +32,7 @@ const Footer = () => {
       { label: 'Pramukh Import Export', to: '/companies/import-export' },
       { label: 'Pramukh Techventures', to: '/companies/tech-venture' },
       { label: 'Shreeji Infra', to: '/companies/shreeji-infra' },
-      { label: 'Pramukh Import Export (Brics Trading)', to: '/companies/brics' },
+      { label: 'Construction Materials (Brics Trading)', to: '/companies' },
     ],
     legal: [
       { label: 'Privacy Policy', to: '#' },
@@ -41,10 +43,10 @@ const Footer = () => {
   };
 
   const socials = [
-    { Icon: LucideLink, href: '#', label: 'LinkedIn' },
-    { Icon: Camera, href: '#', label: 'Instagram' },
-    { Icon: Share2, href: '#', label: 'Twitter' },
-    { Icon: Globe, href: '#', label: 'Facebook' },
+    { Icon: Linkedin, href: 'https://linkedin.com/company/dhyanora-group', label: 'LinkedIn' },
+    { Icon: Instagram, href: 'https://instagram.com/dhyanora_group', label: 'Instagram' },
+    { Icon: Twitter, href: 'https://twitter.com/dhyanoragroup', label: 'Twitter' },
+    { Icon: Globe, href: 'https://dhyanora.com', label: 'Website' },
   ];
 
   return (
@@ -65,7 +67,13 @@ const Footer = () => {
           {/* Brand & Social (Inspired by NextPlay) */}
           <div className="lg:col-span-4 flex flex-col gap-10">
             <Link href="/" className="inline-block group">
-              <img src={DhyonoraLogo2.src} alt="Dhyanora Group - Leading Industrial Group in Ahmedabad, Gujarat" className="h-14 w-auto group-hover:brightness-110 transition-all duration-300" />
+              <Image 
+                src={DhyonoraLogo2} 
+                alt="Dhyanora Group - Leading Industrial Group in Ahmedabad, Gujarat" 
+                width={200}
+                height={56}
+                className="h-14 w-auto group-hover:brightness-110 transition-all duration-300 object-contain" 
+              />
             </Link>
             <p className="text-gray-400 text-base font-medium leading-relaxed max-w-sm italic">
               "A focused collective of businesses across Gujarat, unified by discipline, values, and a relentless drive for industrial excellence."

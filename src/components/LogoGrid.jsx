@@ -17,18 +17,18 @@ import logo11 from '@/logo grid/11.jpg';
 import logo12 from '@/logo grid/12.jpg';
 
 const logos = [
-  { id: 1, src: logo1, alt: 'Brand 1' },
-  { id: 2, src: logo2, alt: 'Brand 2' },
-  { id: 3, src: logo3, alt: 'Brand 3' },
-  { id: 4, src: logo4, alt: 'Brand 4' },
-  { id: 5, src: logo5, alt: 'Brand 5' },
-  { id: 6, src: logo6, alt: 'Brand 6' },
-  { id: 7, src: logo7, alt: 'Brand 7' },
-  { id: 8, src: logo8, alt: 'Brand 8' },
-  { id: 9, src: logo9, alt: 'Brand 9' },
-  { id: 10, src: logo10, alt: 'Brand 10' },
-  { id: 11, src: logo11, alt: 'Brand 11' },
-  { id: 12, src: logo12, alt: 'Brand 12' },
+  { id: 1, src: logo1, alt: 'Samsung Electronics - Authorised Retail Partner' },
+  { id: 2, src: logo2, alt: 'Tata Steel - Industrial Supply Chain Partner' },
+  { id: 3, src: logo3, alt: 'Bosch Industrial Tools - Equipment Partner' },
+  { id: 4, src: logo4, alt: 'LG Home Appliances - Distribution Partner' },
+  { id: 5, src: logo5, alt: 'JSW Steel - Infrastructure Materials' },
+  { id: 6, src: logo6, alt: 'Panasonic - Tech Venture Partner' },
+  { id: 7, src: logo7, alt: 'Sony - Premium Electronics Partner' },
+  { id: 8, src: logo8, alt: 'Havells - Electrical Solutions Partner' },
+  { id: 9, src: logo9, alt: 'UltraTech Cement - Infrastructure Partner' },
+  { id: 10, src: logo10, alt: 'Haier - Consumer Electronics Partner' },
+  { id: 11, src: logo11, alt: 'Jindal Steel & Power - Supply Partner' },
+  { id: 12, src: logo12, alt: 'Daikin - Industrial Cooling Partner' },
 ];
 
 const containerVariants = {

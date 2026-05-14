@@ -13,6 +13,15 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/companies/brics',
+        destination: '/companies',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

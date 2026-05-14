@@ -303,7 +303,7 @@ const About = () => (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 items-center mb-16 md:mb-24">
             <ScrollReveal x={-60} y={0}>
               <div className="relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[420px] group">
-                <img src={focusedVision.src} alt="Vision" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <Image src={focusedVision} alt="Dhyanora Group Strategic Vision - Planning for Industrial Excellence in Gujarat" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
             </ScrollReveal>
             <ScrollReveal x={60} y={0} delay={0.15}>
@@ -340,7 +340,7 @@ const About = () => (
             </ScrollReveal>
             <ScrollReveal x={60} y={0} delay={0.15} className="order-1 lg:order-2">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[420px] group">
-                <img src={longTermThinking.src} alt="Mission" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <Image src={longTermThinking} alt="Dhyanora Group Mission - Building Sustainable Industrial Value Across Ahmedabad" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
             </ScrollReveal>
           </div>
@@ -399,6 +399,13 @@ const About = () => (
       <LogoGrid />
 
       {/* ════ 6. GLOBAL REACH — blob preserved ════ */}
+      <section className="bg-black py-12 md:py-20 px-6">
+        <div className="max-w-4xl mx-auto text-center relative z-20">
+          <p className="text-white/60 text-lg md:text-xl leading-relaxed font-medium">
+            While our heart beats in Gujarat, our network spans the globe. From procuring sustainable metal scrap in Europe and the Americas to sourcing cutting-edge electronics from East Asia, Dhyanora Group bridges global markets with local industrial needs.
+          </p>
+        </div>
+      </section>
       <GlobalReach />
       <FooterCTA />
     </main>

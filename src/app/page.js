@@ -101,7 +101,7 @@ function Counter({ value, suffix, isNum, duration = 1800 }) {
 
   return (
     <span ref={ref}>
-      {isNum ? display : value}{suffix}
+      {inView && isNum ? display : value}{suffix}
     </span>
   );
 }
@@ -316,7 +316,7 @@ export default function Home() {
                     <div className="relative h-56 overflow-hidden">
                       <Image 
                         src={p.img} 
-                        alt={`${p.name} - ${p.sector} vertical of Dhyanora Group`}
+                        alt={`Strategic industrial operations of ${p.name} in the ${p.sector} sector - A Dhyanora Group vertical.`}
                         fill
                         className="object-cover group-hover:scale-110 transition-transform duration-700" 
                       />
@@ -365,7 +365,7 @@ export default function Home() {
             <div className="absolute inset-0">
               <Image
                 src={homeVision}
-                alt="Dhyanora Group Vision"
+                alt="Architectural conceptualization of industrial excellence in Ahmedabad - Dhyanora Group Vision"
                 fill
                 className="object-cover"
                 style={{

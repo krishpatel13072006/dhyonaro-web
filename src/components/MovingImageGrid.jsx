@@ -13,7 +13,17 @@ import img7 from '@/images/industrial-shed-companies-page.avif';
 import img8 from '@/images/secure-tiles.avif';
 import img9 from '@/images/brics.jpeg';
 
-const ALL_IMAGES = [img1, img2, img3, img4, img5, img6, img7, img8, img9];
+const ALL_IMAGES = [
+  { src: img1, alt: "Modern electronics retail showroom showcasing premium gadgets" },
+  { src: img2, alt: "Industrial logistics hub and supply chain management in Gujarat" },
+  { src: img3, alt: "Sustainable metal scrap procurement and recycling facility" },
+  { src: img4, alt: "High-quality industrial sheds and manufacturing workspace infrastructure" },
+  { src: img5, alt: "Diversified industrial portfolio showcasing metal and tech divisions" },
+  { src: img6, alt: "Premium construction materials and building supplies distribution" },
+  { src: img7, alt: "Authorised brand retail partnership for consumer appliances" },
+  { src: img8, alt: "Safe and secure industrial storage and warehousing facility" },
+  { src: img9, alt: "Dhyanora Group's strategic industrial connectivity across Ahmedabad" }
+];
 
 // Quadruple the images to ensure seamless scrolling and full coverage
 const col3_base = [...ALL_IMAGES.slice(2), ...ALL_IMAGES.slice(0, 2)];
@@ -67,8 +77,8 @@ const GridColumn = ({ images, direction, speed }) => {
         {images.map((src, i) => (
           <div key={i} className="w-full aspect-[4/3] rounded-2xl overflow-hidden shrink-0 relative">
             <Image 
-              src={src} 
-              alt="Dhyanora Group Industrial Portfolio Segment" 
+              src={src.src} 
+              alt={src.alt} 
               fill 
               sizes="(max-width: 768px) 33vw, 20vw"
               className="object-cover" 
