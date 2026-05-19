@@ -1,19 +1,27 @@
 'use client';
 import React, { useRef } from 'react';
 import SEO from '@/components/SEO';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import {
   ArrowRight, ChevronRight, Home,
   Target, Compass, ShieldCheck, TrendingUp, Eye
 } from 'lucide-react';
-import GlobalReach from '@/components/GlobalReach';
 import FooterCTA from '@/components/FooterCTA';
 import ScrollReveal, { ScrollRevealGroup } from '@/components/ScrollReveal';
 import SectionTag from '@/components/SectionTag';
-import LogoGrid from '@/components/LogoGrid';
 import BouncingCircles from '@/components/BouncingCircles';
+import dynamic from 'next/dynamic';
+
+const GlobalReach = dynamic(() => import('@/components/GlobalReach'), {
+  ssr: false,
+  loading: () => (
+    <div className="h-[80vh] md:h-[120vh] min-h-[600px] md:min-h-[900px] w-full bg-black flex items-center justify-center text-white/40 text-xs font-bold uppercase tracking-widest">
+      Loading Global Presence...
+    </div>
+  ),
+});
 
 import aboutHeroImg from '@/images/about-hero.png';
 import focusedVision from '@/images/focused-vision.jpg';
@@ -23,8 +31,24 @@ import longTermThinking from '@/images/long-term-thinking.avif';
 import homeVision from '@/images/home-vision.avif';
 import shreejiInfraTechImg from '@/images/shreeji-infra-tech.avif';
 
-const About = () => (
-  <>
+const About = () => {
+  const expertiseSectionRef = useRef(null);
+  const { scrollYProgress: expertiseScrollY } = useScroll({
+    target: expertiseSectionRef,
+    offset: ["start end", "end start"]
+  });
+
+  // Background parallax and reveal transforms
+  const bgOpacity = useTransform(expertiseScrollY, [0, 0.15, 0.85, 1], [0, 1, 1, 0]);
+  const bgY = useTransform(expertiseScrollY, [0, 1], ["25%", "-25%"]);
+  const bgScale = useTransform(expertiseScrollY, [0, 0.5, 1], [1.1, 1, 1.1]);
+
+  // Content scroll parallax transforms (header and cards move at different rates)
+  const headerY = useTransform(expertiseScrollY, [0, 1], ["25px", "-25px"]);
+  const cardsY = useTransform(expertiseScrollY, [0, 1], ["50px", "-50px"]);
+
+  return (
+    <>
     <SEO
       title="About Dhyanora Group | Industrial Excellence in Gujarat"
       description="Discover Dhyanora Group, a leading industrial group in Ahmedabad. Founded in 2022, we excel in metal trading, electronics, and infrastructure."
@@ -133,19 +157,33 @@ const About = () => (
       </section>
 
       {/* ════ 2.5 E-E-A-T SIGNALS: LEADERSHIP & EXPERTISE ════ */}
-      <section className="py-20 md:py-32 px-6 bg-[#050b14] relative overflow-hidden">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+      <section ref={expertiseSectionRef} className="py-24 md:py-36 px-6 bg-[#050b14] relative overflow-hidden flex flex-col justify-center min-h-[70vh]">
+        
+        {/* Background Image Reveal & Parallax */}
+        <motion.div 
+          className="absolute -top-[50%] -bottom-[50%] left-0 right-0 z-0 pointer-events-none"
+          style={{ y: bgY, opacity: bgOpacity, scale: bgScale }}
+        >
+          <Image 
+            src={homeVision} 
+            alt="Dhyanora Group expertise background" 
+            fill 
+            className="object-cover"
+          />
+        </motion.div>
+
+        <div className="max-w-7xl mx-auto relative z-10 w-full">
+          <motion.div style={{ y: headerY }} className="text-center mb-16">
             <SectionTag color="#fad77e">Expertise & Leadership</SectionTag>
-            <h2 className="text-3xl md:text-5xl font-heading font-black text-white mt-4 leading-tight">
+            <h2 className="text-3xl md:text-5xl font-heading font-black text-white mt-4 leading-tight drop-shadow-[0_4px_8px_rgba(0,0,0,0.9)]">
               Guided by <span className="text-[#fad77e]">Experience.</span>
             </h2>
-            <p className="text-white/60 mt-6 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-white mt-6 max-w-2xl mx-auto leading-relaxed font-semibold drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)]">
               Dhyanora Group is led by industry veterans with deep-rooted expertise in industrial procurement, retail, and large-scale infrastructure development. Our leadership ensures strict adherence to corporate governance, legal compliance, and quality benchmarks.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <motion.div style={{ y: cardsY }} className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
                 title: "Industry Experience",
@@ -161,14 +199,14 @@ const About = () => (
               }
             ].map((item, idx) => (
               <ScrollReveal key={idx} delay={idx * 0.15} y={30}>
-                <div className="p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-[#fad77e]/50 transition-colors">
+                <div className="p-8 rounded-3xl bg-[#050b14]/92 border border-white/15 hover:border-[#fad77e]/50 transition-colors backdrop-blur-md shadow-2xl">
                   <ShieldCheck size={32} className="text-[#fad77e] mb-6" />
                   <h3 className="text-xl font-heading font-black text-white mb-3">{item.title}</h3>
-                  <p className="text-white/50 text-sm leading-relaxed">{item.desc}</p>
+                  <p className="text-white/80 text-sm leading-relaxed font-medium">{item.desc}</p>
                 </div>
               </ScrollReveal>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -200,14 +238,14 @@ const About = () => (
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:auto-rows-[320px]">
             
-            {/* Principle 1: Focused Vision */}
+            {/* Principle 1: Operational Excellence */}
             <ScrollReveal delay={0.1} x={-50} y={0}>
               <div className="bg-white rounded-[2rem] p-6 md:p-10 h-full flex flex-col justify-center border border-slate-100 shadow-sm group hover:shadow-md transition-all duration-500">
                 <h3 className="text-3xl lg:text-4xl font-heading font-black text-[#172451] mb-6 leading-tight">
-                  Focused<br/>Vision
+                  Operational<br/>Excellence
                 </h3>
                 <p className="text-gray-500 text-lg leading-relaxed font-medium">
-                  Every business venture we enter is chosen with intent and guided by a clear strategic purpose. We grow where we can lead.
+                  Consistent quality and execution precision across all group operations.
                 </p>
               </div>
             </ScrollReveal>
@@ -395,21 +433,13 @@ const About = () => (
         </div>
       </section>
 
-      {/* ════ 5. LOGO GRID ════ */}
-      <LogoGrid />
 
-      {/* ════ 6. GLOBAL REACH — blob preserved ════ */}
-      <section className="bg-black py-12 md:py-20 px-6">
-        <div className="max-w-4xl mx-auto text-center relative z-20">
-          <p className="text-white/60 text-lg md:text-xl leading-relaxed font-medium">
-            While our heart beats in Gujarat, our network spans the globe. From procuring sustainable metal scrap in Europe and the Americas to sourcing cutting-edge electronics from East Asia, Dhyanora Group bridges global markets with local industrial needs.
-          </p>
-        </div>
-      </section>
+
       <GlobalReach />
       <FooterCTA />
     </main>
   </>
-);
+  );
+};
 
 export default About;

@@ -26,7 +26,6 @@ import pramukhLogo from '@/companies-logo/pramukh-logo.png';
 import shreejiLogo from '@/companies-logo/shreeji-logo.png';
 import pramukhImportExportHome from '@/images/pramukh-import-export-home.avif';
 import bricsHomePage from '@/images/brics-home-page.jpg';
-import homeVision from '@/images/home-vision.avif';
 import pramukhInfratechMain from '@/images/pramukh-infratech-main.avif';
 
 /* ═══════════════════ DATA ═══════════════════ */
@@ -359,44 +358,6 @@ export default function Home() {
         {/* ════ LOGO GRID ════ */}
         <LogoGrid />
 
-        {/* ════ VISION QUOTE BAND ════ */}
-        <ScrollReveal y={40}>
-          <section className="relative py-24 md:py-32 overflow-hidden">
-            <div className="absolute inset-0">
-              <Image
-                src={homeVision}
-                alt="Architectural conceptualization of industrial excellence in Ahmedabad - Dhyanora Group Vision"
-                fill
-                className="object-cover"
-                style={{
-                  filter: 'grayscale(100%) brightness(0.9) contrast(1.1)'
-                }}
-              />
-            </div>
-
-            <div className="absolute top-0 right-0 w-96 h-96 border border-white/5 rounded-full translate-x-1/3 -translate-y-1/3 pointer-events-none" />
-            <div className="absolute top-0 right-0 w-60 h-60 border border-white/5 rounded-full translate-x-1/4 -translate-y-1/4 pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-72 h-72 border border-white/5 rounded-full -translate-x-1/3 translate-y-1/3 pointer-events-none" />
-
-            <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 w-full flex items-center justify-center min-h-[400px]">
-              <div className="flex flex-col items-center justify-center text-center w-full max-w-5xl">
-                <ScrollReveal y={40} x={0} className="w-full">
-                  <SectionTag color="#fad77e">Our Vision</SectionTag>
-                  <blockquote className="text-xl sm:text-2xl md:text-4xl font-heading font-black text-white leading-snug drop-shadow-[0_4px_20px_rgba(0,0,0,0.8)] mb-8 max-w-3xl mx-auto">
-                    "To be recognised as Gujarat's most trusted and diversified business group — a name synonymous with quality, reliability, and responsible growth."
-                  </blockquote>
-                </ScrollReveal>
-
-                <ScrollReveal y={40} x={0} delay={0.2} className="w-full flex justify-center">
-                  <Link href="/companies" className="inline-flex items-center justify-center gap-3 px-6 py-3.5 md:px-10 md:py-4.5 bg-[#fad77e] text-[#172451] text-xs md:text-sm font-black uppercase tracking-widest rounded-xl hover:bg-white transition-all duration-300 group shadow-[0_10px_40px_rgba(250,215,126,0.3)]">
-                    Explore Our Companies
-                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </ScrollReveal>
-              </div>
-            </div>
-          </section>
-        </ScrollReveal>
 
         <FooterCTA />
       </main>

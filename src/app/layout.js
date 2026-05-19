@@ -45,7 +45,7 @@ export default function RootLayout({ children }) {
                 "image": "https://www.dhyanora.com/logo.png",
                 "@id": "https://www.dhyanora.com",
                 "url": "https://www.dhyanora.com",
-                "telephone": "+919099000000",
+                "telephone": "+919624614003",
                 "address": {
                   "@type": "PostalAddress",
                   "streetAddress": "Ahmedabad",

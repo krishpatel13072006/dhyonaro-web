@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
+
 
 import img1 from '@/images/pramukh-import-export-home.avif';
 import img2 from '@/images/pramukh-tech-venture.avif';
@@ -76,12 +76,11 @@ const GridColumn = ({ images, direction, speed }) => {
       >
         {images.map((src, i) => (
           <div key={i} className="w-full aspect-[4/3] rounded-2xl overflow-hidden shrink-0 relative">
-            <Image 
-              src={src.src} 
+            <img 
+              src={src.src.src || src.src} 
               alt={src.alt} 
-              fill 
-              sizes="(max-width: 768px) 33vw, 20vw"
-              className="object-cover" 
+              loading="lazy"
+              className="object-cover absolute inset-0 w-full h-full" 
             />
           </div>
         ))}

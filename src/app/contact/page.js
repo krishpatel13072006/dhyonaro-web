@@ -17,7 +17,7 @@ function cn(...inputs) {
 
 const FAQItem = ({ question, answer, isOpen, onClick }) => {
   return (
-    <motion.div 
+    <motion.div
       whileHover={{ backgroundColor: "rgba(0, 0, 0, 0.08)" }}
       className={cn(
         "border-b border-[#172451]/5 last:border-0 transition-colors duration-300 rounded-2xl px-6",
@@ -60,8 +60,8 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => {
   );
 };
 
-const CompanyCard = ({ name, address, tel, internalLink, externalLink }) => (
-  <motion.div 
+const CompanyCard = ({ name, address, tel, email, internalLink, externalLink }) => (
+  <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
@@ -82,20 +82,26 @@ const CompanyCard = ({ name, address, tel, internalLink, externalLink }) => (
             <p>{tel}</p>
           </div>
         )}
+        {email && (
+          <div className="flex gap-3">
+            <Mail size={18} className="text-blue-600 shrink-0 mt-1" />
+            <p className="break-all text-blue-600 hover:underline">{email}</p>
+          </div>
+        )}
       </div>
     </div>
-    
+
     <div className="grid grid-cols-2 gap-3 pt-8 mt-auto border-t border-gray-50">
-      <Link 
-        href={internalLink} 
+      <Link
+        href={internalLink}
         className="flex items-center justify-center gap-2 px-4 py-3 bg-[#172451] text-white rounded-xl text-[9px] font-black uppercase tracking-wider hover:bg-[#fad77e] hover:text-[#172451] transition-all duration-300 shadow-lg shadow-blue-900/10 hover:shadow-[#fad77e]/20"
       >
         View Details <ArrowRight size={12} />
       </Link>
-      <a 
-        href={externalLink} 
-        target="_blank" 
-        rel="noopener noreferrer" 
+      <a
+        href={externalLink}
+        target="_blank"
+        rel="noopener noreferrer"
         className="flex items-center justify-center gap-2 px-4 py-3 bg-white border-2 border-[#172451] text-[#172451] rounded-xl text-[9px] font-black uppercase tracking-wider hover:bg-[#172451] hover:text-white transition-all duration-300 shadow-sm"
       >
         Visit Website <Globe size={12} />
@@ -104,8 +110,52 @@ const CompanyCard = ({ name, address, tel, internalLink, externalLink }) => (
   </motion.div>
 );
 
+const companyEmails = {
+  "Dhyanaro": "contact@dhyanora.com",
+  "Pramukh": "pramukhimportexportindia@gmail.com",
+  "Shreeji Infra": "shreejiinfraind@gmail.com",
+  "Tech Venture": "pramukhtechventurespvtltd@gmail.com"
+};
+
 const Contact = () => {
   const [openFAQ, setOpenFAQ] = useState(0);
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phoneCode, setPhoneCode] = useState('IN (+91)');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [sector, setSector] = useState('Dhyanaro');
+  const [message, setMessage] = useState('');
+  const [consent, setConsent] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const targetEmail = companyEmails[sector] || "contact@dhyanora.com";
+    const subject = `Inquiry for ${sector} - Dhyanora Group`;
+    const body = `Hi Team,
+
+  You have received a new business inquiry from the Dhyanora Group website:
+
+  Contact Details:
+  - Name: ${firstName} ${lastName}
+  - Email: ${email}
+  - Phone: ${phoneCode} ${phoneNumber}
+  - Sector of Interest: ${sector}
+
+Message:
+"${message}"
+
+Consent Given: ${consent ? "Yes" : "No"}
+
+Best regards,
+Dhyanora Web Portal`;
+
+    const mailtoUrl = `mailto:${targetEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoUrl;
+    setIsSubmitted(true);
+    setTimeout(() => setIsSubmitted(false), 5000);
+  };
 
   const faqs = [
     {
@@ -114,11 +164,11 @@ const Contact = () => {
     },
     {
       q: "How can we explore a business partnership?",
-      a: "We are always looking for synergy. You can reach out via the form above or email us directly at partners@Dhyanora.com. Our strategic team reviews all proposals within 48 hours."
+      a: "We are always looking for synergy. You can reach out via the form above or email us directly. Our strategic team reviews all proposals within 48 hours."
     },
     {
       q: "Where are your primary industrial parks located?",
-      a: "Our flagship assets, like the Mahantam Industrial Park, are located in the Sanand industrial corridor, providing strategic connectivity to major logistics hubs in Gujarat."
+      a: "Our flagship assets, like the Mahantam Industrial Park, are located in the Kathwada industrial corridor, providing strategic connectivity to major logistics hubs in Gujarat."
     },
     {
       q: "Do you provide global sourcing services?",
@@ -129,22 +179,25 @@ const Contact = () => {
   const companies = [
     {
       name: "Pramukh Techventures (Daewoo Franchise)",
-      address: "Authorized Daewoo India Franchise, Gujarat.",
-      tel: "+91 95106 63030",
+      address: "Shop No. 26,27,28 The Crown, Opp. Kalhar Bunglow, Nr. Gangotri Circle, Nikol, Ahmedabad, Gujarat - 382350.",
+      tel: "+91 98980 62112",
+      email: "pramukhtechventurespvtltd@gmail.com",
       internalLink: "/companies/tech-venture",
       externalLink: "https://daewooindia.in/"
     },
     {
       name: "Shreeji Infra (Industrial Parks)",
-      address: "Mahantam Industrial Park, Sanand-Viramgam Highway, Ahmedabad, Gujarat.",
-      tel: "+91 95106 63030",
+      address: "Mahantam Industrial Park, Opp. Vinayak 4, Ashok Vatika, Bhuvaldi Road, Kathwada, Ahmedabad, Gujarat - 382430.",
+      tel: "+91 99094 32103",
+      email: "shreejiinfraind@gmail.com",
       internalLink: "/companies/shreeji-infra",
       externalLink: "#"
     },
     {
       name: "Pramukh Import Export (Metal Trading)",
-      address: "Strategic Metal Sourcing & Trading Hub, Ahmedabad, Gujarat.",
-      tel: "+91 95106 63030",
+      address: "01, Mahantam Industrial Park, Opp. Vinayak 4, Nr. Singarva-Kathwada Road, Kathwada, Ahmedabad, Gujarat - 382430.",
+      tel: "+91 96246 14003",
+      email: "pramukhimportexportindia@gmail.com",
       internalLink: "/companies/import-export",
       externalLink: "#"
     }
@@ -159,17 +212,17 @@ const Contact = () => {
 
   return (
     <>
-      <SEO 
-        title="Contact Dhyanora Group | Business Inquiries & Partnerships" 
+      <SEO
+        title="Contact Dhyanora Group | Business Inquiries & Partnerships"
         description="Get in touch with Dhyanora Group for business partnerships, industrial inquiries, and strategic collaborations in Ahmedabad, Gujarat."
         breadcrumbs={[
           { name: 'Home', path: '/' },
           { name: 'Contact Us', path: '/contact' }
-        ]} 
+        ]}
       />
-      
+
       <main className="bg-white text-[#172451] overflow-hidden">
-        
+
         {/* ════ HERO SECTION ════ */}
         <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6">
           <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#172451]/5 rounded-full blur-[120px] -mr-40 -mt-40 pointer-events-none" />
@@ -177,7 +230,7 @@ const Contact = () => {
 
           <div className="max-w-7xl mx-auto relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:items-start">
-              
+
               <div className="lg:col-span-7 space-y-12">
                 <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
                   <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-black uppercase leading-[1.2] mb-8 text-[#172451]">
@@ -192,7 +245,7 @@ const Contact = () => {
                 <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 1, delay: 0.2 }} className="relative aspect-video lg:aspect-auto lg:h-[450px] rounded-[3rem] overflow-hidden border border-[#172451]/5 group shadow-2xl">
                   <img src={contactVisualImg.src} alt="Dhyanora Group Strategic Operations and Industrial Management" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent opacity-40" />
-                  
+
                   <div className="absolute left-6 bottom-8 flex flex-row lg:flex-col gap-3 md:gap-4">
                     {socialLinks.map(({ Icon, link, color }, i) => (
                       <motion.a key={i} href={link} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: 0.4 + i * 0.1 }} className="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-white shadow-xl flex items-center justify-center transition-all duration-300 hover:scale-110 border border-gray-100 group/social">
@@ -205,24 +258,34 @@ const Contact = () => {
 
               <div className="lg:col-span-5 relative">
                 <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.3 }} className="space-y-10">
-                  <form className="space-y-8">
+                  <form onSubmit={handleSubmit} className="space-y-8">
+                    {isSubmitted && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 p-4 rounded-2xl text-xs font-bold uppercase tracking-wider flex items-center justify-between"
+                      >
+                        <span>Opening your email client to send query...</span>
+                        <button type="button" onClick={() => setIsSubmitted(false)} className="text-emerald-600 hover:text-emerald-800">✕</button>
+                      </motion.div>
+                    )}
                     <div className="space-y-4">
                       <label className="text-[10px] font-black uppercase tracking-[0.2em] text-[#172451]/30 ml-1">Full Name</label>
                       <div className="grid grid-cols-2 gap-4">
-                        <input type="text" placeholder="First Name" className="w-full bg-gray-50 border border-[#172451]/5 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#172451] focus:bg-white transition-all font-sans text-sm text-[#172451] placeholder:text-[#172451]/20" />
-                        <input type="text" placeholder="Last Name" className="w-full bg-gray-50 border border-[#172451]/5 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#172451] focus:bg-white transition-all font-sans text-sm text-[#172451] placeholder:text-[#172451]/20" />
+                        <input type="text" placeholder="First Name" value={firstName} onChange={(e) => setFirstName(e.target.value)} required className="w-full bg-gray-50 border border-[#172451]/5 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#172451] focus:bg-white transition-all font-sans text-sm text-[#172451] placeholder:text-[#172451]/20" />
+                        <input type="text" placeholder="Last Name" value={lastName} onChange={(e) => setLastName(e.target.value)} required className="w-full bg-gray-50 border border-[#172451]/5 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#172451] focus:bg-white transition-all font-sans text-sm text-[#172451] placeholder:text-[#172451]/20" />
                       </div>
                     </div>
 
                     <div className="space-y-4">
                       <label className="text-[10px] font-black uppercase tracking-[0.2em] text-[#172451]/30 ml-1">Email Address</label>
-                      <input type="email" placeholder="email@company.com" className="w-full bg-gray-50 border border-[#172451]/5 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#172451] focus:bg-white transition-all font-sans text-sm text-[#172451] placeholder:text-[#172451]/20" />
+                      <input type="email" placeholder="email@company.com" value={email} onChange={(e) => setEmail(e.target.value)} required className="w-full bg-gray-50 border border-[#172451]/5 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#172451] focus:bg-white transition-all font-sans text-sm text-[#172451] placeholder:text-[#172451]/20" />
                     </div>
 
                     <div className="space-y-4">
                       <label className="text-[10px] font-black uppercase tracking-[0.2em] text-[#172451]/30 ml-1">Phone Number</label>
                       <div className="flex gap-4">
-                        <select className="w-32 bg-gray-50 border border-[#172451]/5 rounded-2xl px-3 py-4 focus:outline-none focus:border-[#172451] focus:bg-white transition-all font-sans text-sm font-bold text-[#172451]">
+                        <select value={phoneCode} onChange={(e) => setPhoneCode(e.target.value)} className="w-32 bg-gray-50 border border-[#172451]/5 rounded-2xl px-3 py-4 focus:outline-none focus:border-[#172451] focus:bg-white transition-all font-sans text-sm font-bold text-[#172451]">
                           <option>IN (+91)</option>
                           <option>US (+1)</option>
                           <option>UK (+44)</option>
@@ -230,32 +293,32 @@ const Contact = () => {
                           <option>AU (+61)</option>
                           <option>CA (+1)</option>
                         </select>
-                        <input type="tel" placeholder="Mobile Number" className="flex-1 bg-gray-50 border border-[#172451]/5 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#172451] focus:bg-white transition-all font-sans text-sm text-[#172451] placeholder:text-[#172451]/20" />
+                        <input type="tel" placeholder="Mobile Number" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} required className="flex-1 bg-gray-50 border border-[#172451]/5 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#172451] focus:bg-white transition-all font-sans text-sm text-[#172451] placeholder:text-[#172451]/20" />
                       </div>
                     </div>
 
                     <div className="space-y-4">
-                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-[#172451]/30 ml-1">Sector of Interest</label>
-                      <select className="w-full bg-gray-50 border border-[#172451]/5 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#172451] focus:bg-white transition-all font-sans text-sm text-[#172451] appearance-none cursor-pointer">
-                        <option>General Inquiry</option>
-                        <option>Industrial Space (Shreeji Infra)</option>
-                        <option>Metal Trading (Pramukh)</option>
-                        <option>Tech Venture</option>
+                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-[#172451]/30 ml-1">Company / Sector of Interest</label>
+                      <select value={sector} onChange={(e) => setSector(e.target.value)} className="w-full bg-gray-50 border border-[#172451]/5 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#172451] focus:bg-white transition-all font-sans text-sm text-[#172451] cursor-pointer">
+                        <option value="Dhyanaro">Dhyanaro</option>
+                        <option value="Pramukh">Pramukh</option>
+                        <option value="Shreeji Infra">Shreeji Infra</option>
+                        <option value="Tech Venture">Tech Venture</option>
                       </select>
                     </div>
 
                     <div className="space-y-4">
                       <label className="text-[10px] font-black uppercase tracking-[0.2em] text-[#172451]/30 ml-1">Your Message</label>
-                      <textarea rows="4" placeholder="How can we help your business?" className="w-full bg-gray-50 border border-[#172451]/5 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#172451] focus:bg-white transition-all font-sans text-sm text-[#172451] placeholder:text-[#172451]/20 resize-none" />
+                      <textarea rows="4" placeholder="How can we help your business?" value={message} onChange={(e) => setMessage(e.target.value)} required className="w-full bg-gray-50 border border-[#172451]/5 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#172451] focus:bg-white transition-all font-sans text-sm text-[#172451] placeholder:text-[#172451]/20 resize-none" />
                     </div>
 
                     <div className="flex items-center gap-3">
-                      <input type="checkbox" id="consent" className="w-4 h-4 rounded border-[#172451]/10 text-[#172451] focus:ring-[#172451]" />
-                      <label htmlFor="consent" className="text-[11px] text-[#172451]/40 font-bold tracking-wide">I agree to be contacted regarding this inquiry.</label>
+                      <input type="checkbox" id="consent" checked={consent} onChange={(e) => setConsent(e.target.checked)} required className="w-4 h-4 rounded border-[#172451]/10 text-[#172451] focus:ring-[#172451]" />
+                      <label htmlFor="consent" className="text-[11px] text-[#172451]/40 font-bold tracking-wide cursor-pointer">I agree to be contacted regarding this inquiry.</label>
                     </div>
 
                     <div className="flex justify-center md:justify-start pt-4">
-                      <button className="w-full md:w-auto px-6 py-3 md:px-10 md:py-4 bg-[#172451] text-white rounded-full font-heading font-black uppercase tracking-[0.2em] text-[10px] md:text-[11px] shadow-2xl transition-all flex items-center justify-center md:justify-start gap-4 md:gap-5 group hover:bg-[#172451] hover:scale-105 active:scale-95">
+                      <button type="submit" className="w-full md:w-auto px-6 py-3 md:px-10 md:py-4 bg-[#172451] text-white rounded-full font-heading font-black uppercase tracking-[0.2em] text-[10px] md:text-[11px] shadow-2xl transition-all flex items-center justify-center md:justify-start gap-4 md:gap-5 group hover:bg-[#172451] hover:scale-105 active:scale-95">
                         Send Message
                         <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center transition-all group-hover:bg-white group-hover:text-[#172451]">
                           <Send size={14} className="ml-0.5" />
@@ -331,31 +394,31 @@ const Contact = () => {
         {/* ════ BOTTOM VISUAL SECTION ════ */}
         <section className="relative pt-24 pb-48 px-6">
           <div className="relative max-w-5xl mx-auto px-4">
-             <motion.div initial={{ opacity: 0, y: 100 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }} className="relative rounded-[3rem] md:rounded-[4rem] overflow-hidden shadow-2xl border border-white/10 min-h-[400px] md:min-h-[600px] flex items-center justify-center">
-                <img src={bottomPhonesImg.src} alt="Dhyanora Group Ecosystem and Strategic Future Vision" className="absolute inset-0 w-full h-full object-cover brightness-[0.3]" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#172451] via-[#172451]/40 to-transparent opacity-90" />
-                
-                <div className="relative z-20 flex flex-col items-center justify-center text-center p-8 max-w-4xl mx-auto">
-                  <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.3 }} className="space-y-6 md:space-y-10">
-                    <h2 className="text-3xl md:text-6xl font-heading font-black uppercase leading-[1.2] text-white drop-shadow-2xl">
-                      See Our Vision.<br />
-                      <span className="text-[#fad77e]">Shape Your Future.</span>
-                    </h2>
-                    <p className="text-white/70 max-w-xl mx-auto font-sans text-sm md:text-lg font-medium leading-relaxed drop-shadow-lg">
-                      Our infrastructure and strategic frameworks are built for scale, efficiency, and unwavering ethics.
-                    </p>
-                    <div className="pt-4">
-                      <Link href="/companies" className="px-10 py-5 bg-[#fad77e] text-[#172451] rounded-full font-heading font-black uppercase tracking-widest text-[10px] md:text-xs flex items-center gap-3 mx-auto hover:bg-white hover:scale-105 transition-all duration-300 shadow-[0_10px_40px_rgba(250,215,126,0.3)] w-fit">
-                        Explore Companies <Globe size={18} />
-                      </Link>
-                    </div>
-                  </motion.div>
-                </div>
-             </motion.div>
-             
-             <div className="absolute -bottom-16 left-1/2 -translate-x-1/2 w-full pointer-events-none select-none overflow-hidden">
-                <h3 className="text-[10vw] md:text-[14vw] font-heading font-black uppercase leading-none opacity-[0.03] whitespace-nowrap text-center text-[#172451] tracking-[0.2em]">Dhyanora</h3>
-             </div>
+            <motion.div initial={{ opacity: 0, y: 100 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }} className="relative rounded-[3rem] md:rounded-[4rem] overflow-hidden shadow-2xl border border-white/10 min-h-[400px] md:min-h-[600px] flex items-center justify-center">
+              <img src={bottomPhonesImg.src} alt="Dhyanora Group Ecosystem and Strategic Future Vision" className="absolute inset-0 w-full h-full object-cover brightness-[0.3]" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#172451] via-[#172451]/40 to-transparent opacity-90" />
+
+              <div className="relative z-20 flex flex-col items-center justify-center text-center p-8 max-w-4xl mx-auto">
+                <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.3 }} className="space-y-6 md:space-y-10">
+                  <h2 className="text-3xl md:text-6xl font-heading font-black uppercase leading-[1.2] text-white drop-shadow-2xl">
+                    See Our Vision.<br />
+                    <span className="text-[#fad77e]">Shape Your Future.</span>
+                  </h2>
+                  <p className="text-white/70 max-w-xl mx-auto font-sans text-sm md:text-lg font-medium leading-relaxed drop-shadow-lg">
+                    Our infrastructure and strategic frameworks are built for scale, efficiency, and unwavering ethics.
+                  </p>
+                  <div className="pt-4">
+                    <Link href="/companies" className="px-10 py-5 bg-[#fad77e] text-[#172451] rounded-full font-heading font-black uppercase tracking-widest text-[10px] md:text-xs flex items-center gap-3 mx-auto hover:bg-white hover:scale-105 transition-all duration-300 shadow-[0_10px_40px_rgba(250,215,126,0.3)] w-fit">
+                      Explore Companies <Globe size={18} />
+                    </Link>
+                  </div>
+                </motion.div>
+              </div>
+            </motion.div>
+
+            <div className="absolute -bottom-16 left-1/2 -translate-x-1/2 w-full pointer-events-none select-none overflow-hidden">
+              <h3 className="text-[10vw] md:text-[14vw] font-heading font-black uppercase leading-none opacity-[0.03] whitespace-nowrap text-center text-[#172451] tracking-[0.2em]">Dhyanora</h3>
+            </div>
           </div>
         </section>
       </main>

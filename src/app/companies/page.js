@@ -5,10 +5,19 @@ import { motion, useInView } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, Home, ChevronRight, Building2, Globe2, ShieldCheck, Truck, Cpu, HeadphonesIcon, Settings2, Zap, MapPin, HardHat, CheckCircle2, Calendar, Factory } from 'lucide-react';
-import IndustrialOrbit from '@/components/IndustrialOrbit';
 import ScrollReveal, { ScrollRevealGroup } from '@/components/ScrollReveal';
-import ModernVideoBackground from '@/components/ModernVideoBackground';
 import BouncingCircles from '@/components/BouncingCircles';
+import dynamic from 'next/dynamic';
+
+const IndustrialOrbit = dynamic(() => import('@/components/IndustrialOrbit'), {
+  ssr: false,
+  loading: () => <div className="py-24 text-center text-slate-500 font-bold uppercase tracking-widest text-xs">Loading Industrial Ecosystem...</div>,
+});
+
+const ModernVideoBackground = dynamic(() => import('@/components/ModernVideoBackground'), {
+  ssr: false,
+  loading: () => <div className="absolute inset-0 bg-[#050b14] flex items-center justify-center text-white/50 text-xs font-bold uppercase tracking-widest">Loading Video Background...</div>,
+});
 
 import keyMaterialsImg from '@/images/keymaterial-pramukh-import-export.webp';
 import globalSourcingImg from '@/images/global-sourcing-pramukh-import-export.jpg';
@@ -114,7 +123,7 @@ const Companies = () => {
             <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#172451]/80 backdrop-blur-sm text-white text-[10px] md:text-xs font-bold uppercase tracking-widest mb-6 md:mb-8">
               <Building2 size={14} /> Our Strategic Portfolio
             </motion.div>
-            <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }} className="text-4xl sm:text-6xl md:text-8xl font-heading font-black text-white uppercase leading-[1.1] md:leading-none mb-6">
+            <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }} className="text-4xl sm:text-5xl lg:text-6xl font-heading font-black text-white uppercase leading-[1.05] md:leading-[1.02] mb-6 max-w-4xl mx-auto">
               DIVERSIFIED EXPERTISE.<br />
               <span className="text-[#fad77e]">UNIFIED VISION.</span>
             </motion.h1>

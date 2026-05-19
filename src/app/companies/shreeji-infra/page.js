@@ -6,7 +6,7 @@ import Link from 'next/link';
 import {
   ArrowRight, Building2, ShieldCheck, MapPin,
   HardHat, CheckCircle2, Home, ChevronRight,
-  Settings2, Globe2, Truck, Cpu, Zap, Download
+  Settings2, Globe2, Truck, Cpu, Zap, Download, Phone
 } from 'lucide-react';
 
 import ModernVideoBackground from '@/components/ModernVideoBackground';
@@ -386,6 +386,83 @@ const CompanyShreeji = () => {
           </div>
         </section>
 
+
+        {/* ════ QUICK CONTACT INFO SECTION ════ */}
+        <section className="py-16 bg-white px-6">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+              
+              {/* Card 1: Call Us */}
+              <motion.a 
+                href="tel:+919909432103"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -5 }}
+                className="relative bg-slate-50 border border-slate-100 hover:bg-[#172451] hover:border-[#172451] rounded-3xl p-8 md:p-10 flex flex-col justify-center min-h-[220px] shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group select-none cursor-pointer text-left"
+              >
+                {/* Large Subtle Icon in Background */}
+                <Phone className="absolute right-4 bottom-4 w-32 h-32 text-slate-100 group-hover:text-white/5 -rotate-12 transition-all duration-500 group-hover:scale-110 group-hover:rotate-0" />
+                
+                <div className="relative z-10 space-y-4">
+                  <h4 className="text-[#172451] group-hover:text-[#fad77e] font-heading font-black text-xs md:text-sm uppercase tracking-[0.2em] transition-colors duration-300">
+                    Call Us Now
+                  </h4>
+                  <div className="space-y-1">
+                    <p className="text-slate-900 group-hover:text-white font-heading font-black text-xl md:text-2xl uppercase transition-colors duration-300">
+                      Inquiries
+                    </p>
+                    <p className="text-slate-500 group-hover:text-white/80 font-sans text-sm md:text-base font-bold transition-colors duration-300">
+                      Mobile: +91 99094 32103
+                    </p>
+                  </div>
+                </div>
+              </motion.a>
+
+              {/* Card 2: Come Visit Us */}
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                whileHover={{ y: -5 }}
+                className="relative bg-slate-50 border border-slate-100 hover:bg-[#172451] hover:border-[#172451] rounded-3xl p-8 md:p-10 flex flex-col justify-center min-h-[220px] shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden text-left group"
+              >
+                <div className="relative z-10 space-y-4">
+                  <h4 className="text-[#172451] group-hover:text-[#fad77e] font-heading font-black text-xs md:text-sm uppercase tracking-[0.2em] transition-colors duration-300">
+                    Come Visit Us
+                  </h4>
+                  <p className="text-slate-600 group-hover:text-white/80 font-sans text-sm md:text-base font-semibold leading-relaxed transition-colors duration-300">
+                    Mahantam Industrial Park, Opp. Vinayak 4,<br />
+                    Ashok Vatika, Bhuvaldi Road, Kathwada,<br />
+                    Ahmedabad, Gujarat - 382430
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Card 3: Send Us a Message */}
+              <motion.a 
+                href="mailto:shreejiinfraind@gmail.com"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                whileHover={{ y: -5 }}
+                className="relative bg-slate-50 border border-slate-100 hover:bg-[#172451] hover:border-[#172451] rounded-3xl p-8 md:p-10 flex flex-col justify-center min-h-[220px] shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer group text-left"
+              >
+                <div className="relative z-10 space-y-4">
+                  <h4 className="text-[#172451] group-hover:text-[#fad77e] font-heading font-black text-xs md:text-sm uppercase tracking-[0.2em] transition-colors duration-300">
+                    Send Us a Message
+                  </h4>
+                  <p className="text-slate-600 group-hover:text-white/80 font-sans text-sm md:text-base font-semibold transition-colors duration-300 break-all">
+                    Email: shreejiinfraind@gmail.com
+                  </p>
+                </div>
+              </motion.a>
+
+            </div>
+          </div>
+        </section>
 
         <FooterCTA />
       </main>

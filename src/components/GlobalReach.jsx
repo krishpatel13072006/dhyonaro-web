@@ -1,6 +1,6 @@
 'use client';
 import React, { Suspense, useRef, useMemo } from 'react';
-import { Canvas, useFrame, useLoader } from '@react-three/fiber';
+import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Sphere, Html, Float, Stars, PerspectiveCamera } from '@react-three/drei';
 import * as THREE from 'three';
 import { motion } from 'framer-motion';
@@ -64,16 +64,105 @@ const Earth = () => {
   const earthMeshRef = useRef();
   const cloudsRef = useRef();
   
-  const [map, bumpMap, cloudMap] = useLoader(THREE.TextureLoader, [
-    'https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg',
-    'https://unpkg.com/three-globe/example/img/earth-topology.png',
-    'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_clouds_1024.png'
-  ]);
+  // Procedural Earth Texture (gold-dotted land on dark blue ocean)
+  const map = useMemo(() => {
+    const canvas = document.createElement('canvas');
+    canvas.width = 2048;
+    canvas.height = 1024;
+    const ctx = canvas.getContext('2d');
+
+    // Fill with Ocean (Luxury Dark Blue)
+    ctx.fillStyle = '#050b14';
+    ctx.fillRect(0, 0, 2048, 1024);
+
+    // Approximate Coordinates for Continent Blobs
+    const drawContinent = (x, y, w, h, rotation = 0) => {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.rotate(rotation);
+      ctx.beginPath();
+      ctx.ellipse(0, 0, w, h, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    };
+
+    ctx.fillStyle = '#fad77e';
+    // North America
+    drawContinent(450, 350, 150, 200, 0.1);
+    drawContinent(350, 250, 100, 100, 0); 
+    // South America
+    drawContinent(600, 700, 100, 200, -0.1);
+    // Africa
+    drawContinent(1050, 600, 120, 180, 0.2);
+    // Europe
+    drawContinent(1050, 300, 120, 100, 0.1);
+    // Asia
+    drawContinent(1400, 350, 250, 200, -0.05);
+    drawContinent(1600, 450, 150, 120, 0.15); 
+    // Australia
+    drawContinent(1700, 780, 100, 80, -0.2);
+    
+    // Convert to dotted grid
+    const imgData = ctx.getImageData(0, 0, 2048, 1024);
+    
+    // Clear and draw dots
+    ctx.fillStyle = '#050b14';
+    ctx.fillRect(0, 0, 2048, 1024);
+
+    const dotSpacing = 8;
+    ctx.fillStyle = '#fad77e';
+    for (let y = 0; y < 1024; y += dotSpacing) {
+      for (let x = 0; x < 2048; x += dotSpacing) {
+        const idx = (y * 2048 + x) * 4;
+        const r = imgData.data[idx];
+        const g = imgData.data[idx+1];
+        const b = imgData.data[idx+2];
+        
+        if (r === 250 && g === 215 && b === 126) {
+          ctx.beginPath();
+          ctx.arc(x, y, 2.0, 0, Math.PI * 2);
+          ctx.fill();
+        } else {
+          // Subtle ocean grid
+          ctx.fillStyle = 'rgba(23, 36, 81, 0.35)';
+          ctx.beginPath();
+          ctx.arc(x, y, 0.8, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.fillStyle = '#fad77e'; 
+        }
+      }
+    }
+
+    const texture = new THREE.CanvasTexture(canvas);
+    texture.colorSpace = THREE.SRGBColorSpace;
+    return texture;
+  }, []);
+
+  // Simple procedural cloud texture (moving transparent noise/stripes)
+  const cloudMap = useMemo(() => {
+    const canvas = document.createElement('canvas');
+    canvas.width = 1024;
+    canvas.height = 512;
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, 1024, 512);
+
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.15)';
+    for (let i = 0; i < 15; i++) {
+      ctx.beginPath();
+      const y = Math.random() * 512;
+      const h = 20 + Math.random() * 60;
+      ctx.ellipse(Math.random() * 1024, y, 150 + Math.random() * 200, h, Math.random() * 0.2, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    const texture = new THREE.CanvasTexture(canvas);
+    return texture;
+  }, []);
 
   useFrame(({ clock }) => {
     const elapsed = clock.getElapsedTime();
-    if (earthGroupRef.current) earthGroupRef.current.rotation.y = elapsed * 0.45;
-    if (cloudsRef.current) cloudsRef.current.rotation.y = elapsed * 0.52;
+    if (earthGroupRef.current) earthGroupRef.current.rotation.y = elapsed * 0.15;
+    if (cloudsRef.current) cloudsRef.current.rotation.y = elapsed * 0.18;
   });
 
   return (
@@ -83,10 +172,8 @@ const Earth = () => {
           <sphereGeometry args={[2.2, 64, 64]} />
           <meshStandardMaterial 
             map={map}
-            bumpMap={bumpMap}
-            bumpScale={0.05}
-            roughness={0.8}
-            metalness={0.1}
+            roughness={0.7}
+            metalness={0.2}
           />
         </mesh>
         {avatars.map((avatar) => (
@@ -99,7 +186,7 @@ const Earth = () => {
         <meshStandardMaterial 
           map={cloudMap}
           transparent
-          opacity={0.3}
+          opacity={0.4}
           depthWrite={false}
         />
       </mesh>
