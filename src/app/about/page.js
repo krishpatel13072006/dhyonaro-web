@@ -60,8 +60,9 @@ const About = () => {
     <main className="bg-white">
 
       {/* ════ 1. HERO ════ */}
-      <section className="relative h-[80vh] md:h-[100vh] w-full overflow-hidden flex items-end pb-12 md:pb-16 px-6 md:px-12">
-        <div className="absolute inset-0">
+      <section className="relative w-full overflow-hidden bg-[#0d1b2e] md:h-[100vh] flex flex-col md:items-end justify-end pb-0 md:pb-16">
+        {/* Image Container */}
+        <div className="relative w-full h-[40vh] sm:h-[50vh] md:absolute md:inset-0 md:h-full">
           <Image 
             src={aboutHeroImg} 
             alt="Dhyanora Group Corporate Office and Strategic Leadership Hub" 
@@ -69,9 +70,12 @@ const About = () => {
             priority
             className="object-cover" 
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10" />
+          {/* Overlay gradient - fades bottom of image on mobile, covers image on desktop */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0d1b2e] via-[#0d1b2e]/30 to-transparent md:bg-gradient-to-t md:from-black/80 md:via-black/40 md:to-black/10" />
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto w-full">
+
+        {/* Text Container */}
+        <div className="relative z-10 max-w-7xl mx-auto w-full px-6 py-10 md:py-0 md:px-12">
           <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#172451]/80 backdrop-blur-sm text-white text-[10px] md:text-xs font-bold uppercase tracking-widest mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
