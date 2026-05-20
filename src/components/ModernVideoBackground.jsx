@@ -9,14 +9,23 @@ const ModernVideoBackground = ({
 }) => {
   const [index, setIndex] = useState(0);
   const videoRef = useRef(null);
+  const isFirstRender = useRef(true);
 
   useEffect(() => {
     const videoElement = videoRef.current;
     if (videoElement) {
-      videoElement.load();
-      videoElement.play().catch(err => {
-        console.warn("[VideoDebug] Autoplay blocked:", err);
-      });
+      if (isFirstRender.current) {
+        isFirstRender.current = false;
+        // Do not call .load() on mount as the browser naturally starts loading the HTML src.
+        videoElement.play().catch(err => {
+          console.warn("[VideoDebug] Autoplay blocked:", err);
+        });
+      } else {
+        videoElement.load();
+        videoElement.play().catch(err => {
+          console.warn("[VideoDebug] Play blocked:", err);
+        });
+      }
     }
   }, [index]);
 
@@ -30,15 +39,15 @@ const ModernVideoBackground = ({
       {videos.length > 0 && (
         <video
           ref={videoRef}
+          src={videos[index]}
           onEnded={handleEnded}
           muted
           playsInline
           autoPlay
           loop={videos.length === 1}
-          preload="metadata"
+          preload="auto"
           className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
         >
-          <source src={videos[index]} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       )}

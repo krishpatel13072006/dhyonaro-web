@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&family=Plus+Jakarta+Sans:wght@700;800&display=swap');
-@import url('https://api.fontshare.com/v2/css?f[]=eudoxus-sans@400,500,700,800&display=swap');
 @import "tailwindcss";
 
 /* Fallback for Eudoxus if CDN is down */
@@ -21,8 +19,8 @@
 }
 
 @theme {
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-heading: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+  --font-sans: var(--font-sans), 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: var(--font-heading), 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
 
   /* Core palette */
   --color-navy:      #172451;

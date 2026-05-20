@@ -173,6 +173,7 @@ export default function Home() {
                       src={pramukhInfratechMain}
                       alt="Dhyanora Group Industrial Infrastructure and Corporate Office in Ahmedabad"
                       fill
+                      priority
                       className="object-cover hover:scale-105 transition-transform duration-700"
                     />
                   </div>

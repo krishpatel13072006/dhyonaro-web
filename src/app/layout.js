@@ -1,5 +1,20 @@
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import ClientWrapper from "@/components/ClientWrapper";
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "700", "800", "900"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["700", "800"],
+  variable: "--font-heading",
+  display: "swap",
+});
 
 export const metadata = {
   metadataBase: new URL('https://dhyanora.com'),
@@ -13,7 +28,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable} ${plusJakartaSans.variable}`}>
+      <head>
+        {/* Preconnect to font CDNs to speed up font loading */}
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Preload the first hero video so it starts playing instantly */}
+        <link rel="preload" href="/videos/company-1.mp4" as="video" type="video/mp4" />
+      </head>
       <body className="antialiased">
         <script
           type="application/ld+json"
