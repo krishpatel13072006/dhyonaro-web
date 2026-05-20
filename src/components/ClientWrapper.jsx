@@ -10,11 +10,16 @@ import { usePathname } from 'next/navigation';
 export default function ClientWrapper({ children }) {
   const pathname = usePathname();
   const lenisRef = useRef(null);
+  const previousPathnameRef = useRef(pathname);
+  
   // Show loader only on first visit of the session
   const [showLoader, setShowLoader] = useState(() => {
     if (typeof window === 'undefined') return false;
     return !sessionStorage.getItem('dhyanora_loaded');
   });
+  
+  // Quick transition mode for client-side navigation
+  const [loaderMode, setLoaderMode] = useState('full');
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -42,21 +47,31 @@ export default function ClientWrapper({ children }) {
   }, []);
 
   useEffect(() => {
+    // If pathname changed and loader is already hidden, show quick transition
+    if (pathname !== previousPathnameRef.current && !showLoader && sessionStorage.getItem('dhyanora_loaded')) {
+      setShowLoader(true);
+      setLoaderMode('quick');
+      previousPathnameRef.current = pathname;
+    } else {
+      previousPathnameRef.current = pathname;
+    }
+    
     if (lenisRef.current) {
       lenisRef.current.scrollTo(0, { immediate: true });
     }
-  }, [pathname]);
+  }, [pathname, showLoader]);
 
   const handleLoaderComplete = () => {
     sessionStorage.setItem('dhyanora_loaded', '1');
     setShowLoader(false);
+    setLoaderMode('full');
   };
 
   const isImmersivePage = false;
 
   return (
     <div className="relative min-h-screen">
-      {showLoader && <PageLoader onComplete={handleLoaderComplete} />}
+      {showLoader && <PageLoader onComplete={handleLoaderComplete} mode={loaderMode} />}
       <div className="grain-overlay" />
       {!isImmersivePage && <Navbar />}
       <SocialSidebar />

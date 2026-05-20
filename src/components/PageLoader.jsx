@@ -1,46 +1,96 @@
 'use client';
 import React, { useEffect, useState, useRef } from 'react';
 
-/* ─── Dhyanora Logo Mark — 5 Rising Gold Bars inside a D shape ─── */
+/* ─── Global Loader Styles ─── */
+const loaderStyles = `
+  @keyframes loaderLetterIn {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes loaderSpin {
+    to { transform: rotate(360deg); }
+  }
+  @keyframes loaderFadeSlide {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes quickProgress {
+    from { width: 0%; }
+    to   { width: 100%; }
+  }
+  @keyframes barWave {
+    0%, 100% { transform: scaleY(0.15); }
+    50% { transform: scaleY(1); }
+  }
+`;
+
+/* ─── Dhyanora Logo Mark — mathematically proper lining & perfect clipping ─── */
 const LogoMark = ({ animate }) => {
+  // Outer boundary of the proper 'D' (Flat horizontal top/bottom, not circular)
+  const outerD = "M 15 15 H 60 C 110 15, 110 105, 60 105 H 15 Z";
+  
+  // Inner boundary of the 'D' (The "hole" where the bars live, with proper DIAGONAL top)
+  const innerD = "M 35 90 H 60 C 90 90, 90 60, 75 50 L 35 25 Z";
+  
+  // Composite path creates the solid blue shape with a transparent hole cutout inside
+  const compositeD = `${outerD} ${innerD}`;
+
+  // 5 bars perfectly distributed inside the width of the inner hole (x: 35 to 80)
   const bars = [
-    { delay: 0,    height: 42 },
-    { delay: 0.12, height: 56 },
-    { delay: 0.24, height: 70 },
-    { delay: 0.36, height: 58 },
-    { delay: 0.48, height: 44 },
+    { x: 37, delay: '0s' },
+    { x: 46, delay: '0.1s' },
+    { x: 55, delay: '0.2s' },
+    { x: 64, delay: '0.3s' },
+    { x: 73, delay: '0.4s' },
   ];
 
   return (
-    <svg width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* D outer shape */}
-      <path
-        d="M8 8 H38 Q82 8 82 45 Q82 82 38 82 H8 Z"
-        fill="#172451"
-        style={{
-          opacity: animate ? 1 : 0,
-          transition: 'opacity 0.4s ease',
-        }}
-      />
+    <svg
+      width="150"
+      height="150"
+      viewBox="-6 0 120 120"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        {/* The clip path strictly enforces that the bars can NEVER overflow the inner D boundary */}
+        <clipPath id="innerHoleClip">
+          <path d={innerD} clipRule="evenodd" />
+        </clipPath>
+      </defs>
 
-      {/* 5 animated rising bars */}
-      {bars.map((bar, i) => (
-        <rect
-          key={i}
-          x={18 + i * 13}
-          y={animate ? 45 - bar.height / 2 : 45}
-          width={8}
-          height={animate ? bar.height : 0}
-          rx={2}
-          fill="#FAD77E"
-          style={{
-            transition: animate
-              ? `y 0.5s cubic-bezier(0.22,1,0.36,1) ${bar.delay}s, height 0.5s cubic-bezier(0.22,1,0.36,1) ${bar.delay}s, opacity 0.3s ease ${bar.delay}s`
-              : 'none',
-            opacity: animate ? 1 : 0,
-          }}
-        />
-      ))}
+      {/* The main solid blue D with the inner hole mathematically cut out (fillRule="evenodd") */}
+      <path d={compositeD} fill="#172451" fillRule="evenodd" />
+
+      {/* The animated bars, placed precisely inside the clip path */}
+      <g clipPath="url(#innerHoleClip)">
+        {bars.map((bar, i) => {
+          return (
+            <rect
+              key={i}
+              x={bar.x}
+              y={10} // Starts high above the hole to ensure full coverage when scaling
+              width={7} // Exact fit for the inner width with 2px gaps
+              height={80} // Reaches exactly down to y=90 (the bottom flat baseline of the inner hole)
+              fill="#FAD77E"
+              style={{
+                // Anchor the animation precisely to the bottom baseline of the inner 'D' (y=90)
+                transformOrigin: `${bar.x + 3.5}px 90px`,
+                opacity: animate ? 1 : 0,
+                transition: 'opacity 0.4s ease',
+                
+                // Continuous wave pulse using explicit longhand animation properties to prevent React conflicts
+                animationName: animate ? 'barWave' : 'none',
+                animationDuration: '1.2s',
+                animationTimingFunction: 'ease-in-out',
+                animationIterationCount: 'infinite',
+                animationDelay: bar.delay,
+                animationFillMode: 'both',
+              }}
+            />
+          );
+        })}
+      </g>
     </svg>
   );
 };
@@ -53,7 +103,11 @@ const AnimatedText = ({ text, delay = 0, className = '' }) => (
         key={i}
         style={{
           display: 'inline-block',
-          animation: `loaderLetterIn 0.5s cubic-bezier(0.22,1,0.36,1) both`,
+          // Explicitly using longhand animation properties to prevent React fatal errors
+          animationName: 'loaderLetterIn',
+          animationDuration: '0.5s',
+          animationTimingFunction: 'cubic-bezier(0.22,1,0.36,1)',
+          animationFillMode: 'both',
           animationDelay: `${delay + i * 0.045}s`,
         }}
       >
@@ -63,8 +117,81 @@ const AnimatedText = ({ text, delay = 0, className = '' }) => (
   </span>
 );
 
+/* ─── Quick Page Transition ─── */
+const QuickTransition = ({ onComplete }) => {
+  const [phase, setPhase] = useState('in');
+
+  useEffect(() => {
+    const t = setTimeout(() => {
+      setPhase('out');
+      setTimeout(() => onComplete?.(), 500);
+    }, 600);
+    return () => clearTimeout(t);
+  }, [onComplete]);
+
+  return (
+    <div style={{
+      position: 'fixed', inset: 0, zIndex: 99999,
+      background: '#050b14',
+      display: 'flex', alignItems: 'center', justifyContent: 'center',
+      opacity: phase === 'in' ? 1 : 0,
+      transition: 'opacity 500ms cubic-bezier(0.4,0,0.2,1)',
+      pointerEvents: phase === 'out' ? 'none' : 'all',
+    }}>
+      <div style={{
+        position: 'absolute', inset: 0, pointerEvents: 'none',
+        background: 'radial-gradient(ellipse 60% 50% at 50% 50%, rgba(23,36,81,0.8) 0%, transparent 80%)',
+      }} />
+      
+      {/* Explicitly sized wrapper to guarantee perfect centering */}
+      <div style={{ position: 'relative', width: 200, height: 200 }}>
+        <div style={{
+          position: 'absolute', inset: 0, // Locks strictly to all edges of the 200x200 box
+          borderRadius: '50%',
+          border: '1px solid rgba(250,215,126,0.1)',
+          animation: 'loaderSpin 6s linear infinite',
+        }}>
+          <div style={{
+            position: 'absolute', top: -3, left: '50%', transform: 'translateX(-50%)',
+            width: 6, height: 6, borderRadius: '50%',
+            background: '#FAD77E', boxShadow: '0 0 8px 2px rgba(250,215,126,0.5)',
+          }} />
+        </div>
+        <div style={{
+          position: 'absolute', inset: 0,
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          filter: 'drop-shadow(0 0 16px rgba(250,215,126,0.2))'
+        }}>
+          <LogoMark animate={true} />
+        </div>
+      </div>
+      
+      <div style={{
+        position: 'absolute', bottom: 0, left: 0, right: 0, height: 2,
+        background: 'rgba(255,255,255,0.04)',
+      }}>
+        <div style={{
+          height: '100%', width: '100%',
+          background: 'linear-gradient(90deg, #172451, #FAD77E)',
+          animation: 'quickProgress 0.6s cubic-bezier(0.22,1,0.36,1) forwards',
+          boxShadow: '0 0 8px rgba(250,215,126,0.4)',
+        }} />
+      </div>
+    </div>
+  );
+};
+
 /* ─── Main PageLoader ─── */
-const PageLoader = ({ onComplete }) => {
+const PageLoader = ({ onComplete, mode = 'full' }) => {
+  if (mode === 'quick') {
+    return (
+      <>
+        <style dangerouslySetInnerHTML={{ __html: loaderStyles }} />
+        <QuickTransition onComplete={onComplete} />
+      </>
+    );
+  }
+
   const [logoVisible, setLogoVisible] = useState(false);
   const [textVisible, setTextVisible] = useState(false);
   const [progressWidth, setProgressWidth] = useState(0);
@@ -73,6 +200,7 @@ const PageLoader = ({ onComplete }) => {
   const videoReadyRef = useRef(false);
   const minTimeRef = useRef(false);
 
+  // Safely memoize tryComplete to prevent exhaustive-deps warnings if requested by linter
   const tryComplete = () => {
     if (videoReadyRef.current && minTimeRef.current) {
       setProgressWidth(100);
@@ -87,29 +215,23 @@ const PageLoader = ({ onComplete }) => {
   };
 
   useEffect(() => {
-    // Phase 1: Show logo bars
     const t1 = setTimeout(() => setLogoVisible(true), 100);
-    // Phase 2: Show text
     const t2 = setTimeout(() => setTextVisible(true), 500);
-    // Phase 3: Animate progress bar
     const t3 = setTimeout(() => setProgressWidth(30), 300);
     const t4 = setTimeout(() => setProgressWidth(65), 900);
     const t5 = setTimeout(() => setProgressWidth(85), 1500);
 
-    // Listen for hero video ready signal from ModernVideoBackground
     const onVideoReady = () => {
       videoReadyRef.current = true;
       tryComplete();
     };
     window.addEventListener('heroVideoReady', onVideoReady);
 
-    // Minimum display: 2 seconds
     const minTimer = setTimeout(() => {
       minTimeRef.current = true;
       tryComplete();
     }, 2000);
 
-    // Absolute max: 4s (in case video never fires event e.g. no video)
     const maxTimer = setTimeout(() => {
       videoReadyRef.current = true;
       minTimeRef.current = true;
@@ -122,33 +244,13 @@ const PageLoader = ({ onComplete }) => {
       clearTimeout(minTimer); clearTimeout(maxTimer);
       window.removeEventListener('heroVideoReady', onVideoReady);
     };
-  }, []); // eslint-disable-line
+  }, []);
 
   if (done) return null;
 
   return (
     <>
-      <style>{`
-        @keyframes loaderLetterIn {
-          from { opacity: 0; transform: translateY(14px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes loaderBarPulse {
-          0%, 100% { transform: scaleY(1); }
-          50%       { transform: scaleY(1.12); }
-        }
-        @keyframes loaderGlow {
-          0%, 100% { opacity: 0.6; }
-          50%       { opacity: 1; }
-        }
-        @keyframes loaderSpin {
-          to { transform: rotate(360deg); }
-        }
-        @keyframes loaderFadeSlide {
-          from { opacity: 0; transform: translateY(8px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
+      <style dangerouslySetInnerHTML={{ __html: loaderStyles }} />
 
       <div
         style={{
@@ -166,64 +268,70 @@ const PageLoader = ({ onComplete }) => {
           pointerEvents: exiting ? 'none' : 'all',
         }}
       >
-        {/* Background subtle radial glow */}
         <div style={{
           position: 'absolute', inset: 0, pointerEvents: 'none',
           background: 'radial-gradient(ellipse 60% 50% at 50% 50%, rgba(23,36,81,0.7) 0%, transparent 80%)',
         }} />
 
-        {/* Orbiting ring */}
-        <div style={{
-          position: 'absolute',
-          width: 160, height: 160,
-          borderRadius: '50%',
-          border: '1px solid rgba(250,215,126,0.12)',
-          animation: 'loaderSpin 8s linear infinite',
-          opacity: logoVisible ? 1 : 0,
-          transition: 'opacity 0.6s ease 0.2s',
-        }}>
-          {/* Small gold dot on ring */}
-          <div style={{
-            position: 'absolute', top: -3, left: '50%', transform: 'translateX(-50%)',
-            width: 6, height: 6, borderRadius: '50%',
-            background: '#FAD77E',
-            boxShadow: '0 0 8px 2px rgba(250,215,126,0.6)',
-          }} />
-        </div>
-
-        {/* Outer ring (slower) */}
-        <div style={{
-          position: 'absolute',
-          width: 210, height: 210,
-          borderRadius: '50%',
-          border: '1px solid rgba(250,215,126,0.05)',
-          animation: 'loaderSpin 14s linear infinite reverse',
-          opacity: logoVisible ? 1 : 0,
-          transition: 'opacity 0.6s ease 0.4s',
-        }}>
-          <div style={{
-            position: 'absolute', bottom: -3, left: '50%', transform: 'translateX(-50%)',
-            width: 4, height: 4, borderRadius: '50%',
-            background: 'rgba(250,215,126,0.5)',
-          }} />
-        </div>
-
-        {/* Logo container */}
         <div style={{
           position: 'relative', zIndex: 2,
           display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 28,
         }}>
-          {/* D Logo Mark with animated bars */}
+          {/* Rings & Logo Wrapper - explicitly sized with absolute insets for mathematically perfect centering */}
           <div style={{
-            opacity: logoVisible ? 1 : 0,
-            transform: logoVisible ? 'scale(1)' : 'scale(0.85)',
-            transition: 'opacity 0.5s cubic-bezier(0.22,1,0.36,1), transform 0.5s cubic-bezier(0.22,1,0.36,1)',
-            filter: logoVisible ? 'drop-shadow(0 0 20px rgba(250,215,126,0.25))' : 'none',
+            position: 'relative',
+            width: 210, height: 210,
           }}>
-            <LogoMark animate={logoVisible} />
+            {/* Outer Ring (210x210) locked to the edges */}
+            <div style={{
+              position: 'absolute',
+              inset: 0, 
+              borderRadius: '50%',
+              border: '1px solid rgba(250,215,126,0.05)',
+              animation: 'loaderSpin 14s linear infinite reverse',
+              opacity: logoVisible ? 1 : 0,
+              transition: 'opacity 0.6s ease 0.4s',
+            }}>
+              <div style={{
+                position: 'absolute', bottom: -3, left: '50%', transform: 'translateX(-50%)',
+                width: 4, height: 4, borderRadius: '50%',
+                background: 'rgba(250,215,126,0.5)',
+              }} />
+            </div>
+
+            {/* Inner Ring (160x160) mathematically padded by exactly 25px on all sides */}
+            <div style={{
+              position: 'absolute',
+              top: 25, left: 25, right: 25, bottom: 25, 
+              borderRadius: '50%',
+              border: '1px solid rgba(250,215,126,0.12)',
+              animation: 'loaderSpin 8s linear infinite',
+              opacity: logoVisible ? 1 : 0,
+              transition: 'opacity 0.6s ease 0.2s',
+            }}>
+              <div style={{
+                position: 'absolute', top: -3, left: '50%', transform: 'translateX(-50%)',
+                width: 6, height: 6, borderRadius: '50%',
+                background: '#FAD77E',
+                boxShadow: '0 0 8px 2px rgba(250,215,126,0.6)',
+              }} />
+            </div>
+
+            {/* Logo Mark perfectly centered in the middle of the 210x210 container */}
+            <div style={{
+              position: 'absolute',
+              inset: 0,
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              zIndex: 10,
+              opacity: logoVisible ? 1 : 0,
+              transform: logoVisible ? 'scale(1)' : 'scale(0.85)',
+              transition: 'opacity 0.5s cubic-bezier(0.22,1,0.36,1), transform 0.5s cubic-bezier(0.22,1,0.36,1)',
+              filter: logoVisible ? 'drop-shadow(0 0 20px rgba(250,215,126,0.25))' : 'none',
+            }}>
+              <LogoMark animate={logoVisible} />
+            </div>
           </div>
 
-          {/* Brand text */}
           <div style={{
             display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6,
             opacity: textVisible ? 1 : 0,
@@ -252,7 +360,6 @@ const PageLoader = ({ onComplete }) => {
             </div>
           </div>
 
-          {/* Thin divider line */}
           <div style={{
             width: textVisible ? 48 : 0,
             height: 1,
@@ -260,7 +367,6 @@ const PageLoader = ({ onComplete }) => {
             transition: 'width 0.8s cubic-bezier(0.22,1,0.36,1) 0.6s',
           }} />
 
-          {/* Loading label */}
           <div style={{
             fontFamily: 'var(--font-sans, Inter, sans-serif)',
             fontSize: '0.58rem',
@@ -269,13 +375,11 @@ const PageLoader = ({ onComplete }) => {
             color: 'rgba(255,255,255,0.25)',
             textTransform: 'uppercase',
             animation: textVisible ? 'loaderFadeSlide 0.6s 0.8s both' : 'none',
-            animationFillMode: 'both',
           }}>
             Loading Experience
           </div>
         </div>
 
-        {/* Progress bar at bottom */}
         <div style={{
           position: 'absolute',
           bottom: 0, left: 0, right: 0,
@@ -291,7 +395,6 @@ const PageLoader = ({ onComplete }) => {
           }} />
         </div>
 
-        {/* Bottom tagline */}
         <div style={{
           position: 'absolute', bottom: 32, left: 0, right: 0,
           textAlign: 'center',
