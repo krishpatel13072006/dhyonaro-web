@@ -30,6 +30,15 @@ const ModernVideoBackground = ({
     elA.style.opacity = '1';
     elA.style.zIndex = '2';
     elA.load();
+
+    // Signal PageLoader when video is buffered and ready
+    const signalReady = () => {
+      window.dispatchEvent(new CustomEvent('heroVideoReady'));
+    };
+    elA.addEventListener('canplaythrough', signalReady, { once: true });
+    // Also fire on canplay as fallback (fires earlier)
+    elA.addEventListener('canplay', signalReady, { once: true });
+
     elA.play().catch(() => {});
 
     // Slot B: silently preload the second video, completely hidden
