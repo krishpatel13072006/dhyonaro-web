@@ -1,74 +1,89 @@
 'use client';
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useEffect, useRef, useCallback } from 'react';
 
 const ModernVideoBackground = ({ 
   videos = [], 
   overlayOpacity = 0.5,
   className = "" 
 }) => {
-  // Double-buffer: slot A and slot B alternate as active/preloading
-  const [activeSlot, setActiveSlot] = useState('a');
-  const [slotSrc, setSlotSrc] = useState({ a: videos[0] || '', b: videos[1] || '' });
-  const [slotVisible, setSlotVisible] = useState({ a: true, b: false });
-
   const videoA = useRef(null);
   const videoB = useRef(null);
-  const currentIndex = useRef(0);
 
-  const getRef = (slot) => slot === 'a' ? videoA : videoB;
-  const getInactiveSlot = (slot) => slot === 'a' ? 'b' : 'a';
+  // Track state via refs — NO useState to avoid stale closure / batching bugs
+  const activeSlotRef = useRef('a');     // which slot is currently visible
+  const currentIndexRef = useRef(0);     // index of currently playing video
+  const isTransitioningRef = useRef(false);
 
-  // Preload the next video into the inactive slot
-  const preloadNext = useCallback((fromIndex) => {
-    if (videos.length <= 1) return;
-    const nextIndex = (fromIndex + 1) % videos.length;
-    const inactiveSlot = getInactiveSlot(activeSlot);
-    setSlotSrc(prev => ({ ...prev, [inactiveSlot]: videos[nextIndex] }));
-    // Force the hidden video to start buffering
-    const inactiveEl = getRef(inactiveSlot).current;
-    if (inactiveEl) {
-      inactiveEl.load();
-    }
-  }, [videos, activeSlot]);
+  // Direct DOM helpers — faster than React state
+  const getEl = (slot) => slot === 'a' ? videoA.current : videoB.current;
+  const getOtherSlot = (slot) => slot === 'a' ? 'b' : 'a';
 
-  // On mount: start video A playing and preload video B
   useEffect(() => {
     if (!videos.length) return;
-    const el = videoA.current;
-    if (el) {
-      el.play().catch(() => {});
-    }
-    // Preload next into slot B silently
-    if (videos.length > 1 && videoB.current) {
-      videoB.current.load();
-    }
-  }, []);
+    const elA = videoA.current;
+    const elB = videoB.current;
+    if (!elA || !elB) return;
 
-  const handleEnded = useCallback(() => {
+    // --- Initial setup via direct DOM manipulation ---
+    // Slot A: load and play first video, fully visible
+    elA.src = videos[0];
+    elA.style.opacity = '1';
+    elA.style.zIndex = '2';
+    elA.load();
+    elA.play().catch(() => {});
+
+    // Slot B: silently preload the second video, completely hidden
+    if (videos.length > 1) {
+      elB.src = videos[1 % videos.length];
+      elB.style.opacity = '0';
+      elB.style.zIndex = '1';
+      elB.load();
+    }
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const handleVideoEnd = useCallback(() => {
     if (videos.length <= 1) return;
+    // Guard: prevent double-firing if onEnded fires on both elements
+    if (isTransitioningRef.current) return;
+    isTransitioningRef.current = true;
 
-    const nextIndex = (currentIndex.current + 1) % videos.length;
-    const inactiveSlot = getInactiveSlot(activeSlot);
-    const inactiveEl = getRef(inactiveSlot).current;
+    const currentSlot = activeSlotRef.current;
+    const nextSlot = getOtherSlot(currentSlot);
+    const currentEl = getEl(currentSlot);
+    const nextEl = getEl(nextSlot);
+    if (!currentEl || !nextEl) return;
 
-    // The next video is already preloaded — start playing it immediately
-    if (inactiveEl) {
-      inactiveEl.play().catch(() => {});
-    }
+    // Step 1: Bring next video to front and start playing immediately
+    // It's already preloaded so this is instant — no buffering wait
+    nextEl.style.zIndex = '2';
+    nextEl.play().catch(() => {});
 
-    // Crossfade: show the new slot, hide the old
-    setSlotVisible({ [activeSlot]: false, [inactiveSlot]: true });
-    setActiveSlot(inactiveSlot);
-    currentIndex.current = nextIndex;
+    // Step 2: Fade in next, fade out current simultaneously
+    // Small rAF delay ensures z-index change is painted before opacity starts
+    requestAnimationFrame(() => {
+      nextEl.style.opacity = '1';
+      currentEl.style.opacity = '0';
+    });
 
-    // Now preload the one after next into the slot we just vacated
-    const afterNextIndex = (nextIndex + 1) % videos.length;
-    setSlotSrc(prev => ({ ...prev, [activeSlot]: videos[afterNextIndex] }));
+    // Update active tracking refs immediately
+    const nextIndex = (currentIndexRef.current + 1) % videos.length;
+    activeSlotRef.current = nextSlot;
+    currentIndexRef.current = nextIndex;
+
+    // Step 3: After crossfade completes, push current slot to background
+    // and preload the video that comes after next
     setTimeout(() => {
-      const nowInactiveEl = getRef(activeSlot).current;
-      if (nowInactiveEl) nowInactiveEl.load();
-    }, 500); // small delay so crossfade can start first
-  }, [activeSlot, videos]);
+      currentEl.style.zIndex = '1';
+      currentEl.pause();
+
+      const afterNextIndex = (nextIndex + 1) % videos.length;
+      currentEl.src = videos[afterNextIndex];
+      currentEl.load();
+
+      isTransitioningRef.current = false;
+    }, 900); // slightly longer than the CSS transition duration
+
+  }, [videos]);
 
   if (!videos.length) return null;
 
@@ -80,35 +95,23 @@ const ModernVideoBackground = ({
       {/* Slot A */}
       <video
         ref={videoA}
-        src={slotSrc.a}
-        onEnded={activeSlot === 'a' ? handleEnded : undefined}
         muted
         playsInline
         preload="auto"
-        loop={videos.length === 1}
+        onEnded={() => { if (activeSlotRef.current === 'a') handleVideoEnd(); }}
         className="absolute inset-0 w-full h-full object-cover"
-        style={{
-          opacity: slotVisible.a ? 1 : 0,
-          transition: 'opacity 800ms ease-in-out',
-          zIndex: slotVisible.a ? 2 : 1,
-        }}
+        style={{ opacity: 1, zIndex: 2, transition: 'opacity 800ms ease-in-out' }}
       />
 
-      {/* Slot B — preloaded and ready */}
+      {/* Slot B — stays hidden until crossfade */}
       <video
         ref={videoB}
-        src={slotSrc.b}
-        onEnded={activeSlot === 'b' ? handleEnded : undefined}
         muted
         playsInline
         preload="auto"
-        loop={videos.length === 1}
+        onEnded={() => { if (activeSlotRef.current === 'b') handleVideoEnd(); }}
         className="absolute inset-0 w-full h-full object-cover"
-        style={{
-          opacity: slotVisible.b ? 1 : 0,
-          transition: 'opacity 800ms ease-in-out',
-          zIndex: slotVisible.b ? 2 : 1,
-        }}
+        style={{ opacity: 0, zIndex: 1, transition: 'opacity 800ms ease-in-out' }}
       />
 
       {/* Noise grain overlay */}
