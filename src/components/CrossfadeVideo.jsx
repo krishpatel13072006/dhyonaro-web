@@ -32,6 +32,14 @@ const CrossfadeVideo = ({ videos, posters = [], className, overlayOpacity = 0.6 
 
     const playVideo = async () => {
       try {
+        const onTimeUpdate = () => {
+          if (activeVideo.currentTime > 0.25) {
+            window.dispatchEvent(new CustomEvent('heroVideoReady'));
+            activeVideo.removeEventListener('timeupdate', onTimeUpdate);
+          }
+        };
+        activeVideo.addEventListener('timeupdate', onTimeUpdate);
+        
         await activeVideo.play();
         console.log(`[VideoDebug] Success: Playing video ${index} (${resolvePath(videos[index])})`);
       } catch (err) {
@@ -40,6 +48,7 @@ const CrossfadeVideo = ({ videos, posters = [], className, overlayOpacity = 0.6 
         }
       }
     };
+
 
     // We set isReady on loadeddata (first frame) to show the video ASAP
     if (activeVideo.readyState >= 2) {

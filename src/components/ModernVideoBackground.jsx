@@ -40,7 +40,8 @@ const ModernVideoBackground = ({
     };
 
     const handleTimeUpdate = () => {
-      if (elA.currentTime > 0.08) {
+      // Ensure at least 250ms of video has ACTUALLY played
+      if (elA.currentTime > 0.25) {
         signalReady();
         elA.removeEventListener('timeupdate', handleTimeUpdate);
       }
@@ -48,17 +49,8 @@ const ModernVideoBackground = ({
 
     elA.addEventListener('timeupdate', handleTimeUpdate);
 
-    const handleFallback = () => {
-      setTimeout(() => {
-        if (!readyFired) {
-          signalReady();
-          elA.removeEventListener('timeupdate', handleTimeUpdate);
-        }
-      }, 1000);
-    };
-
-    elA.addEventListener('canplay', handleFallback, { once: true });
-
+    // Remove the premature canplay fallback because Safari can fire it before painting
+    // We rely purely on timeupdate or the preloader's hard timeout
     elA.play().catch(() => {});
 
     // Slot B: silently preload the second video, completely hidden
@@ -71,7 +63,6 @@ const ModernVideoBackground = ({
 
     return () => {
       elA.removeEventListener('timeupdate', handleTimeUpdate);
-      elA.removeEventListener('canplay', handleFallback);
     };
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
