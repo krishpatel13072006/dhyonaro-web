@@ -13,13 +13,20 @@ export default function ClientWrapper({ children }) {
   const previousPathnameRef = useRef(pathname);
   
   // Show loader only on first visit of the session
-  const [showLoader, setShowLoader] = useState(() => {
-    if (typeof window === 'undefined') return false;
-    return !sessionStorage.getItem('dhyanora_loaded');
-  });
+  // Initialize to false to match server render, then check in useEffect
+  const [showLoader, setShowLoader] = useState(false);
+  const [isHydrated, setIsHydrated] = useState(false);
   
   // Quick transition mode for client-side navigation
   const [loaderMode, setLoaderMode] = useState('full');
+
+  useEffect(() => {
+    // Hydration check - after component mounts on client, check if we need to show loader
+    if (!sessionStorage.getItem('dhyanora_loaded')) {
+      setShowLoader(true);
+    }
+    setIsHydrated(true);
+  }, []);
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -70,8 +77,8 @@ export default function ClientWrapper({ children }) {
   const isImmersivePage = false;
 
   return (
-    <div className="relative min-h-screen">
-      {showLoader && <PageLoader onComplete={handleLoaderComplete} mode={loaderMode} />}
+    <div className="relative min-h-screen" suppressHydrationWarning>
+      {isHydrated && showLoader && <PageLoader onComplete={handleLoaderComplete} mode={loaderMode} />}
       <div className="grain-overlay" />
       {!isImmersivePage && <Navbar />}
       <SocialSidebar />

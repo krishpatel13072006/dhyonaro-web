@@ -25,19 +25,39 @@ const ModernVideoBackground = ({
     if (!elA || !elB) return;
 
     // --- Initial setup via direct DOM manipulation ---
-    // Slot A: load and play first video, fully visible
+    // Slot A: load first video, keep hidden (opacity 0) initially until playing
     elA.src = videos[0];
-    elA.style.opacity = '1';
+    elA.style.opacity = '0';
     elA.style.zIndex = '2';
     elA.load();
 
-    // Signal PageLoader when video is buffered and ready
+    let readyFired = false;
     const signalReady = () => {
+      if (readyFired) return;
+      readyFired = true;
+      elA.style.opacity = '1';
       window.dispatchEvent(new CustomEvent('heroVideoReady'));
     };
-    elA.addEventListener('canplaythrough', signalReady, { once: true });
-    // Also fire on canplay as fallback (fires earlier)
-    elA.addEventListener('canplay', signalReady, { once: true });
+
+    const handleTimeUpdate = () => {
+      if (elA.currentTime > 0.08) {
+        signalReady();
+        elA.removeEventListener('timeupdate', handleTimeUpdate);
+      }
+    };
+
+    elA.addEventListener('timeupdate', handleTimeUpdate);
+
+    const handleFallback = () => {
+      setTimeout(() => {
+        if (!readyFired) {
+          signalReady();
+          elA.removeEventListener('timeupdate', handleTimeUpdate);
+        }
+      }, 1000);
+    };
+
+    elA.addEventListener('canplay', handleFallback, { once: true });
 
     elA.play().catch(() => {});
 
@@ -48,6 +68,11 @@ const ModernVideoBackground = ({
       elB.style.zIndex = '1';
       elB.load();
     }
+
+    return () => {
+      elA.removeEventListener('timeupdate', handleTimeUpdate);
+      elA.removeEventListener('canplay', handleFallback);
+    };
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleVideoEnd = useCallback(() => {
@@ -109,7 +134,7 @@ const ModernVideoBackground = ({
         preload="auto"
         onEnded={() => { if (activeSlotRef.current === 'a') handleVideoEnd(); }}
         className="absolute inset-0 w-full h-full object-cover"
-        style={{ opacity: 1, zIndex: 2, transition: 'opacity 800ms ease-in-out' }}
+        style={{ opacity: 0, zIndex: 2, transition: 'opacity 800ms ease-in-out' }}
       />
 
       {/* Slot B — stays hidden until crossfade */}

@@ -4,18 +4,19 @@
 
 /* Eudoxus Sans custom definitions if not covered by import */
 @font-face {
-    font-family: 'Eudoxus Sans';
-    src: url('https://stastic.download/eudoxus-sans/fonts/EudoxusSans-Bold.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Eudoxus Sans';
+  src: url('https://stastic.download/eudoxus-sans/fonts/EudoxusSans-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
+
 @font-face {
-    font-family: 'Eudoxus Sans';
-    src: url('https://stastic.download/eudoxus-sans/fonts/EudoxusSans-ExtraBold.woff2') format('woff2');
-    font-weight: 800;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Eudoxus Sans';
+  src: url('https://stastic.download/eudoxus-sans/fonts/EudoxusSans-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
 }
 
 @theme {
@@ -23,24 +24,24 @@
   --font-heading: var(--font-heading), 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
 
   /* Core palette */
-  --color-navy:      #172451;
-  --color-navy-mid:  #162236;
+  --color-navy: #172451;
+  --color-navy-mid: #162236;
   --color-navy-deep: #0a1422;
-  --color-blue:      #172451;
-  --color-blue-light:#3b82f6;
+  --color-blue: #172451;
+  --color-blue-light: #3b82f6;
   --color-blue-dark: #0f1a3a;
 
   /* Surface / neutrals */
-  --color-white:     #ffffff;
+  --color-white: #ffffff;
   --color-off-white: #f8fafc;
-  --color-gray-50:   #f9fafb;
-  --color-gray-100:  #f3f4f6;
-  --color-gray-200:  #e5e7eb;
-  --color-gray-400:  #9ca3af;
-  --color-gray-600:  #4b5563;
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-400: #9ca3af;
+  --color-gray-600: #4b5563;
 
   /* Legacy */
-  --color-gold:      #FAD77E;
+  --color-gold: #FAD77E;
   --color-gold-dark: #D4AF37;
 
   --breakpoint-xs: 375px;
@@ -53,9 +54,16 @@
 
 /* ─── Base ─── */
 @layer base {
-  *, *::before, *::after { box-sizing: border-box; }
 
-  html { scroll-behavior: smooth; }
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
 
   body {
     background-color: #ffffff;
@@ -65,7 +73,12 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: 'Eudoxus Sans', sans-serif;
     font-weight: 800;
     color: #172451;
@@ -74,12 +87,22 @@
 
   /* Responsive Font Sizes */
   @media (max-width: 640px) {
-    h1 { font-size: 2.25rem; }
-    h2 { font-size: 1.875rem; }
-    h3 { font-size: 1.5rem; }
+    h1 {
+      font-size: 2.25rem;
+    }
+
+    h2 {
+      font-size: 1.875rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+    }
   }
 
-  p { line-height: 1.7; }
+  p {
+    line-height: 1.7;
+  }
 }
 
 /* ─── Components ─── */
@@ -91,29 +114,37 @@
     align-items: center;
     gap: 0.5rem;
     padding: 0.7rem 1.5rem;
+
     @media (min-width: 768px) {
       padding: 0.75rem 1.75rem;
     }
+
     background-color: #172451;
     color: #fff;
-    font-family: 'Eudoxus Sans', sans-serif;
+    font-family: 'Eudoxus Sans',
+    sans-serif;
     font-weight: 700;
     font-size: 0.75rem;
+
     @media (min-width: 768px) {
       font-size: 0.8rem;
     }
+
     letter-spacing: 0.08em;
     text-transform: uppercase;
     border-radius: 12px;
     border: none;
     cursor: pointer;
-    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    transition: background 0.2s,
+    transform 0.2s,
+    box-shadow 0.2s;
   }
+
   .btn-blue:hover {
     background-color: #FAD77E;
     color: #172451;
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(250,215,126,0.35);
+    box-shadow: 0 8px 24px rgba(250, 215, 126, 0.35);
   }
 
   /* White outline button */
@@ -122,24 +153,31 @@
     align-items: center;
     gap: 0.5rem;
     padding: 0.7rem 1.5rem;
+
     @media (min-width: 768px) {
       padding: 0.75rem 1.75rem;
     }
+
     background-color: transparent;
     color: #fff;
-    font-family: 'Eudoxus Sans', sans-serif;
+    font-family: 'Eudoxus Sans',
+    sans-serif;
     font-weight: 700;
     font-size: 0.75rem;
+
     @media (min-width: 768px) {
       font-size: 0.8rem;
     }
+
     letter-spacing: 0.08em;
     text-transform: uppercase;
     border-radius: 12px;
-    border: 1.5px solid rgba(255,255,255,0.35);
+    border: 1.5px solid rgba(255, 255, 255, 0.35);
     cursor: pointer;
-    transition: border-color 0.2s, background 0.2s;
+    transition: border-color 0.2s,
+    background 0.2s;
   }
+
   .btn-outline-white:hover {
     border-color: #FAD77E;
     background-color: #FAD77E;
@@ -152,24 +190,31 @@
     align-items: center;
     gap: 0.5rem;
     padding: 0.7rem 1.5rem;
+
     @media (min-width: 768px) {
       padding: 0.75rem 1.75rem;
     }
+
     background-color: transparent;
     color: #172451;
-    font-family: 'Eudoxus Sans', sans-serif;
+    font-family: 'Eudoxus Sans',
+    sans-serif;
     font-weight: 700;
     font-size: 0.75rem;
+
     @media (min-width: 768px) {
       font-size: 0.8rem;
     }
+
     letter-spacing: 0.08em;
     text-transform: uppercase;
     border-radius: 12px;
     border: 1.5px solid #172451;
     cursor: pointer;
-    transition: background 0.2s, color 0.2s;
+    transition: background 0.2s,
+    color 0.2s;
   }
+
   .btn-outline-navy:hover {
     background-color: #FAD77E;
     border-color: #FAD77E;
@@ -183,9 +228,11 @@
     font-family: 'Eudoxus Sans', sans-serif;
     font-weight: 700;
     font-size: 0.6rem;
+
     @media (min-width: 768px) {
       font-size: 0.65rem;
     }
+
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: #172451;
@@ -211,37 +258,88 @@
 
 /* ─── Keyframes ─── */
 @keyframes marquee {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(28px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-14px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-14px);
+  }
 }
 
-.animate-marquee { animation: marquee 35s linear infinite; }
-.animate-float   { animation: float 6s ease-in-out infinite; }
+.animate-marquee {
+  animation: marquee 35s linear infinite;
+}
 
-::-webkit-scrollbar        { width: 5px; }
-::-webkit-scrollbar-track  { background: #f1f5f9; }
-::-webkit-scrollbar-thumb  { background: #172451; border-radius: 6px; }
-::-webkit-scrollbar-thumb:hover { background: #0f1a3a; }
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #172451;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0f1a3a;
+}
 
 @keyframes floatOrb {
-  0%   { transform: translate(0, 0) scale(1); }
-  33%  { transform: translate(18px, -22px) scale(1.08); }
-  66%  { transform: translate(-12px, 14px) scale(0.95); }
-  100% { transform: translate(8px, -8px) scale(1.04); }
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  33% {
+    transform: translate(18px, -22px) scale(1.08);
+  }
+
+  66% {
+    transform: translate(-12px, 14px) scale(0.95);
+  }
+
+  100% {
+    transform: translate(8px, -8px) scale(1.04);
+  }
 }
 
 @keyframes shimmer {
-  100% { transform: translateX(100%); }
+  100% {
+    transform: translateX(100%);
+  }
 }
 
-.animate-shimmer { animation: shimmer 2s infinite linear; }
+.animate-shimmer {
+  animation: shimmer 2s infinite linear;
+}

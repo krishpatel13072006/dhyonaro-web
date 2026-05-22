@@ -1,5 +1,6 @@
 'use client';
 import React, { useEffect, useState, useRef } from 'react';
+import { usePathname } from 'next/navigation';
 
 /* ─── Global Loader Styles ─── */
 const loaderStyles = `
@@ -24,74 +25,20 @@ const loaderStyles = `
   }
 `;
 
-/* ─── Dhyanora Logo Mark — mathematically proper lining & perfect clipping ─── */
-const LogoMark = ({ animate }) => {
-  // Outer boundary of the proper 'D' (Flat horizontal top/bottom, not circular)
-  const outerD = "M 15 15 H 60 C 110 15, 110 105, 60 105 H 15 Z";
-  
-  // Inner boundary of the 'D' (The "hole" where the bars live, with proper DIAGONAL top)
-  const innerD = "M 35 90 H 60 C 90 90, 90 60, 75 50 L 35 25 Z";
-  
-  // Composite path creates the solid blue shape with a transparent hole cutout inside
-  const compositeD = `${outerD} ${innerD}`;
-
-  // 5 bars perfectly distributed inside the width of the inner hole (x: 35 to 80)
-  const bars = [
-    { x: 37, delay: '0s' },
-    { x: 46, delay: '0.1s' },
-    { x: 55, delay: '0.2s' },
-    { x: 64, delay: '0.3s' },
-    { x: 73, delay: '0.4s' },
-  ];
-
+/* ─── Dhyanora Logo Mark — brand favicon image ─── */
+const LogoMark = () => {
   return (
-    <svg
-      width="150"
-      height="150"
-      viewBox="-6 0 120 120"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <defs>
-        {/* The clip path strictly enforces that the bars can NEVER overflow the inner D boundary */}
-        <clipPath id="innerHoleClip">
-          <path d={innerD} clipRule="evenodd" />
-        </clipPath>
-      </defs>
-
-      {/* The main solid blue D with the inner hole mathematically cut out (fillRule="evenodd") */}
-      <path d={compositeD} fill="#172451" fillRule="evenodd" />
-
-      {/* The animated bars, placed precisely inside the clip path */}
-      <g clipPath="url(#innerHoleClip)">
-        {bars.map((bar, i) => {
-          return (
-            <rect
-              key={i}
-              x={bar.x}
-              y={10} // Starts high above the hole to ensure full coverage when scaling
-              width={7} // Exact fit for the inner width with 2px gaps
-              height={80} // Reaches exactly down to y=90 (the bottom flat baseline of the inner hole)
-              fill="#FAD77E"
-              style={{
-                // Anchor the animation precisely to the bottom baseline of the inner 'D' (y=90)
-                transformOrigin: `${bar.x + 3.5}px 90px`,
-                opacity: animate ? 1 : 0,
-                transition: 'opacity 0.4s ease',
-                
-                // Continuous wave pulse using explicit longhand animation properties to prevent React conflicts
-                animationName: animate ? 'barWave' : 'none',
-                animationDuration: '1.2s',
-                animationTimingFunction: 'ease-in-out',
-                animationIterationCount: 'infinite',
-                animationDelay: bar.delay,
-                animationFillMode: 'both',
-              }}
-            />
-          );
-        })}
-      </g>
-    </svg>
+    <img
+      src="/icon.png"
+      alt="Dhyanora Logo"
+      style={{
+        width: '110px',
+        height: '110px',
+        objectFit: 'contain',
+        userSelect: 'none',
+        pointerEvents: 'none',
+      }}
+    />
   );
 };
 
@@ -183,6 +130,9 @@ const QuickTransition = ({ onComplete }) => {
 
 /* ─── Main PageLoader ─── */
 const PageLoader = ({ onComplete, mode = 'full' }) => {
+  const pathname = usePathname();
+  const hasVideo = !pathname || pathname === '/' || pathname.startsWith('/companies');
+
   if (mode === 'quick') {
     return (
       <>
@@ -197,22 +147,24 @@ const PageLoader = ({ onComplete, mode = 'full' }) => {
   const [progressWidth, setProgressWidth] = useState(0);
   const [exiting, setExiting] = useState(false);
   const [done, setDone] = useState(false);
-  const videoReadyRef = useRef(false);
+  const videoReadyRef = useRef(!hasVideo);
   const minTimeRef = useRef(false);
 
   // Safely memoize tryComplete to prevent exhaustive-deps warnings if requested by linter
   const tryComplete = () => {
-    if (videoReadyRef.current && minTimeRef.current) {
-      setProgressWidth(100);
+    // Require BOTH: video readiness + minimum animation time.
+    if (!videoReadyRef.current || !minTimeRef.current) return;
+
+    setProgressWidth(100);
+    setTimeout(() => {
+      setExiting(true);
       setTimeout(() => {
-        setExiting(true);
-        setTimeout(() => {
-          setDone(true);
-          onComplete?.();
-        }, 700);
-      }, 300);
-    }
+        setDone(true);
+        onComplete?.();
+      }, 700);
+    }, 300);
   };
+
 
   useEffect(() => {
     const t1 = setTimeout(() => setLogoVisible(true), 100);
@@ -223,28 +175,33 @@ const PageLoader = ({ onComplete, mode = 'full' }) => {
 
     const onVideoReady = () => {
       videoReadyRef.current = true;
+      minTimeRef.current = true; // Bypass minimum timer immediately when video is ready
       tryComplete();
     };
     window.addEventListener('heroVideoReady', onVideoReady);
 
+    // Keep the loader animation for a minimum time, but DO NOT complete early.
     const minTimer = setTimeout(() => {
       minTimeRef.current = true;
       tryComplete();
-    }, 2000);
+    }, 1600);
 
-    const maxTimer = setTimeout(() => {
+    // Hard safety: if videoReady is still not fired (rare), keep loader up to 3.5s.
+    // If it still hasn't fired by then, we still complete to prevent infinite lock.
+    const hardTimeout = setTimeout(() => {
       videoReadyRef.current = true;
       minTimeRef.current = true;
       tryComplete();
-    }, 4000);
+    }, 3500);
 
     return () => {
       clearTimeout(t1); clearTimeout(t2); clearTimeout(t3);
       clearTimeout(t4); clearTimeout(t5);
-      clearTimeout(minTimer); clearTimeout(maxTimer);
+      clearTimeout(minTimer); clearTimeout(hardTimeout);
       window.removeEventListener('heroVideoReady', onVideoReady);
     };
   }, []);
+
 
   if (done) return null;
 

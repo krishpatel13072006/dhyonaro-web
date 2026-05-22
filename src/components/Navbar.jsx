@@ -76,6 +76,7 @@ const Navbar = () => {
                 alt="Dhyanora Group - Diversified Industrial Group in Gujarat"
                 width={120}
                 height={48}
+                style={{ width: 'auto', height: 'auto' }}
                 className="h-7 sm:h-8 md:h-12 w-auto object-contain transition-all duration-300"
               />
             </div>
@@ -143,7 +144,7 @@ const Navbar = () => {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex items-center justify-between p-6 border-b border-gray-100">
-                <Image src={DhyanoraLogo1} alt="Dhyanora Group - Industrial Excellence" width={100} height={32} className="h-8 w-auto object-contain" />
+                <Image src={DhyanoraLogo1} alt="Dhyanora Group - Industrial Excellence" width={100} height={32} style={{ width: 'auto', height: 'auto' }} className="h-8 w-auto object-contain" />
                 <button 
                   onClick={() => setIsOpen(false)}
                   className="p-2 bg-navy/5 text-navy rounded-lg"

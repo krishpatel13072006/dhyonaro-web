@@ -164,7 +164,7 @@ const Earth = () => {
       </mesh>
 
       <group ref={earthGroupRef}>
-        <mesh ref={earthMeshRef} receiveShadow castShadow>
+        <mesh ref={earthMeshRef}>
           <sphereGeometry args={[2.2, 64, 64]} />
           <meshStandardMaterial
             map={colorMap}
@@ -210,7 +210,7 @@ const Scene = () => {
 
       {/* Cinematic space lighting */}
       <ambientLight intensity={1.1} />
-      <directionalLight position={[5, 5, 5]} intensity={2.0} castShadow />
+      <directionalLight position={[5, 5, 5]} intensity={2.0} />
       <pointLight position={[0, 0, 10]} intensity={1.5} color="#ffffff" />
       <pointLight position={[-10, -5, -5]} intensity={1.5} color="#4ca9ff" />
 
@@ -240,7 +240,7 @@ const GlobalReach = () => {
       </div>
 
       <div className="w-full h-full cursor-grab active:cursor-grabbing relative z-0">
-        <Canvas dpr={[1, 2]} shadows>
+        <Canvas dpr={[1, 2]}>
           <Scene />
         </Canvas>
       </div>
