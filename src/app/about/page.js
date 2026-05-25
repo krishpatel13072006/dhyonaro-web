@@ -13,6 +13,7 @@ import ScrollReveal, { ScrollRevealGroup } from '@/components/ScrollReveal';
 import SectionTag from '@/components/SectionTag';
 import BouncingCircles from '@/components/BouncingCircles';
 import dynamic from 'next/dynamic';
+import AboutVideoSection from '@/sections/AboutVideoSection';
 
 const GlobalReach = dynamic(() => import('@/components/GlobalReach'), {
   ssr: false,
@@ -439,6 +440,7 @@ const About = () => {
 
 
 
+      <AboutVideoSection />
       <GlobalReach />
       <FooterCTA />
     </main>

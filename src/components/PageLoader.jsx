@@ -39,6 +39,52 @@ const loaderStyles = `
     0%, 100% { box-shadow: 0 0 6px 2px rgba(250,215,126,0.5); transform: scale(1); }
     50% { box-shadow: 0 0 12px 4px rgba(250,215,126,0.8); transform: scale(1.15); }
   }
+
+  /* Responsive Preloading Animation (Home Page) */
+  .home-loader-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .home-loader-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    opacity: 0;
+    max-height: 0;
+    padding-top: 0;
+    transition: max-height 1.2s cubic-bezier(0.25, 1, 0.5, 1), padding-top 1.2s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.8s ease;
+  }
+  .home-loader-text-wrapper.show {
+    opacity: 1;
+    max-height: 120px;
+    padding-top: 16px;
+  }
+
+  @media (min-width: 768px) {
+    .home-loader-container {
+      flex-direction: row;
+    }
+    .home-loader-text-wrapper {
+      align-items: flex-start;
+      text-align: left;
+      max-height: none;
+      width: 0;
+      padding-left: 0;
+      padding-top: 0;
+      transition: width 1.2s cubic-bezier(0.25, 1, 0.5, 1), padding-left 1.2s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.8s ease;
+    }
+    .home-loader-text-wrapper.show {
+      max-height: none;
+      width: 280px;
+      padding-left: 16px;
+      padding-top: 0;
+    }
+  }
 `;
 
 /* ─── Dhyanora Logo Mark — brand favicon image ─── */
@@ -463,10 +509,7 @@ const HomePageLoader = ({ onComplete }) => {
         <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', background: 'radial-gradient(ellipse 60% 50% at 50% 50%, rgba(23,36,81,0.7) 0%, transparent 80%)' }} />
 
         {/* The main logo/text/rings block */}
-        <div style={{
-          position: 'relative', zIndex: 2,
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-        }}>
+        <div className="home-loader-container" style={{ position: 'relative', zIndex: 2 }}>
           {/* Logo & Rings Wrapper */}
           <div style={{
             position: 'relative', width: 260, height: 260, flexShrink: 0,
@@ -502,15 +545,8 @@ const HomePageLoader = ({ onComplete }) => {
             </div>
           </div>
 
-          {/* DHYANORA TEXT to the Right */}
-          <div style={{
-            width: showText ? '280px' : '0px',
-            overflow: 'hidden',
-            paddingLeft: showText ? '16px' : '0px',
-            display: 'flex', flexDirection: 'column', justifyContent: 'center',
-            opacity: showText ? 1 : 0, 
-            transition: 'width 1s cubic-bezier(0.25, 1, 0.5, 1), padding 1s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease'
-          }}>
+          {/* DHYANORA TEXT to the Right/Below */}
+          <div className={`home-loader-text-wrapper ${showText ? 'show' : ''}`}>
              <div style={{
                fontFamily: 'var(--font-heading, "Plus Jakarta Sans", sans-serif)',
                fontSize: '1.8rem', fontWeight: 900, letterSpacing: '0.28em', color: '#ffffff',
