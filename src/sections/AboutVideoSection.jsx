@@ -142,22 +142,7 @@ export default function AboutVideoSection() {
         </AnimatePresence>
       </div>
 
-      {/* ── Bottom Content Overlay (Text only) ── */}
-      <div className="relative z-30 max-w-7xl mx-auto w-full px-6 pb-16 md:pb-24 md:px-12 pointer-events-none">
-        <div className="max-w-2xl text-left">
-          <ScrollReveal y={24} duration={0.8}>
-            <SectionTag color="#fad77e">Dhyanora In Action</SectionTag>
-            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-heading font-black text-white uppercase leading-[1.08] mt-4 mb-5 drop-shadow-md">
-              Precision in Motion.<br className="hidden sm:block" />
-              <span className="text-[#fad77e]">Synergy in Execution.</span>
-            </h2>
-            <p className="text-white/70 text-sm md:text-base leading-relaxed max-w-xl font-medium drop-shadow-sm">
-              Witness our state-of-the-art scrap procurement network, high-capacity retail logistics, 
-              and strategic industrial infrastructure in action.
-            </p>
-          </ScrollReveal>
-        </div>
-      </div>
+
 
       {/* ── Absolute Right Bottom Corner: Audio Toggle Control ── */}
       {videoLoaded && (
