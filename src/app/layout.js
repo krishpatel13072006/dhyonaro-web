@@ -24,15 +24,6 @@ export const metadata = {
     index: true,
     follow: true,
   },
-  icons: {
-    icon: [
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/icon.png', type: 'image/png', sizes: '512x512' },
-    ],
-    apple: [
-      { url: '/icon.png', sizes: '512x512', type: 'image/png' },
-    ],
-  },
 };
 
 export default function RootLayout({ children }) {
@@ -41,6 +32,10 @@ export default function RootLayout({ children }) {
       <head>
         {/* Preconnect to font CDNs to speed up font loading */}
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
+        {/* Favicon (ensures it is visible in browser tab) */}
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/icon.png" />
 
         {/* Preload the first hero video so it starts playing instantly */}
         <link rel="preload" href="/videos/company-1.mp4" as="video" type="video/mp4" />
