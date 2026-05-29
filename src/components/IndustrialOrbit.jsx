@@ -16,8 +16,8 @@ import {
 import DhyanoraLogo from '@/companies-logo/dhyanora-logo-1.png';
 
 // Import newly provided images
-import metalScrapImg from '@/images/pramukh-import-export-home.avif';
-import techVentureImg from '@/images/pramukh-tech-venture.avif';
+import metalScrapImg from '@/images/pramukh-import-export-home.png';
+import techVentureImg from '@/images/pramukh-tech-venture.png';
 import infrastructureImg from '@/images/shreeji-infra-tech.avif';
 import supplyChainImg from '@/images/global-sourcing-pramukh-import-export.jpg';
 import globalReachImg from '@/images/gujarat-routes.avif';

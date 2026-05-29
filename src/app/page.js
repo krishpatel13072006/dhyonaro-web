@@ -24,7 +24,7 @@ import LogoGrid from '@/components/LogoGrid';
 // For now, I'll keep the relative imports which should work if they are in src/
 import pramukhLogo from '@/companies-logo/pramukh-logo.png';
 import shreejiLogo from '@/companies-logo/shreeji-logo.png';
-import pramukhImportExportHome from '@/images/pramukh-import-export-home.avif';
+import pramukhImportExportHome from '@/images/pramukh-import-export-home.png';
 import bricsHomePage from '@/images/brics-home-page.jpg';
 import pramukhInfratechMain from '@/images/pramukh-infratech-main.avif';
 

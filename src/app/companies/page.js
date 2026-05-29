@@ -29,8 +29,8 @@ import gujaratRoutesImg from '@/images/gujarat-routes.avif';
 import longTermThinkingImg from '@/images/long-term-thinking.avif';
 import industrialShedImg from '@/images/industrial-shed-companies-page.avif';
 import secureTilesImg from '@/images/secure-tiles.avif';
-import techVentureMainImg from '@/images/pramukh-tech-venture.avif';
-import pramukhImportExportMainImg from '@/images/pramukh-import-export-home.avif';
+import techVentureMainImg from '@/images/pramukh-tech-venture.png';
+import pramukhImportExportMainImg from '@/images/pramukh-import-export-home.png';
 import shreejiInfraTechImg from '@/images/shreeji-infra-tech.avif';
 
 /* ─── Count-up hook ─── */

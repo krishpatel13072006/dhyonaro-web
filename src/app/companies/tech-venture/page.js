@@ -16,7 +16,7 @@ import FooterCTA from '@/components/FooterCTA';
 import BouncingCircles from '@/components/BouncingCircles';
 
 // Images
-import techVentureMainImg from '@/images/pramukh-tech-venture.avif';
+import techVentureMainImg from '@/images/pramukh-tech-venture.png';
 import entertainmentImg from '@/images/Entairnment.avif';
 import audioImg from '@/images/audio-image.avif';
 import daewooShowroom from '@/images/daewoo-showroom.png';

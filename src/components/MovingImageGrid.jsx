@@ -3,8 +3,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 
-import img1 from '@/images/pramukh-import-export-home.avif';
-import img2 from '@/images/pramukh-tech-venture.avif';
+import img1 from '@/images/pramukh-import-export-home.png';
+import img2 from '@/images/pramukh-tech-venture.png';
 import img3 from '@/images/shreeji-infra-tech.avif';
 import img4 from '@/images/global-sourcing-pramukh-import-export.jpg';
 import img5 from '@/images/quality-assurance-pramukh-import-export.avif';

@@ -15,6 +15,9 @@ import logo9 from '@/logo grid/9.jpg';
 import logo10 from '@/logo grid/10.jpg';
 import logo11 from '@/logo grid/11.jpg';
 import logo12 from '@/logo grid/12.jpg';
+import logoAksh from '@/logo grid/Aksh overseas logo.png';
+import logoDaewoo from '@/logo grid/Daewo logo.jpeg';
+import logoEBG from '@/logo grid/EBG logo.jpeg';
 
 const logos = [
   { id: 1, src: logo1, alt: 'Samsung Electronics - Authorised Retail Partner' },
@@ -29,6 +32,9 @@ const logos = [
   { id: 10, src: logo10, alt: 'Haier - Consumer Electronics Partner' },
   { id: 11, src: logo11, alt: 'Jindal Steel & Power - Supply Partner' },
   { id: 12, src: logo12, alt: 'Daikin - Industrial Cooling Partner' },
+  { id: 13, src: logoAksh, alt: 'Aksh Overseas - Distribution Partner' },
+  { id: 14, src: logoDaewoo, alt: 'Daewoo India - Strategic Franchise Partner' },
+  { id: 15, src: logoEBG, alt: 'EBG - Strategic Partner' },
 ];
 
 const containerVariants = {

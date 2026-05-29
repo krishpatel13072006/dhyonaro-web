@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import SEO from '@/components/SEO';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, Plus, Minus, Camera, Share2, Link as LucideLink, Globe, ArrowRight } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Plus, Minus, Camera, Share2, Link as LucideLink, Globe, ArrowRight, CheckCircle } from 'lucide-react';
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import BouncingCircles from '@/components/BouncingCircles';
@@ -128,33 +128,54 @@ const Contact = () => {
   const [message, setMessage] = useState('');
   const [consent, setConsent] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setError('');
+    
     const targetEmail = companyEmails[sector] || "contact@dhyanora.com";
-    const subject = `Inquiry for ${sector} - Dhyanora Group`;
-    const body = `Hi Team,
 
-  You have received a new business inquiry from the Dhyanora Group website:
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          email,
+          phoneCode,
+          phoneNumber,
+          sector,
+          message,
+          consent,
+          targetEmail
+        }),
+      });
 
-  Contact Details:
-  - Name: ${firstName} ${lastName}
-  - Email: ${email}
-  - Phone: ${phoneCode} ${phoneNumber}
-  - Sector of Interest: ${sector}
+      if (!response.ok) {
+        throw new Error('Failed to send message. Please try again.');
+      }
 
-Message:
-"${message}"
-
-Consent Given: ${consent ? "Yes" : "No"}
-
-Best regards,
-Dhyanora Web Portal`;
-
-    const mailtoUrl = `mailto:${targetEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailtoUrl;
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 5000);
+      // Reset form
+      setFirstName('');
+      setLastName('');
+      setEmail('');
+      setPhoneNumber('');
+      setMessage('');
+      setConsent(false);
+      
+      setIsSubmitted(true);
+      setTimeout(() => setIsSubmitted(false), 5000);
+    } catch (err) {
+      setError(err.message || 'An error occurred.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const faqs = [
@@ -258,17 +279,27 @@ Dhyanora Web Portal`;
 
               <div className="lg:col-span-5 relative">
                 <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.3 }} className="space-y-10">
-                  <form onSubmit={handleSubmit} className="space-y-8">
-                    {isSubmitted && (
-                      <motion.div
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 p-4 rounded-2xl text-xs font-bold uppercase tracking-wider flex items-center justify-between"
+                  <AnimatePresence mode="wait">
+                    {!isSubmitted ? (
+                      <motion.form 
+                        key="contact-form"
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -20, filter: 'blur(10px)' }}
+                        transition={{ duration: 0.5 }}
+                        onSubmit={handleSubmit} 
+                        className="space-y-8"
                       >
-                        <span>Opening your email client to send query...</span>
-                        <button type="button" onClick={() => setIsSubmitted(false)} className="text-emerald-600 hover:text-emerald-800">✕</button>
-                      </motion.div>
-                    )}
+                        {error && (
+                          <motion.div
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="bg-red-500/10 border border-red-500/30 text-red-600 p-4 rounded-2xl text-xs font-bold uppercase tracking-wider flex items-center justify-between"
+                          >
+                            <span>{error}</span>
+                            <button type="button" onClick={() => setError('')} className="text-red-600 hover:text-red-800">✕</button>
+                          </motion.div>
+                        )}
                     <div className="space-y-4">
                       <label className="text-[10px] font-black uppercase tracking-[0.2em] text-[#172451]/30 ml-1">Full Name</label>
                       <div className="grid grid-cols-2 gap-4">
@@ -318,14 +349,40 @@ Dhyanora Web Portal`;
                     </div>
 
                     <div className="flex justify-center md:justify-start pt-4">
-                      <button type="submit" className="w-full md:w-auto px-6 py-3 md:px-10 md:py-4 bg-[#172451] text-white rounded-full font-heading font-black uppercase tracking-[0.2em] text-[10px] md:text-[11px] shadow-2xl transition-all flex items-center justify-center md:justify-start gap-4 md:gap-5 group hover:bg-[#172451] hover:scale-105 active:scale-95">
-                        Send Message
-                        <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center transition-all group-hover:bg-white group-hover:text-[#172451]">
-                          <Send size={14} className="ml-0.5" />
-                        </div>
+                      <button type="submit" disabled={isSubmitting} className="w-full md:w-auto px-6 py-3 md:px-10 md:py-4 bg-[#172451] text-white rounded-full font-heading font-black uppercase tracking-[0.2em] text-[10px] md:text-[11px] shadow-2xl transition-all flex items-center justify-center md:justify-start gap-4 md:gap-5 group hover:bg-[#172451] hover:scale-105 active:scale-95 disabled:opacity-70 disabled:hover:scale-100 disabled:cursor-not-allowed">
+                        {isSubmitting ? 'Sending...' : 'Send Message'}
+                        {!isSubmitting && (
+                          <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center transition-all group-hover:bg-white group-hover:text-[#172451]">
+                            <Send size={14} className="ml-0.5" />
+                          </div>
+                        )}
                       </button>
                     </div>
-                  </form>
+                  </motion.form>
+                  ) : (
+                    <motion.div
+                      key="success-message"
+                      initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      exit={{ opacity: 0, scale: 0.8, y: -20 }}
+                      transition={{ duration: 0.5, type: 'spring' }}
+                      className="flex flex-col items-center justify-center text-center p-12 bg-gray-50 border border-emerald-500/20 rounded-[3rem] shadow-xl min-h-[400px] space-y-6"
+                    >
+                      <motion.div
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
+                        className="w-24 h-24 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-4"
+                      >
+                        <CheckCircle size={48} strokeWidth={2.5} />
+                      </motion.div>
+                      <h3 className="text-3xl font-heading font-black text-[#172451] uppercase">Email Sent!</h3>
+                      <p className="text-[#172451]/60 font-medium text-lg max-w-sm leading-relaxed">
+                        Thank you for reaching out. Our team will review your inquiry and get back to you shortly.
+                      </p>
+                    </motion.div>
+                  )}
+                  </AnimatePresence>
                 </motion.div>
               </div>
             </div>
