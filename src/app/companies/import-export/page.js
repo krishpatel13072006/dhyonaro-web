@@ -3,7 +3,7 @@ import React from 'react';
 import SEO from '@/components/SEO';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { ArrowLeft, HardHat, ShieldCheck, Globe2, Settings2 } from 'lucide-react';
+import { ArrowLeft, HardHat, ShieldCheck, Globe2, Settings2, ArrowUpRight } from 'lucide-react';
 import ModernVideoBackground from '@/components/ModernVideoBackground';
 
 const CompanyImportExport = () => {
@@ -51,7 +51,7 @@ const CompanyImportExport = () => {
                We facilitate the procurement and distribution of high-grade ferrous and non-ferrous metal scrap for India's leading manufacturers. Our global network ensures a steady supply of quality materials.
              </p>
              
-             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left mb-12">
                <div className="p-8 bg-slate-50 rounded-2xl border border-slate-100">
                  <Settings2 className="text-[#172451] mb-4" size={32} />
                  <h4 className="text-xl font-heading font-black text-[#172451] mb-2">Key Materials</h4>
@@ -62,6 +62,18 @@ const CompanyImportExport = () => {
                  <h4 className="text-xl font-heading font-black text-[#172451] mb-2">Quality First</h4>
                  <p className="text-slate-500 text-sm">Every batch is meticulously graded and verified for purity before delivery.</p>
                </div>
+             </div>
+
+             <div className="text-center">
+               <a
+                 href="https://www.pramukhimportexport.com"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 className="inline-flex items-center gap-3 bg-[#172451] hover:bg-[#20326c] text-white px-8 py-4 rounded-xl font-heading font-bold text-sm uppercase tracking-wider transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+               >
+                 Visit Pramukh Import Export
+                 <ArrowUpRight size={18} />
+               </a>
              </div>
            </div>
         </section>

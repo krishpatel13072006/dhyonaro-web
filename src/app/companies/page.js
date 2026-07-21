@@ -21,17 +21,17 @@ const ModernVideoBackground = dynamic(() => import('@/components/ModernVideoBack
 
 import keyMaterialsImg from '@/images/keymaterial-pramukh-import-export.webp';
 import globalSourcingImg from '@/images/global-sourcing-pramukh-import-export.jpg';
-import qualityAssuranceImg from '@/images/quality-assurance-pramukh-import-export.avif';
-import shreejiMainImg from '@/images/pramukh-infratech-main.avif';
+import qualityAssuranceImg from '@/images/quality-assurance-pramukh-import-export.webp';
+import shreejiMainImg from '@/images/pramukh-infratech-main.webp';
 import focusedVisionImg from '@/images/focused-vision.jpg';
-import sectorDiversityImg from '@/images/sector-diversity.avif';
-import gujaratRoutesImg from '@/images/gujarat-routes.avif';
-import longTermThinkingImg from '@/images/long-term-thinking.avif';
-import industrialShedImg from '@/images/industrial-shed-companies-page.avif';
-import secureTilesImg from '@/images/secure-tiles.avif';
+import sectorDiversityImg from '@/images/sector-diversity.webp';
+import gujaratRoutesImg from '@/images/gujarat-routes.webp';
+import longTermThinkingImg from '@/images/long-term-thinking.webp';
+import industrialShedImg from '@/images/industrial-shed-companies-page.webp';
+import secureTilesImg from '@/images/secure-tiles.webp';
 import techVentureMainImg from '@/images/pramukh-tech-venture.png';
 import pramukhImportExportMainImg from '@/images/pramukh-import-export-home.png';
-import shreejiInfraTechImg from '@/images/shreeji-infra-tech.avif';
+import shreejiInfraTechImg from '@/images/shreeji-infra-tech.webp';
 
 /* ─── Count-up hook ─── */
 const useCountUp = (target, duration = 1800, active = false) => {

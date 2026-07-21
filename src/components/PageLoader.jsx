@@ -76,13 +76,15 @@ const loaderStyles = `
       width: 0;
       padding-left: 0;
       padding-top: 0;
+      overflow: hidden;
       transition: width 1.2s cubic-bezier(0.25, 1, 0.5, 1), padding-left 1.2s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.8s ease;
     }
     .home-loader-text-wrapper.show {
       max-height: none;
-      width: 280px;
+      width: 360px;
       padding-left: 16px;
       padding-top: 0;
+      overflow: visible;
     }
   }
 `;
@@ -549,7 +551,7 @@ const HomePageLoader = ({ onComplete }) => {
           <div className={`home-loader-text-wrapper ${showText ? 'show' : ''}`}>
              <div style={{
                fontFamily: 'var(--font-heading, "Plus Jakarta Sans", sans-serif)',
-               fontSize: '1.8rem', fontWeight: 900, letterSpacing: '0.28em', color: '#ffffff',
+               fontSize: '1.7rem', fontWeight: 900, letterSpacing: '0.24em', color: '#ffffff',
                textTransform: 'uppercase', whiteSpace: 'nowrap'
              }}>
                {showText && <AnimatedText text="DHYANORA" delay={0} animation="typewriter" />}

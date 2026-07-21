@@ -15,10 +15,10 @@ import FooterCTA from '@/components/FooterCTA';
 import BouncingCircles from '@/components/BouncingCircles';
 
 // Images
-import shreejiMainImg from '@/images/pramukh-infratech-main.avif';
-import industrialShedImg from '@/images/industrial-shed-companies-page.avif';
-import secureTilesImg from '@/images/secure-tiles.avif';
-import shreejiInfraTechImg from '@/images/shreeji-infra-tech.avif';
+import shreejiMainImg from '@/images/pramukh-infratech-main.webp';
+import industrialShedImg from '@/images/industrial-shed-companies-page.webp';
+import secureTilesImg from '@/images/secure-tiles.webp';
+import shreejiInfraTechImg from '@/images/shreeji-infra-tech.webp';
 
 // Mahantam Gallery Images
 import mahantam01 from '@/images/shreeji/mahantam-fv-cam01.jpg.jpeg';

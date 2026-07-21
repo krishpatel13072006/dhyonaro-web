@@ -18,11 +18,11 @@ import DhyanoraLogo from '@/companies-logo/dhyanora-logo-1.png';
 // Import newly provided images
 import metalScrapImg from '@/images/pramukh-import-export-home.png';
 import techVentureImg from '@/images/pramukh-tech-venture.png';
-import infrastructureImg from '@/images/shreeji-infra-tech.avif';
+import infrastructureImg from '@/images/shreeji-infra-tech.webp';
 import supplyChainImg from '@/images/global-sourcing-pramukh-import-export.jpg';
-import globalReachImg from '@/images/gujarat-routes.avif';
-import qualityAssuranceImg from '@/images/quality-assurance-pramukh-import-export.avif';
-import growthImg from '@/images/long-term-thinking.avif';
+import globalReachImg from '@/images/gujarat-routes.webp';
+import qualityAssuranceImg from '@/images/quality-assurance-pramukh-import-export.webp';
+import growthImg from '@/images/long-term-thinking.webp';
 import expertiseImg from '@/images/focused-vision.jpg';
 
 const ECOSYSTEM_FEATURES = [

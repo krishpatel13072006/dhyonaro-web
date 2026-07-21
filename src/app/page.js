@@ -26,7 +26,7 @@ import pramukhLogo from '@/companies-logo/pramukh-logo.png';
 import shreejiLogo from '@/companies-logo/shreeji-logo.png';
 import pramukhImportExportHome from '@/images/pramukh-import-export-home.png';
 import bricsHomePage from '@/images/brics-home-page.jpg';
-import pramukhInfratechMain from '@/images/pramukh-infratech-main.avif';
+import pramukhInfratechMain from '@/images/pramukh-infratech-main.webp';
 
 /* ═══════════════════ DATA ═══════════════════ */
 

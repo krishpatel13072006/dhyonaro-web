@@ -7,8 +7,8 @@ import ScrollReveal from '@/components/ScrollReveal';
 import SectionTag from '@/components/SectionTag';
 
 import focusedVision from '@/images/focused-vision.jpg';
-import gujaratRoutes from '@/images/gujarat-routes.avif';
-import shreejiInfraTechImg from '@/images/shreeji-infra-tech.avif';
+import gujaratRoutes from '@/images/gujarat-routes.webp';
+import shreejiInfraTechImg from '@/images/shreeji-infra-tech.webp';
 
 export default function ApartSection() {
   return (

@@ -76,6 +76,7 @@ const Navbar = () => {
                 alt="Dhyanora Group - Diversified Industrial Group in Gujarat"
                 width={120}
                 height={48}
+                priority
                 style={{ width: 'auto', height: 'auto' }}
                 className="h-7 sm:h-8 md:h-12 w-auto object-contain transition-all duration-300"
               />

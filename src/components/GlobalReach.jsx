@@ -18,15 +18,15 @@ const avatars = [
   { id: 9, name: "Canada", img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200", lat: 43.6532, lng: -79.3832 },
   { id: 10, name: "Singapore", img: "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?auto=format&fit=crop&q=80&w=200", lat: 1.3521, lng: 103.8198 },
   { id: 11, name: "Germany", img: "https://images.unsplash.com/photo-1552058544-f2b08422138a?auto=format&fit=crop&q=80&w=200", lat: 52.5200, lng: 13.4050 },
-  { id: 12, name: "Egypt", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200", lat: 30.0444, lng: 31.2357 },
-  { id: 13, name: "Russia", img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=200", lat: 55.7558, lng: 37.6173 },
+  { id: 12, name: "Egypt", img: "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&q=80&w=200", lat: 30.0444, lng: 31.2357 },
+  { id: 13, name: "Russia", img: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&q=80&w=200", lat: 55.7558, lng: 37.6173 },
 ];
 
-// Helper to convert Lat/Lng to 3D Vector
-const latLngToVector3 = (lat, lng, radius) => {
+// Helper to convert Lat/Lng to 3D Vector matching standard Three.js Earth texture mapping
+const latLngToVector3 = (lat, lng, radius = 2.21) => {
   const phi = (90 - lat) * (Math.PI / 180);
-  const theta = (lng + 180) * (Math.PI / 180);
-  const x = -(radius * Math.sin(phi) * Math.cos(theta));
+  const theta = (180 - lng) * (Math.PI / 180);
+  const x = radius * Math.sin(phi) * Math.cos(theta);
   const z = radius * Math.sin(phi) * Math.sin(theta);
   const y = radius * Math.cos(phi);
   return new THREE.Vector3(x, y, z);
@@ -36,7 +36,7 @@ const AvatarPoint = ({ avatar, earthMeshRef }) => {
   const groupRef = useRef();
   const iconRef = useRef();
 
-  const pos = useMemo(() => latLngToVector3(avatar.lat, avatar.lng, 2.3), [avatar.lat, avatar.lng]);
+  const pos = useMemo(() => latLngToVector3(avatar.lat, avatar.lng, 2.21), [avatar.lat, avatar.lng]);
 
   useFrame((state) => {
     if (!groupRef.current || !iconRef.current) return;
@@ -70,9 +70,9 @@ const AvatarPoint = ({ avatar, earthMeshRef }) => {
 
     if (dotProduct > 0) {
       // 1. SCALING LOGIC:
-      // At the center (dotProduct = 1.0), scale is 1.1 (larger legibility)
-      // At the horizon edges (dotProduct = 0.0), scale is 0.7 (medium-small)
-      targetScale = 0.7 + dotProduct * 0.4;
+      // At the center (dotProduct = 1.0), scale is 1.0
+      // At the horizon edges (dotProduct = 0.0), scale is 0.6
+      targetScale = 0.6 + dotProduct * 0.4;
 
       // 2. OPACITY LOGIC:
       // Smoothly fade out close to the horizon edges (dotProduct < 0.15)
@@ -84,7 +84,7 @@ const AvatarPoint = ({ avatar, earthMeshRef }) => {
     } else {
       // Back side of the Earth
       targetOpacity = 0;
-      targetScale = 0.5;
+      targetScale = 0.4;
     }
 
     // Apply to DOM directly for optimal UI performance
@@ -95,22 +95,22 @@ const AvatarPoint = ({ avatar, earthMeshRef }) => {
 
   return (
     <group ref={groupRef} position={pos}>
-      <Html
-        distanceFactor={10}
-        center
-      >
+      <Html distanceFactor={10} center>
         <div
           ref={iconRef}
-          className="relative group pointer-events-none transition-transform duration-100 ease-out"
+          className="relative group pointer-events-none transition-transform duration-100 ease-out flex flex-col items-center"
         >
-          <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-[#fad77e] shadow-[0_0_15px_rgba(250,215,126,0.3)] overflow-hidden bg-white pointer-events-auto cursor-pointer">
+          {/* Circular People Avatar Pin */}
+          <div className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-[#fad77e] shadow-[0_0_12px_rgba(250,215,126,0.5)] overflow-hidden bg-white pointer-events-auto cursor-pointer transition-transform duration-200 group-hover:scale-110 flex items-center justify-center">
             <img
               src={avatar.img}
               className="w-full h-full object-cover"
               alt={avatar.name}
             />
           </div>
-          <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-2 py-1 bg-black/80 text-white text-[8px] font-bold rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap uppercase tracking-widest">
+
+          {/* Country Name Tag on Hover */}
+          <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1.5 px-2 py-1 bg-[#050b14]/95 text-[#fad77e] text-[9px] font-heading font-black rounded border border-[#fad77e]/30 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap uppercase tracking-widest pointer-events-none">
             {avatar.name}
           </div>
         </div>

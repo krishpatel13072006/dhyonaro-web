@@ -1,9 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  turbopack: {
-    root: '.',
-  },
-
   // Compress all responses (HTML, JSON, CSS, JS) with gzip
   compress: true,
 

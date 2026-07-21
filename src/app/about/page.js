@@ -26,11 +26,11 @@ const GlobalReach = dynamic(() => import('@/components/GlobalReach'), {
 
 import aboutHeroImg from '@/images/about-hero.png';
 import focusedVision from '@/images/focused-vision.jpg';
-import sectorDiversity from '@/images/sector-diversity.avif';
-import gujaratRoutes from '@/images/gujarat-routes.avif';
-import longTermThinking from '@/images/long-term-thinking.avif';
-import homeVision from '@/images/home-vision.avif';
-import shreejiInfraTechImg from '@/images/shreeji-infra-tech.avif';
+import sectorDiversity from '@/images/sector-diversity.webp';
+import gujaratRoutes from '@/images/gujarat-routes.webp';
+import longTermThinking from '@/images/long-term-thinking.webp';
+import homeVision from '@/images/home-vision.webp';
+import shreejiInfraTechImg from '@/images/shreeji-infra-tech.webp';
 
 const About = () => {
   const expertiseSectionRef = useRef(null);
@@ -162,20 +162,17 @@ const About = () => {
       </section>
 
       {/* ════ 2.5 E-E-A-T SIGNALS: LEADERSHIP & EXPERTISE ════ */}
-      <section ref={expertiseSectionRef} className="py-24 md:py-36 px-6 bg-[#050b14] relative overflow-hidden flex flex-col justify-center min-h-[70vh]">
-        
-        {/* Background Image Reveal & Parallax */}
-        <motion.div 
-          className="absolute -top-[50%] -bottom-[50%] left-0 right-0 z-0 pointer-events-none"
-          style={{ y: bgY, opacity: bgOpacity, scale: bgScale }}
-        >
-          <Image 
-            src={homeVision} 
-            alt="Dhyanora Group expertise background" 
-            fill 
-            className="object-cover"
-          />
-        </motion.div>
+      <section 
+        ref={expertiseSectionRef} 
+        className="py-24 md:py-36 px-6 relative overflow-hidden flex flex-col justify-center min-h-[70vh]"
+        style={{
+          backgroundImage: `linear-gradient(rgba(5, 11, 20, 0.75), rgba(5, 11, 20, 0.85)), url(${homeVision.src})`,
+          backgroundAttachment: 'fixed',
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
 
         <div className="max-w-7xl mx-auto relative z-10 w-full">
           <motion.div style={{ y: headerY }} className="text-center mb-16">

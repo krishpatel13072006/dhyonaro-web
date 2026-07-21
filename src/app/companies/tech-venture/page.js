@@ -17,8 +17,8 @@ import BouncingCircles from '@/components/BouncingCircles';
 
 // Images
 import techVentureMainImg from '@/images/pramukh-tech-venture.png';
-import entertainmentImg from '@/images/Entairnment.avif';
-import audioImg from '@/images/audio-image.avif';
+import entertainmentImg from '@/images/Entairnment.webp';
+import audioImg from '@/images/audio-image.webp';
 import daewooShowroom from '@/images/daewoo-showroom.png';
 import daewooBattery from '@/images/daewoo-battery.png';
 

@@ -8,7 +8,7 @@ import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import BouncingCircles from '@/components/BouncingCircles';
 
-import contactVisualImg from '@/images/pramukh-infratech-main.avif';
+import contactVisualImg from '@/images/pramukh-infratech-main.webp';
 import bottomPhonesImg from '@/images/focused-vision.jpg';
 
 function cn(...inputs) {

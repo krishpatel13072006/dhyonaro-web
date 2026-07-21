@@ -5,12 +5,12 @@ import { motion } from 'framer-motion';
 
 import img1 from '@/images/pramukh-import-export-home.png';
 import img2 from '@/images/pramukh-tech-venture.png';
-import img3 from '@/images/shreeji-infra-tech.avif';
+import img3 from '@/images/shreeji-infra-tech.webp';
 import img4 from '@/images/global-sourcing-pramukh-import-export.jpg';
-import img5 from '@/images/quality-assurance-pramukh-import-export.avif';
+import img5 from '@/images/quality-assurance-pramukh-import-export.webp';
 import img6 from '@/images/brics-home-page.jpg';
-import img7 from '@/images/industrial-shed-companies-page.avif';
-import img8 from '@/images/secure-tiles.avif';
+import img7 from '@/images/industrial-shed-companies-page.webp';
+import img8 from '@/images/secure-tiles.webp';
 import img9 from '@/images/brics.jpeg';
 
 const ALL_IMAGES = [
